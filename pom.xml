@@ -36,12 +36,6 @@
 			</exclusions>
 		</dependency>
 
-		<!-- date format -->
-		<dependency>
-			<groupId>com.zhokhov.graphql</groupId>
-			<artifactId>graphql-datetime-spring-boot-starter</artifactId>
-			<version>1.6.0</version>
-		</dependency>
 	</dependencies>
 
 	<build>
