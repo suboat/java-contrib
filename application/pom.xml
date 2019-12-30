@@ -8,10 +8,10 @@
 		<version>2.2.0.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>multi-module-application</artifactId>
+	<groupId>com.suboat.java</groupId>
+	<artifactId>spring-contrib-application</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>multi-module-application</name>
+	<name>contrib-application</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -28,8 +28,8 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.example</groupId>
-			<artifactId>multi-module-library</artifactId>
+			<groupId>com.suboat.java</groupId>
+			<artifactId>spring-contrib-library</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 

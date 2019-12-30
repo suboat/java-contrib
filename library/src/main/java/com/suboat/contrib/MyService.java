@@ -1,4 +1,4 @@
-package com.example.multimodule.service;
+package com.suboat.contrib;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;

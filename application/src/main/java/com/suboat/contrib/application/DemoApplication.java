@@ -1,12 +1,12 @@
-package com.example.multimodule.application;
+package com.suboat.contrib.application;
 
-import com.example.multimodule.service.MyService;
+import com.suboat.contrib.MyService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication(scanBasePackages = "com.example.multimodule")
+@SpringBootApplication(scanBasePackages = "com.suboat.contrib")
 @RestController
 public class DemoApplication {
 
