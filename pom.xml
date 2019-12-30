@@ -8,8 +8,8 @@
 		<version>2.2.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.suboat.java</groupId>
-	<artifactId>contrib</artifactId>
+	<groupId>com.github.suboat</groupId>
+	<artifactId>java-contrib</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>contrib</name>
 	<description>Demo project for Spring Boot</description>

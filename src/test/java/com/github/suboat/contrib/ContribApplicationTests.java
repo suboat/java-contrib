@@ -1,4 +1,4 @@
-package com.suboat.java.contrib;
+package com.github.suboat.contrib;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

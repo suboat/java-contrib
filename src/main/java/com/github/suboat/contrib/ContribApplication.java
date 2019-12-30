@@ -1,4 +1,4 @@
-package com.suboat.java.contrib;
+package com.github.suboat.contrib;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

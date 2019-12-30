@@ -1,4 +1,4 @@
-package com.suboat.java.contrib.exception;
+package com.github.suboat.contrib.exception;
 
 import java.text.MessageFormat;
 
