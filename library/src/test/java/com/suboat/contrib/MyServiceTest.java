@@ -21,6 +21,7 @@ public class MyServiceTest {
 
 	@SpringBootApplication
 	static class TestConfiguration {
+
 	}
 
 }

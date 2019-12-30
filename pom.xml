@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.suboat.java</groupId>
-    <artifactId>spring-contrib</artifactId>
-    <version>0.1.0</version>
-    <packaging>pom</packaging>
+	<groupId>com.suboat.java</groupId>
+	<artifactId>spring-contrib</artifactId>
+	<version>0.1.0</version>
+	<packaging>pom</packaging>
 
-    <modules>
-        <module>library</module>
-        <module>application</module>
-    </modules>
+	<modules>
+		<module>library</module>
+		<module>application</module>
+	</modules>
+
+	<build>
+		<plugins>
+			<!-- 统一代码格式化工具 -->
+			<plugin>
+				<groupId>io.spring.javaformat</groupId>
+				<artifactId>spring-javaformat-maven-plugin</artifactId>
+				<version>0.0.17</version>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
