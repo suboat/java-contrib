@@ -1,4 +1,4 @@
-package com.suboat.contrib.application;
+package com.suboat.contrib.demo;
 
 import com.suboat.contrib.MyService;
 import org.springframework.boot.SpringApplication;

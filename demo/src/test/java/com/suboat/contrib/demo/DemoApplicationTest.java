@@ -1,4 +1,4 @@
-package com.suboat.contrib.application;
+package com.suboat.contrib.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

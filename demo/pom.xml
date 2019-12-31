@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.suboat.java</groupId>
-	<artifactId>spring-contrib-application</artifactId>
+	<artifactId>spring-contrib-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>contrib-application</name>
+	<name>contrib-demo</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
