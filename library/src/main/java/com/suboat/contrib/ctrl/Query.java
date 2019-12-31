@@ -14,7 +14,7 @@ import java.text.ParseException;
 import java.util.Iterator;
 
 @Data
-public class FormQuery<T> {
+public class Query<T> {
 
 	private static final String TagKeyOr = "$or$";
 
@@ -48,11 +48,11 @@ public class FormQuery<T> {
 
 	private Meta meta;
 
-	public FormQuery() {
+	public Query() {
 
 	}
 
-	public FormQuery(FormQuery form) {
+	public Query(Query form) {
 		if (form == null) {
 			this.limit = 10;
 			this.page = 0;
@@ -69,7 +69,7 @@ public class FormQuery<T> {
 		return;
 	}
 
-	public FormQuery toQuery(FormQuery query) {
+	public Query toQuery(Query query) {
 		BeanUtils.copyNotNullProperties(query, this);
 		PredicateBuilder<T> q = Specifications.<T>and();
 		if (this.limit == null) {
