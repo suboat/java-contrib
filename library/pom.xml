@@ -80,7 +80,57 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
+		<!-- JWT -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
 
+		<!-- GraphQL -->
+		<!--<dependency>-->
+		<!--	<groupId>com.graphql-java</groupId>-->
+		<!--	<artifactId>graphql-spring-boot-starter</artifactId>-->
+		<!--	<version>5.0.2</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+		<!--	<groupId>com.graphql-java</groupId>-->
+		<!--	<artifactId>graphql-java-tools</artifactId>-->
+		<!--	<version>5.2.4</version>-->
+		<!--</dependency>-->
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>graphql-spring-boot-starter</artifactId>
+			<version>6.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>graphql-java-servlet</artifactId>
+			<version>9.0.1</version>
+		</dependency>
+		<!-- GraphiQL -->
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>graphiql-spring-boot-starter</artifactId>
+			<version>6.0.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- playground -->
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>playground-spring-boot-starter</artifactId>
+			<version>6.0.0</version>
+		</dependency>
+		<!-- date format -->
+		<dependency>
+			<groupId>com.zhokhov.graphql</groupId>
+			<artifactId>graphql-datetime-spring-boot-starter</artifactId>
+			<version>1.6.0</version>
+		</dependency>
 
 	</dependencies>
 
