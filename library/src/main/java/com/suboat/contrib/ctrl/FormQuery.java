@@ -2,7 +2,7 @@ package com.suboat.contrib.ctrl;
 
 import com.github.wenhao.jpa.PredicateBuilder;
 import com.github.wenhao.jpa.Specifications;
-import com.suboat.contrib.exception.Rest;
+import com.suboat.contrib.error.Rest;
 import com.suboat.contrib.utils.BeanUtils;
 import com.suboat.contrib.utils.DateUtils;
 import lombok.Data;

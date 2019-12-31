@@ -1,4 +1,4 @@
-package com.suboat.contrib.exception;
+package com.suboat.contrib.error;
 
 import java.text.MessageFormat;
 
