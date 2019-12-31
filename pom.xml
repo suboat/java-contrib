@@ -8,10 +8,10 @@
 		<version>2.2.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.github.suboat</groupId>
-	<artifactId>java-contrib</artifactId>
+	<groupId>com.suboat.java</groupId>
+	<artifactId>spring-contrib</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>contrib</name>
+	<name>java-contrib</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -40,10 +40,10 @@
 
 	<build>
 		<plugins>
-			<plugin>
+			<!--plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
+			</plugin-->
 
 			<!-- 统一代码格式化工具 -->
 			<plugin>
