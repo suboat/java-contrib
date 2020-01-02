@@ -2,6 +2,8 @@ service.message: Hello, World
 server:
   port: 8080
 graphql:
+  tools:
+    schema-location-pattern: "graphql/*.graphqls"
   servlet:
     actuator-metrics: true
     websocket.enabled: false
