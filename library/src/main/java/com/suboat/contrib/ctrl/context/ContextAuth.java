@@ -34,7 +34,7 @@ public class ContextAuth extends JwtTokenBase {
 	// 从token中取状态
 	private void updateSelfByToken(@NotNull String token, String cate) {
 		if (token == null || token.length() == 0) {
-			throw new NullPointerException();
+			throw new Rest.ParamInvalid("token");
 		}
 		if (token.startsWith("Bearer ")) {
 			token = token.substring(7);

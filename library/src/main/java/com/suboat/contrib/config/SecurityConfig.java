@@ -1,10 +1,14 @@
 package com.suboat.contrib.config;
 
 import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 
 @Data
+@Configuration("JwtConfig")
+@ConfigurationProperties(prefix = "security.jwt.token")
 public class SecurityConfig {
 
 	// 全局变量
