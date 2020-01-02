@@ -1,0 +1,16 @@
+# 标准时间格式
+scalar Date
+
+#
+type Query {
+    # debug
+    version: String
+    # 用户节点
+    me(token: String, lang: String, passwordPay: String): Me
+}
+
+#
+type Mutation {
+    # debug
+    version: String
+}

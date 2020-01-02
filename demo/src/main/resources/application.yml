@@ -1,1 +1,32 @@
 service.message: Hello, World
+server:
+  port: 8080
+graphql:
+  servlet:
+    actuator-metrics: true
+    websocket.enabled: false
+    corsEnabled: true
+    mapping: /api/v1/demo/graphql
+# 调试页面1
+graphiql:
+  enabled: true
+  mapping: /api/v1/demo/graphql.html
+  cdn:
+    enabled: true
+  endpoint:
+    graphql: ./graphql
+# 调试页面2
+graphql.playground:
+  enabled: true
+  mapping: /api/v1/demo/playground
+  endpoint: ./graphql
+  cdn:
+    enabled: true
+# jwt相关配置
+security:
+  jwt:
+    token:
+      # 用户token密钥
+      secret: hahahha
+      # 管理员token密钥
+      secretAdmin: lalala
