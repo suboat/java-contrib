@@ -29,6 +29,84 @@ security:
   jwt:
     token:
       # 用户token密钥
-      secret: hahahha
+      secret: hahaha
       # 管理员token密钥
       secretAdmin: lalala
+      # 用户rsa私钥
+      key-user: -----BEGIN PRIVATE KEY-----
+        MIIEwAIBADANBgkqhkiG9w0BAQEFAASCBKowggSmAgEAAoIBAQCmGsPfhS6WNk9D
+        ycWL+w4djGOWpFGAHgFimnMg34aVKfueUqYCPNwNJsF8N0LttSjpLj269++vIwnJ
+        2gNSuEyamoyDkIWZCveF/Zgjel1/PugiE2Wg5o0eUmNaXkYrD+b/Z2/1sfNo+Y6q
+        2KCR16DMfEygUhonzUso0ehq37ZRiLCXizK+9cGc2gY+CQE0RhaDt9MLe2FTsoW4
+        oDmvDmVZj67nBwLEL17Dmgdlzrzchoz+A3Gdk5zpYTiaYAa4MSnSHd3GrrP7Bsek
+        TB3tf2GoEA/gWEyM5qVOcSmd1EIQmjPymScgoiKhhEztlvY41cVfQx+Zz1s4EdyA
+        J1cCn2RtAgMBAAECggEBAJZZmbyj96Q96oeIhoiLKZ6zaZ18hMz72/MdrGIwEcjI
+        5JnNY7iYz/ITh4VhG/LATRSsJ3IqZEjZ5U1RSjrA2Y4DoHaiBVufIqelAOX0J9c6
+        4LGfbxkyNsAggQ/WT5tA3K2IOj5h4dq+MVYRmV4JmOIfDNj9F/G5EHQVdFPwxT2M
+        kDCJyPYl3fl04U7W72MytpHeAbwaiCsV500IkXgfpmnkR5S9tBxy6NBypy3OZ3rK
+        VGiMrT+RZmNgfJAHov0myo7xq0SptBM1DAGscGNIK+uCSlMcgMa78k/oeOPCPzEU
+        g8K9WUsgcIflPtfImaZhZ1PRzydVEcUALng/JwLGG0ECgYEA0nhLTvIKTYpUPTHA
+        yC9tAlSTU/GcXbDJn3NvnAQ4CiZYGy6/gv8WWaOfppGzgWeTsTao5hEUiSycigeK
+        WIyG11FmZ9AHoyL77kPcShnPXmnT4alL/vNvcZg7QfkIqdCRjHpdHeu3OG61aeMT
+        ZXq3SOcJjEQmip1not2CeJs1mLECgYEAygmK7hNy4cwFVdwZNWo3/Z/fvUG8k0eR
+        R7gML8HRHoWRHgyFYTcqQC096/rf1RnSxH9CLj8e9UQ9uk4hicdh8aNdZk4vIEob
+        98JRtHi+mSOiJvwdxLk/BuIH95n5ycB6N6QTQ1AbQRgQ4XUIFp0tubtHUyh72MyL
+        Mu52+ObGtn0CgYEAhg2Uec3z/ftTOD7OOTLrzYYs6FSFca8+XE7cEZUmVGCj0Xxv
+        AnKSu7lZ4HAA0zUzfrX/0bmjSNOfSNMQrOGkqNPx08FOe/u2VsXmM1RJHitthteb
+        zeEjZEi/xX9mozJy4fS2Bm6yHkF1TuIQ4pvMzaRKEor9uWAUOEm55jOFaaECgYEA
+        t4J5bYu+0nck9XrIbur+1mDLsbSu2zurKvByKUKrdkStrhSDZezcdJRjZR9nBcHB
+        3ncUnrr4nKCSTNHAxsuSHBBdupoTVgnaY21eF0WBIcnq8+wWAeSc6dyOjgiOiQFK
+        QZXHZWGyj6qTUqWhZiD4MnZ374GbFC2d1fIhoCzFm2UCgYEAvbHF6MvhZVk8Mz6q
+        NE4GhGshwaEwOW+KXKdSSHAixX9cS1xBQ6GypFKuZpRE5xyTAECllxjSkPgxeiL2
+        BKEwI3jxl5UW14MKtTN/LRy8sO+aWdQEStHLNBMOHyXmx2kYWMr+M94B4yoO8k77
+        D3W8rBEFoRkfQt+7vcYSqSKQfrk=
+        -----END PRIVATE KEY-----
+      # 用户rsa公钥
+      pub-user: -----BEGIN PUBLIC KEY-----
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAphrD34UuljZPQ8nFi/sO
+        HYxjlqRRgB4BYppzIN+GlSn7nlKmAjzcDSbBfDdC7bUo6S49uvfvryMJydoDUrhM
+        mpqMg5CFmQr3hf2YI3pdfz7oIhNloOaNHlJjWl5GKw/m/2dv9bHzaPmOqtigkdeg
+        zHxMoFIaJ81LKNHoat+2UYiwl4syvvXBnNoGPgkBNEYWg7fTC3thU7KFuKA5rw5l
+        WY+u5wcCxC9ew5oHZc683IaM/gNxnZOc6WE4mmAGuDEp0h3dxq6z+wbHpEwd7X9h
+        qBAP4FhMjOalTnEpndRCEJoz8pknIKIioYRM7Zb2ONXFX0Mfmc9bOBHcgCdXAp9k
+        bQIDAQAB
+        -----END PUBLIC KEY-----
+      # 管理员rsa私钥
+      key-admin: -----BEGIN PRIVATE KEY-----
+        MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDRwwfYKIFcNyC1
+        txrWz1ceBDo7EeL6ODD26kSBSiBVyU5G4nm1SZWwdzWe/Nc8Mgz76JhQO3ybW/7Z
+        rJH+pTnR0yEhE+Ol9AcgJQo1ZDH3nS1HqiUCxdHSkAF3lP1eepI2Kwcf4ZgK27cX
+        hAKDto1dkAaMPEIiG5xnGqWu6eFV2Dgi9rf8T9oCwK/ezRp0PFWsBcGKEKmBx+PY
+        +8QrRSbhVDIk1Jmpf17GtMRR/fdW90bR3cZul/Dl44Q2BDKix8cs3DUqY9fZbNP/
+        0qJ6KuZF2VcrUkrSVm28544qE3m9oyHi51l8PZ0WuvxqAGjS+R4m85f00JbYMhdN
+        jE7y8mAbAgMBAAECggEBAKSVoKwMbCPM5Y9vElIF8dcNfhsnF685M8IpYoMHhIOL
+        Ji4cOV7zU85YWuxaew8yPlnR0ODzK/xCnJ5y90KUpd9rB42Kq45lAMpKBc6KxWIC
+        I6sdZ1jbmpzafSw07PCav+pcrIRpYAD1EJ4U6FwsepM1FM4n4cQdYgTMNcAepr3R
+        M9bouNJ0BOvslp8Cmp2sQ1PGD42gVk1Enioj8NFlGokshNCbckLQmjAHYQBptH6e
+        vEYiRyiXcDoUmGCqit/QWPERBO3MRT6gafU2iMUSbTW8keG4Y4RsyxLueWaL2lIA
+        Neykm6AqjzE6nnFOw2+qRroIy0uzf424ASdON+/wJcECgYEA68A8shiZblk+It6f
+        XUZFzg7N7THhxrjRXWBiop1JULeBx87PU/jWZoOv5O+eDhUFl75ONZmYC7N2F/+J
+        advC8pFFBNQNwwU5pKaLT0/vi37PPMoUXSVtK6vXA1moi8CrWud7vxppePO2l/eg
+        NvPnNeaaq/OMGQj2WOezM4R+N1ECgYEA48dWbRsocHYszMQnHpsQx+pG6tvA0s5n
+        oLGPhyW/AC4HRrb/sSw4UC/5SaUDHnSO96rVBzHIx7onog2VFSJyQyGo0oeoCnCB
+        AS5IVy31r238l/Gnhj1nMcxvOFYucpLx5zK6VJIrDCv4IxxF57NpIxWvSm7bv9PB
+        h3/UHNMbXasCgYAXvsgeRB4IIFMC3ht9IJvdUl5perG7+1eTKScmK+N7jtAymOEH
+        GzQ1JSRtUblAv9tNWmy0N2E6JHxLlIB5uhnbpsgl4Vn1f6w7qk6z0WBWU5J6E/yT
+        GTbyxB8nBjvUv7ZCtLghGn7vINUOX3Gyt0RdiHmhwiklSGLPt560HK890QKBgB/b
+        a10LJVbFUHK7JHWFXo13WL/USF2zfI7fBqHyR4pw5ZegVJalBqNAcm84Yv1JdA1z
+        mSPOdLRqdsyVdbpk/PIirQf07S24mnJd1MRMq0YD7gYaSEHgKKSwYQXSF+DyaF7b
+        m2/kmZy0MZpHhAdp8lRz3fZdFuL3bOPUnwgBBpzNAoGBALUrNsuBrcyF1KRERifW
+        fy/gAnpAVjqajxPch9oY0DeOs8ATpDer2juh9oF6gkL0GDI7TCWJMRi+mc8ayE25
+        gJPn5O1rDwr8K3ErfreY6rx74rScH+YrFJ7+6lzynk7Jc/Vs9gKCuP/2Q4yi4kev
+        QzULtW3Wdd7d8foOLStSqVXo
+        -----END PRIVATE KEY-----
+      # 管理员rsa公钥
+      pub-admin: -----BEGIN PUBLIC KEY-----
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0cMH2CiBXDcgtbca1s9X
+        HgQ6OxHi+jgw9upEgUogVclORuJ5tUmVsHc1nvzXPDIM++iYUDt8m1v+2ayR/qU5
+        0dMhIRPjpfQHICUKNWQx950tR6olAsXR0pABd5T9XnqSNisHH+GYCtu3F4QCg7aN
+        XZAGjDxCIhucZxqlrunhVdg4Iva3/E/aAsCv3s0adDxVrAXBihCpgcfj2PvEK0Um
+        4VQyJNSZqX9exrTEUf33VvdG0d3Gbpfw5eOENgQyosfHLNw1KmPX2WzT/9Kieirm
+        RdlXK1JK0lZtvOeOKhN5vaMh4udZfD2dFrr8agBo0vkeJvOX9NCW2DIXTYxO8vJg
+        GwIDAQAB
+        -----END PUBLIC KEY-----

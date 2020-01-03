@@ -14,17 +14,29 @@ public class SecurityConfig {
 	// 全局变量
 	public static SecurityConfig securityConfig;
 
+	// token有效期
+	public long expire;
+
 	// jwt密钥
 	public String secret;
 
-	// token有效期
-	public long expire;
+	// jwt私钥
+	public String keyUser;
+
+	// jwt公钥
+	public String pubUser;
+
+	// token有效期 管理员的
+	public long expireAdmin;
 
 	// jwt管理员密钥
 	public String secretAdmin;
 
-	// token有效期 管理员的
-	public long expireAdmin;
+	// jwt私钥
+	public String keyAdmin;
+
+	// jwt公钥
+	public String pubAdmin;
 
 	@PostConstruct
 	public void init() {

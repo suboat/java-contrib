@@ -1,19 +1,24 @@
 package com.suboat.contrib.ctrl;
 
 import com.suboat.contrib.config.SecurityConfig;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import com.suboat.contrib.error.Rest;
-import org.springframework.context.annotation.DependsOn;
+import io.jsonwebtoken.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
-import java.util.*;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.Date;
 import java.util.stream.Collectors;
 
 public class JwtTokenProvider {
@@ -26,11 +31,17 @@ public class JwtTokenProvider {
 	// @Autowired
 	// private UserBaseDetails userBaseDetails;
 
+	// token有效期
+	private long expire;
+
 	// jwt密钥
 	private String secret;
 
-	// token有效期
-	private long expire;
+	// rsa密钥
+	private PrivateKey rsaKey;
+
+	// rsa公钥
+	private PublicKey rsaPub;
 
 	// 默认用户
 	public JwtTokenProvider() {
@@ -41,12 +52,70 @@ public class JwtTokenProvider {
 	// 指定不同密钥
 	public JwtTokenProvider(String cate) {
 		if (cate.equals("admin")) {
-			secret = Base64.getEncoder().encodeToString(SecurityConfig.securityConfig.secretAdmin.getBytes());
+			// admin
 			expire = SecurityConfig.securityConfig.expireAdmin;
+			if (SecurityConfig.securityConfig.keyAdmin != null && SecurityConfig.securityConfig.keyAdmin.length() > 0) {
+				this.setRsaKey(SecurityConfig.securityConfig.keyAdmin);
+				this.setRsaPub(SecurityConfig.securityConfig.pubAdmin);
+			}
+			else if (SecurityConfig.securityConfig.pubAdmin != null
+					&& SecurityConfig.securityConfig.pubAdmin.length() > 0) {
+				this.setRsaPub(SecurityConfig.securityConfig.pubAdmin);
+			}
+			else {
+				secret = Base64.getEncoder().encodeToString(SecurityConfig.securityConfig.secretAdmin.getBytes());
+			}
 		}
 		else {
-			secret = Base64.getEncoder().encodeToString(SecurityConfig.securityConfig.secret.getBytes());
+			// user
 			expire = SecurityConfig.securityConfig.expire;
+			if (SecurityConfig.securityConfig.keyUser != null && SecurityConfig.securityConfig.keyUser.length() > 0) {
+				this.setRsaKey(SecurityConfig.securityConfig.keyUser);
+				this.setRsaPub(SecurityConfig.securityConfig.pubUser);
+			}
+			else if (SecurityConfig.securityConfig.pubUser != null
+					&& SecurityConfig.securityConfig.pubUser.length() > 0) {
+				this.setRsaPub(SecurityConfig.securityConfig.pubUser);
+			}
+			else {
+				secret = Base64.getEncoder().encodeToString(SecurityConfig.securityConfig.secret.getBytes());
+			}
+		}
+		if (expire <= 0) {
+			// 默认一小时过期
+			expire = 3600000;
+		}
+	}
+
+	// 设置私钥
+	// https://stackoverflow.com/questions/34454531/java-how-can-i-generate-privatekey-from-a-string
+	private void setRsaKey(String content) {
+		try {
+			content = content.replace("-----BEGIN PRIVATE KEY-----", "").replace("-----END PRIVATE KEY-----", "")
+					.replaceAll("\r\n", "").replaceAll("\n", "").replaceAll(" ", "");
+			KeyFactory kf = KeyFactory.getInstance("RSA");
+			PKCS8EncodedKeySpec keySpecPKCS8 = new PKCS8EncodedKeySpec(Base64.getDecoder().decode(content));
+			this.rsaKey = kf.generatePrivate(keySpecPKCS8);
+		}
+		catch (NoSuchAlgorithmException | InvalidKeySpecException err) {
+			throw new Rest.ParamInvalid(err.getMessage());
+		}
+	}
+
+	// 设置公钥 https://stackoverflow.com/questions/11410770/load-rsa-public-key-from-file
+	private void setRsaPub(String content) {
+		if (content == null || content.length() == 0) {
+			return;
+		}
+		try {
+			content = content.replace("-----BEGIN PUBLIC KEY-----", "").replace("-----END PUBLIC KEY-----", "")
+					.replaceAll("\r\n", "").replaceAll("\n", "").replaceAll(" ", "");
+			KeyFactory kf = KeyFactory.getInstance("RSA");
+			X509EncodedKeySpec spec = new X509EncodedKeySpec(Base64.getDecoder().decode(content));
+			this.rsaPub = kf.generatePublic(spec);
+		}
+		catch (NoSuchAlgorithmException | InvalidKeySpecException err) {
+			throw new Rest.ParamInvalid(err.getMessage());
 		}
 	}
 
@@ -80,12 +149,17 @@ public class JwtTokenProvider {
 				.collect(Collectors.toList()));
 
 		//
-		return Jwts.builder() //
-				.setClaims(claims) //
+		JwtBuilder jwtBuilder = Jwts.builder().setClaims(claims) //
 				// .setIssuedAt(jwtTokenBase.cre) //
-				.setExpiration(jwtTokenBase.exp) //
-				.signWith(SignatureAlgorithm.HS256, secret) //
-				.compact();
+				.setExpiration(jwtTokenBase.exp);
+		if (rsaKey != null) {
+			System.out.println("!!!! " + rsaKey);
+			jwtBuilder = jwtBuilder.signWith(SignatureAlgorithm.RS256, rsaKey);
+		}
+		else {
+			jwtBuilder = jwtBuilder.signWith(SignatureAlgorithm.HS256, secret);
+		}
+		return jwtBuilder.compact();
 	}
 
 	// public Authentication getAuthentication(String token) {
@@ -111,8 +185,13 @@ public class JwtTokenProvider {
 	public Claims validateToken(String token) {
 		Claims claims;
 		try {
-			claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
-			Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
+			if (rsaPub != null) {
+				claims = Jwts.parser().setSigningKey(rsaPub).parseClaimsJws(token).getBody();
+			}
+			else {
+				claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+			}
+			// Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
 		}
 		catch (JwtException | IllegalArgumentException e) {
 			throw new Rest.TokenInvalid("token非法" + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
