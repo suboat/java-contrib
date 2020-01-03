@@ -13,4 +13,6 @@ type Query {
 type Mutation {
     # debug
     version: String
+    # 用户登录
+    login: Login
 }

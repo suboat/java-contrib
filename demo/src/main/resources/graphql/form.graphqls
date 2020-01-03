@@ -1,0 +1,15 @@
+# 用户ID
+input UserID {
+    username: String
+    email: String
+}
+
+# 登录凭据
+input LoginValue {
+    # 密码/code
+    value: String!
+    # 验证码问题key
+    captchaKey: String
+    # 验证码回答val
+    captchaVal: String
+}

@@ -2,3 +2,15 @@
 type Me {
     uid: String!
 }
+
+# 用户登录
+type Login {
+    # 用密码登录 value: 登录密码
+    withPassword(form: UserID!, value: LoginValue!): Token!
+}
+
+# token
+type Token {
+    token: String!
+    uid: String!
+}
