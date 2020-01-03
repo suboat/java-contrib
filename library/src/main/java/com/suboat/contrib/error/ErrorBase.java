@@ -19,6 +19,10 @@ public class ErrorBase extends RuntimeException {
 		this.arguments = args;
 	}
 
+	public ErrorBase() {
+		super("baseError");
+	}
+
 	@Override
 	public String getMessage() {
 		if (this.message == null) {

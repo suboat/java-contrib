@@ -193,11 +193,14 @@ public class JwtTokenProvider {
 			}
 			// Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
 		}
-		catch (JwtException | IllegalArgumentException e) {
+		catch (UnsupportedJwtException | MalformedJwtException | SignatureException | IllegalArgumentException e) {
 			throw new Rest.TokenInvalid("token非法" + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+		catch (ExpiredJwtException e) {
+			throw new Rest.TokenExpired();
+		}
 		if (claims == null) {
-			throw new Rest.TokenInvalid("未知错误", HttpStatus.INTERNAL_SERVER_ERROR);
+			throw new Rest.TokenClaimsInvalid();
 		}
 
 		return claims;
