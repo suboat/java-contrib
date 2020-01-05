@@ -3,12 +3,15 @@ package com.suboat.contrib.ctrl;
 import com.github.wenhao.jpa.PredicateBuilder;
 import com.github.wenhao.jpa.Specifications;
 import com.suboat.contrib.error.Rest;
-import com.suboat.contrib.utils.BeanUtils;
 import com.suboat.contrib.utils.DateUtils;
 import lombok.Data;
 import org.json.JSONObject;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import java.text.ParseException;
 import java.util.Iterator;
@@ -42,70 +45,151 @@ public class FormQuery<T> {
 
 	private String keyJson;
 
-	private Specification<T> cond;
-
-	private Sort _sort;
-
-	private Meta meta;
+	// private Meta meta;
 
 	public FormQuery() {
-
+		this.init();
 	}
 
-	public FormQuery(FormQuery form) {
-		if (form == null) {
-			this.limit = 10;
-			this.page = 0;
-		}
-		else {
-			this.toQuery(form);
-		}
-		// 初始化meta
-		this.meta = new Meta();
-		this.meta.setLimit(this.limit);
-		this.meta.setPage(this.page);
-		this.meta.setSort(this.sort);
-		this.meta.setKeyJson(this.keyJson);
-		return;
-	}
+	// public FormQuery(FormQuery form) {
+	// if (form == null) {
+	// this.limit = 10;
+	// this.page = 0;
+	// }
+	// else {
+	// this.toQuery(form);
+	// }
+	// if (this.limit > 100) {
+	// this.limit = 100;
+	// }
+	// // 初始化meta
+	// this.meta = new Meta();
+	// this.meta.setLimit(this.limit);
+	// this.meta.setPage(this.page);
+	// this.meta.setSort(this.sort);
+	// this.meta.setKeyJson(this.keyJson);
+	// }
 
-	public FormQuery toQuery(FormQuery formQuery) {
-		BeanUtils.copyNotNullProperties(formQuery, this);
-		PredicateBuilder<T> q = Specifications.<T>and();
-		if (this.limit == null) {
+	// public FormQuery toQuery(FormQuery formQuery) {
+	// BeanUtils.copyNotNullProperties(formQuery, this);
+	// PredicateBuilder<T> q = Specifications.<T>and();
+	// if (this.limit == null) {
+	// this.limit = 10;
+	// }
+	// if (this.page == null) {
+	// this.page = 0;
+	// }
+	// // 解析成可读的orderBy
+	// if (this.sort != null) {
+	// Sort.Order[] _o = new Sort.Order[this.sort.length];
+	// for (int i = 0; i < this.sort.length; i++) {
+	// String str = this.sort[i];
+	// if (str.startsWith("-")) {
+	// str = str.replace("-", "");
+	// _o[i] = new Sort.Order(Sort.Direction.DESC, str);
+	// }
+	// else if (str.startsWith("+")) {
+	// str = str.replace("+", "");
+	// _o[i] = new Sort.Order(Sort.Direction.ASC, str);
+	// }
+	// else {
+	// _o[i] = new Sort.Order(Sort.Direction.ASC, str);
+	// }
+	// }
+	// this._sort = Sort.by(_o);
+	// }
+	// // 解析成可读的where
+	// if (this.keyJson != null) {
+	// this.cond = keyJsonToQuery(this.keyJson, null, false).build();
+	// }
+	// else {
+	// this.cond = q.build();
+	// }
+	// return this;
+	// }
+
+	private void init() {
+		if (this.limit == null || this.limit <= 0) {
 			this.limit = 10;
+		}
+		else if (this.limit > 100) {
+			this.limit = 100;
 		}
 		if (this.page == null) {
 			this.page = 0;
 		}
-		// 解析成可读的orderBy
-		if (this.sort != null) {
-			Sort.Order[] _o = new Sort.Order[this.sort.length];
+		if (this.skip != null) {
+			// skip换算成page
+			this.page = this.skip / this.limit;
+		}
+	}
+
+	// 搜索
+	public <E extends JpaRepository<T, Long> & JpaSpecificationExecutor<T>> Result<T> query(E repo) {
+		this.init();
+		Result<T> result = new Result<T>();
+		Specification<T> spec;
+		Sort sort = null;
+		Page<T> page;
+
+		// keyJson
+		if (this.keyJson != null && this.keyJson.length() > 0) {
+			spec = this.keyJsonToQuery(this.keyJson, null, false).build();
+		}
+		else {
+			spec = Specifications.<T>and().build();
+		}
+
+		// sort
+		if (this.sort != null && this.sort.length > 0) {
+			Sort.Order[] orders = new Sort.Order[this.sort.length];
 			for (int i = 0; i < this.sort.length; i++) {
 				String str = this.sort[i];
 				if (str.startsWith("-")) {
 					str = str.replace("-", "");
-					_o[i] = new Sort.Order(Sort.Direction.DESC, str);
+					orders[i] = new Sort.Order(Sort.Direction.DESC, str);
 				}
 				else if (str.startsWith("+")) {
 					str = str.replace("+", "");
-					_o[i] = new Sort.Order(Sort.Direction.ASC, str);
+					orders[i] = new Sort.Order(Sort.Direction.ASC, str);
 				}
 				else {
-					_o[i] = new Sort.Order(Sort.Direction.ASC, str);
+					orders[i] = new Sort.Order(Sort.Direction.ASC, str);
 				}
 			}
-			this._sort = Sort.by(_o);
+			sort = Sort.by(orders);
 		}
-		// 解析成可读的where
-		if (this.keyJson != null) {
-			this.cond = keyJsonToQuery(this.keyJson, null, false).build();
+
+		// query
+		if (sort != null) {
+			page = repo.findAll(spec, PageRequest.of(this.page, this.limit, sort));
 		}
 		else {
-			this.cond = q.build();
+			page = repo.findAll(spec, PageRequest.of(this.page, this.limit));
 		}
-		return this;
+
+		// meta
+		Meta meta = new Meta();
+		meta.setKeyJson(this.keyJson);
+		meta.setPage(this.page);
+		meta.setLimit(this.limit);
+		meta.setSort(this.sort);
+		meta.setCount(null);
+		meta.setNum(null);
+		meta.setCount(page.getTotalElements()); // TODO: 异步取count
+		meta.setNum(page.getNumberOfElements());
+		result.setMeta(meta);
+
+		// data
+		result.setData(page.getContent());
+		return result;
 	}
+
+	//
+	// public Specification<T> getCond() {
+	// this.init();
+	// return this.cond;
+	// }
 
 	private int countStr(String str, String sToFind) {
 		int num = 0;
