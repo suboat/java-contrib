@@ -44,6 +44,9 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 	 * @param to 结果数据
 	 */
 	public static void copyNotNullProperties(Object from, Object to) {
+		if (from == null || to == null) {
+			return;
+		}
 		Arrays.stream(from.getClass().getMethods())
 				.filter(method -> method.getName().startsWith("get") || method.getName().startsWith("is"))
 				.forEach(getter -> {
@@ -65,7 +68,7 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 							}
 						}
 						catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-							e.printStackTrace();
+							 e.printStackTrace();
 						}
 					}
 				});
