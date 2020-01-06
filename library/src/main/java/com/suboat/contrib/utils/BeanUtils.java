@@ -60,15 +60,15 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
 							Object val = getter.invoke(from, null);
 
-							if (val != null) {
+							if (val != null && !setterName.equals("setClass")) {
 								Method setter = to.getClass().getMethod(setterName, val.getClass());
 								if (setter != null) {
+									setter.invoke(to, val);
 								}
-								setter.invoke(to, val);
 							}
 						}
 						catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-							 e.printStackTrace();
+							e.printStackTrace();
 						}
 					}
 				});
