@@ -153,7 +153,6 @@ public class JwtTokenProvider {
 				// .setIssuedAt(jwtTokenBase.cre) //
 				.setExpiration(jwtTokenBase.exp);
 		if (rsaKey != null) {
-			System.out.println("!!!! " + rsaKey);
 			jwtBuilder = jwtBuilder.signWith(SignatureAlgorithm.RS256, rsaKey);
 		}
 		else {

@@ -67,7 +67,10 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 								}
 							}
 						}
-						catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+						catch (NoSuchMethodException e) {
+							// 忽略错误
+						}
+						catch (IllegalAccessException | InvocationTargetException e) {
 							e.printStackTrace();
 						}
 					}
