@@ -14,7 +14,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import java.text.ParseException;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 @Data
 public class FormQuery<T> {
@@ -35,79 +37,37 @@ public class FormQuery<T> {
 
 	private static final String TagKeyLike = "$like$";
 
-	private Integer limit;
+	public Integer limit;
 
-	private Integer page;
+	public Integer page;
 
-	private Integer skip;
+	public Integer skip;
 
-	private String[] sort;
+	public String[] sort;
 
-	private String keyJson;
+	public String keyJson;
 
-	// private Meta meta;
+	// 覆盖搜索
+	public Map<String, Object> m;
 
+	// 默认排序
+	public String[] s;
+
+	//
 	public FormQuery() {
-		this.init();
 	}
 
-	// public FormQuery(FormQuery form) {
-	// if (form == null) {
-	// this.limit = 10;
-	// this.page = 0;
-	// }
-	// else {
-	// this.toQuery(form);
-	// }
-	// if (this.limit > 100) {
-	// this.limit = 100;
-	// }
-	// // 初始化meta
-	// this.meta = new Meta();
-	// this.meta.setLimit(this.limit);
-	// this.meta.setPage(this.page);
-	// this.meta.setSort(this.sort);
-	// this.meta.setKeyJson(this.keyJson);
-	// }
+	// 过滤参数
+	public static FormQuery<?> filter(FormQuery<?> source) {
+		if (source == null) {
+			source = new FormQuery<>();
+		}
+		// 基本错误检查与初始化
+		source.init();
+		return source;
+	}
 
-	// public FormQuery toQuery(FormQuery formQuery) {
-	// BeanUtils.copyNotNullProperties(formQuery, this);
-	// PredicateBuilder<T> q = Specifications.<T>and();
-	// if (this.limit == null) {
-	// this.limit = 10;
-	// }
-	// if (this.page == null) {
-	// this.page = 0;
-	// }
-	// // 解析成可读的orderBy
-	// if (this.sort != null) {
-	// Sort.Order[] _o = new Sort.Order[this.sort.length];
-	// for (int i = 0; i < this.sort.length; i++) {
-	// String str = this.sort[i];
-	// if (str.startsWith("-")) {
-	// str = str.replace("-", "");
-	// _o[i] = new Sort.Order(Sort.Direction.DESC, str);
-	// }
-	// else if (str.startsWith("+")) {
-	// str = str.replace("+", "");
-	// _o[i] = new Sort.Order(Sort.Direction.ASC, str);
-	// }
-	// else {
-	// _o[i] = new Sort.Order(Sort.Direction.ASC, str);
-	// }
-	// }
-	// this._sort = Sort.by(_o);
-	// }
-	// // 解析成可读的where
-	// if (this.keyJson != null) {
-	// this.cond = keyJsonToQuery(this.keyJson, null, false).build();
-	// }
-	// else {
-	// this.cond = q.build();
-	// }
-	// return this;
-	// }
-
+	// 初始化
 	private void init() {
 		if (this.limit == null || this.limit <= 0) {
 			this.limit = 10;
@@ -121,6 +81,13 @@ public class FormQuery<T> {
 		if (this.skip != null) {
 			// skip换算成page
 			this.page = this.skip / this.limit;
+		}
+		else {
+			// page换算成skip
+			this.skip = this.page * this.limit;
+		}
+		if (this.m == null) {
+			this.m = new HashMap<>();
 		}
 	}
 
@@ -141,10 +108,17 @@ public class FormQuery<T> {
 		}
 
 		// sort
-		if (this.sort != null && this.sort.length > 0) {
-			Sort.Order[] orders = new Sort.Order[this.sort.length];
-			for (int i = 0; i < this.sort.length; i++) {
-				String str = this.sort[i];
+		if ((this.sort != null && this.sort.length > 0) || (this.s != null && this.s.length > 0)) {
+			String[] sorts;
+			if (this.sort != null && this.sort.length > 0) {
+				sorts = this.sort;
+			}
+			else {
+				sorts = this.s;
+			}
+			Sort.Order[] orders = new Sort.Order[sorts.length];
+			for (int i = 0; i < sorts.length; i++) {
+				String str = sorts[i];
 				if (str.startsWith("-")) {
 					str = str.replace("-", "");
 					orders[i] = new Sort.Order(Sort.Direction.DESC, str);
@@ -171,8 +145,9 @@ public class FormQuery<T> {
 		// meta
 		Meta meta = new Meta();
 		meta.setKeyJson(this.keyJson);
-		meta.setPage(this.page);
 		meta.setLimit(this.limit);
+		meta.setPage(this.page);
+		meta.setSkip(this.skip);
 		meta.setSort(this.sort);
 		meta.setCount(null);
 		meta.setNum(null);
@@ -184,12 +159,6 @@ public class FormQuery<T> {
 		result.setData(page.getContent());
 		return result;
 	}
-
-	//
-	// public Specification<T> getCond() {
-	// this.init();
-	// return this.cond;
-	// }
 
 	private int countStr(String str, String sToFind) {
 		int num = 0;
@@ -213,6 +182,97 @@ public class FormQuery<T> {
 		return str;
 	}
 
+	private void parseKeyVal(PredicateBuilder<T> handle, String key, Object val, String col, Boolean isOr) {
+		int _count = countStr(key, "$");
+		//
+		if (_count == 0) {
+			handle.eq(key, val);
+		}
+		else if (_count == 2) {
+			String _tag = getTag(key);
+			String _col = getColumn(key, _tag);
+			if (_col.length() == 0 && col != null) {
+				_col = col;
+			}
+			String _c = _col.toLowerCase();
+			// 可查询的时间白名单
+			switch (_c) {
+			case "createtime":
+			case "updatetime":
+			case "logintime":
+				if (!val.toString().startsWith("{")) {
+					try {
+						val = DateUtils.stringToDate(val.toString());
+
+					}
+					catch (ParseException e) {
+						throw new Rest.ParamInvalid("时间格式错误 请用yyyy-MM-dd'T'HH:mm:ss格式");
+					}
+				}
+				break;
+			}
+			PredicateBuilder<T> _q;
+			// 解析成数据库查询相应的关键字
+			switch (_tag) {
+			case TagKeyAnd:
+				if (_col.length() > 0) {
+					throw new Rest.ParamInvalid("不支持的查询语法");
+				}
+				else {
+					// _q = Specifications.<T>and();
+					_q = keyJsonToQuery(val.toString(), null, false);
+					handle.predicate(_q.build());
+				}
+				break;
+			case TagKeyOr:
+				if (_col.length() > 0) {
+					String _v = val.toString();
+					if (_v.startsWith("[")) {
+						_v = _v.substring(1, _v.length() - 1);
+						Object[] _arr = _v.split(",");
+						handle.in(_col, _arr);
+					}
+					else if (_v.startsWith("{")) {
+						_q = Specifications.<T>or();
+						_q = keyJsonToQuery(val.toString(), _col, true);
+						handle.predicate(_q.build());
+					}
+				}
+				else {
+					// _q = Specifications.<T>or();
+					_q = keyJsonToQuery(val.toString(), null, false);
+					handle.predicate(_q.build());
+				}
+				break;
+			case TagKeyNe:
+				handle.ne(_col, val);
+				break;
+			case TagKeyGt:
+				handle.gt(_col, (Comparable<?>) val);
+				break;
+			case TagKeyGte:
+				handle.ge(_col, (Comparable<?>) val);
+				break;
+			case TagKeyLt:
+				handle.lt(_col, (Comparable<?>) val);
+				break;
+			case TagKeyLte:
+				handle.le(_col, (Comparable<?>) val);
+				break;
+			case TagKeyLike:
+				if (val instanceof String) {
+					handle.like(_col, (String) val);
+				}
+				break;
+			default:
+				throw new Rest.ParamInvalid(_tag + "查询标签非法");
+			}
+		}
+		else {
+			throw new Rest.ParamInvalid("查询标签非法");
+		}
+	}
+
 	private PredicateBuilder<T> keyJsonToQuery(String keyJson, String col, Boolean isOr) {
 		PredicateBuilder<T> q = Specifications.<T>and();
 		if (isOr) {
@@ -224,93 +284,14 @@ public class FormQuery<T> {
 		while (iter.hasNext()) {
 			String _key = iter.next();
 			Object _val = js.get(_key);
-			int _count = countStr(_key, "$");
-			//
-			if (_count == 0) {
-				q.eq(_key, _val);
-			}
-			else if (_count == 2) {
-				String _tag = getTag(_key);
-				String _col = getColumn(_key, _tag);
-				if (_col.length() == 0 && col != null) {
-					_col = col;
-				}
-				String _c = _col.toLowerCase();
-				// 可查询的时间白名单
-				switch (_c) {
-				case "createtime":
-				case "updatetime":
-				case "logintime":
-					if (!_val.toString().startsWith("{")) {
-						try {
-							_val = DateUtils.stringToDate(_val.toString());
-
-						}
-						catch (ParseException e) {
-							throw new Rest.ParamInvalid("时间格式错误 请用yyyy-MM-dd'T'HH:mm:ss格式");
-						}
-					}
-					break;
-				}
-				PredicateBuilder<T> _q;
-				// 解析成数据库查询相应的关键字
-				switch (_tag) {
-				case TagKeyAnd:
-					if (_col.length() > 0) {
-						throw new Rest.ParamInvalid("不支持的查询语法");
-					}
-					else {
-						_q = Specifications.<T>and();
-						_q = keyJsonToQuery(_val.toString(), null, false);
-						q.predicate(_q.build());
-					}
-					break;
-				case TagKeyOr:
-					if (_col.length() > 0) {
-						String _v = _val.toString();
-						if (_v.startsWith("[")) {
-							_v = _v.substring(1, _v.length() - 1);
-							Object[] _arr = _v.split(",");
-							q.in(_col, _arr);
-						}
-						else if (_v.startsWith("{")) {
-							_q = Specifications.<T>or();
-							_q = keyJsonToQuery(_val.toString(), _col, true);
-							q.predicate(_q.build());
-						}
-					}
-					else {
-						_q = Specifications.<T>or();
-						_q = keyJsonToQuery(_val.toString(), null, false);
-						q.predicate(_q.build());
-					}
-					break;
-				case TagKeyNe:
-					q.ne(_col, _val);
-					break;
-				case TagKeyGt:
-					q.gt(_col, (Comparable<?>) _val);
-					break;
-				case TagKeyGte:
-					q.ge(_col, (Comparable<?>) _val);
-					break;
-				case TagKeyLt:
-					q.lt(_col, (Comparable<?>) _val);
-					break;
-				case TagKeyLte:
-					q.le(_col, (Comparable<?>) _val);
-					break;
-				case TagKeyLike:
-					if (_val instanceof String) {
-						q.like(_col, (String) _val);
-					}
-					break;
-				default:
-					throw new Rest.ParamInvalid(_tag + "查询标签非法");
-				}
-			}
-			else {
-				throw new Rest.ParamInvalid("查询标签非法");
+			parseKeyVal(q, _key, _val, col, isOr);
+		}
+		// 解析默认查询
+		if (this.m != null && this.m.size() > 0) {
+			for (Map.Entry<String, Object> entry : m.entrySet()) {
+				String _key = entry.getKey();
+				Object _val = entry.getValue();
+				parseKeyVal(q, _key, _val, col, isOr);
 			}
 		}
 		return q;
