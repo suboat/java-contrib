@@ -7,6 +7,8 @@ type Query {
     version: String
     # 用户节点
     me(token: String, lang: String, passwordPay: String): Me
+    # 所有用户
+    userList(query: FormQuery): ResultUser
 }
 
 #
@@ -15,4 +17,18 @@ type Mutation {
     version: String
     # 用户登录
     login: Login
+}
+
+#
+type User {
+    # 用户id
+    uid: String
+    # 邮箱地址
+    email: String
+    # 电话
+    phone: String
+    # 用户名
+    username: String
+    # 昵称
+    nickname: String
 }

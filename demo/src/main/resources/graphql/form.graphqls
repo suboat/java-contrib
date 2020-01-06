@@ -13,3 +13,12 @@ input LoginValue {
     # 验证码回答val
     captchaVal: String
 }
+
+# 查询语句
+input FormQuery {
+    limit: Int!
+    skip: Int
+    page: Int
+    sort: [String!]
+    keyJson: String
+}

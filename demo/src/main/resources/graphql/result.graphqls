@@ -1,0 +1,16 @@
+# 数据摘要
+type Meta {
+    limit: Int
+    skip: Int
+    page: Int
+    sort: [String!]
+    keyJson: String
+    count: Int
+    num: Int
+}
+
+# 用户列表
+type ResultUser {
+    data: [User]
+    meta: Meta
+}
