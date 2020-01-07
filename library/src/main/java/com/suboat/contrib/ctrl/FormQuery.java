@@ -100,12 +100,13 @@ public class FormQuery<T> {
 		Page<T> page;
 
 		// keyJson
-		if (this.keyJson != null && this.keyJson.length() > 0) {
-			spec = this.keyJsonToQuery(this.keyJson, null, false).build();
-		}
-		else {
-			spec = Specifications.<T>and().build();
-		}
+		// if (this.keyJson != null && this.keyJson.length() > 0) {
+		// spec = this.keyJsonToQuery(this.keyJson, null, false).build();
+		// }
+		// else {
+		// spec = Specifications.<T>and().build();
+		// }
+		spec = this.keyJsonToQuery(this.keyJson, null, false).build();
 
 		// sort
 		if ((this.sort != null && this.sort.length > 0) || (this.s != null && this.s.length > 0)) {
@@ -274,17 +275,23 @@ public class FormQuery<T> {
 	}
 
 	private PredicateBuilder<T> keyJsonToQuery(String keyJson, String col, Boolean isOr) {
-		PredicateBuilder<T> q = Specifications.<T>and();
+		PredicateBuilder<T> q;
 		if (isOr) {
 			q = Specifications.<T>or();
 		}
-		JSONObject js = new JSONObject(keyJson);
-		Iterator<String> iter = js.keys();
-		// 解析成数据库可读的语句
-		while (iter.hasNext()) {
-			String _key = iter.next();
-			Object _val = js.get(_key);
-			parseKeyVal(q, _key, _val, col, isOr);
+		else {
+			q = Specifications.<T>and();
+		}
+		// 解析keyJson
+		if (keyJson != null && keyJson.length() > 2) {
+			JSONObject js = new JSONObject(keyJson);
+			Iterator<String> iter = js.keys();
+			// 解析成数据库可读的语句
+			while (iter.hasNext()) {
+				String _key = iter.next();
+				Object _val = js.get(_key);
+				parseKeyVal(q, _key, _val, col, isOr);
+			}
 		}
 		// 解析默认查询
 		if (this.m != null && this.m.size() > 0) {
