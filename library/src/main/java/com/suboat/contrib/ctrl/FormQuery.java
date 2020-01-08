@@ -92,9 +92,9 @@ public class FormQuery<T> {
 	}
 
 	// 搜索
-	public <E extends JpaRepository<T, Long> & JpaSpecificationExecutor<T>> Result<T> query(E repo) {
+	public <S extends JpaRepository<T, Long> & JpaSpecificationExecutor<T>> Result<T> query(S repo) {
 		this.init();
-		Result<T> result = new Result<T>();
+		Result<T> result = new Result<>();
 		Specification<T> spec;
 		Sort sort = null;
 		Page<T> page;
@@ -152,11 +152,16 @@ public class FormQuery<T> {
 		meta.setSort(this.sort);
 		meta.setCount(null);
 		meta.setNum(null);
-		meta.setCount(page.getTotalElements()); // TODO: 异步取count
 		meta.setNum(page.getNumberOfElements());
-		result.setMeta(meta);
 
-		// data
+		// 异步取count
+		// 具体实现请参考
+		// https://stackoverflow.com/questions/26738199/how-to-disable-count-when-specification-and-pageable-are-used-together/26765003
+		// https://stackoverflow.com/questions/37254385/querydsl-springdata-jpa-findall-how-to-avoid-count
+		meta.setAsyncCount((String s) -> page.getTotalElements());
+
+		//
+		result.setMeta(meta);
 		result.setData(page.getContent());
 		return result;
 	}
@@ -204,7 +209,6 @@ public class FormQuery<T> {
 				if (!val.toString().startsWith("{")) {
 					try {
 						val = DateUtils.stringToDate(val.toString());
-
 					}
 					catch (ParseException e) {
 						throw new Rest.ParamInvalid("时间格式错误 请用yyyy-MM-dd'T'HH:mm:ss格式");
