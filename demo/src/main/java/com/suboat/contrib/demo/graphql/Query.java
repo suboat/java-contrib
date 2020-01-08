@@ -37,7 +37,7 @@ public class Query implements GraphQLQueryResolver {
 		query = FormQuery.filter(query);
 
 		// 默认限制与排序
-		query.s = new String[] { "-username" }; // 默认排序
+		query.s = new String[] { "-createTime" }; // 默认排序
 
 		// 转格式
 		Result<UserBase> orgResult = query.query(userBaseRepository);

@@ -25,12 +25,12 @@ public class UserBase {
 		this.email = this.uid;
 		this.phone = this.uid;
 		this.locNum = "";
-		// this.createTime = new Date();
-		// this.updateTime = this.createTime;
+		 this.createTime = new Date();
+		 this.updateTime = this.createTime;
 	}
 
 	public UserBase(UserBase userBase) {
-		BeanUtils.copyNotNullProperties(userBase, this);
+		BeanUtils.copyPropertiesIgnoreNull(userBase, this);
 	}
 
 	// 登陆信息
@@ -50,10 +50,10 @@ public class UserBase {
 	@Column(unique = true, nullable = false)
 	private String username; // 登录用户名,唯一,默认为uid
 
-	// @Column(name = "createtime")
-	// private Date createTime;
-	//
-	// @Column(name = "updatetime")
-	// private Date updateTime;
+	 @Column(name = "createtime")
+	 private Date createTime;
+
+	 @Column(name = "updatetime")
+	 private Date updateTime;
 
 }

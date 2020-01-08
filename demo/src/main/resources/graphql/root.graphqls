@@ -31,4 +31,6 @@ type User {
     username: String
     # 昵称
     nickname: String
+    # 创建时间
+    createTime: Date
 }
