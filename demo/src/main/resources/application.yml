@@ -33,6 +33,15 @@ spring.datasource:
     max-lifetime: 60000
 # 同步数据结构
 spring.jpa.hibernate.ddl-auto: none
+spring:
+  # 忽略关键字命名字段
+  jpa:
+    # true: 调试sql语句
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        globally_quoted_identifiers: false
 # jwt相关配置
 security:
   jwt:

@@ -38,6 +38,7 @@ public class Query implements GraphQLQueryResolver {
 
 		// 默认限制与排序
 		query.s = new String[] { "-createTime" }; // 默认排序
+		// query.m.put("username$like$", "%test%"); // 模糊搜索
 
 		// 转格式
 		Result<UserBase> orgResult = query.query(userBaseRepository);
