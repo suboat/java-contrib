@@ -14,8 +14,19 @@ public class FormUserID {
 	// 电话号码,带区号
 	public String phone;
 
+	public String locNum;
+
 	// uid
 	public String uid;
+
+	// 自定义唯一id
+	public String unique;
+
+	public String bindApp;
+
+	public String bindKey;
+
+	public String bindVal;
 
 	//
 	public void valid() throws Rest.ParamInvalid {

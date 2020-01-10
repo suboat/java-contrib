@@ -6,12 +6,16 @@ import com.suboat.contrib.rpc.user.ArgUser;
 public class UserUtils {
 
 	public FormUserID argUser2From(ArgUser argUser) {
-		FormUserID formUserID = new FormUserID();
-		formUserID.uid = argUser.uid;
-		formUserID.username = argUser.username;
-		formUserID.phone = argUser.phone;
-		formUserID.unique = argUser.unique;
-		return formUserID;
+		FormUserID form = new FormUserID();
+		form.uid = argUser.uid;
+		form.username = argUser.username;
+		form.phone = argUser.phone;
+		form.locNum = argUser.locNum;
+		form.unique = argUser.unique;
+		form.bindApp = argUser.bindApp;
+		form.bindKey = argUser.bindKey;
+		form.bindVal = argUser.bindVal;
+		return form;
 	}
 
 }
