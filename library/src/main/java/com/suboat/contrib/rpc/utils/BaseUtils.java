@@ -6,7 +6,7 @@ import com.suboat.contrib.rpc.base.Error;
 public class BaseUtils {
 
 	// 错误转格式
-	public Error rpc2base(ErrorBase src) {
+	public static Error rpc2base(ErrorBase src) {
 		if (src == null) {
 			return null;
 		}
@@ -14,7 +14,7 @@ public class BaseUtils {
 	}
 
 	// 错误转格式
-	public ErrorBase base2rpc(Error src) {
+	public static ErrorBase base2rpc(Error src) {
 		if (src == null) {
 			return null;
 		}
