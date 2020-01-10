@@ -179,23 +179,17 @@ public class UserService {
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
 		/**
-		 * -----快捷方式------ getUserProfile 传入argUser参数,获取一个用户资料 getUserNickname
-		 * 传入argUser参数,获取一个用户昵称 getUserSessions 传入argUser参数,获取一个用户当前所有登录状态 getUserBinds
-		 * 传入bindKey与bindVal,获取所有绑定该第三方ID的用户列表 getUserBankCards 传入argUser参数,获取该用户的所有银行卡数组
-		 *
-		 * getUidByPhone 传入手机号，取用户uid getUidByEmail 传入email，取用户uid
-		 * @param name
+		 * -----快捷方式------ getUserProfile 传入argUser参数,获取一个用户资料 getUserSessions
+		 * 传入argUser参数,获取一个用户当前所有登录状态 getUserBankCards 传入argUser参数,获取该用户的所有银行卡数组
+		 * @param uid
 		 */
-		public UserProfile getUserProfile(ArgUser name)
+		public UserProfile getUserProfile(java.lang.String uid)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
-		public java.lang.String getUserNickname(ArgUser name)
+		public java.util.List<UserSession> getUserSessions(java.lang.String uid)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
-		public java.util.List<UserSession> getUserSessions(ArgUser name)
-				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
-
-		public java.util.List<UserBankCard> getUserBankCards(ArgUser name)
+		public java.util.List<UserBankCard> getUserBankCards(java.lang.String uid)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
 	}
@@ -335,18 +329,15 @@ public class UserService {
 		public void getUserAlipay(ArgBind bind, org.apache.thrift.async.AsyncMethodCallback<UserAlipay> resultHandler)
 				throws org.apache.thrift.TException;
 
-		public void getUserProfile(ArgUser name, org.apache.thrift.async.AsyncMethodCallback<UserProfile> resultHandler)
+		public void getUserProfile(java.lang.String uid,
+				org.apache.thrift.async.AsyncMethodCallback<UserProfile> resultHandler)
 				throws org.apache.thrift.TException;
 
-		public void getUserNickname(ArgUser name,
-				org.apache.thrift.async.AsyncMethodCallback<java.lang.String> resultHandler)
-				throws org.apache.thrift.TException;
-
-		public void getUserSessions(ArgUser name,
+		public void getUserSessions(java.lang.String uid,
 				org.apache.thrift.async.AsyncMethodCallback<java.util.List<UserSession>> resultHandler)
 				throws org.apache.thrift.TException;
 
-		public void getUserBankCards(ArgUser name,
+		public void getUserBankCards(java.lang.String uid,
 				org.apache.thrift.async.AsyncMethodCallback<java.util.List<UserBankCard>> resultHandler)
 				throws org.apache.thrift.TException;
 
@@ -1378,15 +1369,15 @@ public class UserService {
 					"getUserAlipay failed: unknown result");
 		}
 
-		public UserProfile getUserProfile(ArgUser name)
+		public UserProfile getUserProfile(java.lang.String uid)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
-			send_getUserProfile(name);
+			send_getUserProfile(uid);
 			return recv_getUserProfile();
 		}
 
-		public void send_getUserProfile(ArgUser name) throws org.apache.thrift.TException {
+		public void send_getUserProfile(java.lang.String uid) throws org.apache.thrift.TException {
 			getUserProfile_args args = new getUserProfile_args();
-			args.setName(name);
+			args.setUid(uid);
 			sendBase("getUserProfile", args);
 		}
 
@@ -1404,41 +1395,15 @@ public class UserService {
 					"getUserProfile failed: unknown result");
 		}
 
-		public java.lang.String getUserNickname(ArgUser name)
+		public java.util.List<UserSession> getUserSessions(java.lang.String uid)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
-			send_getUserNickname(name);
-			return recv_getUserNickname();
-		}
-
-		public void send_getUserNickname(ArgUser name) throws org.apache.thrift.TException {
-			getUserNickname_args args = new getUserNickname_args();
-			args.setName(name);
-			sendBase("getUserNickname", args);
-		}
-
-		public java.lang.String recv_getUserNickname()
-				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
-			getUserNickname_result result = new getUserNickname_result();
-			receiveBase(result, "getUserNickname");
-			if (result.isSetSuccess()) {
-				return result.success;
-			}
-			if (result.err != null) {
-				throw result.err;
-			}
-			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
-					"getUserNickname failed: unknown result");
-		}
-
-		public java.util.List<UserSession> getUserSessions(ArgUser name)
-				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
-			send_getUserSessions(name);
+			send_getUserSessions(uid);
 			return recv_getUserSessions();
 		}
 
-		public void send_getUserSessions(ArgUser name) throws org.apache.thrift.TException {
+		public void send_getUserSessions(java.lang.String uid) throws org.apache.thrift.TException {
 			getUserSessions_args args = new getUserSessions_args();
-			args.setName(name);
+			args.setUid(uid);
 			sendBase("getUserSessions", args);
 		}
 
@@ -1456,15 +1421,15 @@ public class UserService {
 					"getUserSessions failed: unknown result");
 		}
 
-		public java.util.List<UserBankCard> getUserBankCards(ArgUser name)
+		public java.util.List<UserBankCard> getUserBankCards(java.lang.String uid)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
-			send_getUserBankCards(name);
+			send_getUserBankCards(uid);
 			return recv_getUserBankCards();
 		}
 
-		public void send_getUserBankCards(ArgUser name) throws org.apache.thrift.TException {
+		public void send_getUserBankCards(java.lang.String uid) throws org.apache.thrift.TException {
 			getUserBankCards_args args = new getUserBankCards_args();
-			args.setName(name);
+			args.setUid(uid);
 			sendBase("getUserBankCards", args);
 		}
 
@@ -3273,10 +3238,11 @@ public class UserService {
 
 		}
 
-		public void getUserProfile(ArgUser name, org.apache.thrift.async.AsyncMethodCallback<UserProfile> resultHandler)
+		public void getUserProfile(java.lang.String uid,
+				org.apache.thrift.async.AsyncMethodCallback<UserProfile> resultHandler)
 				throws org.apache.thrift.TException {
 			checkReady();
-			getUserProfile_call method_call = new getUserProfile_call(name, resultHandler, this, ___protocolFactory,
+			getUserProfile_call method_call = new getUserProfile_call(uid, resultHandler, this, ___protocolFactory,
 					___transport);
 			this.___currentMethod = method_call;
 			___manager.call(method_call);
@@ -3284,22 +3250,22 @@ public class UserService {
 
 		public static class getUserProfile_call extends org.apache.thrift.async.TAsyncMethodCall<UserProfile> {
 
-			private ArgUser name;
+			private java.lang.String uid;
 
-			public getUserProfile_call(ArgUser name,
+			public getUserProfile_call(java.lang.String uid,
 					org.apache.thrift.async.AsyncMethodCallback<UserProfile> resultHandler,
 					org.apache.thrift.async.TAsyncClient client,
 					org.apache.thrift.protocol.TProtocolFactory protocolFactory,
 					org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
 				super(client, protocolFactory, transport, resultHandler, false);
-				this.name = name;
+				this.uid = uid;
 			}
 
 			public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
 				prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getUserProfile",
 						org.apache.thrift.protocol.TMessageType.CALL, 0));
 				getUserProfile_args args = new getUserProfile_args();
-				args.setName(name);
+				args.setUid(uid);
 				args.write(prot);
 				prot.writeMessageEnd();
 			}
@@ -3316,55 +3282,11 @@ public class UserService {
 
 		}
 
-		public void getUserNickname(ArgUser name,
-				org.apache.thrift.async.AsyncMethodCallback<java.lang.String> resultHandler)
-				throws org.apache.thrift.TException {
-			checkReady();
-			getUserNickname_call method_call = new getUserNickname_call(name, resultHandler, this, ___protocolFactory,
-					___transport);
-			this.___currentMethod = method_call;
-			___manager.call(method_call);
-		}
-
-		public static class getUserNickname_call extends org.apache.thrift.async.TAsyncMethodCall<java.lang.String> {
-
-			private ArgUser name;
-
-			public getUserNickname_call(ArgUser name,
-					org.apache.thrift.async.AsyncMethodCallback<java.lang.String> resultHandler,
-					org.apache.thrift.async.TAsyncClient client,
-					org.apache.thrift.protocol.TProtocolFactory protocolFactory,
-					org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
-				super(client, protocolFactory, transport, resultHandler, false);
-				this.name = name;
-			}
-
-			public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
-				prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getUserNickname",
-						org.apache.thrift.protocol.TMessageType.CALL, 0));
-				getUserNickname_args args = new getUserNickname_args();
-				args.setName(name);
-				args.write(prot);
-				prot.writeMessageEnd();
-			}
-
-			public java.lang.String getResult() throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
-				if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
-					throw new java.lang.IllegalStateException("Method call not finished!");
-				}
-				org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(
-						getFrameBuffer().array());
-				org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
-				return (new Client(prot)).recv_getUserNickname();
-			}
-
-		}
-
-		public void getUserSessions(ArgUser name,
+		public void getUserSessions(java.lang.String uid,
 				org.apache.thrift.async.AsyncMethodCallback<java.util.List<UserSession>> resultHandler)
 				throws org.apache.thrift.TException {
 			checkReady();
-			getUserSessions_call method_call = new getUserSessions_call(name, resultHandler, this, ___protocolFactory,
+			getUserSessions_call method_call = new getUserSessions_call(uid, resultHandler, this, ___protocolFactory,
 					___transport);
 			this.___currentMethod = method_call;
 			___manager.call(method_call);
@@ -3373,22 +3295,22 @@ public class UserService {
 		public static class getUserSessions_call
 				extends org.apache.thrift.async.TAsyncMethodCall<java.util.List<UserSession>> {
 
-			private ArgUser name;
+			private java.lang.String uid;
 
-			public getUserSessions_call(ArgUser name,
+			public getUserSessions_call(java.lang.String uid,
 					org.apache.thrift.async.AsyncMethodCallback<java.util.List<UserSession>> resultHandler,
 					org.apache.thrift.async.TAsyncClient client,
 					org.apache.thrift.protocol.TProtocolFactory protocolFactory,
 					org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
 				super(client, protocolFactory, transport, resultHandler, false);
-				this.name = name;
+				this.uid = uid;
 			}
 
 			public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
 				prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getUserSessions",
 						org.apache.thrift.protocol.TMessageType.CALL, 0));
 				getUserSessions_args args = new getUserSessions_args();
-				args.setName(name);
+				args.setUid(uid);
 				args.write(prot);
 				prot.writeMessageEnd();
 			}
@@ -3406,11 +3328,11 @@ public class UserService {
 
 		}
 
-		public void getUserBankCards(ArgUser name,
+		public void getUserBankCards(java.lang.String uid,
 				org.apache.thrift.async.AsyncMethodCallback<java.util.List<UserBankCard>> resultHandler)
 				throws org.apache.thrift.TException {
 			checkReady();
-			getUserBankCards_call method_call = new getUserBankCards_call(name, resultHandler, this, ___protocolFactory,
+			getUserBankCards_call method_call = new getUserBankCards_call(uid, resultHandler, this, ___protocolFactory,
 					___transport);
 			this.___currentMethod = method_call;
 			___manager.call(method_call);
@@ -3419,22 +3341,22 @@ public class UserService {
 		public static class getUserBankCards_call
 				extends org.apache.thrift.async.TAsyncMethodCall<java.util.List<UserBankCard>> {
 
-			private ArgUser name;
+			private java.lang.String uid;
 
-			public getUserBankCards_call(ArgUser name,
+			public getUserBankCards_call(java.lang.String uid,
 					org.apache.thrift.async.AsyncMethodCallback<java.util.List<UserBankCard>> resultHandler,
 					org.apache.thrift.async.TAsyncClient client,
 					org.apache.thrift.protocol.TProtocolFactory protocolFactory,
 					org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
 				super(client, protocolFactory, transport, resultHandler, false);
-				this.name = name;
+				this.uid = uid;
 			}
 
 			public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
 				prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getUserBankCards",
 						org.apache.thrift.protocol.TMessageType.CALL, 0));
 				getUserBankCards_args args = new getUserBankCards_args();
-				args.setName(name);
+				args.setUid(uid);
 				args.write(prot);
 				prot.writeMessageEnd();
 			}
@@ -3510,7 +3432,6 @@ public class UserService {
 			processMap.put("getUserWeixin", new getUserWeixin());
 			processMap.put("getUserAlipay", new getUserAlipay());
 			processMap.put("getUserProfile", new getUserProfile());
-			processMap.put("getUserNickname", new getUserNickname());
 			processMap.put("getUserSessions", new getUserSessions());
 			processMap.put("getUserBankCards", new getUserBankCards());
 			return processMap;
@@ -4804,41 +4725,7 @@ public class UserService {
 					throws org.apache.thrift.TException {
 				getUserProfile_result result = new getUserProfile_result();
 				try {
-					result.success = iface.getUserProfile(args.name);
-				}
-				catch (com.suboat.contrib.rpc.base.Error err) {
-					result.err = err;
-				}
-				return result;
-			}
-
-		}
-
-		public static class getUserNickname<I extends Iface>
-				extends org.apache.thrift.ProcessFunction<I, getUserNickname_args> {
-
-			public getUserNickname() {
-				super("getUserNickname");
-			}
-
-			public getUserNickname_args getEmptyArgsInstance() {
-				return new getUserNickname_args();
-			}
-
-			protected boolean isOneway() {
-				return false;
-			}
-
-			@Override
-			protected boolean rethrowUnhandledExceptions() {
-				return false;
-			}
-
-			public getUserNickname_result getResult(I iface, getUserNickname_args args)
-					throws org.apache.thrift.TException {
-				getUserNickname_result result = new getUserNickname_result();
-				try {
-					result.success = iface.getUserNickname(args.name);
+					result.success = iface.getUserProfile(args.uid);
 				}
 				catch (com.suboat.contrib.rpc.base.Error err) {
 					result.err = err;
@@ -4872,7 +4759,7 @@ public class UserService {
 					throws org.apache.thrift.TException {
 				getUserSessions_result result = new getUserSessions_result();
 				try {
-					result.success = iface.getUserSessions(args.name);
+					result.success = iface.getUserSessions(args.uid);
 				}
 				catch (com.suboat.contrib.rpc.base.Error err) {
 					result.err = err;
@@ -4906,7 +4793,7 @@ public class UserService {
 					throws org.apache.thrift.TException {
 				getUserBankCards_result result = new getUserBankCards_result();
 				try {
-					result.success = iface.getUserBankCards(args.name);
+					result.success = iface.getUserBankCards(args.uid);
 				}
 				catch (com.suboat.contrib.rpc.base.Error err) {
 					result.err = err;
@@ -4975,7 +4862,6 @@ public class UserService {
 			processMap.put("getUserWeixin", new getUserWeixin());
 			processMap.put("getUserAlipay", new getUserAlipay());
 			processMap.put("getUserProfile", new getUserProfile());
-			processMap.put("getUserNickname", new getUserNickname());
 			processMap.put("getUserSessions", new getUserSessions());
 			processMap.put("getUserBankCards", new getUserBankCards());
 			return processMap;
@@ -8065,86 +7951,7 @@ public class UserService {
 			public void start(I iface, getUserProfile_args args,
 					org.apache.thrift.async.AsyncMethodCallback<UserProfile> resultHandler)
 					throws org.apache.thrift.TException {
-				iface.getUserProfile(args.name, resultHandler);
-			}
-
-		}
-
-		public static class getUserNickname<I extends AsyncIface>
-				extends org.apache.thrift.AsyncProcessFunction<I, getUserNickname_args, java.lang.String> {
-
-			public getUserNickname() {
-				super("getUserNickname");
-			}
-
-			public getUserNickname_args getEmptyArgsInstance() {
-				return new getUserNickname_args();
-			}
-
-			public org.apache.thrift.async.AsyncMethodCallback<java.lang.String> getResultHandler(
-					final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
-				final org.apache.thrift.AsyncProcessFunction fcall = this;
-				return new org.apache.thrift.async.AsyncMethodCallback<java.lang.String>() {
-					public void onComplete(java.lang.String o) {
-						getUserNickname_result result = new getUserNickname_result();
-						result.success = o;
-						try {
-							fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY, seqid);
-						}
-						catch (org.apache.thrift.transport.TTransportException e) {
-							_LOGGER.error("TTransportException writing to internal frame buffer", e);
-							fb.close();
-						}
-						catch (java.lang.Exception e) {
-							_LOGGER.error("Exception writing to internal frame buffer", e);
-							onError(e);
-						}
-					}
-
-					public void onError(java.lang.Exception e) {
-						byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
-						org.apache.thrift.TSerializable msg;
-						getUserNickname_result result = new getUserNickname_result();
-						if (e instanceof com.suboat.contrib.rpc.base.Error) {
-							result.err = (com.suboat.contrib.rpc.base.Error) e;
-							result.setErrIsSet(true);
-							msg = result;
-						}
-						else if (e instanceof org.apache.thrift.transport.TTransportException) {
-							_LOGGER.error("TTransportException inside handler", e);
-							fb.close();
-							return;
-						}
-						else if (e instanceof org.apache.thrift.TApplicationException) {
-							_LOGGER.error("TApplicationException inside handler", e);
-							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
-							msg = (org.apache.thrift.TApplicationException) e;
-						}
-						else {
-							_LOGGER.error("Exception inside handler", e);
-							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
-							msg = new org.apache.thrift.TApplicationException(
-									org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
-						}
-						try {
-							fcall.sendResponse(fb, msg, msgType, seqid);
-						}
-						catch (java.lang.Exception ex) {
-							_LOGGER.error("Exception writing to internal frame buffer", ex);
-							fb.close();
-						}
-					}
-				};
-			}
-
-			protected boolean isOneway() {
-				return false;
-			}
-
-			public void start(I iface, getUserNickname_args args,
-					org.apache.thrift.async.AsyncMethodCallback<java.lang.String> resultHandler)
-					throws org.apache.thrift.TException {
-				iface.getUserNickname(args.name, resultHandler);
+				iface.getUserProfile(args.uid, resultHandler);
 			}
 
 		}
@@ -8223,7 +8030,7 @@ public class UserService {
 			public void start(I iface, getUserSessions_args args,
 					org.apache.thrift.async.AsyncMethodCallback<java.util.List<UserSession>> resultHandler)
 					throws org.apache.thrift.TException {
-				iface.getUserSessions(args.name, resultHandler);
+				iface.getUserSessions(args.uid, resultHandler);
 			}
 
 		}
@@ -8302,7 +8109,7 @@ public class UserService {
 			public void start(I iface, getUserBankCards_args args,
 					org.apache.thrift.async.AsyncMethodCallback<java.util.List<UserBankCard>> resultHandler)
 					throws org.apache.thrift.TException {
-				iface.getUserBankCards(args.name, resultHandler);
+				iface.getUserBankCards(args.uid, resultHandler);
 			}
 
 		}
@@ -47680,14 +47487,14 @@ public class UserService {
 		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
 				"getUserProfile_args");
 
-		private static final org.apache.thrift.protocol.TField NAME_FIELD_DESC = new org.apache.thrift.protocol.TField(
-				"name", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+		private static final org.apache.thrift.protocol.TField UID_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"uid", org.apache.thrift.protocol.TType.STRING, (short) 1);
 
 		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getUserProfile_argsStandardSchemeFactory();
 
 		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getUserProfile_argsTupleSchemeFactory();
 
-		public @org.apache.thrift.annotation.Nullable ArgUser name; // required
+		public @org.apache.thrift.annotation.Nullable java.lang.String uid; // required
 
 		/**
 		 * The set of fields this struct contains, along with convenience methods for
@@ -47695,7 +47502,7 @@ public class UserService {
 		 */
 		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
-			NAME((short) 1, "name");
+			UID((short) 1, "uid");
 
 			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -47711,8 +47518,8 @@ public class UserService {
 			@org.apache.thrift.annotation.Nullable
 			public static _Fields findByThriftId(int fieldId) {
 				switch (fieldId) {
-				case 1: // NAME
-					return NAME;
+				case 1: // UID
+					return UID;
 				default:
 					return null;
 				}
@@ -47761,11 +47568,9 @@ public class UserService {
 		static {
 			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
 					_Fields.class);
-			tmpMap.put(_Fields.NAME,
-					new org.apache.thrift.meta_data.FieldMetaData("name",
-							org.apache.thrift.TFieldRequirementType.DEFAULT,
-							new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
-									"ArgUser")));
+			tmpMap.put(_Fields.UID, new org.apache.thrift.meta_data.FieldMetaData("uid",
+					org.apache.thrift.TFieldRequirementType.DEFAULT,
+					new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getUserProfile_args.class, metaDataMap);
 		}
@@ -47773,17 +47578,17 @@ public class UserService {
 		public getUserProfile_args() {
 		}
 
-		public getUserProfile_args(ArgUser name) {
+		public getUserProfile_args(java.lang.String uid) {
 			this();
-			this.name = name;
+			this.uid = uid;
 		}
 
 		/**
 		 * Performs a deep copy on <i>other</i>.
 		 */
 		public getUserProfile_args(getUserProfile_args other) {
-			if (other.isSetName()) {
-				this.name = new ArgUser(other.name);
+			if (other.isSetUid()) {
+				this.uid = other.uid;
 			}
 		}
 
@@ -47793,45 +47598,45 @@ public class UserService {
 
 		@Override
 		public void clear() {
-			this.name = null;
+			this.uid = null;
 		}
 
 		@org.apache.thrift.annotation.Nullable
-		public ArgUser getName() {
-			return this.name;
+		public java.lang.String getUid() {
+			return this.uid;
 		}
 
-		public getUserProfile_args setName(@org.apache.thrift.annotation.Nullable ArgUser name) {
-			this.name = name;
+		public getUserProfile_args setUid(@org.apache.thrift.annotation.Nullable java.lang.String uid) {
+			this.uid = uid;
 			return this;
 		}
 
-		public void unsetName() {
-			this.name = null;
+		public void unsetUid() {
+			this.uid = null;
 		}
 
 		/**
-		 * Returns true if field name is set (has been assigned a value) and false
+		 * Returns true if field uid is set (has been assigned a value) and false
 		 * otherwise
 		 */
-		public boolean isSetName() {
-			return this.name != null;
+		public boolean isSetUid() {
+			return this.uid != null;
 		}
 
-		public void setNameIsSet(boolean value) {
+		public void setUidIsSet(boolean value) {
 			if (!value) {
-				this.name = null;
+				this.uid = null;
 			}
 		}
 
 		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 			switch (field) {
-			case NAME:
+			case UID:
 				if (value == null) {
-					unsetName();
+					unsetUid();
 				}
 				else {
-					setName((ArgUser) value);
+					setUid((java.lang.String) value);
 				}
 				break;
 
@@ -47841,8 +47646,8 @@ public class UserService {
 		@org.apache.thrift.annotation.Nullable
 		public java.lang.Object getFieldValue(_Fields field) {
 			switch (field) {
-			case NAME:
-				return getName();
+			case UID:
+				return getUid();
 
 			}
 			throw new java.lang.IllegalStateException();
@@ -47858,8 +47663,8 @@ public class UserService {
 			}
 
 			switch (field) {
-			case NAME:
-				return isSetName();
+			case UID:
+				return isSetUid();
 			}
 			throw new java.lang.IllegalStateException();
 		}
@@ -47879,12 +47684,12 @@ public class UserService {
 			if (this == that)
 				return true;
 
-			boolean this_present_name = true && this.isSetName();
-			boolean that_present_name = true && that.isSetName();
-			if (this_present_name || that_present_name) {
-				if (!(this_present_name && that_present_name))
+			boolean this_present_uid = true && this.isSetUid();
+			boolean that_present_uid = true && that.isSetUid();
+			if (this_present_uid || that_present_uid) {
+				if (!(this_present_uid && that_present_uid))
 					return false;
-				if (!this.name.equals(that.name))
+				if (!this.uid.equals(that.uid))
 					return false;
 			}
 
@@ -47895,9 +47700,9 @@ public class UserService {
 		public int hashCode() {
 			int hashCode = 1;
 
-			hashCode = hashCode * 8191 + ((isSetName()) ? 131071 : 524287);
-			if (isSetName())
-				hashCode = hashCode * 8191 + name.hashCode();
+			hashCode = hashCode * 8191 + ((isSetUid()) ? 131071 : 524287);
+			if (isSetUid())
+				hashCode = hashCode * 8191 + uid.hashCode();
 
 			return hashCode;
 		}
@@ -47910,12 +47715,12 @@ public class UserService {
 
 			int lastComparison = 0;
 
-			lastComparison = java.lang.Boolean.valueOf(isSetName()).compareTo(other.isSetName());
+			lastComparison = java.lang.Boolean.valueOf(isSetUid()).compareTo(other.isSetUid());
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
-			if (isSetName()) {
-				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.name, other.name);
+			if (isSetUid()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.uid, other.uid);
 				if (lastComparison != 0) {
 					return lastComparison;
 				}
@@ -47941,12 +47746,12 @@ public class UserService {
 			java.lang.StringBuilder sb = new java.lang.StringBuilder("getUserProfile_args(");
 			boolean first = true;
 
-			sb.append("name:");
-			if (this.name == null) {
+			sb.append("uid:");
+			if (this.uid == null) {
 				sb.append("null");
 			}
 			else {
-				sb.append(this.name);
+				sb.append(this.uid);
 			}
 			first = false;
 			sb.append(")");
@@ -48001,11 +47806,10 @@ public class UserService {
 						break;
 					}
 					switch (schemeField.id) {
-					case 1: // NAME
-						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-							struct.name = new ArgUser();
-							struct.name.read(iprot);
-							struct.setNameIsSet(true);
+					case 1: // UID
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+							struct.uid = iprot.readString();
+							struct.setUidIsSet(true);
 						}
 						else {
 							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -48028,9 +47832,9 @@ public class UserService {
 				struct.validate();
 
 				oprot.writeStructBegin(STRUCT_DESC);
-				if (struct.name != null) {
-					oprot.writeFieldBegin(NAME_FIELD_DESC);
-					struct.name.write(oprot);
+				if (struct.uid != null) {
+					oprot.writeFieldBegin(UID_FIELD_DESC);
+					oprot.writeString(struct.uid);
 					oprot.writeFieldEnd();
 				}
 				oprot.writeFieldStop();
@@ -48055,12 +47859,12 @@ public class UserService {
 					throws org.apache.thrift.TException {
 				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 				java.util.BitSet optionals = new java.util.BitSet();
-				if (struct.isSetName()) {
+				if (struct.isSetUid()) {
 					optionals.set(0);
 				}
 				oprot.writeBitSet(optionals, 1);
-				if (struct.isSetName()) {
-					struct.name.write(oprot);
+				if (struct.isSetUid()) {
+					oprot.writeString(struct.uid);
 				}
 			}
 
@@ -48070,9 +47874,8 @@ public class UserService {
 				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 				java.util.BitSet incoming = iprot.readBitSet(1);
 				if (incoming.get(0)) {
-					struct.name = new ArgUser();
-					struct.name.read(iprot);
-					struct.setNameIsSet(true);
+					struct.uid = iprot.readString();
+					struct.setUidIsSet(true);
 				}
 			}
 
@@ -48621,948 +48424,6 @@ public class UserService {
 
 	}
 
-	public static class getUserNickname_args
-			implements org.apache.thrift.TBase<getUserNickname_args, getUserNickname_args._Fields>,
-			java.io.Serializable, Cloneable, Comparable<getUserNickname_args> {
-
-		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
-				"getUserNickname_args");
-
-		private static final org.apache.thrift.protocol.TField NAME_FIELD_DESC = new org.apache.thrift.protocol.TField(
-				"name", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
-
-		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getUserNickname_argsStandardSchemeFactory();
-
-		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getUserNickname_argsTupleSchemeFactory();
-
-		public @org.apache.thrift.annotation.Nullable ArgUser name; // required
-
-		/**
-		 * The set of fields this struct contains, along with convenience methods for
-		 * finding and manipulating them.
-		 */
-		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-
-			NAME((short) 1, "name");
-
-			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
-
-			static {
-				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
-					byName.put(field.getFieldName(), field);
-				}
-			}
-
-			/**
-			 * Find the _Fields constant that matches fieldId, or null if its not found.
-			 */
-			@org.apache.thrift.annotation.Nullable
-			public static _Fields findByThriftId(int fieldId) {
-				switch (fieldId) {
-				case 1: // NAME
-					return NAME;
-				default:
-					return null;
-				}
-			}
-
-			/**
-			 * Find the _Fields constant that matches fieldId, throwing an exception if it
-			 * is not found.
-			 */
-			public static _Fields findByThriftIdOrThrow(int fieldId) {
-				_Fields fields = findByThriftId(fieldId);
-				if (fields == null)
-					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
-				return fields;
-			}
-
-			/**
-			 * Find the _Fields constant that matches name, or null if its not found.
-			 */
-			@org.apache.thrift.annotation.Nullable
-			public static _Fields findByName(java.lang.String name) {
-				return byName.get(name);
-			}
-
-			private final short _thriftId;
-
-			private final java.lang.String _fieldName;
-
-			_Fields(short thriftId, java.lang.String fieldName) {
-				_thriftId = thriftId;
-				_fieldName = fieldName;
-			}
-
-			public short getThriftFieldId() {
-				return _thriftId;
-			}
-
-			public java.lang.String getFieldName() {
-				return _fieldName;
-			}
-
-		}
-
-		// isset id assignments
-		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
-		static {
-			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
-					_Fields.class);
-			tmpMap.put(_Fields.NAME,
-					new org.apache.thrift.meta_data.FieldMetaData("name",
-							org.apache.thrift.TFieldRequirementType.DEFAULT,
-							new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
-									"ArgUser")));
-			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getUserNickname_args.class, metaDataMap);
-		}
-
-		public getUserNickname_args() {
-		}
-
-		public getUserNickname_args(ArgUser name) {
-			this();
-			this.name = name;
-		}
-
-		/**
-		 * Performs a deep copy on <i>other</i>.
-		 */
-		public getUserNickname_args(getUserNickname_args other) {
-			if (other.isSetName()) {
-				this.name = new ArgUser(other.name);
-			}
-		}
-
-		public getUserNickname_args deepCopy() {
-			return new getUserNickname_args(this);
-		}
-
-		@Override
-		public void clear() {
-			this.name = null;
-		}
-
-		@org.apache.thrift.annotation.Nullable
-		public ArgUser getName() {
-			return this.name;
-		}
-
-		public getUserNickname_args setName(@org.apache.thrift.annotation.Nullable ArgUser name) {
-			this.name = name;
-			return this;
-		}
-
-		public void unsetName() {
-			this.name = null;
-		}
-
-		/**
-		 * Returns true if field name is set (has been assigned a value) and false
-		 * otherwise
-		 */
-		public boolean isSetName() {
-			return this.name != null;
-		}
-
-		public void setNameIsSet(boolean value) {
-			if (!value) {
-				this.name = null;
-			}
-		}
-
-		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
-			switch (field) {
-			case NAME:
-				if (value == null) {
-					unsetName();
-				}
-				else {
-					setName((ArgUser) value);
-				}
-				break;
-
-			}
-		}
-
-		@org.apache.thrift.annotation.Nullable
-		public java.lang.Object getFieldValue(_Fields field) {
-			switch (field) {
-			case NAME:
-				return getName();
-
-			}
-			throw new java.lang.IllegalStateException();
-		}
-
-		/**
-		 * Returns true if field corresponding to fieldID is set (has been assigned a
-		 * value) and false otherwise
-		 */
-		public boolean isSet(_Fields field) {
-			if (field == null) {
-				throw new java.lang.IllegalArgumentException();
-			}
-
-			switch (field) {
-			case NAME:
-				return isSetName();
-			}
-			throw new java.lang.IllegalStateException();
-		}
-
-		@Override
-		public boolean equals(java.lang.Object that) {
-			if (that == null)
-				return false;
-			if (that instanceof getUserNickname_args)
-				return this.equals((getUserNickname_args) that);
-			return false;
-		}
-
-		public boolean equals(getUserNickname_args that) {
-			if (that == null)
-				return false;
-			if (this == that)
-				return true;
-
-			boolean this_present_name = true && this.isSetName();
-			boolean that_present_name = true && that.isSetName();
-			if (this_present_name || that_present_name) {
-				if (!(this_present_name && that_present_name))
-					return false;
-				if (!this.name.equals(that.name))
-					return false;
-			}
-
-			return true;
-		}
-
-		@Override
-		public int hashCode() {
-			int hashCode = 1;
-
-			hashCode = hashCode * 8191 + ((isSetName()) ? 131071 : 524287);
-			if (isSetName())
-				hashCode = hashCode * 8191 + name.hashCode();
-
-			return hashCode;
-		}
-
-		@Override
-		public int compareTo(getUserNickname_args other) {
-			if (!getClass().equals(other.getClass())) {
-				return getClass().getName().compareTo(other.getClass().getName());
-			}
-
-			int lastComparison = 0;
-
-			lastComparison = java.lang.Boolean.valueOf(isSetName()).compareTo(other.isSetName());
-			if (lastComparison != 0) {
-				return lastComparison;
-			}
-			if (isSetName()) {
-				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.name, other.name);
-				if (lastComparison != 0) {
-					return lastComparison;
-				}
-			}
-			return 0;
-		}
-
-		@org.apache.thrift.annotation.Nullable
-		public _Fields fieldForId(int fieldId) {
-			return _Fields.findByThriftId(fieldId);
-		}
-
-		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-			scheme(iprot).read(iprot, this);
-		}
-
-		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-			scheme(oprot).write(oprot, this);
-		}
-
-		@Override
-		public java.lang.String toString() {
-			java.lang.StringBuilder sb = new java.lang.StringBuilder("getUserNickname_args(");
-			boolean first = true;
-
-			sb.append("name:");
-			if (this.name == null) {
-				sb.append("null");
-			}
-			else {
-				sb.append(this.name);
-			}
-			first = false;
-			sb.append(")");
-			return sb.toString();
-		}
-
-		public void validate() throws org.apache.thrift.TException {
-			// check for required fields
-			// check for sub-struct validity
-		}
-
-		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
-			try {
-				write(new org.apache.thrift.protocol.TCompactProtocol(
-						new org.apache.thrift.transport.TIOStreamTransport(out)));
-			}
-			catch (org.apache.thrift.TException te) {
-				throw new java.io.IOException(te);
-			}
-		}
-
-		private void readObject(java.io.ObjectInputStream in)
-				throws java.io.IOException, java.lang.ClassNotFoundException {
-			try {
-				read(new org.apache.thrift.protocol.TCompactProtocol(
-						new org.apache.thrift.transport.TIOStreamTransport(in)));
-			}
-			catch (org.apache.thrift.TException te) {
-				throw new java.io.IOException(te);
-			}
-		}
-
-		private static class getUserNickname_argsStandardSchemeFactory
-				implements org.apache.thrift.scheme.SchemeFactory {
-
-			public getUserNickname_argsStandardScheme getScheme() {
-				return new getUserNickname_argsStandardScheme();
-			}
-
-		}
-
-		private static class getUserNickname_argsStandardScheme
-				extends org.apache.thrift.scheme.StandardScheme<getUserNickname_args> {
-
-			public void read(org.apache.thrift.protocol.TProtocol iprot, getUserNickname_args struct)
-					throws org.apache.thrift.TException {
-				org.apache.thrift.protocol.TField schemeField;
-				iprot.readStructBegin();
-				while (true) {
-					schemeField = iprot.readFieldBegin();
-					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
-						break;
-					}
-					switch (schemeField.id) {
-					case 1: // NAME
-						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-							struct.name = new ArgUser();
-							struct.name.read(iprot);
-							struct.setNameIsSet(true);
-						}
-						else {
-							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-						}
-						break;
-					default:
-						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-					}
-					iprot.readFieldEnd();
-				}
-				iprot.readStructEnd();
-
-				// check for required fields of primitive type, which can't be checked in
-				// the validate method
-				struct.validate();
-			}
-
-			public void write(org.apache.thrift.protocol.TProtocol oprot, getUserNickname_args struct)
-					throws org.apache.thrift.TException {
-				struct.validate();
-
-				oprot.writeStructBegin(STRUCT_DESC);
-				if (struct.name != null) {
-					oprot.writeFieldBegin(NAME_FIELD_DESC);
-					struct.name.write(oprot);
-					oprot.writeFieldEnd();
-				}
-				oprot.writeFieldStop();
-				oprot.writeStructEnd();
-			}
-
-		}
-
-		private static class getUserNickname_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
-
-			public getUserNickname_argsTupleScheme getScheme() {
-				return new getUserNickname_argsTupleScheme();
-			}
-
-		}
-
-		private static class getUserNickname_argsTupleScheme
-				extends org.apache.thrift.scheme.TupleScheme<getUserNickname_args> {
-
-			@Override
-			public void write(org.apache.thrift.protocol.TProtocol prot, getUserNickname_args struct)
-					throws org.apache.thrift.TException {
-				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-				java.util.BitSet optionals = new java.util.BitSet();
-				if (struct.isSetName()) {
-					optionals.set(0);
-				}
-				oprot.writeBitSet(optionals, 1);
-				if (struct.isSetName()) {
-					struct.name.write(oprot);
-				}
-			}
-
-			@Override
-			public void read(org.apache.thrift.protocol.TProtocol prot, getUserNickname_args struct)
-					throws org.apache.thrift.TException {
-				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-				java.util.BitSet incoming = iprot.readBitSet(1);
-				if (incoming.get(0)) {
-					struct.name = new ArgUser();
-					struct.name.read(iprot);
-					struct.setNameIsSet(true);
-				}
-			}
-
-		}
-
-		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
-				org.apache.thrift.protocol.TProtocol proto) {
-			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
-					: TUPLE_SCHEME_FACTORY).getScheme();
-		}
-
-	}
-
-	public static class getUserNickname_result
-			implements org.apache.thrift.TBase<getUserNickname_result, getUserNickname_result._Fields>,
-			java.io.Serializable, Cloneable, Comparable<getUserNickname_result> {
-
-		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
-				"getUserNickname_result");
-
-		private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField(
-				"success", org.apache.thrift.protocol.TType.STRING, (short) 0);
-
-		private static final org.apache.thrift.protocol.TField ERR_FIELD_DESC = new org.apache.thrift.protocol.TField(
-				"err", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
-
-		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getUserNickname_resultStandardSchemeFactory();
-
-		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getUserNickname_resultTupleSchemeFactory();
-
-		public @org.apache.thrift.annotation.Nullable java.lang.String success; // required
-
-		public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err; // required
-
-		/**
-		 * The set of fields this struct contains, along with convenience methods for
-		 * finding and manipulating them.
-		 */
-		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-
-			SUCCESS((short) 0, "success"), ERR((short) 1, "err");
-
-			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
-
-			static {
-				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
-					byName.put(field.getFieldName(), field);
-				}
-			}
-
-			/**
-			 * Find the _Fields constant that matches fieldId, or null if its not found.
-			 */
-			@org.apache.thrift.annotation.Nullable
-			public static _Fields findByThriftId(int fieldId) {
-				switch (fieldId) {
-				case 0: // SUCCESS
-					return SUCCESS;
-				case 1: // ERR
-					return ERR;
-				default:
-					return null;
-				}
-			}
-
-			/**
-			 * Find the _Fields constant that matches fieldId, throwing an exception if it
-			 * is not found.
-			 */
-			public static _Fields findByThriftIdOrThrow(int fieldId) {
-				_Fields fields = findByThriftId(fieldId);
-				if (fields == null)
-					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
-				return fields;
-			}
-
-			/**
-			 * Find the _Fields constant that matches name, or null if its not found.
-			 */
-			@org.apache.thrift.annotation.Nullable
-			public static _Fields findByName(java.lang.String name) {
-				return byName.get(name);
-			}
-
-			private final short _thriftId;
-
-			private final java.lang.String _fieldName;
-
-			_Fields(short thriftId, java.lang.String fieldName) {
-				_thriftId = thriftId;
-				_fieldName = fieldName;
-			}
-
-			public short getThriftFieldId() {
-				return _thriftId;
-			}
-
-			public java.lang.String getFieldName() {
-				return _fieldName;
-			}
-
-		}
-
-		// isset id assignments
-		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
-		static {
-			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
-					_Fields.class);
-			tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success",
-					org.apache.thrift.TFieldRequirementType.DEFAULT,
-					new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-			tmpMap.put(_Fields.ERR,
-					new org.apache.thrift.meta_data.FieldMetaData("err",
-							org.apache.thrift.TFieldRequirementType.DEFAULT,
-							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
-									com.suboat.contrib.rpc.base.Error.class)));
-			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getUserNickname_result.class, metaDataMap);
-		}
-
-		public getUserNickname_result() {
-		}
-
-		public getUserNickname_result(java.lang.String success, com.suboat.contrib.rpc.base.Error err) {
-			this();
-			this.success = success;
-			this.err = err;
-		}
-
-		/**
-		 * Performs a deep copy on <i>other</i>.
-		 */
-		public getUserNickname_result(getUserNickname_result other) {
-			if (other.isSetSuccess()) {
-				this.success = other.success;
-			}
-			if (other.isSetErr()) {
-				this.err = new com.suboat.contrib.rpc.base.Error(other.err);
-			}
-		}
-
-		public getUserNickname_result deepCopy() {
-			return new getUserNickname_result(this);
-		}
-
-		@Override
-		public void clear() {
-			this.success = null;
-			this.err = null;
-		}
-
-		@org.apache.thrift.annotation.Nullable
-		public java.lang.String getSuccess() {
-			return this.success;
-		}
-
-		public getUserNickname_result setSuccess(@org.apache.thrift.annotation.Nullable java.lang.String success) {
-			this.success = success;
-			return this;
-		}
-
-		public void unsetSuccess() {
-			this.success = null;
-		}
-
-		/**
-		 * Returns true if field success is set (has been assigned a value) and false
-		 * otherwise
-		 */
-		public boolean isSetSuccess() {
-			return this.success != null;
-		}
-
-		public void setSuccessIsSet(boolean value) {
-			if (!value) {
-				this.success = null;
-			}
-		}
-
-		@org.apache.thrift.annotation.Nullable
-		public com.suboat.contrib.rpc.base.Error getErr() {
-			return this.err;
-		}
-
-		public getUserNickname_result setErr(
-				@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err) {
-			this.err = err;
-			return this;
-		}
-
-		public void unsetErr() {
-			this.err = null;
-		}
-
-		/**
-		 * Returns true if field err is set (has been assigned a value) and false
-		 * otherwise
-		 */
-		public boolean isSetErr() {
-			return this.err != null;
-		}
-
-		public void setErrIsSet(boolean value) {
-			if (!value) {
-				this.err = null;
-			}
-		}
-
-		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
-			switch (field) {
-			case SUCCESS:
-				if (value == null) {
-					unsetSuccess();
-				}
-				else {
-					setSuccess((java.lang.String) value);
-				}
-				break;
-
-			case ERR:
-				if (value == null) {
-					unsetErr();
-				}
-				else {
-					setErr((com.suboat.contrib.rpc.base.Error) value);
-				}
-				break;
-
-			}
-		}
-
-		@org.apache.thrift.annotation.Nullable
-		public java.lang.Object getFieldValue(_Fields field) {
-			switch (field) {
-			case SUCCESS:
-				return getSuccess();
-
-			case ERR:
-				return getErr();
-
-			}
-			throw new java.lang.IllegalStateException();
-		}
-
-		/**
-		 * Returns true if field corresponding to fieldID is set (has been assigned a
-		 * value) and false otherwise
-		 */
-		public boolean isSet(_Fields field) {
-			if (field == null) {
-				throw new java.lang.IllegalArgumentException();
-			}
-
-			switch (field) {
-			case SUCCESS:
-				return isSetSuccess();
-			case ERR:
-				return isSetErr();
-			}
-			throw new java.lang.IllegalStateException();
-		}
-
-		@Override
-		public boolean equals(java.lang.Object that) {
-			if (that == null)
-				return false;
-			if (that instanceof getUserNickname_result)
-				return this.equals((getUserNickname_result) that);
-			return false;
-		}
-
-		public boolean equals(getUserNickname_result that) {
-			if (that == null)
-				return false;
-			if (this == that)
-				return true;
-
-			boolean this_present_success = true && this.isSetSuccess();
-			boolean that_present_success = true && that.isSetSuccess();
-			if (this_present_success || that_present_success) {
-				if (!(this_present_success && that_present_success))
-					return false;
-				if (!this.success.equals(that.success))
-					return false;
-			}
-
-			boolean this_present_err = true && this.isSetErr();
-			boolean that_present_err = true && that.isSetErr();
-			if (this_present_err || that_present_err) {
-				if (!(this_present_err && that_present_err))
-					return false;
-				if (!this.err.equals(that.err))
-					return false;
-			}
-
-			return true;
-		}
-
-		@Override
-		public int hashCode() {
-			int hashCode = 1;
-
-			hashCode = hashCode * 8191 + ((isSetSuccess()) ? 131071 : 524287);
-			if (isSetSuccess())
-				hashCode = hashCode * 8191 + success.hashCode();
-
-			hashCode = hashCode * 8191 + ((isSetErr()) ? 131071 : 524287);
-			if (isSetErr())
-				hashCode = hashCode * 8191 + err.hashCode();
-
-			return hashCode;
-		}
-
-		@Override
-		public int compareTo(getUserNickname_result other) {
-			if (!getClass().equals(other.getClass())) {
-				return getClass().getName().compareTo(other.getClass().getName());
-			}
-
-			int lastComparison = 0;
-
-			lastComparison = java.lang.Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
-			if (lastComparison != 0) {
-				return lastComparison;
-			}
-			if (isSetSuccess()) {
-				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
-				if (lastComparison != 0) {
-					return lastComparison;
-				}
-			}
-			lastComparison = java.lang.Boolean.valueOf(isSetErr()).compareTo(other.isSetErr());
-			if (lastComparison != 0) {
-				return lastComparison;
-			}
-			if (isSetErr()) {
-				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.err, other.err);
-				if (lastComparison != 0) {
-					return lastComparison;
-				}
-			}
-			return 0;
-		}
-
-		@org.apache.thrift.annotation.Nullable
-		public _Fields fieldForId(int fieldId) {
-			return _Fields.findByThriftId(fieldId);
-		}
-
-		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-			scheme(iprot).read(iprot, this);
-		}
-
-		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-			scheme(oprot).write(oprot, this);
-		}
-
-		@Override
-		public java.lang.String toString() {
-			java.lang.StringBuilder sb = new java.lang.StringBuilder("getUserNickname_result(");
-			boolean first = true;
-
-			sb.append("success:");
-			if (this.success == null) {
-				sb.append("null");
-			}
-			else {
-				sb.append(this.success);
-			}
-			first = false;
-			if (!first)
-				sb.append(", ");
-			sb.append("err:");
-			if (this.err == null) {
-				sb.append("null");
-			}
-			else {
-				sb.append(this.err);
-			}
-			first = false;
-			sb.append(")");
-			return sb.toString();
-		}
-
-		public void validate() throws org.apache.thrift.TException {
-			// check for required fields
-			// check for sub-struct validity
-		}
-
-		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
-			try {
-				write(new org.apache.thrift.protocol.TCompactProtocol(
-						new org.apache.thrift.transport.TIOStreamTransport(out)));
-			}
-			catch (org.apache.thrift.TException te) {
-				throw new java.io.IOException(te);
-			}
-		}
-
-		private void readObject(java.io.ObjectInputStream in)
-				throws java.io.IOException, java.lang.ClassNotFoundException {
-			try {
-				read(new org.apache.thrift.protocol.TCompactProtocol(
-						new org.apache.thrift.transport.TIOStreamTransport(in)));
-			}
-			catch (org.apache.thrift.TException te) {
-				throw new java.io.IOException(te);
-			}
-		}
-
-		private static class getUserNickname_resultStandardSchemeFactory
-				implements org.apache.thrift.scheme.SchemeFactory {
-
-			public getUserNickname_resultStandardScheme getScheme() {
-				return new getUserNickname_resultStandardScheme();
-			}
-
-		}
-
-		private static class getUserNickname_resultStandardScheme
-				extends org.apache.thrift.scheme.StandardScheme<getUserNickname_result> {
-
-			public void read(org.apache.thrift.protocol.TProtocol iprot, getUserNickname_result struct)
-					throws org.apache.thrift.TException {
-				org.apache.thrift.protocol.TField schemeField;
-				iprot.readStructBegin();
-				while (true) {
-					schemeField = iprot.readFieldBegin();
-					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
-						break;
-					}
-					switch (schemeField.id) {
-					case 0: // SUCCESS
-						if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-							struct.success = iprot.readString();
-							struct.setSuccessIsSet(true);
-						}
-						else {
-							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-						}
-						break;
-					case 1: // ERR
-						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-							struct.err = new com.suboat.contrib.rpc.base.Error();
-							struct.err.read(iprot);
-							struct.setErrIsSet(true);
-						}
-						else {
-							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-						}
-						break;
-					default:
-						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-					}
-					iprot.readFieldEnd();
-				}
-				iprot.readStructEnd();
-
-				// check for required fields of primitive type, which can't be checked in
-				// the validate method
-				struct.validate();
-			}
-
-			public void write(org.apache.thrift.protocol.TProtocol oprot, getUserNickname_result struct)
-					throws org.apache.thrift.TException {
-				struct.validate();
-
-				oprot.writeStructBegin(STRUCT_DESC);
-				if (struct.success != null) {
-					oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
-					oprot.writeString(struct.success);
-					oprot.writeFieldEnd();
-				}
-				if (struct.err != null) {
-					oprot.writeFieldBegin(ERR_FIELD_DESC);
-					struct.err.write(oprot);
-					oprot.writeFieldEnd();
-				}
-				oprot.writeFieldStop();
-				oprot.writeStructEnd();
-			}
-
-		}
-
-		private static class getUserNickname_resultTupleSchemeFactory
-				implements org.apache.thrift.scheme.SchemeFactory {
-
-			public getUserNickname_resultTupleScheme getScheme() {
-				return new getUserNickname_resultTupleScheme();
-			}
-
-		}
-
-		private static class getUserNickname_resultTupleScheme
-				extends org.apache.thrift.scheme.TupleScheme<getUserNickname_result> {
-
-			@Override
-			public void write(org.apache.thrift.protocol.TProtocol prot, getUserNickname_result struct)
-					throws org.apache.thrift.TException {
-				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-				java.util.BitSet optionals = new java.util.BitSet();
-				if (struct.isSetSuccess()) {
-					optionals.set(0);
-				}
-				if (struct.isSetErr()) {
-					optionals.set(1);
-				}
-				oprot.writeBitSet(optionals, 2);
-				if (struct.isSetSuccess()) {
-					oprot.writeString(struct.success);
-				}
-				if (struct.isSetErr()) {
-					struct.err.write(oprot);
-				}
-			}
-
-			@Override
-			public void read(org.apache.thrift.protocol.TProtocol prot, getUserNickname_result struct)
-					throws org.apache.thrift.TException {
-				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-				java.util.BitSet incoming = iprot.readBitSet(2);
-				if (incoming.get(0)) {
-					struct.success = iprot.readString();
-					struct.setSuccessIsSet(true);
-				}
-				if (incoming.get(1)) {
-					struct.err = new com.suboat.contrib.rpc.base.Error();
-					struct.err.read(iprot);
-					struct.setErrIsSet(true);
-				}
-			}
-
-		}
-
-		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
-				org.apache.thrift.protocol.TProtocol proto) {
-			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
-					: TUPLE_SCHEME_FACTORY).getScheme();
-		}
-
-	}
-
 	public static class getUserSessions_args
 			implements org.apache.thrift.TBase<getUserSessions_args, getUserSessions_args._Fields>,
 			java.io.Serializable, Cloneable, Comparable<getUserSessions_args> {
@@ -49570,14 +48431,14 @@ public class UserService {
 		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
 				"getUserSessions_args");
 
-		private static final org.apache.thrift.protocol.TField NAME_FIELD_DESC = new org.apache.thrift.protocol.TField(
-				"name", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+		private static final org.apache.thrift.protocol.TField UID_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"uid", org.apache.thrift.protocol.TType.STRING, (short) 1);
 
 		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getUserSessions_argsStandardSchemeFactory();
 
 		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getUserSessions_argsTupleSchemeFactory();
 
-		public @org.apache.thrift.annotation.Nullable ArgUser name; // required
+		public @org.apache.thrift.annotation.Nullable java.lang.String uid; // required
 
 		/**
 		 * The set of fields this struct contains, along with convenience methods for
@@ -49585,7 +48446,7 @@ public class UserService {
 		 */
 		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
-			NAME((short) 1, "name");
+			UID((short) 1, "uid");
 
 			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -49601,8 +48462,8 @@ public class UserService {
 			@org.apache.thrift.annotation.Nullable
 			public static _Fields findByThriftId(int fieldId) {
 				switch (fieldId) {
-				case 1: // NAME
-					return NAME;
+				case 1: // UID
+					return UID;
 				default:
 					return null;
 				}
@@ -49651,11 +48512,9 @@ public class UserService {
 		static {
 			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
 					_Fields.class);
-			tmpMap.put(_Fields.NAME,
-					new org.apache.thrift.meta_data.FieldMetaData("name",
-							org.apache.thrift.TFieldRequirementType.DEFAULT,
-							new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
-									"ArgUser")));
+			tmpMap.put(_Fields.UID, new org.apache.thrift.meta_data.FieldMetaData("uid",
+					org.apache.thrift.TFieldRequirementType.DEFAULT,
+					new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getUserSessions_args.class, metaDataMap);
 		}
@@ -49663,17 +48522,17 @@ public class UserService {
 		public getUserSessions_args() {
 		}
 
-		public getUserSessions_args(ArgUser name) {
+		public getUserSessions_args(java.lang.String uid) {
 			this();
-			this.name = name;
+			this.uid = uid;
 		}
 
 		/**
 		 * Performs a deep copy on <i>other</i>.
 		 */
 		public getUserSessions_args(getUserSessions_args other) {
-			if (other.isSetName()) {
-				this.name = new ArgUser(other.name);
+			if (other.isSetUid()) {
+				this.uid = other.uid;
 			}
 		}
 
@@ -49683,45 +48542,45 @@ public class UserService {
 
 		@Override
 		public void clear() {
-			this.name = null;
+			this.uid = null;
 		}
 
 		@org.apache.thrift.annotation.Nullable
-		public ArgUser getName() {
-			return this.name;
+		public java.lang.String getUid() {
+			return this.uid;
 		}
 
-		public getUserSessions_args setName(@org.apache.thrift.annotation.Nullable ArgUser name) {
-			this.name = name;
+		public getUserSessions_args setUid(@org.apache.thrift.annotation.Nullable java.lang.String uid) {
+			this.uid = uid;
 			return this;
 		}
 
-		public void unsetName() {
-			this.name = null;
+		public void unsetUid() {
+			this.uid = null;
 		}
 
 		/**
-		 * Returns true if field name is set (has been assigned a value) and false
+		 * Returns true if field uid is set (has been assigned a value) and false
 		 * otherwise
 		 */
-		public boolean isSetName() {
-			return this.name != null;
+		public boolean isSetUid() {
+			return this.uid != null;
 		}
 
-		public void setNameIsSet(boolean value) {
+		public void setUidIsSet(boolean value) {
 			if (!value) {
-				this.name = null;
+				this.uid = null;
 			}
 		}
 
 		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 			switch (field) {
-			case NAME:
+			case UID:
 				if (value == null) {
-					unsetName();
+					unsetUid();
 				}
 				else {
-					setName((ArgUser) value);
+					setUid((java.lang.String) value);
 				}
 				break;
 
@@ -49731,8 +48590,8 @@ public class UserService {
 		@org.apache.thrift.annotation.Nullable
 		public java.lang.Object getFieldValue(_Fields field) {
 			switch (field) {
-			case NAME:
-				return getName();
+			case UID:
+				return getUid();
 
 			}
 			throw new java.lang.IllegalStateException();
@@ -49748,8 +48607,8 @@ public class UserService {
 			}
 
 			switch (field) {
-			case NAME:
-				return isSetName();
+			case UID:
+				return isSetUid();
 			}
 			throw new java.lang.IllegalStateException();
 		}
@@ -49769,12 +48628,12 @@ public class UserService {
 			if (this == that)
 				return true;
 
-			boolean this_present_name = true && this.isSetName();
-			boolean that_present_name = true && that.isSetName();
-			if (this_present_name || that_present_name) {
-				if (!(this_present_name && that_present_name))
+			boolean this_present_uid = true && this.isSetUid();
+			boolean that_present_uid = true && that.isSetUid();
+			if (this_present_uid || that_present_uid) {
+				if (!(this_present_uid && that_present_uid))
 					return false;
-				if (!this.name.equals(that.name))
+				if (!this.uid.equals(that.uid))
 					return false;
 			}
 
@@ -49785,9 +48644,9 @@ public class UserService {
 		public int hashCode() {
 			int hashCode = 1;
 
-			hashCode = hashCode * 8191 + ((isSetName()) ? 131071 : 524287);
-			if (isSetName())
-				hashCode = hashCode * 8191 + name.hashCode();
+			hashCode = hashCode * 8191 + ((isSetUid()) ? 131071 : 524287);
+			if (isSetUid())
+				hashCode = hashCode * 8191 + uid.hashCode();
 
 			return hashCode;
 		}
@@ -49800,12 +48659,12 @@ public class UserService {
 
 			int lastComparison = 0;
 
-			lastComparison = java.lang.Boolean.valueOf(isSetName()).compareTo(other.isSetName());
+			lastComparison = java.lang.Boolean.valueOf(isSetUid()).compareTo(other.isSetUid());
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
-			if (isSetName()) {
-				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.name, other.name);
+			if (isSetUid()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.uid, other.uid);
 				if (lastComparison != 0) {
 					return lastComparison;
 				}
@@ -49831,12 +48690,12 @@ public class UserService {
 			java.lang.StringBuilder sb = new java.lang.StringBuilder("getUserSessions_args(");
 			boolean first = true;
 
-			sb.append("name:");
-			if (this.name == null) {
+			sb.append("uid:");
+			if (this.uid == null) {
 				sb.append("null");
 			}
 			else {
-				sb.append(this.name);
+				sb.append(this.uid);
 			}
 			first = false;
 			sb.append(")");
@@ -49891,11 +48750,10 @@ public class UserService {
 						break;
 					}
 					switch (schemeField.id) {
-					case 1: // NAME
-						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-							struct.name = new ArgUser();
-							struct.name.read(iprot);
-							struct.setNameIsSet(true);
+					case 1: // UID
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+							struct.uid = iprot.readString();
+							struct.setUidIsSet(true);
 						}
 						else {
 							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -49918,9 +48776,9 @@ public class UserService {
 				struct.validate();
 
 				oprot.writeStructBegin(STRUCT_DESC);
-				if (struct.name != null) {
-					oprot.writeFieldBegin(NAME_FIELD_DESC);
-					struct.name.write(oprot);
+				if (struct.uid != null) {
+					oprot.writeFieldBegin(UID_FIELD_DESC);
+					oprot.writeString(struct.uid);
 					oprot.writeFieldEnd();
 				}
 				oprot.writeFieldStop();
@@ -49945,12 +48803,12 @@ public class UserService {
 					throws org.apache.thrift.TException {
 				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 				java.util.BitSet optionals = new java.util.BitSet();
-				if (struct.isSetName()) {
+				if (struct.isSetUid()) {
 					optionals.set(0);
 				}
 				oprot.writeBitSet(optionals, 1);
-				if (struct.isSetName()) {
-					struct.name.write(oprot);
+				if (struct.isSetUid()) {
+					oprot.writeString(struct.uid);
 				}
 			}
 
@@ -49960,9 +48818,8 @@ public class UserService {
 				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 				java.util.BitSet incoming = iprot.readBitSet(1);
 				if (incoming.get(0)) {
-					struct.name = new ArgUser();
-					struct.name.read(iprot);
-					struct.setNameIsSet(true);
+					struct.uid = iprot.readString();
+					struct.setUidIsSet(true);
 				}
 			}
 
@@ -50570,14 +49427,14 @@ public class UserService {
 		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
 				"getUserBankCards_args");
 
-		private static final org.apache.thrift.protocol.TField NAME_FIELD_DESC = new org.apache.thrift.protocol.TField(
-				"name", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+		private static final org.apache.thrift.protocol.TField UID_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"uid", org.apache.thrift.protocol.TType.STRING, (short) 1);
 
 		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getUserBankCards_argsStandardSchemeFactory();
 
 		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getUserBankCards_argsTupleSchemeFactory();
 
-		public @org.apache.thrift.annotation.Nullable ArgUser name; // required
+		public @org.apache.thrift.annotation.Nullable java.lang.String uid; // required
 
 		/**
 		 * The set of fields this struct contains, along with convenience methods for
@@ -50585,7 +49442,7 @@ public class UserService {
 		 */
 		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
-			NAME((short) 1, "name");
+			UID((short) 1, "uid");
 
 			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -50601,8 +49458,8 @@ public class UserService {
 			@org.apache.thrift.annotation.Nullable
 			public static _Fields findByThriftId(int fieldId) {
 				switch (fieldId) {
-				case 1: // NAME
-					return NAME;
+				case 1: // UID
+					return UID;
 				default:
 					return null;
 				}
@@ -50651,11 +49508,9 @@ public class UserService {
 		static {
 			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
 					_Fields.class);
-			tmpMap.put(_Fields.NAME,
-					new org.apache.thrift.meta_data.FieldMetaData("name",
-							org.apache.thrift.TFieldRequirementType.DEFAULT,
-							new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
-									"ArgUser")));
+			tmpMap.put(_Fields.UID, new org.apache.thrift.meta_data.FieldMetaData("uid",
+					org.apache.thrift.TFieldRequirementType.DEFAULT,
+					new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getUserBankCards_args.class, metaDataMap);
 		}
@@ -50663,17 +49518,17 @@ public class UserService {
 		public getUserBankCards_args() {
 		}
 
-		public getUserBankCards_args(ArgUser name) {
+		public getUserBankCards_args(java.lang.String uid) {
 			this();
-			this.name = name;
+			this.uid = uid;
 		}
 
 		/**
 		 * Performs a deep copy on <i>other</i>.
 		 */
 		public getUserBankCards_args(getUserBankCards_args other) {
-			if (other.isSetName()) {
-				this.name = new ArgUser(other.name);
+			if (other.isSetUid()) {
+				this.uid = other.uid;
 			}
 		}
 
@@ -50683,45 +49538,45 @@ public class UserService {
 
 		@Override
 		public void clear() {
-			this.name = null;
+			this.uid = null;
 		}
 
 		@org.apache.thrift.annotation.Nullable
-		public ArgUser getName() {
-			return this.name;
+		public java.lang.String getUid() {
+			return this.uid;
 		}
 
-		public getUserBankCards_args setName(@org.apache.thrift.annotation.Nullable ArgUser name) {
-			this.name = name;
+		public getUserBankCards_args setUid(@org.apache.thrift.annotation.Nullable java.lang.String uid) {
+			this.uid = uid;
 			return this;
 		}
 
-		public void unsetName() {
-			this.name = null;
+		public void unsetUid() {
+			this.uid = null;
 		}
 
 		/**
-		 * Returns true if field name is set (has been assigned a value) and false
+		 * Returns true if field uid is set (has been assigned a value) and false
 		 * otherwise
 		 */
-		public boolean isSetName() {
-			return this.name != null;
+		public boolean isSetUid() {
+			return this.uid != null;
 		}
 
-		public void setNameIsSet(boolean value) {
+		public void setUidIsSet(boolean value) {
 			if (!value) {
-				this.name = null;
+				this.uid = null;
 			}
 		}
 
 		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 			switch (field) {
-			case NAME:
+			case UID:
 				if (value == null) {
-					unsetName();
+					unsetUid();
 				}
 				else {
-					setName((ArgUser) value);
+					setUid((java.lang.String) value);
 				}
 				break;
 
@@ -50731,8 +49586,8 @@ public class UserService {
 		@org.apache.thrift.annotation.Nullable
 		public java.lang.Object getFieldValue(_Fields field) {
 			switch (field) {
-			case NAME:
-				return getName();
+			case UID:
+				return getUid();
 
 			}
 			throw new java.lang.IllegalStateException();
@@ -50748,8 +49603,8 @@ public class UserService {
 			}
 
 			switch (field) {
-			case NAME:
-				return isSetName();
+			case UID:
+				return isSetUid();
 			}
 			throw new java.lang.IllegalStateException();
 		}
@@ -50769,12 +49624,12 @@ public class UserService {
 			if (this == that)
 				return true;
 
-			boolean this_present_name = true && this.isSetName();
-			boolean that_present_name = true && that.isSetName();
-			if (this_present_name || that_present_name) {
-				if (!(this_present_name && that_present_name))
+			boolean this_present_uid = true && this.isSetUid();
+			boolean that_present_uid = true && that.isSetUid();
+			if (this_present_uid || that_present_uid) {
+				if (!(this_present_uid && that_present_uid))
 					return false;
-				if (!this.name.equals(that.name))
+				if (!this.uid.equals(that.uid))
 					return false;
 			}
 
@@ -50785,9 +49640,9 @@ public class UserService {
 		public int hashCode() {
 			int hashCode = 1;
 
-			hashCode = hashCode * 8191 + ((isSetName()) ? 131071 : 524287);
-			if (isSetName())
-				hashCode = hashCode * 8191 + name.hashCode();
+			hashCode = hashCode * 8191 + ((isSetUid()) ? 131071 : 524287);
+			if (isSetUid())
+				hashCode = hashCode * 8191 + uid.hashCode();
 
 			return hashCode;
 		}
@@ -50800,12 +49655,12 @@ public class UserService {
 
 			int lastComparison = 0;
 
-			lastComparison = java.lang.Boolean.valueOf(isSetName()).compareTo(other.isSetName());
+			lastComparison = java.lang.Boolean.valueOf(isSetUid()).compareTo(other.isSetUid());
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
-			if (isSetName()) {
-				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.name, other.name);
+			if (isSetUid()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.uid, other.uid);
 				if (lastComparison != 0) {
 					return lastComparison;
 				}
@@ -50831,12 +49686,12 @@ public class UserService {
 			java.lang.StringBuilder sb = new java.lang.StringBuilder("getUserBankCards_args(");
 			boolean first = true;
 
-			sb.append("name:");
-			if (this.name == null) {
+			sb.append("uid:");
+			if (this.uid == null) {
 				sb.append("null");
 			}
 			else {
-				sb.append(this.name);
+				sb.append(this.uid);
 			}
 			first = false;
 			sb.append(")");
@@ -50891,11 +49746,10 @@ public class UserService {
 						break;
 					}
 					switch (schemeField.id) {
-					case 1: // NAME
-						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-							struct.name = new ArgUser();
-							struct.name.read(iprot);
-							struct.setNameIsSet(true);
+					case 1: // UID
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+							struct.uid = iprot.readString();
+							struct.setUidIsSet(true);
 						}
 						else {
 							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -50918,9 +49772,9 @@ public class UserService {
 				struct.validate();
 
 				oprot.writeStructBegin(STRUCT_DESC);
-				if (struct.name != null) {
-					oprot.writeFieldBegin(NAME_FIELD_DESC);
-					struct.name.write(oprot);
+				if (struct.uid != null) {
+					oprot.writeFieldBegin(UID_FIELD_DESC);
+					oprot.writeString(struct.uid);
 					oprot.writeFieldEnd();
 				}
 				oprot.writeFieldStop();
@@ -50945,12 +49799,12 @@ public class UserService {
 					throws org.apache.thrift.TException {
 				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 				java.util.BitSet optionals = new java.util.BitSet();
-				if (struct.isSetName()) {
+				if (struct.isSetUid()) {
 					optionals.set(0);
 				}
 				oprot.writeBitSet(optionals, 1);
-				if (struct.isSetName()) {
-					struct.name.write(oprot);
+				if (struct.isSetUid()) {
+					oprot.writeString(struct.uid);
 				}
 			}
 
@@ -50960,9 +49814,8 @@ public class UserService {
 				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 				java.util.BitSet incoming = iprot.readBitSet(1);
 				if (incoming.get(0)) {
-					struct.name = new ArgUser();
-					struct.name.read(iprot);
-					struct.setNameIsSet(true);
+					struct.uid = iprot.readString();
+					struct.setUidIsSet(true);
 				}
 			}
 
