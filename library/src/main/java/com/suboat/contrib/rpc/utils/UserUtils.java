@@ -5,7 +5,8 @@ import com.suboat.contrib.rpc.user.ArgUser;
 
 public class UserUtils {
 
-	public FormUserID argUser2From(ArgUser argUser) {
+	// 标准格式转换
+	public static FormUserID argUser2From(ArgUser argUser) {
 		FormUserID form = new FormUserID();
 		form.uid = argUser.uid;
 		form.username = argUser.username;
