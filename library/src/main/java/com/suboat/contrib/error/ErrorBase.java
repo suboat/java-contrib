@@ -1,7 +1,10 @@
 package com.suboat.contrib.error;
 
+import lombok.Data;
+
 import java.text.MessageFormat;
 
+@Data
 public class ErrorBase extends RuntimeException {
 
 	protected Integer code = 0;
@@ -13,6 +16,13 @@ public class ErrorBase extends RuntimeException {
 	protected Object[] arguments;
 
 	private String message;
+
+	public ErrorBase(String prefix, int code, String detail) {
+		super(String.format("%s%d|%s", prefix, code, detail));
+		this.prefix = prefix;
+		this.code = code;
+		this.detail = detail;
+	}
 
 	public ErrorBase(Object... args) {
 		super("baseError");

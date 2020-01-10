@@ -14,24 +14,24 @@ public class Error extends org.apache.thrift.TException
 	private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
 			"Error");
 
+	private static final org.apache.thrift.protocol.TField PREFIX_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"prefix", org.apache.thrift.protocol.TType.STRING, (short) 1);
+
 	private static final org.apache.thrift.protocol.TField CODE_FIELD_DESC = new org.apache.thrift.protocol.TField(
-			"code", org.apache.thrift.protocol.TType.I32, (short) 1);
+			"code", org.apache.thrift.protocol.TType.I32, (short) 2);
 
 	private static final org.apache.thrift.protocol.TField DETAIL_FIELD_DESC = new org.apache.thrift.protocol.TField(
-			"detail", org.apache.thrift.protocol.TType.STRING, (short) 2);
-
-	private static final org.apache.thrift.protocol.TField PREFIX_FIELD_DESC = new org.apache.thrift.protocol.TField(
-			"prefix", org.apache.thrift.protocol.TType.STRING, (short) 3);
+			"detail", org.apache.thrift.protocol.TType.STRING, (short) 3);
 
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ErrorStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ErrorTupleSchemeFactory();
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String prefix; // required
+
 	public int code; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String detail; // required
-
-	public @org.apache.thrift.annotation.Nullable java.lang.String prefix; // required
 
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
@@ -39,7 +39,7 @@ public class Error extends org.apache.thrift.TException
 	 */
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
-		CODE((short) 1, "code"), DETAIL((short) 2, "detail"), PREFIX((short) 3, "prefix");
+		PREFIX((short) 1, "prefix"), CODE((short) 2, "code"), DETAIL((short) 3, "detail");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -55,12 +55,12 @@ public class Error extends org.apache.thrift.TException
 		@org.apache.thrift.annotation.Nullable
 		public static _Fields findByThriftId(int fieldId) {
 			switch (fieldId) {
-			case 1: // CODE
-				return CODE;
-			case 2: // DETAIL
-				return DETAIL;
-			case 3: // PREFIX
+			case 1: // PREFIX
 				return PREFIX;
+			case 2: // CODE
+				return CODE;
+			case 3: // DETAIL
+				return DETAIL;
 			default:
 				return null;
 			}
@@ -113,14 +113,14 @@ public class Error extends org.apache.thrift.TException
 	static {
 		java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
 				_Fields.class);
+		tmpMap.put(_Fields.PREFIX,
+				new org.apache.thrift.meta_data.FieldMetaData("prefix", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.CODE,
 				new org.apache.thrift.meta_data.FieldMetaData("code", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
 		tmpMap.put(_Fields.DETAIL,
 				new org.apache.thrift.meta_data.FieldMetaData("detail", org.apache.thrift.TFieldRequirementType.DEFAULT,
-						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-		tmpMap.put(_Fields.PREFIX,
-				new org.apache.thrift.meta_data.FieldMetaData("prefix", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(Error.class, metaDataMap);
@@ -129,12 +129,17 @@ public class Error extends org.apache.thrift.TException
 	public Error() {
 	}
 
-	public Error(int code, java.lang.String detail, java.lang.String prefix) {
-		super(String.format("%d%s|%s", code, prefix, detail));
+	public Error(java.lang.String prefix, int code, java.lang.String detail) {
+		super(String.format("%s%d|%s", prefix, code, detail));
+		this.prefix = prefix;
 		this.code = code;
 		setCodeIsSet(true);
 		this.detail = detail;
-		this.prefix = prefix;
+	}
+
+	@Override
+	public Throwable fillInStackTrace() {
+		return this;
 	}
 
 	/**
@@ -142,12 +147,12 @@ public class Error extends org.apache.thrift.TException
 	 */
 	public Error(Error other) {
 		__isset_bitfield = other.__isset_bitfield;
+		if (other.isSetPrefix()) {
+			this.prefix = other.prefix;
+		}
 		this.code = other.code;
 		if (other.isSetDetail()) {
 			this.detail = other.detail;
-		}
-		if (other.isSetPrefix()) {
-			this.prefix = other.prefix;
 		}
 	}
 
@@ -157,10 +162,37 @@ public class Error extends org.apache.thrift.TException
 
 	@Override
 	public void clear() {
+		this.prefix = null;
 		setCodeIsSet(false);
 		this.code = 0;
 		this.detail = null;
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getPrefix() {
+		return this.prefix;
+	}
+
+	public Error setPrefix(@org.apache.thrift.annotation.Nullable java.lang.String prefix) {
+		this.prefix = prefix;
+		return this;
+	}
+
+	public void unsetPrefix() {
 		this.prefix = null;
+	}
+
+	/**
+	 * Returns true if field prefix is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetPrefix() {
+		return this.prefix != null;
+	}
+
+	public void setPrefixIsSet(boolean value) {
+		if (!value) {
+			this.prefix = null;
+		}
 	}
 
 	public int getCode() {
@@ -215,35 +247,17 @@ public class Error extends org.apache.thrift.TException
 		}
 	}
 
-	@org.apache.thrift.annotation.Nullable
-	public java.lang.String getPrefix() {
-		return this.prefix;
-	}
-
-	public Error setPrefix(@org.apache.thrift.annotation.Nullable java.lang.String prefix) {
-		this.prefix = prefix;
-		return this;
-	}
-
-	public void unsetPrefix() {
-		this.prefix = null;
-	}
-
-	/**
-	 * Returns true if field prefix is set (has been assigned a value) and false otherwise
-	 */
-	public boolean isSetPrefix() {
-		return this.prefix != null;
-	}
-
-	public void setPrefixIsSet(boolean value) {
-		if (!value) {
-			this.prefix = null;
-		}
-	}
-
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
+		case PREFIX:
+			if (value == null) {
+				unsetPrefix();
+			}
+			else {
+				setPrefix((java.lang.String) value);
+			}
+			break;
+
 		case CODE:
 			if (value == null) {
 				unsetCode();
@@ -262,29 +276,20 @@ public class Error extends org.apache.thrift.TException
 			}
 			break;
 
-		case PREFIX:
-			if (value == null) {
-				unsetPrefix();
-			}
-			else {
-				setPrefix((java.lang.String) value);
-			}
-			break;
-
 		}
 	}
 
 	@org.apache.thrift.annotation.Nullable
 	public java.lang.Object getFieldValue(_Fields field) {
 		switch (field) {
+		case PREFIX:
+			return getPrefix();
+
 		case CODE:
 			return getCode();
 
 		case DETAIL:
 			return getDetail();
-
-		case PREFIX:
-			return getPrefix();
 
 		}
 		throw new java.lang.IllegalStateException();
@@ -300,12 +305,12 @@ public class Error extends org.apache.thrift.TException
 		}
 
 		switch (field) {
+		case PREFIX:
+			return isSetPrefix();
 		case CODE:
 			return isSetCode();
 		case DETAIL:
 			return isSetDetail();
-		case PREFIX:
-			return isSetPrefix();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -325,6 +330,15 @@ public class Error extends org.apache.thrift.TException
 		if (this == that)
 			return true;
 
+		boolean this_present_prefix = true && this.isSetPrefix();
+		boolean that_present_prefix = true && that.isSetPrefix();
+		if (this_present_prefix || that_present_prefix) {
+			if (!(this_present_prefix && that_present_prefix))
+				return false;
+			if (!this.prefix.equals(that.prefix))
+				return false;
+		}
+
 		boolean this_present_code = true;
 		boolean that_present_code = true;
 		if (this_present_code || that_present_code) {
@@ -343,15 +357,6 @@ public class Error extends org.apache.thrift.TException
 				return false;
 		}
 
-		boolean this_present_prefix = true && this.isSetPrefix();
-		boolean that_present_prefix = true && that.isSetPrefix();
-		if (this_present_prefix || that_present_prefix) {
-			if (!(this_present_prefix && that_present_prefix))
-				return false;
-			if (!this.prefix.equals(that.prefix))
-				return false;
-		}
-
 		return true;
 	}
 
@@ -359,15 +364,15 @@ public class Error extends org.apache.thrift.TException
 	public int hashCode() {
 		int hashCode = 1;
 
+		hashCode = hashCode * 8191 + ((isSetPrefix()) ? 131071 : 524287);
+		if (isSetPrefix())
+			hashCode = hashCode * 8191 + prefix.hashCode();
+
 		hashCode = hashCode * 8191 + code;
 
 		hashCode = hashCode * 8191 + ((isSetDetail()) ? 131071 : 524287);
 		if (isSetDetail())
 			hashCode = hashCode * 8191 + detail.hashCode();
-
-		hashCode = hashCode * 8191 + ((isSetPrefix()) ? 131071 : 524287);
-		if (isSetPrefix())
-			hashCode = hashCode * 8191 + prefix.hashCode();
 
 		return hashCode;
 	}
@@ -380,6 +385,16 @@ public class Error extends org.apache.thrift.TException
 
 		int lastComparison = 0;
 
+		lastComparison = java.lang.Boolean.valueOf(isSetPrefix()).compareTo(other.isSetPrefix());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetPrefix()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.prefix, other.prefix);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetCode()).compareTo(other.isSetCode());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -396,16 +411,6 @@ public class Error extends org.apache.thrift.TException
 		}
 		if (isSetDetail()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.detail, other.detail);
-			if (lastComparison != 0) {
-				return lastComparison;
-			}
-		}
-		lastComparison = java.lang.Boolean.valueOf(isSetPrefix()).compareTo(other.isSetPrefix());
-		if (lastComparison != 0) {
-			return lastComparison;
-		}
-		if (isSetPrefix()) {
-			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.prefix, other.prefix);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -431,6 +436,16 @@ public class Error extends org.apache.thrift.TException
 		java.lang.StringBuilder sb = new java.lang.StringBuilder("Error(");
 		boolean first = true;
 
+		sb.append("prefix:");
+		if (this.prefix == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.prefix);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("code:");
 		sb.append(this.code);
 		first = false;
@@ -442,16 +457,6 @@ public class Error extends org.apache.thrift.TException
 		}
 		else {
 			sb.append(this.detail);
-		}
-		first = false;
-		if (!first)
-			sb.append(", ");
-		sb.append("prefix:");
-		if (this.prefix == null) {
-			sb.append("null");
-		}
-		else {
-			sb.append(this.prefix);
 		}
 		first = false;
 		sb.append(")");
@@ -505,7 +510,16 @@ public class Error extends org.apache.thrift.TException
 					break;
 				}
 				switch (schemeField.id) {
-				case 1: // CODE
+				case 1: // PREFIX
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.prefix = iprot.readString();
+						struct.setPrefixIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 2: // CODE
 					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
 						struct.code = iprot.readI32();
 						struct.setCodeIsSet(true);
@@ -514,19 +528,10 @@ public class Error extends org.apache.thrift.TException
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
-				case 2: // DETAIL
+				case 3: // DETAIL
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.detail = iprot.readString();
 						struct.setDetailIsSet(true);
-					}
-					else {
-						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-					}
-					break;
-				case 3: // PREFIX
-					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-						struct.prefix = iprot.readString();
-						struct.setPrefixIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -549,17 +554,17 @@ public class Error extends org.apache.thrift.TException
 			struct.validate();
 
 			oprot.writeStructBegin(STRUCT_DESC);
+			if (struct.prefix != null) {
+				oprot.writeFieldBegin(PREFIX_FIELD_DESC);
+				oprot.writeString(struct.prefix);
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldBegin(CODE_FIELD_DESC);
 			oprot.writeI32(struct.code);
 			oprot.writeFieldEnd();
 			if (struct.detail != null) {
 				oprot.writeFieldBegin(DETAIL_FIELD_DESC);
 				oprot.writeString(struct.detail);
-				oprot.writeFieldEnd();
-			}
-			if (struct.prefix != null) {
-				oprot.writeFieldBegin(PREFIX_FIELD_DESC);
-				oprot.writeString(struct.prefix);
 				oprot.writeFieldEnd();
 			}
 			oprot.writeFieldStop();
@@ -582,24 +587,24 @@ public class Error extends org.apache.thrift.TException
 		public void write(org.apache.thrift.protocol.TProtocol prot, Error struct) throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 			java.util.BitSet optionals = new java.util.BitSet();
-			if (struct.isSetCode()) {
+			if (struct.isSetPrefix()) {
 				optionals.set(0);
 			}
-			if (struct.isSetDetail()) {
+			if (struct.isSetCode()) {
 				optionals.set(1);
 			}
-			if (struct.isSetPrefix()) {
+			if (struct.isSetDetail()) {
 				optionals.set(2);
 			}
 			oprot.writeBitSet(optionals, 3);
+			if (struct.isSetPrefix()) {
+				oprot.writeString(struct.prefix);
+			}
 			if (struct.isSetCode()) {
 				oprot.writeI32(struct.code);
 			}
 			if (struct.isSetDetail()) {
 				oprot.writeString(struct.detail);
-			}
-			if (struct.isSetPrefix()) {
-				oprot.writeString(struct.prefix);
 			}
 		}
 
@@ -608,16 +613,16 @@ public class Error extends org.apache.thrift.TException
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 			java.util.BitSet incoming = iprot.readBitSet(3);
 			if (incoming.get(0)) {
+				struct.prefix = iprot.readString();
+				struct.setPrefixIsSet(true);
+			}
+			if (incoming.get(1)) {
 				struct.code = iprot.readI32();
 				struct.setCodeIsSet(true);
 			}
-			if (incoming.get(1)) {
+			if (incoming.get(2)) {
 				struct.detail = iprot.readString();
 				struct.setDetailIsSet(true);
-			}
-			if (incoming.get(2)) {
-				struct.prefix = iprot.readString();
-				struct.setPrefixIsSet(true);
 			}
 		}
 
