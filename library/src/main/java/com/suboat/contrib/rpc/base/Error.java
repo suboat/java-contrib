@@ -130,7 +130,7 @@ public class Error extends org.apache.thrift.TException
 	}
 
 	public Error(int code, java.lang.String detail, java.lang.String prefix) {
-		this();
+		super(String.format("%d%s|%s", code, prefix, detail));
 		this.code = code;
 		setCodeIsSet(true);
 		this.detail = detail;

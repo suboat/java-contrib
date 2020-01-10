@@ -1,5 +1,6 @@
 package com.suboat.contrib.ctrl;
 
+import com.suboat.contrib.rpc.base.Error;
 import com.suboat.contrib.error.ErrorBase;
 import graphql.ErrorType;
 import graphql.ExceptionWhileDataFetching;
@@ -20,7 +21,12 @@ public class ErrorSerialize implements GraphQLError {
 		this.error = error;
 		if (error instanceof ExceptionWhileDataFetching) {
 			Throwable throwable = ((ExceptionWhileDataFetching) error).getException();
-			if (throwable instanceof ErrorBase) {
+			if (throwable instanceof Error) {
+				// 是RPC错误
+				Error errorRpc = (Error) throwable;
+				this.message = errorRpc.getMessage();
+			}
+			else if (throwable instanceof ErrorBase) {
 				// 是标准错误
 				ErrorBase errorBase = (ErrorBase) throwable;
 				this.message = errorBase.getMessage();
