@@ -13,7 +13,7 @@ import org.apache.thrift.transport.TTransportException;
 public class UserServe {
 
 	// 默认公共参数
-	public RpcConnConfig Config;
+	public static RpcConnConfig Config;
 
 	private TTransport transport;
 
@@ -33,10 +33,9 @@ public class UserServe {
 
 	//
 	public UserServe(String addr) {
-		RpcConnConfig rpcConnConfig = new RpcConnConfig();
+		config = new RpcConnConfig();
 		config.host = addr;
 		config.timeout = 30000;
-		config = rpcConnConfig;
 		syncConfig();
 	}
 
@@ -60,6 +59,7 @@ public class UserServe {
 			return client;
 		}
 		try {
+			System.out.println(String.format("%s:%d", config.host, config.port));
 			transport = new TSocket(config.host, config.port, config.timeout);
 			// 协议要和服务端一致
 			TProtocol protocol = new TBinaryProtocol(transport);

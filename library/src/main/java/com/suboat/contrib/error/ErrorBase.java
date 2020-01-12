@@ -7,7 +7,7 @@ import java.text.MessageFormat;
 @Data
 public class ErrorBase extends RuntimeException {
 
-	protected Integer code = 0;
+	protected int code = 0;
 
 	protected String prefix = "base";
 
