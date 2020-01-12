@@ -79,6 +79,7 @@ public class UserServe {
 		}
 		transport.close();
 		transport = null;
+		client = null;
 	}
 
 }
