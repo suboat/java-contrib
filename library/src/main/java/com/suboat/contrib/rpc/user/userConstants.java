@@ -26,7 +26,14 @@ public class userConstants {
 	public static final java.lang.String TOKEN_SCOPE_WEIXIN = "weixin";
 
 	/**
-	 * 用户拓展表公共中的重要字段(key)
+	 * 用户拓展表的预留字段(key)
+	 */
+	public static final java.lang.String USEREXT_WX_OPENID = "wx_openid";
+
+	public static final java.lang.String USEREXT_WX_UNIONID = "wx_unionid";
+
+	/**
+	 * 用户公共拓展表的预留字段(key)
 	 */
 	public static final java.lang.String USEREXT_PUBKEY_REALNAME = "realname";
 
