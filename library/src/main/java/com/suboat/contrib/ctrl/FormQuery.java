@@ -206,12 +206,15 @@ public class FormQuery<T> {
 			case "createtime":
 			case "updatetime":
 			case "logintime":
+			case "releasetime":
+			case "begindate":
+			case "enddate":
 				if (!val.toString().startsWith("{")) {
 					try {
 						val = DateUtils.stringToDate(val.toString());
 					}
 					catch (ParseException e) {
-						throw new Rest.ParamInvalid("时间格式错误 请用yyyy-MM-dd'T'HH:mm:ss格式");
+						throw new Rest.ParamInvalid("时间格式错误 请用yyyy-MM-dd'T'HH:mm:ss.000Z(toISOString)格式");
 					}
 				}
 				break;
