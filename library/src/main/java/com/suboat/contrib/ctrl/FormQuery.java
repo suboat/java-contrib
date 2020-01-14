@@ -48,7 +48,7 @@ public class FormQuery<T> {
 	public String keyJson;
 
 	// 覆盖搜索
-	public Map<String, Object> m;
+	public HashMap<String, Object> m;
 
 	// 默认排序
 	public String[] s;
@@ -68,7 +68,7 @@ public class FormQuery<T> {
 	}
 
 	// 初始化
-	private void init() {
+	public void init() {
 		if (this.limit == null || this.limit <= 0) {
 			this.limit = 10;
 		}
