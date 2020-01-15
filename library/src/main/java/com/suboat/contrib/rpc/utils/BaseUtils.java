@@ -1,11 +1,14 @@
 package com.suboat.contrib.rpc.utils;
 
 import com.suboat.contrib.ctrl.FormQuery;
+import com.suboat.contrib.ctrl.Meta;
 import com.suboat.contrib.error.ErrorBase;
 import com.suboat.contrib.rpc.base.ArgQuery;
 import com.suboat.contrib.rpc.base.Error;
+import com.suboat.contrib.rpc.base.QueryMeta;
 import com.suboat.contrib.utils.JsonUtils;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +34,7 @@ public class BaseUtils {
 		return ret;
 	}
 
-	//
+	// query转换
 	public static FormQuery rpc2query(ArgQuery query) {
 		FormQuery ret = new FormQuery();
 		if (query == null) {
@@ -43,6 +46,22 @@ public class BaseUtils {
 		ret.sort = query.sort.toArray(new String[0]);
 		ret.keyJson = query.keyJson;
 		ret.init();
+		return ret;
+	}
+
+	// meta转换
+	public static QueryMeta meta2rpc(Meta meta) {
+		QueryMeta ret = new QueryMeta();
+		if (meta == null) {
+			return ret;
+		}
+		ret.count = Math.toIntExact(meta.getCount());
+		ret.limit = meta.getLimit();
+		ret.page = meta.getPage();
+		ret.skip = meta.getSkip();
+		ret.num = meta.getNum();
+		ret.sort = Arrays.asList(meta.getSort());
+		ret.keyJson = meta.getKeyJson();
 		return ret;
 	}
 
