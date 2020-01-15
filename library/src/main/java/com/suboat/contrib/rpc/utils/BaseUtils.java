@@ -23,10 +23,16 @@ public class BaseUtils {
 		}
 		HashMap<String, Object> exit = query.getM();
 		HashMap<String, Object> m = (HashMap<String, Object>) JsonUtils.fromJson(query.keyJson, HashMap.class);
+		if (m == null) {
+			m = new HashMap<>();
+		}
 		if (exit != null && exit.size() > 0) {
 			for (Map.Entry<String, Object> entry : exit.entrySet()) {
 				String _key = entry.getKey();
 				Object _val = entry.getValue();
+				System.out.println("key " + _key);
+				System.out.println("val " + _val);
+				System.out.println("m " + m);
 				m.put(_key, _val);
 			}
 		}
@@ -43,7 +49,9 @@ public class BaseUtils {
 		ret.limit = query.limit;
 		ret.page = query.page;
 		ret.skip = query.skip;
-		ret.sort = query.sort.toArray(new String[0]);
+		if (query.sort != null) {
+			ret.sort = query.sort.toArray(new String[0]);
+		}
 		ret.keyJson = query.keyJson;
 		ret.init();
 		return ret;
@@ -60,7 +68,9 @@ public class BaseUtils {
 		ret.page = meta.getPage();
 		ret.skip = meta.getSkip();
 		ret.num = meta.getNum();
-		ret.sort = Arrays.asList(meta.getSort());
+		if (meta.getSort() != null) {
+			ret.sort = Arrays.asList(meta.getSort());
+		}
 		ret.keyJson = meta.getKeyJson();
 		return ret;
 	}
