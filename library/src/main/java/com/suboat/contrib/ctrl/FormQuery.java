@@ -47,6 +47,9 @@ public class FormQuery<T> {
 
 	public String keyJson;
 
+	// >0: 覆盖count结果,不执行真正的count查询
+	public Integer count;
+
 	// 覆盖搜索
 	public HashMap<String, Object> m;
 

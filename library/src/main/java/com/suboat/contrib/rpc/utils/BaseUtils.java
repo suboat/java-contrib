@@ -37,6 +37,21 @@ public class BaseUtils {
 			}
 		}
 		ret.keyJson = JsonUtils.toJson(m);
+		if (query.sort != null) {
+			ret.sort = Arrays.asList(query.sort);
+		}
+		if (query.limit != null) {
+			ret.limit = query.limit;
+		}
+		if (query.page != null) {
+			ret.page = query.page;
+		}
+		if (query.skip != null) {
+			ret.skip = query.skip;
+		}
+		if (query.count != null) {
+			ret.count = query.count;
+		}
 		return ret;
 	}
 
