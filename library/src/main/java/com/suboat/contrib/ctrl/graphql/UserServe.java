@@ -8,9 +8,13 @@ import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
 import org.apache.thrift.transport.TTransportException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Data
 public class UserServe {
+
+	private static final Logger log = LoggerFactory.getLogger(UserServe.class);
 
 	// 默认公共参数
 	public static RpcConnConfig Config;
@@ -59,7 +63,7 @@ public class UserServe {
 			return client;
 		}
 		try {
-			System.out.println(String.format("%s:%d", config.host, config.port));
+			log.info("rpc-user conn {}:{} open", config.host, config.port);
 			transport = new TSocket(config.host, config.port, config.timeout);
 			// 协议要和服务端一致
 			TProtocol protocol = new TBinaryProtocol(transport);
@@ -77,6 +81,7 @@ public class UserServe {
 		if (transport == null) {
 			return;
 		}
+		log.info("rpc-user conn {}:{} close", config.host, config.port);
 		transport.close();
 		transport = null;
 		client = null;
