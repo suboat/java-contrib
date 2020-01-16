@@ -100,6 +100,9 @@ public class BeanUtils extends org.springframework.beans.BeanUtils {
 
 	// 拷贝非空字段
 	public static void copyPropertiesIgnoreNull(Object src, Object target) {
+		if (src == null || target == null) {
+			return;
+		}
 		BeanUtils.copyProperties(src, target, getNullPropertyNames(src));
 	}
 
