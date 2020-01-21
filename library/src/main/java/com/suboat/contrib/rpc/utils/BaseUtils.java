@@ -90,6 +90,23 @@ public class BaseUtils {
 		return ret;
 	}
 
+	public static Meta rpc2meta(QueryMeta meta) {
+		Meta ret = new Meta();
+		if (meta == null) {
+			return ret;
+		}
+		ret.setCount((long) meta.count);
+		ret.setLimit(meta.limit);
+		ret.setPage(meta.page);
+		ret.setSkip(meta.skip);
+		ret.setNum(meta.num);
+		if (meta.sort != null && meta.sort.size() > 0) {
+			ret.setSort(meta.sort.toArray(new String[0]));
+		}
+		ret.setKeyJson(meta.keyJson);
+		return ret;
+	}
+
 	// 错误转格式
 	public static Error base2rpc(Exception src) {
 		if (src == null) {
