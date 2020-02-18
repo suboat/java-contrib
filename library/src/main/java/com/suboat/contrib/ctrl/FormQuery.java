@@ -21,21 +21,21 @@ import java.util.Map;
 @Data
 public class FormQuery<T> {
 
-	private static final String TagKeyOr = "$or$";
+	public static final String TagKeyOr = "$or$";
 
-	private static final String TagKeyAnd = "$and$";
+	public static final String TagKeyAnd = "$and$";
 
-	private static final String TagKeyGte = "$gte$";
+	public static final String TagKeyGte = "$gte$";
 
-	private static final String TagKeyGt = "$gt$";
+	public static final String TagKeyGt = "$gt$";
 
-	private static final String TagKeyLte = "$lte$";
+	public static final String TagKeyLte = "$lte$";
 
-	private static final String TagKeyLt = "$lt$";
+	public static final String TagKeyLt = "$lt$";
 
-	private static final String TagKeyNe = "$ne$";
+	public static final String TagKeyNe = "$ne$";
 
-	private static final String TagKeyLike = "$like$";
+	public static final String TagKeyLike = "$like$";
 
 	public Integer limit;
 
