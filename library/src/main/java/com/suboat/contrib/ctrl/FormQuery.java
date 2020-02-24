@@ -239,8 +239,18 @@ public class FormQuery<T> {
 				if (_col.length() > 0) {
 					String _v = val.toString();
 					if (_v.startsWith("[")) {
+						// 去括号
 						_v = _v.substring(1, _v.length() - 1);
-						Object[] _arr = _v.split(",");
+						Object[] _objArr = _v.split(",");
+						Object[] _arr = new Object[_objArr.length];
+						// 去前后双引号
+						for (int i = 0; i < _objArr.length; i++) {
+							String o = _objArr[i].toString();
+							if (o.startsWith("\"") && o.endsWith("\"")) {
+								o = o.substring(1, o.length() - 1);
+							}
+							_arr[i] = o;
+						}
 						handle.in(_col, _arr);
 					}
 					else if (_v.startsWith("{")) {
