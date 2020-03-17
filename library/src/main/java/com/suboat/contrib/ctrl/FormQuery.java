@@ -3,6 +3,8 @@ package com.suboat.contrib.ctrl;
 import com.github.wenhao.jpa.PredicateBuilder;
 import com.github.wenhao.jpa.Specifications;
 import com.suboat.contrib.error.Rest;
+import com.suboat.contrib.rpc.base.ArgQuery;
+import com.suboat.contrib.rpc.utils.BaseUtils;
 import com.suboat.contrib.utils.DateUtils;
 import lombok.Data;
 import org.json.JSONObject;
@@ -81,7 +83,7 @@ public class FormQuery<T> {
 		if (this.page == null) {
 			this.page = 0;
 		}
-		if (this.skip != null) {
+		if (this.skip != null && this.skip != 0) {
 			// skip换算成page
 			this.page = this.skip / this.limit;
 		}
