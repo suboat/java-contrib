@@ -36,21 +36,21 @@ public class BaseUtils {
 				m.put(_key, _val);
 			}
 		}
-		ret.keyJson = JsonUtils.toJson(m);
+		ret.setKeyJson(JsonUtils.toJson(m));
 		if (query.sort != null) {
-			ret.sort = Arrays.asList(query.sort);
+			ret.setSort(Arrays.asList(query.sort));
 		}
 		if (query.limit != null) {
-			ret.limit = query.limit;
+			ret.setLimit(query.limit);
 		}
 		if (query.page != null) {
-			ret.page = query.page;
+			ret.setPage(query.page);
 		}
 		if (query.skip != null) {
-			ret.skip = query.skip;
+			ret.setSkip(query.skip);
 		}
 		if (query.count != null) {
-			ret.count = query.count;
+			ret.setCount(query.count);
 		}
 		return ret;
 	}
@@ -61,13 +61,13 @@ public class BaseUtils {
 		if (query == null) {
 			return ret;
 		}
-		ret.limit = query.limit;
-		ret.page = query.page;
-		ret.skip = query.skip;
-		if (query.sort != null) {
-			ret.sort = query.sort.toArray(new String[0]);
+		ret.setLimit(query.limit);
+		ret.setPage(query.page);
+		ret.setSkip(query.skip);
+		if (query.getSort() != null) {
+			ret.setSort(query.sort.toArray(new String[0]));
 		}
-		ret.keyJson = query.keyJson;
+		ret.setKeyJson(query.keyJson);
 		ret.init();
 		return ret;
 	}
@@ -78,15 +78,15 @@ public class BaseUtils {
 		if (meta == null) {
 			return ret;
 		}
-		ret.count = Math.toIntExact(meta.getCount());
-		ret.limit = meta.getLimit();
-		ret.page = meta.getPage();
-		ret.skip = meta.getSkip();
-		ret.num = meta.getNum();
+		ret.setCount(Math.toIntExact(meta.getCount()));
+		ret.setLimit(meta.getLimit());
+		ret.setPage(meta.getPage());
+		ret.setSkip(meta.getSkip());
+		ret.setNum(meta.getNum());
 		if (meta.getSort() != null) {
-			ret.sort = Arrays.asList(meta.getSort());
+			ret.setSort(Arrays.asList(meta.getSort()));
 		}
-		ret.keyJson = meta.getKeyJson();
+		ret.setKeyJson(meta.getKeyJson());
 		return ret;
 	}
 
@@ -100,7 +100,7 @@ public class BaseUtils {
 		ret.setPage(meta.page);
 		ret.setSkip(meta.skip);
 		ret.setNum(meta.num);
-		if (meta.sort != null && meta.sort.size() > 0) {
+		if (meta.getSort() != null && meta.sort.size() > 0) {
 			ret.setSort(meta.sort.toArray(new String[0]));
 		}
 		ret.setKeyJson(meta.keyJson);
