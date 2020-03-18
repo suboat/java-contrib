@@ -247,7 +247,7 @@ public class FormQuery<T> {
 						Object[] _arr = new Object[_objArr.length];
 						// 去前后双引号
 						for (int i = 0; i < _objArr.length; i++) {
-							String o = _objArr[i].toString();
+							String o = _objArr[i].toString().trim();
 							if (o.startsWith("\"") && o.endsWith("\"")) {
 								o = o.substring(1, o.length() - 1);
 							}
