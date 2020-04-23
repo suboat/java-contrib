@@ -21,6 +21,17 @@ public class userConstants {
 	public static final java.lang.String UID_STAFF = "33333333-3333-3333-3333-333333333333";
 
 	/**
+	 * RBAC数据类型
+	 */
+	public static final java.lang.String RBAC_CATE_PERM = "perm";
+
+	public static final java.lang.String RBAC_CATE_ROLE = "role";
+
+	public static final java.lang.String RBAC_CATE_HAVE = "have";
+
+	public static final java.lang.String RBAC_CATE_INH = "inh";
+
+	/**
 	 * 预留的token类型(目前支持的)
 	 */
 	public static final java.lang.String TOKEN_SCOPE_WEIXIN = "weixin";
@@ -51,5 +62,16 @@ public class userConstants {
 	public static final java.lang.String USERSOURCE_WXMP = "wx_mp";
 
 	public static final java.lang.String USERSOURCE_WXMINIAPP = "wx_miniapp";
+
+	/**
+	 * 微信开放平台枚举
+	 */
+	public static final java.lang.String USER_WX_PLATFORM_APP = "wx_app";
+
+	public static final java.lang.String USER_WX_PLATFORM_MP = "wx_mp";
+
+	public static final java.lang.String USER_WX_PLATFORM_WEB = "wx_web";
+
+	public static final java.lang.String USER_WX_PLATFORM_MINIAPP = "wx_miniapp";
 
 }
