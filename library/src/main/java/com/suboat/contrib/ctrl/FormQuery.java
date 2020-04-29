@@ -97,7 +97,7 @@ public class FormQuery<T> {
 	}
 
 	// 搜索
-	public <S extends JpaRepository<T, Long> & JpaSpecificationExecutor<T>> Result<T> query(S repo) {
+	public <S extends JpaRepository<T, Long> & JpaSpecificationExecutor<T>> Result<T> query(S repo) throws Exception {
 		this.init();
 		Result<T> result = new Result<>();
 		Specification<T> spec;
@@ -193,7 +193,8 @@ public class FormQuery<T> {
 		return str;
 	}
 
-	private void parseKeyVal(PredicateBuilder<T> handle, String key, Object val, String col, Boolean isOr) {
+	private void parseKeyVal(PredicateBuilder<T> handle, String key, Object val, String col, Boolean isOr)
+			throws Exception {
 		int _count = countStr(key, "$");
 		//
 		if (_count == 0) {
@@ -296,7 +297,7 @@ public class FormQuery<T> {
 		}
 	}
 
-	private PredicateBuilder<T> keyJsonToQuery(String keyJson, String col, Boolean isOr) {
+	private PredicateBuilder<T> keyJsonToQuery(String keyJson, String col, Boolean isOr) throws Exception {
 		PredicateBuilder<T> q;
 		if (isOr) {
 			q = Specifications.<T>or();

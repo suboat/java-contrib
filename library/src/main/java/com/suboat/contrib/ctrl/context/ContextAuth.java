@@ -32,7 +32,7 @@ public class ContextAuth extends JwtTokenBase {
 	}
 
 	// 从token中取状态
-	private void updateSelfByToken(@NotNull String token, String cate) {
+	private void updateSelfByToken(@NotNull String token, String cate) throws Exception {
 		if (token == null || token.length() == 0) {
 			throw new Rest.ParamInvalid("token");
 		}
@@ -49,7 +49,7 @@ public class ContextAuth extends JwtTokenBase {
 		update(contextAuth);
 	}
 
-	private void updateSelfByEnv(@NotNull DataFetchingEnvironment env, String cate) {
+	private void updateSelfByEnv(@NotNull DataFetchingEnvironment env, String cate) throws Exception {
 		if (env == null) {
 			throw new NullPointerException();
 		}
@@ -67,7 +67,7 @@ public class ContextAuth extends JwtTokenBase {
 	}
 
 	// 初次验证
-	public ContextAuth(@NotNull DataFetchingEnvironment env, String token, String cate) {
+	public ContextAuth(@NotNull DataFetchingEnvironment env, String token, String cate) throws Exception {
 		// 取上下文
 		ContextAuth contextAuth = Objects.requireNonNull(Context.GetAuth(env));
 		// 验证token
@@ -86,7 +86,7 @@ public class ContextAuth extends JwtTokenBase {
 	}
 
 	// 复用验证
-	public ContextAuth(@NotNull DataFetchingEnvironment env) {
+	public ContextAuth(@NotNull DataFetchingEnvironment env) throws Exception {
 		ContextAuth contextAuth = Objects.requireNonNull(Context.GetAuth(env));
 		if (contextAuth.uid == null || contextAuth.uid.length() == 0) {
 			throw new Rest.TokenInvalid("未知错误");
