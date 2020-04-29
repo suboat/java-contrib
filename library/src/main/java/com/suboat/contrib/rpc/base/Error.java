@@ -148,14 +148,16 @@ public class Error extends org.apache.thrift.TException
 		this.arguments = args;
 	}
 
+	//
+	public void setArgs(Object... args) {
+		this.arguments = args;
+		this.setDetail(this.detail);
+	}
+
 	@Override
 	public String getMessage() {
 		if (this.message == null) {
-			if (!this.detail.contains("{0}") && this.arguments.length > 0) {
-				this.detail = this.detail + "|{0}";
-			}
-			MessageFormat txtFmt = new MessageFormat(this.detail);
-			this.message = MessageFormat.format("{0}{1}|", this.prefix, this.code) + txtFmt.format(this.arguments);
+			this.message = MessageFormat.format("{0}{1}|{2}", this.prefix, this.code, this.detail);
 		}
 		return this.message;
 	}
@@ -249,12 +251,22 @@ public class Error extends org.apache.thrift.TException
 	}
 
 	public Error setDetail(@org.apache.thrift.annotation.Nullable java.lang.String detail) {
-		this.detail = detail;
+		if (this.isSetCode() && this.isSetPrefix() && detail != null) {
+			if (!this.isSetDetail() && !detail.contains("{0}") && this.arguments.length > 0) {
+				detail = detail + "|{0}";
+			}
+			MessageFormat txtFmt = new MessageFormat(detail);
+			this.detail = txtFmt.format(this.arguments);
+		}
+		else {
+			this.detail = detail;
+		}
 		return this;
 	}
 
 	public void unsetDetail() {
 		this.detail = null;
+		this.message = null;
 	}
 
 	/**
