@@ -2,6 +2,7 @@ package com.suboat.contrib.ctrl;
 
 import com.suboat.contrib.config.SecurityConfig;
 import com.suboat.contrib.error.Rest;
+import com.suboat.contrib.rpc.base.Error;
 import io.jsonwebtoken.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -50,7 +51,7 @@ public class JwtTokenProvider {
 	}
 
 	// 指定不同密钥
-	public JwtTokenProvider(String cate) throws Exception {
+	public JwtTokenProvider(String cate) throws Error {
 		if (cate.equals("admin")) {
 			// admin
 			expire = SecurityConfig.securityConfig.expireAdmin;
@@ -89,7 +90,7 @@ public class JwtTokenProvider {
 
 	// 设置私钥
 	// https://stackoverflow.com/questions/34454531/java-how-can-i-generate-privatekey-from-a-string
-	private void setRsaKey(String content) throws Exception {
+	private void setRsaKey(String content) throws Error {
 		try {
 			content = content.replace("-----BEGIN PRIVATE KEY-----", "").replace("-----END PRIVATE KEY-----", "")
 					.replaceAll("\r\n", "").replaceAll("\n", "").replaceAll(" ", "");
@@ -103,7 +104,7 @@ public class JwtTokenProvider {
 	}
 
 	// 设置公钥 https://stackoverflow.com/questions/11410770/load-rsa-public-key-from-file
-	private void setRsaPub(String content) throws Exception {
+	private void setRsaPub(String content) throws Error {
 		if (content == null || content.length() == 0) {
 			return;
 		}
@@ -181,7 +182,7 @@ public class JwtTokenProvider {
 	}
 
 	// 验证token合法性
-	public Claims validateToken(String token) throws Exception {
+	public Claims validateToken(String token) throws Error {
 		Claims claims;
 		try {
 			if (rsaPub != null) {

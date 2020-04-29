@@ -3,8 +3,7 @@ package com.suboat.contrib.ctrl;
 import com.github.wenhao.jpa.PredicateBuilder;
 import com.github.wenhao.jpa.Specifications;
 import com.suboat.contrib.error.Rest;
-import com.suboat.contrib.rpc.base.ArgQuery;
-import com.suboat.contrib.rpc.utils.BaseUtils;
+import com.suboat.contrib.rpc.base.Error;
 import com.suboat.contrib.utils.DateUtils;
 import lombok.Data;
 import org.json.JSONObject;
@@ -97,7 +96,7 @@ public class FormQuery<T> {
 	}
 
 	// 搜索
-	public <S extends JpaRepository<T, Long> & JpaSpecificationExecutor<T>> Result<T> query(S repo) throws Exception {
+	public <S extends JpaRepository<T, Long> & JpaSpecificationExecutor<T>> Result<T> query(S repo) throws Error {
 		this.init();
 		Result<T> result = new Result<>();
 		Specification<T> spec;
@@ -194,7 +193,7 @@ public class FormQuery<T> {
 	}
 
 	private void parseKeyVal(PredicateBuilder<T> handle, String key, Object val, String col, Boolean isOr)
-			throws Exception {
+			throws Error {
 		int _count = countStr(key, "$");
 		//
 		if (_count == 0) {
@@ -297,7 +296,7 @@ public class FormQuery<T> {
 		}
 	}
 
-	private PredicateBuilder<T> keyJsonToQuery(String keyJson, String col, Boolean isOr) throws Exception {
+	private PredicateBuilder<T> keyJsonToQuery(String keyJson, String col, Boolean isOr) throws Error {
 		PredicateBuilder<T> q;
 		if (isOr) {
 			q = Specifications.<T>or();

@@ -3,6 +3,7 @@ package com.suboat.contrib.ctrl.context;
 import com.suboat.contrib.ctrl.JwtTokenBase;
 import com.suboat.contrib.ctrl.JwtTokenProvider;
 import com.suboat.contrib.error.Rest;
+import com.suboat.contrib.rpc.base.Error;
 import graphql.schema.DataFetchingEnvironment;
 import graphql.servlet.context.GraphQLServletContext;
 import io.jsonwebtoken.Claims;
@@ -32,7 +33,7 @@ public class ContextAuth extends JwtTokenBase {
 	}
 
 	// 从token中取状态
-	private void updateSelfByToken(@NotNull String token, String cate) throws Exception {
+	private void updateSelfByToken(@NotNull String token, String cate) throws Error {
 		if (token == null || token.length() == 0) {
 			throw new Rest.ParamInvalid("token");
 		}
@@ -49,7 +50,7 @@ public class ContextAuth extends JwtTokenBase {
 		update(contextAuth);
 	}
 
-	private void updateSelfByEnv(@NotNull DataFetchingEnvironment env, String cate) throws Exception {
+	private void updateSelfByEnv(@NotNull DataFetchingEnvironment env, String cate) throws Error {
 		if (env == null) {
 			throw new NullPointerException();
 		}
@@ -67,7 +68,7 @@ public class ContextAuth extends JwtTokenBase {
 	}
 
 	// 初次验证
-	public ContextAuth(@NotNull DataFetchingEnvironment env, String token, String cate) throws Exception {
+	public ContextAuth(@NotNull DataFetchingEnvironment env, String token, String cate) throws Error {
 		// 取上下文
 		ContextAuth contextAuth = Objects.requireNonNull(Context.GetAuth(env));
 		// 验证token
@@ -86,7 +87,7 @@ public class ContextAuth extends JwtTokenBase {
 	}
 
 	// 复用验证
-	public ContextAuth(@NotNull DataFetchingEnvironment env) throws Exception {
+	public ContextAuth(@NotNull DataFetchingEnvironment env) throws Error {
 		ContextAuth contextAuth = Objects.requireNonNull(Context.GetAuth(env));
 		if (contextAuth.uid == null || contextAuth.uid.length() == 0) {
 			throw new Rest.TokenInvalid("未知错误");
