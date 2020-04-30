@@ -252,7 +252,7 @@ public class Error extends org.apache.thrift.TException
 
 	public Error setDetail(@org.apache.thrift.annotation.Nullable java.lang.String detail) {
 		if (this.isSetCode() && this.isSetPrefix() && detail != null) {
-			if (!this.isSetDetail() && !detail.contains("{0}") && this.arguments.length > 0) {
+			if (!this.isSetDetail() && !detail.contains("{0}") && this.arguments != null && this.arguments.length > 0) {
 				detail = detail + "|{0}";
 			}
 			MessageFormat txtFmt = new MessageFormat(detail);
