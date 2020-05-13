@@ -121,8 +121,17 @@ public class Order
 	private static final org.apache.thrift.protocol.TField TRANS_FEE_ALL_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"transFeeAll", org.apache.thrift.protocol.TType.DOUBLE, (short) 36);
 
+	private static final org.apache.thrift.protocol.TField PRICE_WORK_ONE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"priceWorkOne", org.apache.thrift.protocol.TType.DOUBLE, (short) 37);
+
+	private static final org.apache.thrift.protocol.TField PRICE_WORK_THIS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"priceWorkThis", org.apache.thrift.protocol.TType.DOUBLE, (short) 38);
+
+	private static final org.apache.thrift.protocol.TField PRICE_WORK_ALL_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"priceWorkAll", org.apache.thrift.protocol.TType.DOUBLE, (short) 39);
+
 	private static final org.apache.thrift.protocol.TField NOTE_FIELD_DESC = new org.apache.thrift.protocol.TField(
-			"note", org.apache.thrift.protocol.TType.STRING, (short) 37);
+			"note", org.apache.thrift.protocol.TType.STRING, (short) 40);
 
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new OrderStandardSchemeFactory();
 
@@ -200,6 +209,12 @@ public class Order
 
 	public double transFeeAll; // required
 
+	public double priceWorkOne; // required
+
+	public double priceWorkThis; // required
+
+	public double priceWorkAll; // required
+
 	public @org.apache.thrift.annotation.Nullable java.lang.String note; // required
 
 	/**
@@ -250,9 +265,15 @@ public class Order
 																																																				(short) 35,
 																																																				"transFeeThis"), TRANS_FEE_ALL(
 																																																						(short) 36,
-																																																						"transFeeAll"), NOTE(
+																																																						"transFeeAll"), PRICE_WORK_ONE(
 																																																								(short) 37,
-																																																								"note");
+																																																								"priceWorkOne"), PRICE_WORK_THIS(
+																																																										(short) 38,
+																																																										"priceWorkThis"), PRICE_WORK_ALL(
+																																																												(short) 39,
+																																																												"priceWorkAll"), NOTE(
+																																																														(short) 40,
+																																																														"note");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -340,7 +361,13 @@ public class Order
 				return TRANS_FEE_THIS;
 			case 36: // TRANS_FEE_ALL
 				return TRANS_FEE_ALL;
-			case 37: // NOTE
+			case 37: // PRICE_WORK_ONE
+				return PRICE_WORK_ONE;
+			case 38: // PRICE_WORK_THIS
+				return PRICE_WORK_THIS;
+			case 39: // PRICE_WORK_ALL
+				return PRICE_WORK_ALL;
+			case 40: // NOTE
 				return NOTE;
 			default:
 				return null;
@@ -419,6 +446,12 @@ public class Order
 	private static final int __TRANSFEETHIS_ISSET_ID = 15;
 
 	private static final int __TRANSFEEALL_ISSET_ID = 16;
+
+	private static final int __PRICEWORKONE_ISSET_ID = 17;
+
+	private static final int __PRICEWORKTHIS_ISSET_ID = 18;
+
+	private static final int __PRICEWORKALL_ISSET_ID = 19;
 
 	private int __isset_bitfield = 0;
 
@@ -560,6 +593,18 @@ public class Order
 				new org.apache.thrift.meta_data.FieldMetaData("transFeeAll",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.PRICE_WORK_ONE,
+				new org.apache.thrift.meta_data.FieldMetaData("priceWorkOne",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.PRICE_WORK_THIS,
+				new org.apache.thrift.meta_data.FieldMetaData("priceWorkThis",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.PRICE_WORK_ALL,
+				new org.apache.thrift.meta_data.FieldMetaData("priceWorkAll",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
 		tmpMap.put(_Fields.NOTE,
 				new org.apache.thrift.meta_data.FieldMetaData("note", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
@@ -581,7 +626,7 @@ public class Order
 			java.util.Map<java.lang.String, java.lang.Double> payMapAll,
 			java.util.Map<java.lang.String, java.lang.Double> unpaidMapThis,
 			java.util.Map<java.lang.String, java.lang.Double> unpaidMapAll, double transFeeOne, double transFeeThis,
-			double transFeeAll, java.lang.String note) {
+			double transFeeAll, double priceWorkOne, double priceWorkThis, double priceWorkAll, java.lang.String note) {
 		this();
 		this.oid = oid;
 		this.xid = xid;
@@ -636,6 +681,12 @@ public class Order
 		setTransFeeThisIsSet(true);
 		this.transFeeAll = transFeeAll;
 		setTransFeeAllIsSet(true);
+		this.priceWorkOne = priceWorkOne;
+		setPriceWorkOneIsSet(true);
+		this.priceWorkThis = priceWorkThis;
+		setPriceWorkThisIsSet(true);
+		this.priceWorkAll = priceWorkAll;
+		setPriceWorkAllIsSet(true);
 		this.note = note;
 	}
 
@@ -728,6 +779,9 @@ public class Order
 		this.transFeeOne = other.transFeeOne;
 		this.transFeeThis = other.transFeeThis;
 		this.transFeeAll = other.transFeeAll;
+		this.priceWorkOne = other.priceWorkOne;
+		this.priceWorkThis = other.priceWorkThis;
+		this.priceWorkAll = other.priceWorkAll;
 		if (other.isSetNote()) {
 			this.note = other.note;
 		}
@@ -792,6 +846,12 @@ public class Order
 		this.transFeeThis = 0.0;
 		setTransFeeAllIsSet(false);
 		this.transFeeAll = 0.0;
+		setPriceWorkOneIsSet(false);
+		this.priceWorkOne = 0.0;
+		setPriceWorkThisIsSet(false);
+		this.priceWorkThis = 0.0;
+		setPriceWorkAllIsSet(false);
+		this.priceWorkAll = 0.0;
 		this.note = null;
 	}
 
@@ -1819,6 +1879,84 @@ public class Order
 		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __TRANSFEEALL_ISSET_ID, value);
 	}
 
+	public double getPriceWorkOne() {
+		return this.priceWorkOne;
+	}
+
+	public Order setPriceWorkOne(double priceWorkOne) {
+		this.priceWorkOne = priceWorkOne;
+		setPriceWorkOneIsSet(true);
+		return this;
+	}
+
+	public void unsetPriceWorkOne() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __PRICEWORKONE_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field priceWorkOne is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetPriceWorkOne() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __PRICEWORKONE_ISSET_ID);
+	}
+
+	public void setPriceWorkOneIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __PRICEWORKONE_ISSET_ID, value);
+	}
+
+	public double getPriceWorkThis() {
+		return this.priceWorkThis;
+	}
+
+	public Order setPriceWorkThis(double priceWorkThis) {
+		this.priceWorkThis = priceWorkThis;
+		setPriceWorkThisIsSet(true);
+		return this;
+	}
+
+	public void unsetPriceWorkThis() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __PRICEWORKTHIS_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field priceWorkThis is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetPriceWorkThis() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __PRICEWORKTHIS_ISSET_ID);
+	}
+
+	public void setPriceWorkThisIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __PRICEWORKTHIS_ISSET_ID, value);
+	}
+
+	public double getPriceWorkAll() {
+		return this.priceWorkAll;
+	}
+
+	public Order setPriceWorkAll(double priceWorkAll) {
+		this.priceWorkAll = priceWorkAll;
+		setPriceWorkAllIsSet(true);
+		return this;
+	}
+
+	public void unsetPriceWorkAll() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __PRICEWORKALL_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field priceWorkAll is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetPriceWorkAll() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __PRICEWORKALL_ISSET_ID);
+	}
+
+	public void setPriceWorkAllIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __PRICEWORKALL_ISSET_ID, value);
+	}
+
 	@org.apache.thrift.annotation.Nullable
 	public java.lang.String getNote() {
 		return this.note;
@@ -2172,6 +2310,33 @@ public class Order
 			}
 			break;
 
+		case PRICE_WORK_ONE:
+			if (value == null) {
+				unsetPriceWorkOne();
+			}
+			else {
+				setPriceWorkOne((java.lang.Double) value);
+			}
+			break;
+
+		case PRICE_WORK_THIS:
+			if (value == null) {
+				unsetPriceWorkThis();
+			}
+			else {
+				setPriceWorkThis((java.lang.Double) value);
+			}
+			break;
+
+		case PRICE_WORK_ALL:
+			if (value == null) {
+				unsetPriceWorkAll();
+			}
+			else {
+				setPriceWorkAll((java.lang.Double) value);
+			}
+			break;
+
 		case NOTE:
 			if (value == null) {
 				unsetNote();
@@ -2295,6 +2460,15 @@ public class Order
 		case TRANS_FEE_ALL:
 			return getTransFeeAll();
 
+		case PRICE_WORK_ONE:
+			return getPriceWorkOne();
+
+		case PRICE_WORK_THIS:
+			return getPriceWorkThis();
+
+		case PRICE_WORK_ALL:
+			return getPriceWorkAll();
+
 		case NOTE:
 			return getNote();
 
@@ -2384,6 +2558,12 @@ public class Order
 			return isSetTransFeeThis();
 		case TRANS_FEE_ALL:
 			return isSetTransFeeAll();
+		case PRICE_WORK_ONE:
+			return isSetPriceWorkOne();
+		case PRICE_WORK_THIS:
+			return isSetPriceWorkThis();
+		case PRICE_WORK_ALL:
+			return isSetPriceWorkAll();
 		case NOTE:
 			return isSetNote();
 		}
@@ -2729,6 +2909,33 @@ public class Order
 				return false;
 		}
 
+		boolean this_present_priceWorkOne = true;
+		boolean that_present_priceWorkOne = true;
+		if (this_present_priceWorkOne || that_present_priceWorkOne) {
+			if (!(this_present_priceWorkOne && that_present_priceWorkOne))
+				return false;
+			if (this.priceWorkOne != that.priceWorkOne)
+				return false;
+		}
+
+		boolean this_present_priceWorkThis = true;
+		boolean that_present_priceWorkThis = true;
+		if (this_present_priceWorkThis || that_present_priceWorkThis) {
+			if (!(this_present_priceWorkThis && that_present_priceWorkThis))
+				return false;
+			if (this.priceWorkThis != that.priceWorkThis)
+				return false;
+		}
+
+		boolean this_present_priceWorkAll = true;
+		boolean that_present_priceWorkAll = true;
+		if (this_present_priceWorkAll || that_present_priceWorkAll) {
+			if (!(this_present_priceWorkAll && that_present_priceWorkAll))
+				return false;
+			if (this.priceWorkAll != that.priceWorkAll)
+				return false;
+		}
+
 		boolean this_present_note = true && this.isSetNote();
 		boolean that_present_note = true && that.isSetNote();
 		if (this_present_note || that_present_note) {
@@ -2854,6 +3061,12 @@ public class Order
 		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(transFeeThis);
 
 		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(transFeeAll);
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(priceWorkOne);
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(priceWorkThis);
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(priceWorkAll);
 
 		hashCode = hashCode * 8191 + ((isSetNote()) ? 131071 : 524287);
 		if (isSetNote())
@@ -3230,6 +3443,36 @@ public class Order
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetPriceWorkOne()).compareTo(other.isSetPriceWorkOne());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetPriceWorkOne()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.priceWorkOne, other.priceWorkOne);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetPriceWorkThis()).compareTo(other.isSetPriceWorkThis());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetPriceWorkThis()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.priceWorkThis, other.priceWorkThis);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetPriceWorkAll()).compareTo(other.isSetPriceWorkAll());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetPriceWorkAll()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.priceWorkAll, other.priceWorkAll);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetNote()).compareTo(other.isSetNote());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -3533,6 +3776,21 @@ public class Order
 			sb.append(", ");
 		sb.append("transFeeAll:");
 		sb.append(this.transFeeAll);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("priceWorkOne:");
+		sb.append(this.priceWorkOne);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("priceWorkThis:");
+		sb.append(this.priceWorkThis);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("priceWorkAll:");
+		sb.append(this.priceWorkAll);
 		first = false;
 		if (!first)
 			sb.append(", ");
@@ -3984,7 +4242,34 @@ public class Order
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
-				case 37: // NOTE
+				case 37: // PRICE_WORK_ONE
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.priceWorkOne = iprot.readDouble();
+						struct.setPriceWorkOneIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 38: // PRICE_WORK_THIS
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.priceWorkThis = iprot.readDouble();
+						struct.setPriceWorkThisIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 39: // PRICE_WORK_ALL
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.priceWorkAll = iprot.readDouble();
+						struct.setPriceWorkAllIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 40: // NOTE
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.note = iprot.readString();
 						struct.setNoteIsSet(true);
@@ -4201,6 +4486,15 @@ public class Order
 			oprot.writeFieldBegin(TRANS_FEE_ALL_FIELD_DESC);
 			oprot.writeDouble(struct.transFeeAll);
 			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(PRICE_WORK_ONE_FIELD_DESC);
+			oprot.writeDouble(struct.priceWorkOne);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(PRICE_WORK_THIS_FIELD_DESC);
+			oprot.writeDouble(struct.priceWorkThis);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(PRICE_WORK_ALL_FIELD_DESC);
+			oprot.writeDouble(struct.priceWorkAll);
+			oprot.writeFieldEnd();
 			if (struct.note != null) {
 				oprot.writeFieldBegin(NOTE_FIELD_DESC);
 				oprot.writeString(struct.note);
@@ -4334,10 +4628,19 @@ public class Order
 			if (struct.isSetTransFeeAll()) {
 				optionals.set(35);
 			}
-			if (struct.isSetNote()) {
+			if (struct.isSetPriceWorkOne()) {
 				optionals.set(36);
 			}
-			oprot.writeBitSet(optionals, 37);
+			if (struct.isSetPriceWorkThis()) {
+				optionals.set(37);
+			}
+			if (struct.isSetPriceWorkAll()) {
+				optionals.set(38);
+			}
+			if (struct.isSetNote()) {
+				optionals.set(39);
+			}
+			oprot.writeBitSet(optionals, 40);
 			if (struct.isSetOid()) {
 				oprot.writeString(struct.oid);
 			}
@@ -4481,6 +4784,15 @@ public class Order
 			if (struct.isSetTransFeeAll()) {
 				oprot.writeDouble(struct.transFeeAll);
 			}
+			if (struct.isSetPriceWorkOne()) {
+				oprot.writeDouble(struct.priceWorkOne);
+			}
+			if (struct.isSetPriceWorkThis()) {
+				oprot.writeDouble(struct.priceWorkThis);
+			}
+			if (struct.isSetPriceWorkAll()) {
+				oprot.writeDouble(struct.priceWorkAll);
+			}
 			if (struct.isSetNote()) {
 				oprot.writeString(struct.note);
 			}
@@ -4489,7 +4801,7 @@ public class Order
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, Order struct) throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(37);
+			java.util.BitSet incoming = iprot.readBitSet(40);
 			if (incoming.get(0)) {
 				struct.oid = iprot.readString();
 				struct.setOidIsSet(true);
@@ -4700,6 +5012,18 @@ public class Order
 				struct.setTransFeeAllIsSet(true);
 			}
 			if (incoming.get(36)) {
+				struct.priceWorkOne = iprot.readDouble();
+				struct.setPriceWorkOneIsSet(true);
+			}
+			if (incoming.get(37)) {
+				struct.priceWorkThis = iprot.readDouble();
+				struct.setPriceWorkThisIsSet(true);
+			}
+			if (incoming.get(38)) {
+				struct.priceWorkAll = iprot.readDouble();
+				struct.setPriceWorkAllIsSet(true);
+			}
+			if (incoming.get(39)) {
 				struct.note = iprot.readString();
 				struct.setNoteIsSet(true);
 			}
