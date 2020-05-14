@@ -58,6 +58,18 @@ public class Store
 	private static final org.apache.thrift.protocol.TField NUM_FANS_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"numFans", org.apache.thrift.protocol.TType.I32, (short) 15);
 
+	private static final org.apache.thrift.protocol.TField PROFIT_RATE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"profitRate", org.apache.thrift.protocol.TType.DOUBLE, (short) 16);
+
+	private static final org.apache.thrift.protocol.TField PROFIT_BANK_AGENT_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"profitBankAgent", org.apache.thrift.protocol.TType.STRING, (short) 17);
+
+	private static final org.apache.thrift.protocol.TField PROFIT_BANK_NAME_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"profitBankName", org.apache.thrift.protocol.TType.STRING, (short) 18);
+
+	private static final org.apache.thrift.protocol.TField PROFIT_BANK_NUMBER_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"profitBankNumber", org.apache.thrift.protocol.TType.STRING, (short) 19);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new StoreStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new StoreTupleSchemeFactory();
@@ -92,6 +104,14 @@ public class Store
 
 	public int numFans; // required
 
+	public double profitRate; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String profitBankAgent; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String profitBankName; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String profitBankNumber; // required
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
@@ -103,7 +123,11 @@ public class Store
 						"isStaff"), IS_ACTIVE((short) 8, "isActive"), IS_DELETE((short) 9,
 								"isDelete"), IS_PAY((short) 10, "isPay"), STATUS((short) 11, "status"), ICON((short) 12,
 										"icon"), DESCRIPTION((short) 13, "description"), ADDRESS((short) 14,
-												"address"), NUM_FANS((short) 15, "numFans");
+												"address"), NUM_FANS((short) 15, "numFans"), PROFIT_RATE((short) 16,
+														"profitRate"), PROFIT_BANK_AGENT((short) 17,
+																"profitBankAgent"), PROFIT_BANK_NAME((short) 18,
+																		"profitBankName"), PROFIT_BANK_NUMBER(
+																				(short) 19, "profitBankNumber");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -149,6 +173,14 @@ public class Store
 				return ADDRESS;
 			case 15: // NUM_FANS
 				return NUM_FANS;
+			case 16: // PROFIT_RATE
+				return PROFIT_RATE;
+			case 17: // PROFIT_BANK_AGENT
+				return PROFIT_BANK_AGENT;
+			case 18: // PROFIT_BANK_NAME
+				return PROFIT_BANK_NAME;
+			case 19: // PROFIT_BANK_NUMBER
+				return PROFIT_BANK_NUMBER;
 			default:
 				return null;
 			}
@@ -204,6 +236,8 @@ public class Store
 	private static final int __STATUS_ISSET_ID = 4;
 
 	private static final int __NUMFANS_ISSET_ID = 5;
+
+	private static final int __PROFITRATE_ISSET_ID = 6;
 
 	private byte __isset_bitfield = 0;
 
@@ -262,6 +296,22 @@ public class Store
 				new org.apache.thrift.meta_data.FieldMetaData("numFans",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.PROFIT_RATE,
+				new org.apache.thrift.meta_data.FieldMetaData("profitRate",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.PROFIT_BANK_AGENT,
+				new org.apache.thrift.meta_data.FieldMetaData("profitBankAgent",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.PROFIT_BANK_NAME,
+				new org.apache.thrift.meta_data.FieldMetaData("profitBankName",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.PROFIT_BANK_NUMBER,
+				new org.apache.thrift.meta_data.FieldMetaData("profitBankNumber",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(Store.class, metaDataMap);
 	}
@@ -272,7 +322,8 @@ public class Store
 	public Store(java.lang.String sid, java.lang.String uid, java.lang.String createTime, java.lang.String updateTime,
 			java.lang.String name, java.lang.String key, boolean isStaff, boolean isActive, boolean isDelete,
 			boolean isPay, int status, java.lang.String icon, java.lang.String description, java.lang.String address,
-			int numFans) {
+			int numFans, double profitRate, java.lang.String profitBankAgent, java.lang.String profitBankName,
+			java.lang.String profitBankNumber) {
 		this();
 		this.sid = sid;
 		this.uid = uid;
@@ -295,6 +346,11 @@ public class Store
 		this.address = address;
 		this.numFans = numFans;
 		setNumFansIsSet(true);
+		this.profitRate = profitRate;
+		setProfitRateIsSet(true);
+		this.profitBankAgent = profitBankAgent;
+		this.profitBankName = profitBankName;
+		this.profitBankNumber = profitBankNumber;
 	}
 
 	/**
@@ -335,6 +391,16 @@ public class Store
 			this.address = other.address;
 		}
 		this.numFans = other.numFans;
+		this.profitRate = other.profitRate;
+		if (other.isSetProfitBankAgent()) {
+			this.profitBankAgent = other.profitBankAgent;
+		}
+		if (other.isSetProfitBankName()) {
+			this.profitBankName = other.profitBankName;
+		}
+		if (other.isSetProfitBankNumber()) {
+			this.profitBankNumber = other.profitBankNumber;
+		}
 	}
 
 	public Store deepCopy() {
@@ -364,6 +430,11 @@ public class Store
 		this.address = null;
 		setNumFansIsSet(false);
 		this.numFans = 0;
+		setProfitRateIsSet(false);
+		this.profitRate = 0.0;
+		this.profitBankAgent = null;
+		this.profitBankName = null;
+		this.profitBankNumber = null;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -767,6 +838,116 @@ public class Store
 		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __NUMFANS_ISSET_ID, value);
 	}
 
+	public double getProfitRate() {
+		return this.profitRate;
+	}
+
+	public Store setProfitRate(double profitRate) {
+		this.profitRate = profitRate;
+		setProfitRateIsSet(true);
+		return this;
+	}
+
+	public void unsetProfitRate() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __PROFITRATE_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field profitRate is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetProfitRate() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __PROFITRATE_ISSET_ID);
+	}
+
+	public void setProfitRateIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __PROFITRATE_ISSET_ID, value);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getProfitBankAgent() {
+		return this.profitBankAgent;
+	}
+
+	public Store setProfitBankAgent(@org.apache.thrift.annotation.Nullable java.lang.String profitBankAgent) {
+		this.profitBankAgent = profitBankAgent;
+		return this;
+	}
+
+	public void unsetProfitBankAgent() {
+		this.profitBankAgent = null;
+	}
+
+	/**
+	 * Returns true if field profitBankAgent is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetProfitBankAgent() {
+		return this.profitBankAgent != null;
+	}
+
+	public void setProfitBankAgentIsSet(boolean value) {
+		if (!value) {
+			this.profitBankAgent = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getProfitBankName() {
+		return this.profitBankName;
+	}
+
+	public Store setProfitBankName(@org.apache.thrift.annotation.Nullable java.lang.String profitBankName) {
+		this.profitBankName = profitBankName;
+		return this;
+	}
+
+	public void unsetProfitBankName() {
+		this.profitBankName = null;
+	}
+
+	/**
+	 * Returns true if field profitBankName is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetProfitBankName() {
+		return this.profitBankName != null;
+	}
+
+	public void setProfitBankNameIsSet(boolean value) {
+		if (!value) {
+			this.profitBankName = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getProfitBankNumber() {
+		return this.profitBankNumber;
+	}
+
+	public Store setProfitBankNumber(@org.apache.thrift.annotation.Nullable java.lang.String profitBankNumber) {
+		this.profitBankNumber = profitBankNumber;
+		return this;
+	}
+
+	public void unsetProfitBankNumber() {
+		this.profitBankNumber = null;
+	}
+
+	/**
+	 * Returns true if field profitBankNumber is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetProfitBankNumber() {
+		return this.profitBankNumber != null;
+	}
+
+	public void setProfitBankNumberIsSet(boolean value) {
+		if (!value) {
+			this.profitBankNumber = null;
+		}
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case SID:
@@ -904,6 +1085,42 @@ public class Store
 			}
 			break;
 
+		case PROFIT_RATE:
+			if (value == null) {
+				unsetProfitRate();
+			}
+			else {
+				setProfitRate((java.lang.Double) value);
+			}
+			break;
+
+		case PROFIT_BANK_AGENT:
+			if (value == null) {
+				unsetProfitBankAgent();
+			}
+			else {
+				setProfitBankAgent((java.lang.String) value);
+			}
+			break;
+
+		case PROFIT_BANK_NAME:
+			if (value == null) {
+				unsetProfitBankName();
+			}
+			else {
+				setProfitBankName((java.lang.String) value);
+			}
+			break;
+
+		case PROFIT_BANK_NUMBER:
+			if (value == null) {
+				unsetProfitBankNumber();
+			}
+			else {
+				setProfitBankNumber((java.lang.String) value);
+			}
+			break;
+
 		}
 	}
 
@@ -955,6 +1172,18 @@ public class Store
 		case NUM_FANS:
 			return getNumFans();
 
+		case PROFIT_RATE:
+			return getProfitRate();
+
+		case PROFIT_BANK_AGENT:
+			return getProfitBankAgent();
+
+		case PROFIT_BANK_NAME:
+			return getProfitBankName();
+
+		case PROFIT_BANK_NUMBER:
+			return getProfitBankNumber();
+
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -999,6 +1228,14 @@ public class Store
 			return isSetAddress();
 		case NUM_FANS:
 			return isSetNumFans();
+		case PROFIT_RATE:
+			return isSetProfitRate();
+		case PROFIT_BANK_AGENT:
+			return isSetProfitBankAgent();
+		case PROFIT_BANK_NAME:
+			return isSetProfitBankName();
+		case PROFIT_BANK_NUMBER:
+			return isSetProfitBankNumber();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -1153,6 +1390,42 @@ public class Store
 				return false;
 		}
 
+		boolean this_present_profitRate = true;
+		boolean that_present_profitRate = true;
+		if (this_present_profitRate || that_present_profitRate) {
+			if (!(this_present_profitRate && that_present_profitRate))
+				return false;
+			if (this.profitRate != that.profitRate)
+				return false;
+		}
+
+		boolean this_present_profitBankAgent = true && this.isSetProfitBankAgent();
+		boolean that_present_profitBankAgent = true && that.isSetProfitBankAgent();
+		if (this_present_profitBankAgent || that_present_profitBankAgent) {
+			if (!(this_present_profitBankAgent && that_present_profitBankAgent))
+				return false;
+			if (!this.profitBankAgent.equals(that.profitBankAgent))
+				return false;
+		}
+
+		boolean this_present_profitBankName = true && this.isSetProfitBankName();
+		boolean that_present_profitBankName = true && that.isSetProfitBankName();
+		if (this_present_profitBankName || that_present_profitBankName) {
+			if (!(this_present_profitBankName && that_present_profitBankName))
+				return false;
+			if (!this.profitBankName.equals(that.profitBankName))
+				return false;
+		}
+
+		boolean this_present_profitBankNumber = true && this.isSetProfitBankNumber();
+		boolean that_present_profitBankNumber = true && that.isSetProfitBankNumber();
+		if (this_present_profitBankNumber || that_present_profitBankNumber) {
+			if (!(this_present_profitBankNumber && that_present_profitBankNumber))
+				return false;
+			if (!this.profitBankNumber.equals(that.profitBankNumber))
+				return false;
+		}
+
 		return true;
 	}
 
@@ -1207,6 +1480,20 @@ public class Store
 			hashCode = hashCode * 8191 + address.hashCode();
 
 		hashCode = hashCode * 8191 + numFans;
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(profitRate);
+
+		hashCode = hashCode * 8191 + ((isSetProfitBankAgent()) ? 131071 : 524287);
+		if (isSetProfitBankAgent())
+			hashCode = hashCode * 8191 + profitBankAgent.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetProfitBankName()) ? 131071 : 524287);
+		if (isSetProfitBankName())
+			hashCode = hashCode * 8191 + profitBankName.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetProfitBankNumber()) ? 131071 : 524287);
+		if (isSetProfitBankNumber())
+			hashCode = hashCode * 8191 + profitBankNumber.hashCode();
 
 		return hashCode;
 	}
@@ -1369,6 +1656,46 @@ public class Store
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetProfitRate()).compareTo(other.isSetProfitRate());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetProfitRate()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.profitRate, other.profitRate);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetProfitBankAgent()).compareTo(other.isSetProfitBankAgent());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetProfitBankAgent()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.profitBankAgent, other.profitBankAgent);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetProfitBankName()).compareTo(other.isSetProfitBankName());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetProfitBankName()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.profitBankName, other.profitBankName);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetProfitBankNumber()).compareTo(other.isSetProfitBankNumber());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetProfitBankNumber()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.profitBankNumber, other.profitBankNumber);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		return 0;
 	}
 
@@ -1507,6 +1834,41 @@ public class Store
 			sb.append(", ");
 		sb.append("numFans:");
 		sb.append(this.numFans);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("profitRate:");
+		sb.append(this.profitRate);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("profitBankAgent:");
+		if (this.profitBankAgent == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.profitBankAgent);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("profitBankName:");
+		if (this.profitBankName == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.profitBankName);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("profitBankNumber:");
+		if (this.profitBankNumber == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.profitBankNumber);
+		}
 		first = false;
 		sb.append(")");
 		return sb.toString();
@@ -1694,6 +2056,42 @@ public class Store
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 16: // PROFIT_RATE
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.profitRate = iprot.readDouble();
+						struct.setProfitRateIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 17: // PROFIT_BANK_AGENT
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.profitBankAgent = iprot.readString();
+						struct.setProfitBankAgentIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 18: // PROFIT_BANK_NAME
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.profitBankName = iprot.readString();
+						struct.setProfitBankNameIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 19: // PROFIT_BANK_NUMBER
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.profitBankNumber = iprot.readString();
+						struct.setProfitBankNumberIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -1774,6 +2172,24 @@ public class Store
 			oprot.writeFieldBegin(NUM_FANS_FIELD_DESC);
 			oprot.writeI32(struct.numFans);
 			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(PROFIT_RATE_FIELD_DESC);
+			oprot.writeDouble(struct.profitRate);
+			oprot.writeFieldEnd();
+			if (struct.profitBankAgent != null) {
+				oprot.writeFieldBegin(PROFIT_BANK_AGENT_FIELD_DESC);
+				oprot.writeString(struct.profitBankAgent);
+				oprot.writeFieldEnd();
+			}
+			if (struct.profitBankName != null) {
+				oprot.writeFieldBegin(PROFIT_BANK_NAME_FIELD_DESC);
+				oprot.writeString(struct.profitBankName);
+				oprot.writeFieldEnd();
+			}
+			if (struct.profitBankNumber != null) {
+				oprot.writeFieldBegin(PROFIT_BANK_NUMBER_FIELD_DESC);
+				oprot.writeString(struct.profitBankNumber);
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -1839,7 +2255,19 @@ public class Store
 			if (struct.isSetNumFans()) {
 				optionals.set(14);
 			}
-			oprot.writeBitSet(optionals, 15);
+			if (struct.isSetProfitRate()) {
+				optionals.set(15);
+			}
+			if (struct.isSetProfitBankAgent()) {
+				optionals.set(16);
+			}
+			if (struct.isSetProfitBankName()) {
+				optionals.set(17);
+			}
+			if (struct.isSetProfitBankNumber()) {
+				optionals.set(18);
+			}
+			oprot.writeBitSet(optionals, 19);
 			if (struct.isSetSid()) {
 				oprot.writeString(struct.sid);
 			}
@@ -1885,12 +2313,24 @@ public class Store
 			if (struct.isSetNumFans()) {
 				oprot.writeI32(struct.numFans);
 			}
+			if (struct.isSetProfitRate()) {
+				oprot.writeDouble(struct.profitRate);
+			}
+			if (struct.isSetProfitBankAgent()) {
+				oprot.writeString(struct.profitBankAgent);
+			}
+			if (struct.isSetProfitBankName()) {
+				oprot.writeString(struct.profitBankName);
+			}
+			if (struct.isSetProfitBankNumber()) {
+				oprot.writeString(struct.profitBankNumber);
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, Store struct) throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(15);
+			java.util.BitSet incoming = iprot.readBitSet(19);
 			if (incoming.get(0)) {
 				struct.sid = iprot.readString();
 				struct.setSidIsSet(true);
@@ -1950,6 +2390,22 @@ public class Store
 			if (incoming.get(14)) {
 				struct.numFans = iprot.readI32();
 				struct.setNumFansIsSet(true);
+			}
+			if (incoming.get(15)) {
+				struct.profitRate = iprot.readDouble();
+				struct.setProfitRateIsSet(true);
+			}
+			if (incoming.get(16)) {
+				struct.profitBankAgent = iprot.readString();
+				struct.setProfitBankAgentIsSet(true);
+			}
+			if (incoming.get(17)) {
+				struct.profitBankName = iprot.readString();
+				struct.setProfitBankNameIsSet(true);
+			}
+			if (incoming.get(18)) {
+				struct.profitBankNumber = iprot.readString();
+				struct.setProfitBankNumberIsSet(true);
 			}
 		}
 
