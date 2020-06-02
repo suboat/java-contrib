@@ -136,6 +136,12 @@ public class Order
 	private static final org.apache.thrift.protocol.TField PRICE_WORK_ALL_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"priceWorkAll", org.apache.thrift.protocol.TType.DOUBLE, (short) 41);
 
+	private static final org.apache.thrift.protocol.TField PRICE_COST_THIS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"priceCostThis", org.apache.thrift.protocol.TType.DOUBLE, (short) 49);
+
+	private static final org.apache.thrift.protocol.TField PRICE_COST_ALL_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"priceCostAll", org.apache.thrift.protocol.TType.DOUBLE, (short) 50);
+
 	private static final org.apache.thrift.protocol.TField COUPON_PAY_THIS_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"couponPayThis", org.apache.thrift.protocol.TType.DOUBLE, (short) 42);
 
@@ -243,6 +249,10 @@ public class Order
 
 	public double priceWorkAll; // required
 
+	public double priceCostThis; // required
+
+	public double priceCostAll; // required
+
 	public double couponPayThis; // required
 
 	public double couponPayAll; // required
@@ -315,21 +325,25 @@ public class Order
 																																																														(short) 40,
 																																																														"priceWorkThis"), PRICE_WORK_ALL(
 																																																																(short) 41,
-																																																																"priceWorkAll"), COUPON_PAY_THIS(
-																																																																		(short) 42,
-																																																																		"couponPayThis"), COUPON_PAY_ALL(
-																																																																				(short) 43,
-																																																																				"couponPayAll"), COUPON_CASH_THIS(
-																																																																						(short) 44,
-																																																																						"couponCashThis"), COUPON_CASH_ALL(
-																																																																								(short) 45,
-																																																																								"couponCashAll"), COUPON_DIS_THIS(
-																																																																										(short) 46,
-																																																																										"couponDisThis"), COUPON_DIS_ALL(
-																																																																												(short) 47,
-																																																																												"couponDisAll"), NOTE(
-																																																																														(short) 48,
-																																																																														"note");
+																																																																"priceWorkAll"), PRICE_COST_THIS(
+																																																																		(short) 49,
+																																																																		"priceCostThis"), PRICE_COST_ALL(
+																																																																				(short) 50,
+																																																																				"priceCostAll"), COUPON_PAY_THIS(
+																																																																						(short) 42,
+																																																																						"couponPayThis"), COUPON_PAY_ALL(
+																																																																								(short) 43,
+																																																																								"couponPayAll"), COUPON_CASH_THIS(
+																																																																										(short) 44,
+																																																																										"couponCashThis"), COUPON_CASH_ALL(
+																																																																												(short) 45,
+																																																																												"couponCashAll"), COUPON_DIS_THIS(
+																																																																														(short) 46,
+																																																																														"couponDisThis"), COUPON_DIS_ALL(
+																																																																																(short) 47,
+																																																																																"couponDisAll"), NOTE(
+																																																																																		(short) 48,
+																																																																																		"note");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -427,6 +441,10 @@ public class Order
 				return PRICE_WORK_THIS;
 			case 41: // PRICE_WORK_ALL
 				return PRICE_WORK_ALL;
+			case 49: // PRICE_COST_THIS
+				return PRICE_COST_THIS;
+			case 50: // PRICE_COST_ALL
+				return PRICE_COST_ALL;
 			case 42: // COUPON_PAY_THIS
 				return COUPON_PAY_THIS;
 			case 43: // COUPON_PAY_ALL
@@ -525,17 +543,21 @@ public class Order
 
 	private static final int __PRICEWORKALL_ISSET_ID = 19;
 
-	private static final int __COUPONPAYTHIS_ISSET_ID = 20;
+	private static final int __PRICECOSTTHIS_ISSET_ID = 20;
 
-	private static final int __COUPONPAYALL_ISSET_ID = 21;
+	private static final int __PRICECOSTALL_ISSET_ID = 21;
 
-	private static final int __COUPONCASHTHIS_ISSET_ID = 22;
+	private static final int __COUPONPAYTHIS_ISSET_ID = 22;
 
-	private static final int __COUPONCASHALL_ISSET_ID = 23;
+	private static final int __COUPONPAYALL_ISSET_ID = 23;
 
-	private static final int __COUPONDISTHIS_ISSET_ID = 24;
+	private static final int __COUPONCASHTHIS_ISSET_ID = 24;
 
-	private static final int __COUPONDISALL_ISSET_ID = 25;
+	private static final int __COUPONCASHALL_ISSET_ID = 25;
+
+	private static final int __COUPONDISTHIS_ISSET_ID = 26;
+
+	private static final int __COUPONDISALL_ISSET_ID = 27;
 
 	private int __isset_bitfield = 0;
 
@@ -695,6 +717,14 @@ public class Order
 				new org.apache.thrift.meta_data.FieldMetaData("priceWorkAll",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.PRICE_COST_THIS,
+				new org.apache.thrift.meta_data.FieldMetaData("priceCostThis",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.PRICE_COST_ALL,
+				new org.apache.thrift.meta_data.FieldMetaData("priceCostAll",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
 		tmpMap.put(_Fields.COUPON_PAY_THIS,
 				new org.apache.thrift.meta_data.FieldMetaData("couponPayThis",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
@@ -741,9 +771,9 @@ public class Order
 			java.util.Map<java.lang.String, java.lang.Double> payMapAll,
 			java.util.Map<java.lang.String, java.lang.Double> unpaidMapThis,
 			java.util.Map<java.lang.String, java.lang.Double> unpaidMapAll, double transFeeOne, double transFeeThis,
-			double transFeeAll, double priceWorkOne, double priceWorkThis, double priceWorkAll, double couponPayThis,
-			double couponPayAll, double couponCashThis, double couponCashAll, double couponDisThis, double couponDisAll,
-			java.lang.String note) {
+			double transFeeAll, double priceWorkOne, double priceWorkThis, double priceWorkAll, double priceCostThis,
+			double priceCostAll, double couponPayThis, double couponPayAll, double couponCashThis, double couponCashAll,
+			double couponDisThis, double couponDisAll, java.lang.String note) {
 		this();
 		this.oid = oid;
 		this.xid = xid;
@@ -806,6 +836,10 @@ public class Order
 		setPriceWorkThisIsSet(true);
 		this.priceWorkAll = priceWorkAll;
 		setPriceWorkAllIsSet(true);
+		this.priceCostThis = priceCostThis;
+		setPriceCostThisIsSet(true);
+		this.priceCostAll = priceCostAll;
+		setPriceCostAllIsSet(true);
 		this.couponPayThis = couponPayThis;
 		setCouponPayThisIsSet(true);
 		this.couponPayAll = couponPayAll;
@@ -919,6 +953,8 @@ public class Order
 		this.priceWorkOne = other.priceWorkOne;
 		this.priceWorkThis = other.priceWorkThis;
 		this.priceWorkAll = other.priceWorkAll;
+		this.priceCostThis = other.priceCostThis;
+		this.priceCostAll = other.priceCostAll;
 		this.couponPayThis = other.couponPayThis;
 		this.couponPayAll = other.couponPayAll;
 		this.couponCashThis = other.couponCashThis;
@@ -997,6 +1033,10 @@ public class Order
 		this.priceWorkThis = 0.0;
 		setPriceWorkAllIsSet(false);
 		this.priceWorkAll = 0.0;
+		setPriceCostThisIsSet(false);
+		this.priceCostThis = 0.0;
+		setPriceCostAllIsSet(false);
+		this.priceCostAll = 0.0;
 		setCouponPayThisIsSet(false);
 		this.couponPayThis = 0.0;
 		setCouponPayAllIsSet(false);
@@ -2170,6 +2210,58 @@ public class Order
 		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __PRICEWORKALL_ISSET_ID, value);
 	}
 
+	public double getPriceCostThis() {
+		return this.priceCostThis;
+	}
+
+	public Order setPriceCostThis(double priceCostThis) {
+		this.priceCostThis = priceCostThis;
+		setPriceCostThisIsSet(true);
+		return this;
+	}
+
+	public void unsetPriceCostThis() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __PRICECOSTTHIS_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field priceCostThis is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetPriceCostThis() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __PRICECOSTTHIS_ISSET_ID);
+	}
+
+	public void setPriceCostThisIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __PRICECOSTTHIS_ISSET_ID, value);
+	}
+
+	public double getPriceCostAll() {
+		return this.priceCostAll;
+	}
+
+	public Order setPriceCostAll(double priceCostAll) {
+		this.priceCostAll = priceCostAll;
+		setPriceCostAllIsSet(true);
+		return this;
+	}
+
+	public void unsetPriceCostAll() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __PRICECOSTALL_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field priceCostAll is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetPriceCostAll() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __PRICECOSTALL_ISSET_ID);
+	}
+
+	public void setPriceCostAllIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __PRICECOSTALL_ISSET_ID, value);
+	}
+
 	public double getCouponPayThis() {
 		return this.couponPayThis;
 	}
@@ -2724,6 +2816,24 @@ public class Order
 			}
 			break;
 
+		case PRICE_COST_THIS:
+			if (value == null) {
+				unsetPriceCostThis();
+			}
+			else {
+				setPriceCostThis((java.lang.Double) value);
+			}
+			break;
+
+		case PRICE_COST_ALL:
+			if (value == null) {
+				unsetPriceCostAll();
+			}
+			else {
+				setPriceCostAll((java.lang.Double) value);
+			}
+			break;
+
 		case COUPON_PAY_THIS:
 			if (value == null) {
 				unsetCouponPayThis();
@@ -2916,6 +3026,12 @@ public class Order
 		case PRICE_WORK_ALL:
 			return getPriceWorkAll();
 
+		case PRICE_COST_THIS:
+			return getPriceCostThis();
+
+		case PRICE_COST_ALL:
+			return getPriceCostAll();
+
 		case COUPON_PAY_THIS:
 			return getCouponPayThis();
 
@@ -3033,6 +3149,10 @@ public class Order
 			return isSetPriceWorkThis();
 		case PRICE_WORK_ALL:
 			return isSetPriceWorkAll();
+		case PRICE_COST_THIS:
+			return isSetPriceCostThis();
+		case PRICE_COST_ALL:
+			return isSetPriceCostAll();
 		case COUPON_PAY_THIS:
 			return isSetCouponPayThis();
 		case COUPON_PAY_ALL:
@@ -3435,6 +3555,24 @@ public class Order
 				return false;
 		}
 
+		boolean this_present_priceCostThis = true;
+		boolean that_present_priceCostThis = true;
+		if (this_present_priceCostThis || that_present_priceCostThis) {
+			if (!(this_present_priceCostThis && that_present_priceCostThis))
+				return false;
+			if (this.priceCostThis != that.priceCostThis)
+				return false;
+		}
+
+		boolean this_present_priceCostAll = true;
+		boolean that_present_priceCostAll = true;
+		if (this_present_priceCostAll || that_present_priceCostAll) {
+			if (!(this_present_priceCostAll && that_present_priceCostAll))
+				return false;
+			if (this.priceCostAll != that.priceCostAll)
+				return false;
+		}
+
 		boolean this_present_couponPayThis = true;
 		boolean that_present_couponPayThis = true;
 		if (this_present_couponPayThis || that_present_couponPayThis) {
@@ -3628,6 +3766,10 @@ public class Order
 		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(priceWorkThis);
 
 		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(priceWorkAll);
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(priceCostThis);
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(priceCostAll);
 
 		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(couponPayThis);
 
@@ -4066,6 +4208,26 @@ public class Order
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetPriceCostThis()).compareTo(other.isSetPriceCostThis());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetPriceCostThis()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.priceCostThis, other.priceCostThis);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetPriceCostAll()).compareTo(other.isSetPriceCostAll());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetPriceCostAll()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.priceCostAll, other.priceCostAll);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetCouponPayThis()).compareTo(other.isSetCouponPayThis());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -4464,6 +4626,16 @@ public class Order
 			sb.append(", ");
 		sb.append("priceWorkAll:");
 		sb.append(this.priceWorkAll);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("priceCostThis:");
+		sb.append(this.priceCostThis);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("priceCostAll:");
+		sb.append(this.priceCostAll);
 		first = false;
 		if (!first)
 			sb.append(", ");
@@ -4990,6 +5162,24 @@ public class Order
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 49: // PRICE_COST_THIS
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.priceCostThis = iprot.readDouble();
+						struct.setPriceCostThisIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 50: // PRICE_COST_ALL
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.priceCostAll = iprot.readDouble();
+						struct.setPriceCostAllIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 42: // COUPON_PAY_THIS
 					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
 						struct.couponPayThis = iprot.readDouble();
@@ -5303,6 +5493,12 @@ public class Order
 				oprot.writeString(struct.note);
 				oprot.writeFieldEnd();
 			}
+			oprot.writeFieldBegin(PRICE_COST_THIS_FIELD_DESC);
+			oprot.writeDouble(struct.priceCostThis);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(PRICE_COST_ALL_FIELD_DESC);
+			oprot.writeDouble(struct.priceCostAll);
+			oprot.writeFieldEnd();
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -5446,28 +5642,34 @@ public class Order
 			if (struct.isSetPriceWorkAll()) {
 				optionals.set(40);
 			}
-			if (struct.isSetCouponPayThis()) {
+			if (struct.isSetPriceCostThis()) {
 				optionals.set(41);
 			}
-			if (struct.isSetCouponPayAll()) {
+			if (struct.isSetPriceCostAll()) {
 				optionals.set(42);
 			}
-			if (struct.isSetCouponCashThis()) {
+			if (struct.isSetCouponPayThis()) {
 				optionals.set(43);
 			}
-			if (struct.isSetCouponCashAll()) {
+			if (struct.isSetCouponPayAll()) {
 				optionals.set(44);
 			}
-			if (struct.isSetCouponDisThis()) {
+			if (struct.isSetCouponCashThis()) {
 				optionals.set(45);
 			}
-			if (struct.isSetCouponDisAll()) {
+			if (struct.isSetCouponCashAll()) {
 				optionals.set(46);
 			}
-			if (struct.isSetNote()) {
+			if (struct.isSetCouponDisThis()) {
 				optionals.set(47);
 			}
-			oprot.writeBitSet(optionals, 48);
+			if (struct.isSetCouponDisAll()) {
+				optionals.set(48);
+			}
+			if (struct.isSetNote()) {
+				optionals.set(49);
+			}
+			oprot.writeBitSet(optionals, 50);
 			if (struct.isSetOid()) {
 				oprot.writeString(struct.oid);
 			}
@@ -5626,6 +5828,12 @@ public class Order
 			if (struct.isSetPriceWorkAll()) {
 				oprot.writeDouble(struct.priceWorkAll);
 			}
+			if (struct.isSetPriceCostThis()) {
+				oprot.writeDouble(struct.priceCostThis);
+			}
+			if (struct.isSetPriceCostAll()) {
+				oprot.writeDouble(struct.priceCostAll);
+			}
 			if (struct.isSetCouponPayThis()) {
 				oprot.writeDouble(struct.couponPayThis);
 			}
@@ -5652,7 +5860,7 @@ public class Order
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, Order struct) throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(48);
+			java.util.BitSet incoming = iprot.readBitSet(50);
 			if (incoming.get(0)) {
 				struct.oid = iprot.readString();
 				struct.setOidIsSet(true);
@@ -5883,30 +6091,38 @@ public class Order
 				struct.setPriceWorkAllIsSet(true);
 			}
 			if (incoming.get(41)) {
+				struct.priceCostThis = iprot.readDouble();
+				struct.setPriceCostThisIsSet(true);
+			}
+			if (incoming.get(42)) {
+				struct.priceCostAll = iprot.readDouble();
+				struct.setPriceCostAllIsSet(true);
+			}
+			if (incoming.get(43)) {
 				struct.couponPayThis = iprot.readDouble();
 				struct.setCouponPayThisIsSet(true);
 			}
-			if (incoming.get(42)) {
+			if (incoming.get(44)) {
 				struct.couponPayAll = iprot.readDouble();
 				struct.setCouponPayAllIsSet(true);
 			}
-			if (incoming.get(43)) {
+			if (incoming.get(45)) {
 				struct.couponCashThis = iprot.readDouble();
 				struct.setCouponCashThisIsSet(true);
 			}
-			if (incoming.get(44)) {
+			if (incoming.get(46)) {
 				struct.couponCashAll = iprot.readDouble();
 				struct.setCouponCashAllIsSet(true);
 			}
-			if (incoming.get(45)) {
+			if (incoming.get(47)) {
 				struct.couponDisThis = iprot.readDouble();
 				struct.setCouponDisThisIsSet(true);
 			}
-			if (incoming.get(46)) {
+			if (incoming.get(48)) {
 				struct.couponDisAll = iprot.readDouble();
 				struct.setCouponDisAllIsSet(true);
 			}
-			if (incoming.get(47)) {
+			if (incoming.get(49)) {
 				struct.note = iprot.readString();
 				struct.setNoteIsSet(true);
 			}

@@ -55,6 +55,9 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 	private static final org.apache.thrift.protocol.TField LOC_NUM_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"locNum", org.apache.thrift.protocol.TType.STRING, (short) 13);
 
+	private static final org.apache.thrift.protocol.TField UNIQUE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"unique", org.apache.thrift.protocol.TType.STRING, (short) 18);
+
 	private static final org.apache.thrift.protocol.TField PASSWORD_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"password", org.apache.thrift.protocol.TType.STRING, (short) 14);
 
@@ -97,6 +100,8 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String locNum; // optional
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String unique; // optional
+
 	public @org.apache.thrift.annotation.Nullable java.lang.String password; // optional
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String passwordSecure; // optional
@@ -112,11 +117,12 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
 		UID((short) 1, "uid"), AGENT((short) 2, "agent"), DEVICE((short) 3, "device"), LEVEL((short) 4, "level"), IP(
-				(short) 5, "ip"), ID((short) 6, "id"), EXP((short) 7, "exp"), CRE((short) 8, "cre"), TOKEN((short) 9,
-						"token"), USERNAME((short) 10, "username"), PHONE((short) 11, "phone"), EMAIL((short) 12,
-								"email"), LOC_NUM((short) 13, "locNum"), PASSWORD((short) 14,
-										"password"), PASSWORD_SECURE((short) 15, "passwordSecure"), CAPTCHA_TAG(
-												(short) 16, "captchaTag"), CAPTCHA_TXT((short) 17, "captchaTxt");
+				(short) 5, "ip"), ID((short) 6, "id"), EXP((short) 7, "exp"), CRE((short) 8,
+						"cre"), TOKEN((short) 9, "token"), USERNAME((short) 10, "username"), PHONE((short) 11,
+								"phone"), EMAIL((short) 12, "email"), LOC_NUM((short) 13, "locNum"), UNIQUE((short) 18,
+										"unique"), PASSWORD((short) 14, "password"), PASSWORD_SECURE((short) 15,
+												"passwordSecure"), CAPTCHA_TAG((short) 16,
+														"captchaTag"), CAPTCHA_TXT((short) 17, "captchaTxt");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -158,6 +164,8 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 				return EMAIL;
 			case 13: // LOC_NUM
 				return LOC_NUM;
+			case 18: // UNIQUE
+				return UNIQUE;
 			case 14: // PASSWORD
 				return PASSWORD;
 			case 15: // PASSWORD_SECURE
@@ -218,7 +226,7 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 
 	private static final _Fields optionals[] = { _Fields.AGENT, _Fields.DEVICE, _Fields.LEVEL, _Fields.IP, _Fields.ID,
 			_Fields.EXP, _Fields.CRE, _Fields.TOKEN, _Fields.USERNAME, _Fields.PHONE, _Fields.EMAIL, _Fields.LOC_NUM,
-			_Fields.PASSWORD, _Fields.PASSWORD_SECURE, _Fields.CAPTCHA_TAG, _Fields.CAPTCHA_TXT };
+			_Fields.UNIQUE, _Fields.PASSWORD, _Fields.PASSWORD_SECURE, _Fields.CAPTCHA_TAG, _Fields.CAPTCHA_TXT };
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
@@ -264,6 +272,10 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.LOC_NUM,
 				new org.apache.thrift.meta_data.FieldMetaData("locNum",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.UNIQUE,
+				new org.apache.thrift.meta_data.FieldMetaData("unique",
 						org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.PASSWORD,
@@ -334,6 +346,9 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 		if (other.isSetLocNum()) {
 			this.locNum = other.locNum;
 		}
+		if (other.isSetUnique()) {
+			this.unique = other.unique;
+		}
 		if (other.isSetPassword()) {
 			this.password = other.password;
 		}
@@ -369,6 +384,7 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 		this.phone = null;
 		this.email = null;
 		this.locNum = null;
+		this.unique = null;
 		this.password = null;
 		this.passwordSecure = null;
 		this.captchaTag = null;
@@ -720,6 +736,33 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 	}
 
 	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getUnique() {
+		return this.unique;
+	}
+
+	public ArgLogin setUnique(@org.apache.thrift.annotation.Nullable java.lang.String unique) {
+		this.unique = unique;
+		return this;
+	}
+
+	public void unsetUnique() {
+		this.unique = null;
+	}
+
+	/**
+	 * Returns true if field unique is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetUnique() {
+		return this.unique != null;
+	}
+
+	public void setUniqueIsSet(boolean value) {
+		if (!value) {
+			this.unique = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
 	public java.lang.String getPassword() {
 		return this.password;
 	}
@@ -950,6 +993,15 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 			}
 			break;
 
+		case UNIQUE:
+			if (value == null) {
+				unsetUnique();
+			}
+			else {
+				setUnique((java.lang.String) value);
+			}
+			break;
+
 		case PASSWORD:
 			if (value == null) {
 				unsetPassword();
@@ -1031,6 +1083,9 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 		case LOC_NUM:
 			return getLocNum();
 
+		case UNIQUE:
+			return getUnique();
+
 		case PASSWORD:
 			return getPassword();
 
@@ -1083,6 +1138,8 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 			return isSetEmail();
 		case LOC_NUM:
 			return isSetLocNum();
+		case UNIQUE:
+			return isSetUnique();
 		case PASSWORD:
 			return isSetPassword();
 		case PASSWORD_SECURE:
@@ -1227,6 +1284,15 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 				return false;
 		}
 
+		boolean this_present_unique = true && this.isSetUnique();
+		boolean that_present_unique = true && that.isSetUnique();
+		if (this_present_unique || that_present_unique) {
+			if (!(this_present_unique && that_present_unique))
+				return false;
+			if (!this.unique.equals(that.unique))
+				return false;
+		}
+
 		boolean this_present_password = true && this.isSetPassword();
 		boolean that_present_password = true && that.isSetPassword();
 		if (this_present_password || that_present_password) {
@@ -1321,6 +1387,10 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 		hashCode = hashCode * 8191 + ((isSetLocNum()) ? 131071 : 524287);
 		if (isSetLocNum())
 			hashCode = hashCode * 8191 + locNum.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetUnique()) ? 131071 : 524287);
+		if (isSetUnique())
+			hashCode = hashCode * 8191 + unique.hashCode();
 
 		hashCode = hashCode * 8191 + ((isSetPassword()) ? 131071 : 524287);
 		if (isSetPassword())
@@ -1475,6 +1545,16 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 		}
 		if (isSetLocNum()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.locNum, other.locNum);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetUnique()).compareTo(other.isSetUnique());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetUnique()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.unique, other.unique);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -1679,6 +1759,18 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 			}
 			else {
 				sb.append(this.locNum);
+			}
+			first = false;
+		}
+		if (isSetUnique()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("unique:");
+			if (this.unique == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.unique);
 			}
 			first = false;
 		}
@@ -1899,6 +1991,15 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 18: // UNIQUE
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.unique = iprot.readString();
+						struct.setUniqueIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 14: // PASSWORD
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.password = iprot.readString();
@@ -2065,6 +2166,13 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 					oprot.writeFieldEnd();
 				}
 			}
+			if (struct.unique != null) {
+				if (struct.isSetUnique()) {
+					oprot.writeFieldBegin(UNIQUE_FIELD_DESC);
+					oprot.writeString(struct.unique);
+					oprot.writeFieldEnd();
+				}
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -2125,19 +2233,22 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 			if (struct.isSetLocNum()) {
 				optionals.set(12);
 			}
-			if (struct.isSetPassword()) {
+			if (struct.isSetUnique()) {
 				optionals.set(13);
 			}
-			if (struct.isSetPasswordSecure()) {
+			if (struct.isSetPassword()) {
 				optionals.set(14);
 			}
-			if (struct.isSetCaptchaTag()) {
+			if (struct.isSetPasswordSecure()) {
 				optionals.set(15);
 			}
-			if (struct.isSetCaptchaTxt()) {
+			if (struct.isSetCaptchaTag()) {
 				optionals.set(16);
 			}
-			oprot.writeBitSet(optionals, 17);
+			if (struct.isSetCaptchaTxt()) {
+				optionals.set(17);
+			}
+			oprot.writeBitSet(optionals, 18);
 			if (struct.isSetUid()) {
 				oprot.writeString(struct.uid);
 			}
@@ -2177,6 +2288,9 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 			if (struct.isSetLocNum()) {
 				oprot.writeString(struct.locNum);
 			}
+			if (struct.isSetUnique()) {
+				oprot.writeString(struct.unique);
+			}
 			if (struct.isSetPassword()) {
 				oprot.writeString(struct.password);
 			}
@@ -2195,7 +2309,7 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 		public void read(org.apache.thrift.protocol.TProtocol prot, ArgLogin struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(17);
+			java.util.BitSet incoming = iprot.readBitSet(18);
 			if (incoming.get(0)) {
 				struct.uid = iprot.readString();
 				struct.setUidIsSet(true);
@@ -2249,18 +2363,22 @@ public class ArgLogin implements org.apache.thrift.TBase<ArgLogin, ArgLogin._Fie
 				struct.setLocNumIsSet(true);
 			}
 			if (incoming.get(13)) {
+				struct.unique = iprot.readString();
+				struct.setUniqueIsSet(true);
+			}
+			if (incoming.get(14)) {
 				struct.password = iprot.readString();
 				struct.setPasswordIsSet(true);
 			}
-			if (incoming.get(14)) {
+			if (incoming.get(15)) {
 				struct.passwordSecure = iprot.readString();
 				struct.setPasswordSecureIsSet(true);
 			}
-			if (incoming.get(15)) {
+			if (incoming.get(16)) {
 				struct.captchaTag = iprot.readString();
 				struct.setCaptchaTagIsSet(true);
 			}
-			if (incoming.get(16)) {
+			if (incoming.get(17)) {
 				struct.captchaTxt = iprot.readString();
 				struct.setCaptchaTxtIsSet(true);
 			}

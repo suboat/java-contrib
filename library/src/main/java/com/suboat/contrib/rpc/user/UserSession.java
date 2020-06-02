@@ -43,6 +43,9 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 	private static final org.apache.thrift.protocol.TField DEV_FIELD_DESC = new org.apache.thrift.protocol.TField("dev",
 			org.apache.thrift.protocol.TType.STRING, (short) 9);
 
+	private static final org.apache.thrift.protocol.TField KEY_FIELD_DESC = new org.apache.thrift.protocol.TField("key",
+			org.apache.thrift.protocol.TType.STRING, (short) 10);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new UserSessionStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new UserSessionTupleSchemeFactory();
@@ -65,6 +68,8 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String dev; // required
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String key; // required
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
@@ -72,8 +77,8 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
 		UID((short) 1, "uid"), IS_STAFF((short) 2, "isStaff"), AGENT((short) 3, "agent"), IS_WEB((short) 4,
-				"isWeb"), EXP((short) 5, "exp"), CRE((short) 6,
-						"cre"), LEVEL((short) 7, "level"), IP((short) 8, "ip"), DEV((short) 9, "dev");
+				"isWeb"), EXP((short) 5, "exp"), CRE((short) 6, "cre"), LEVEL((short) 7,
+						"level"), IP((short) 8, "ip"), DEV((short) 9, "dev"), KEY((short) 10, "key");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -107,6 +112,8 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 				return IP;
 			case 9: // DEV
 				return DEV;
+			case 10: // KEY
+				return KEY;
 			default:
 				return null;
 			}
@@ -193,6 +200,9 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 		tmpMap.put(_Fields.DEV,
 				new org.apache.thrift.meta_data.FieldMetaData("dev", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.KEY,
+				new org.apache.thrift.meta_data.FieldMetaData("key", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(UserSession.class, metaDataMap);
 	}
@@ -201,7 +211,7 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 	}
 
 	public UserSession(java.lang.String uid, boolean isStaff, java.lang.String agent, boolean isWeb, long exp, long cre,
-			java.lang.String level, java.lang.String ip, java.lang.String dev) {
+			java.lang.String level, java.lang.String ip, java.lang.String dev, java.lang.String key) {
 		this();
 		this.uid = uid;
 		this.isStaff = isStaff;
@@ -216,6 +226,7 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 		this.level = level;
 		this.ip = ip;
 		this.dev = dev;
+		this.key = key;
 	}
 
 	/**
@@ -242,6 +253,9 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 		if (other.isSetDev()) {
 			this.dev = other.dev;
 		}
+		if (other.isSetKey()) {
+			this.key = other.key;
+		}
 	}
 
 	public UserSession deepCopy() {
@@ -263,6 +277,7 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 		this.level = null;
 		this.ip = null;
 		this.dev = null;
+		this.key = null;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -499,6 +514,33 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 		}
 	}
 
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getKey() {
+		return this.key;
+	}
+
+	public UserSession setKey(@org.apache.thrift.annotation.Nullable java.lang.String key) {
+		this.key = key;
+		return this;
+	}
+
+	public void unsetKey() {
+		this.key = null;
+	}
+
+	/**
+	 * Returns true if field key is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetKey() {
+		return this.key != null;
+	}
+
+	public void setKeyIsSet(boolean value) {
+		if (!value) {
+			this.key = null;
+		}
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case UID:
@@ -582,6 +624,15 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 			}
 			break;
 
+		case KEY:
+			if (value == null) {
+				unsetKey();
+			}
+			else {
+				setKey((java.lang.String) value);
+			}
+			break;
+
 		}
 	}
 
@@ -615,6 +666,9 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 		case DEV:
 			return getDev();
 
+		case KEY:
+			return getKey();
+
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -647,6 +701,8 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 			return isSetIp();
 		case DEV:
 			return isSetDev();
+		case KEY:
+			return isSetKey();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -747,6 +803,15 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 				return false;
 		}
 
+		boolean this_present_key = true && this.isSetKey();
+		boolean that_present_key = true && that.isSetKey();
+		if (this_present_key || that_present_key) {
+			if (!(this_present_key && that_present_key))
+				return false;
+			if (!this.key.equals(that.key))
+				return false;
+		}
+
 		return true;
 	}
 
@@ -781,6 +846,10 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 		hashCode = hashCode * 8191 + ((isSetDev()) ? 131071 : 524287);
 		if (isSetDev())
 			hashCode = hashCode * 8191 + dev.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetKey()) ? 131071 : 524287);
+		if (isSetKey())
+			hashCode = hashCode * 8191 + key.hashCode();
 
 		return hashCode;
 	}
@@ -883,6 +952,16 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetKey()).compareTo(other.isSetKey());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetKey()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.key, other.key);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		return 0;
 	}
 
@@ -970,6 +1049,16 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 		}
 		else {
 			sb.append(this.dev);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("key:");
+		if (this.key == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.key);
 		}
 		first = false;
 		sb.append(")");
@@ -1105,6 +1194,15 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 10: // KEY
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.key = iprot.readString();
+						struct.setKeyIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -1159,6 +1257,11 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 				oprot.writeString(struct.dev);
 				oprot.writeFieldEnd();
 			}
+			if (struct.key != null) {
+				oprot.writeFieldBegin(KEY_FIELD_DESC);
+				oprot.writeString(struct.key);
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -1207,7 +1310,10 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 			if (struct.isSetDev()) {
 				optionals.set(8);
 			}
-			oprot.writeBitSet(optionals, 9);
+			if (struct.isSetKey()) {
+				optionals.set(9);
+			}
+			oprot.writeBitSet(optionals, 10);
 			if (struct.isSetUid()) {
 				oprot.writeString(struct.uid);
 			}
@@ -1235,13 +1341,16 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 			if (struct.isSetDev()) {
 				oprot.writeString(struct.dev);
 			}
+			if (struct.isSetKey()) {
+				oprot.writeString(struct.key);
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, UserSession struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(9);
+			java.util.BitSet incoming = iprot.readBitSet(10);
 			if (incoming.get(0)) {
 				struct.uid = iprot.readString();
 				struct.setUidIsSet(true);
@@ -1277,6 +1386,10 @@ public class UserSession implements org.apache.thrift.TBase<UserSession, UserSes
 			if (incoming.get(8)) {
 				struct.dev = iprot.readString();
 				struct.setDevIsSet(true);
+			}
+			if (incoming.get(9)) {
+				struct.key = iprot.readString();
+				struct.setKeyIsSet(true);
 			}
 		}
 
