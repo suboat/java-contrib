@@ -55,6 +55,12 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 	private static final org.apache.thrift.protocol.TField BIND_CODE_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"bindCode", org.apache.thrift.protocol.TType.STRING, (short) 13);
 
+	private static final org.apache.thrift.protocol.TField ROLES_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"roles", org.apache.thrift.protocol.TType.LIST, (short) 14);
+
+	private static final org.apache.thrift.protocol.TField AREAS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"areas", org.apache.thrift.protocol.TType.LIST, (short) 15);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ArgUserStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ArgUserTupleSchemeFactory();
@@ -85,6 +91,10 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String bindCode; // optional
 
+	public @org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> roles; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> areas; // optional
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
@@ -95,7 +105,8 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 				"email"), UNIQUE((short) 5, "unique"), BIND_APP((short) 6, "bindApp"), BIND_KEY((short) 7,
 						"bindKey"), BIND_VAL((short) 8, "bindVal"), LOC_NUM((short) 9,
 								"locNum"), VERIFY_PHONE((short) 10, "verifyPhone"), VERIFY_EMAIL((short) 11,
-										"verifyEmail"), SOURCE((short) 12, "source"), BIND_CODE((short) 13, "bindCode");
+										"verifyEmail"), SOURCE((short) 12, "source"), BIND_CODE((short) 13,
+												"bindCode"), ROLES((short) 14, "roles"), AREAS((short) 15, "areas");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -137,6 +148,10 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 				return SOURCE;
 			case 13: // BIND_CODE
 				return BIND_CODE;
+			case 14: // ROLES
+				return ROLES;
+			case 15: // AREAS
+				return AREAS;
 			default:
 				return null;
 			}
@@ -183,7 +198,7 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 	// isset id assignments
 	private static final _Fields optionals[] = { _Fields.USERNAME, _Fields.PHONE, _Fields.EMAIL, _Fields.UNIQUE,
 			_Fields.BIND_APP, _Fields.BIND_KEY, _Fields.BIND_VAL, _Fields.LOC_NUM, _Fields.VERIFY_PHONE,
-			_Fields.VERIFY_EMAIL, _Fields.SOURCE, _Fields.BIND_CODE };
+			_Fields.VERIFY_EMAIL, _Fields.SOURCE, _Fields.BIND_CODE, _Fields.ROLES, _Fields.AREAS };
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
@@ -238,6 +253,14 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 				new org.apache.thrift.meta_data.FieldMetaData("bindCode",
 						org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.ROLES, new org.apache.thrift.meta_data.FieldMetaData("roles",
+				org.apache.thrift.TFieldRequirementType.OPTIONAL,
+				new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING))));
+		tmpMap.put(_Fields.AREAS, new org.apache.thrift.meta_data.FieldMetaData("areas",
+				org.apache.thrift.TFieldRequirementType.OPTIONAL,
+				new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING))));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ArgUser.class, metaDataMap);
 	}
@@ -293,6 +316,14 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 		if (other.isSetBindCode()) {
 			this.bindCode = other.bindCode;
 		}
+		if (other.isSetRoles()) {
+			java.util.List<java.lang.String> __this__roles = new java.util.ArrayList<java.lang.String>(other.roles);
+			this.roles = __this__roles;
+		}
+		if (other.isSetAreas()) {
+			java.util.List<java.lang.String> __this__areas = new java.util.ArrayList<java.lang.String>(other.areas);
+			this.areas = __this__areas;
+		}
 	}
 
 	public ArgUser deepCopy() {
@@ -314,6 +345,8 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 		this.verifyEmail = null;
 		this.source = null;
 		this.bindCode = null;
+		this.roles = null;
+		this.areas = null;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -674,6 +707,92 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 		}
 	}
 
+	public int getRolesSize() {
+		return (this.roles == null) ? 0 : this.roles.size();
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.Iterator<java.lang.String> getRolesIterator() {
+		return (this.roles == null) ? null : this.roles.iterator();
+	}
+
+	public void addToRoles(java.lang.String elem) {
+		if (this.roles == null) {
+			this.roles = new java.util.ArrayList<java.lang.String>();
+		}
+		this.roles.add(elem);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.List<java.lang.String> getRoles() {
+		return this.roles;
+	}
+
+	public ArgUser setRoles(@org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> roles) {
+		this.roles = roles;
+		return this;
+	}
+
+	public void unsetRoles() {
+		this.roles = null;
+	}
+
+	/**
+	 * Returns true if field roles is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetRoles() {
+		return this.roles != null;
+	}
+
+	public void setRolesIsSet(boolean value) {
+		if (!value) {
+			this.roles = null;
+		}
+	}
+
+	public int getAreasSize() {
+		return (this.areas == null) ? 0 : this.areas.size();
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.Iterator<java.lang.String> getAreasIterator() {
+		return (this.areas == null) ? null : this.areas.iterator();
+	}
+
+	public void addToAreas(java.lang.String elem) {
+		if (this.areas == null) {
+			this.areas = new java.util.ArrayList<java.lang.String>();
+		}
+		this.areas.add(elem);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.List<java.lang.String> getAreas() {
+		return this.areas;
+	}
+
+	public ArgUser setAreas(@org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> areas) {
+		this.areas = areas;
+		return this;
+	}
+
+	public void unsetAreas() {
+		this.areas = null;
+	}
+
+	/**
+	 * Returns true if field areas is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetAreas() {
+		return this.areas != null;
+	}
+
+	public void setAreasIsSet(boolean value) {
+		if (!value) {
+			this.areas = null;
+		}
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case UID:
@@ -793,6 +912,24 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			}
 			break;
 
+		case ROLES:
+			if (value == null) {
+				unsetRoles();
+			}
+			else {
+				setRoles((java.util.List<java.lang.String>) value);
+			}
+			break;
+
+		case AREAS:
+			if (value == null) {
+				unsetAreas();
+			}
+			else {
+				setAreas((java.util.List<java.lang.String>) value);
+			}
+			break;
+
 		}
 	}
 
@@ -838,6 +975,12 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 		case BIND_CODE:
 			return getBindCode();
 
+		case ROLES:
+			return getRoles();
+
+		case AREAS:
+			return getAreas();
+
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -878,6 +1021,10 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			return isSetSource();
 		case BIND_CODE:
 			return isSetBindCode();
+		case ROLES:
+			return isSetRoles();
+		case AREAS:
+			return isSetAreas();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -1014,6 +1161,24 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 				return false;
 		}
 
+		boolean this_present_roles = true && this.isSetRoles();
+		boolean that_present_roles = true && that.isSetRoles();
+		if (this_present_roles || that_present_roles) {
+			if (!(this_present_roles && that_present_roles))
+				return false;
+			if (!this.roles.equals(that.roles))
+				return false;
+		}
+
+		boolean this_present_areas = true && this.isSetAreas();
+		boolean that_present_areas = true && that.isSetAreas();
+		if (this_present_areas || that_present_areas) {
+			if (!(this_present_areas && that_present_areas))
+				return false;
+			if (!this.areas.equals(that.areas))
+				return false;
+		}
+
 		return true;
 	}
 
@@ -1072,6 +1237,14 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 		hashCode = hashCode * 8191 + ((isSetBindCode()) ? 131071 : 524287);
 		if (isSetBindCode())
 			hashCode = hashCode * 8191 + bindCode.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetRoles()) ? 131071 : 524287);
+		if (isSetRoles())
+			hashCode = hashCode * 8191 + roles.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetAreas()) ? 131071 : 524287);
+		if (isSetAreas())
+			hashCode = hashCode * 8191 + areas.hashCode();
 
 		return hashCode;
 	}
@@ -1210,6 +1383,26 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 		}
 		if (isSetBindCode()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.bindCode, other.bindCode);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetRoles()).compareTo(other.isSetRoles());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetRoles()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.roles, other.roles);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetAreas()).compareTo(other.isSetAreas());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetAreas()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.areas, other.areas);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -1387,6 +1580,30 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			}
 			first = false;
 		}
+		if (isSetRoles()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("roles:");
+			if (this.roles == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.roles);
+			}
+			first = false;
+		}
+		if (isSetAreas()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("areas:");
+			if (this.areas == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.areas);
+			}
+			first = false;
+		}
 		sb.append(")");
 		return sb.toString();
 	}
@@ -1553,6 +1770,44 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 14: // ROLES
+					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+						{
+							org.apache.thrift.protocol.TList _list110 = iprot.readListBegin();
+							struct.roles = new java.util.ArrayList<java.lang.String>(_list110.size);
+							@org.apache.thrift.annotation.Nullable
+							java.lang.String _elem111;
+							for (int _i112 = 0; _i112 < _list110.size; ++_i112) {
+								_elem111 = iprot.readString();
+								struct.roles.add(_elem111);
+							}
+							iprot.readListEnd();
+						}
+						struct.setRolesIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 15: // AREAS
+					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+						{
+							org.apache.thrift.protocol.TList _list113 = iprot.readListBegin();
+							struct.areas = new java.util.ArrayList<java.lang.String>(_list113.size);
+							@org.apache.thrift.annotation.Nullable
+							java.lang.String _elem114;
+							for (int _i115 = 0; _i115 < _list113.size; ++_i115) {
+								_elem114 = iprot.readString();
+								struct.areas.add(_elem114);
+							}
+							iprot.readListEnd();
+						}
+						struct.setAreasIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -1659,6 +1914,34 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 					oprot.writeFieldEnd();
 				}
 			}
+			if (struct.roles != null) {
+				if (struct.isSetRoles()) {
+					oprot.writeFieldBegin(ROLES_FIELD_DESC);
+					{
+						oprot.writeListBegin(new org.apache.thrift.protocol.TList(
+								org.apache.thrift.protocol.TType.STRING, struct.roles.size()));
+						for (java.lang.String _iter116 : struct.roles) {
+							oprot.writeString(_iter116);
+						}
+						oprot.writeListEnd();
+					}
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.areas != null) {
+				if (struct.isSetAreas()) {
+					oprot.writeFieldBegin(AREAS_FIELD_DESC);
+					{
+						oprot.writeListBegin(new org.apache.thrift.protocol.TList(
+								org.apache.thrift.protocol.TType.STRING, struct.areas.size()));
+						for (java.lang.String _iter117 : struct.areas) {
+							oprot.writeString(_iter117);
+						}
+						oprot.writeListEnd();
+					}
+					oprot.writeFieldEnd();
+				}
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -1719,7 +2002,13 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			if (struct.isSetBindCode()) {
 				optionals.set(12);
 			}
-			oprot.writeBitSet(optionals, 13);
+			if (struct.isSetRoles()) {
+				optionals.set(13);
+			}
+			if (struct.isSetAreas()) {
+				optionals.set(14);
+			}
+			oprot.writeBitSet(optionals, 15);
 			if (struct.isSetUid()) {
 				oprot.writeString(struct.uid);
 			}
@@ -1759,13 +2048,29 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			if (struct.isSetBindCode()) {
 				oprot.writeString(struct.bindCode);
 			}
+			if (struct.isSetRoles()) {
+				{
+					oprot.writeI32(struct.roles.size());
+					for (java.lang.String _iter118 : struct.roles) {
+						oprot.writeString(_iter118);
+					}
+				}
+			}
+			if (struct.isSetAreas()) {
+				{
+					oprot.writeI32(struct.areas.size());
+					for (java.lang.String _iter119 : struct.areas) {
+						oprot.writeString(_iter119);
+					}
+				}
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, ArgUser struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(13);
+			java.util.BitSet incoming = iprot.readBitSet(15);
 			if (incoming.get(0)) {
 				struct.uid = iprot.readString();
 				struct.setUidIsSet(true);
@@ -1817,6 +2122,34 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			if (incoming.get(12)) {
 				struct.bindCode = iprot.readString();
 				struct.setBindCodeIsSet(true);
+			}
+			if (incoming.get(13)) {
+				{
+					org.apache.thrift.protocol.TList _list120 = new org.apache.thrift.protocol.TList(
+							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+					struct.roles = new java.util.ArrayList<java.lang.String>(_list120.size);
+					@org.apache.thrift.annotation.Nullable
+					java.lang.String _elem121;
+					for (int _i122 = 0; _i122 < _list120.size; ++_i122) {
+						_elem121 = iprot.readString();
+						struct.roles.add(_elem121);
+					}
+				}
+				struct.setRolesIsSet(true);
+			}
+			if (incoming.get(14)) {
+				{
+					org.apache.thrift.protocol.TList _list123 = new org.apache.thrift.protocol.TList(
+							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+					struct.areas = new java.util.ArrayList<java.lang.String>(_list123.size);
+					@org.apache.thrift.annotation.Nullable
+					java.lang.String _elem124;
+					for (int _i125 = 0; _i125 < _list123.size; ++_i125) {
+						_elem124 = iprot.readString();
+						struct.areas.add(_elem124);
+					}
+				}
+				struct.setAreasIsSet(true);
 			}
 		}
 

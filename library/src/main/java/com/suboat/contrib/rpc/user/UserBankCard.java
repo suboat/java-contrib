@@ -16,6 +16,9 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 	private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
 			"UserBankCard");
 
+	private static final org.apache.thrift.protocol.TField ACC_FIELD_DESC = new org.apache.thrift.protocol.TField("acc",
+			org.apache.thrift.protocol.TType.STRING, (short) 10);
+
 	private static final org.apache.thrift.protocol.TField UID_FIELD_DESC = new org.apache.thrift.protocol.TField("uid",
 			org.apache.thrift.protocol.TType.STRING, (short) 1);
 
@@ -43,9 +46,14 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 	private static final org.apache.thrift.protocol.TField EXPIRE_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"expireTime", org.apache.thrift.protocol.TType.STRING, (short) 9);
 
+	private static final org.apache.thrift.protocol.TField IS_DEFAULT_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"isDefault", org.apache.thrift.protocol.TType.BOOL, (short) 11);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new UserBankCardStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new UserBankCardTupleSchemeFactory();
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String acc; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String uid; // required
 
@@ -65,15 +73,18 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String expireTime; // required
 
+	public boolean isDefault; // required
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
 	 */
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
-		UID((short) 1, "uid"), NUMBER((short) 2, "number"), NAME((short) 3, "name"), PHONE((short) 4, "phone"), BANK(
-				(short) 5, "bank"), BANK_START((short) 6, "bankStart"), CREATE_TIME((short) 7,
-						"createTime"), UPDATE_TIME((short) 8, "updateTime"), EXPIRE_TIME((short) 9, "expireTime");
+		ACC((short) 10, "acc"), UID((short) 1, "uid"), NUMBER((short) 2, "number"), NAME((short) 3, "name"), PHONE(
+				(short) 4, "phone"), BANK((short) 5, "bank"), BANK_START((short) 6, "bankStart"), CREATE_TIME((short) 7,
+						"createTime"), UPDATE_TIME((short) 8, "updateTime"), EXPIRE_TIME((short) 9,
+								"expireTime"), IS_DEFAULT((short) 11, "isDefault");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -89,6 +100,8 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 		@org.apache.thrift.annotation.Nullable
 		public static _Fields findByThriftId(int fieldId) {
 			switch (fieldId) {
+			case 10: // ACC
+				return ACC;
 			case 1: // UID
 				return UID;
 			case 2: // NUMBER
@@ -107,6 +120,8 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 				return UPDATE_TIME;
 			case 9: // EXPIRE_TIME
 				return EXPIRE_TIME;
+			case 11: // IS_DEFAULT
+				return IS_DEFAULT;
 			default:
 				return null;
 			}
@@ -151,10 +166,17 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 	}
 
 	// isset id assignments
+	private static final int __ISDEFAULT_ISSET_ID = 0;
+
+	private byte __isset_bitfield = 0;
+
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
 		java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
 				_Fields.class);
+		tmpMap.put(_Fields.ACC,
+				new org.apache.thrift.meta_data.FieldMetaData("acc", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.UID,
 				new org.apache.thrift.meta_data.FieldMetaData("uid", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
@@ -183,6 +205,10 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 		tmpMap.put(_Fields.EXPIRE_TIME, new org.apache.thrift.meta_data.FieldMetaData("expireTime",
 				org.apache.thrift.TFieldRequirementType.DEFAULT,
 				new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING, "Time")));
+		tmpMap.put(_Fields.IS_DEFAULT,
+				new org.apache.thrift.meta_data.FieldMetaData("isDefault",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(UserBankCard.class, metaDataMap);
 	}
@@ -190,10 +216,11 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 	public UserBankCard() {
 	}
 
-	public UserBankCard(java.lang.String uid, java.lang.String number, java.lang.String name, java.lang.String phone,
-			java.lang.String bank, java.lang.String bankStart, java.lang.String createTime, java.lang.String updateTime,
-			java.lang.String expireTime) {
+	public UserBankCard(java.lang.String acc, java.lang.String uid, java.lang.String number, java.lang.String name,
+			java.lang.String phone, java.lang.String bank, java.lang.String bankStart, java.lang.String createTime,
+			java.lang.String updateTime, java.lang.String expireTime, boolean isDefault) {
 		this();
+		this.acc = acc;
 		this.uid = uid;
 		this.number = number;
 		this.name = name;
@@ -203,12 +230,18 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 		this.createTime = createTime;
 		this.updateTime = updateTime;
 		this.expireTime = expireTime;
+		this.isDefault = isDefault;
+		setIsDefaultIsSet(true);
 	}
 
 	/**
 	 * Performs a deep copy on <i>other</i>.
 	 */
 	public UserBankCard(UserBankCard other) {
+		__isset_bitfield = other.__isset_bitfield;
+		if (other.isSetAcc()) {
+			this.acc = other.acc;
+		}
 		if (other.isSetUid()) {
 			this.uid = other.uid;
 		}
@@ -236,6 +269,7 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 		if (other.isSetExpireTime()) {
 			this.expireTime = other.expireTime;
 		}
+		this.isDefault = other.isDefault;
 	}
 
 	public UserBankCard deepCopy() {
@@ -244,6 +278,7 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 
 	@Override
 	public void clear() {
+		this.acc = null;
 		this.uid = null;
 		this.number = null;
 		this.name = null;
@@ -253,6 +288,35 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 		this.createTime = null;
 		this.updateTime = null;
 		this.expireTime = null;
+		setIsDefaultIsSet(false);
+		this.isDefault = false;
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getAcc() {
+		return this.acc;
+	}
+
+	public UserBankCard setAcc(@org.apache.thrift.annotation.Nullable java.lang.String acc) {
+		this.acc = acc;
+		return this;
+	}
+
+	public void unsetAcc() {
+		this.acc = null;
+	}
+
+	/**
+	 * Returns true if field acc is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetAcc() {
+		return this.acc != null;
+	}
+
+	public void setAccIsSet(boolean value) {
+		if (!value) {
+			this.acc = null;
+		}
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -502,8 +566,43 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 		}
 	}
 
+	public boolean isIsDefault() {
+		return this.isDefault;
+	}
+
+	public UserBankCard setIsDefault(boolean isDefault) {
+		this.isDefault = isDefault;
+		setIsDefaultIsSet(true);
+		return this;
+	}
+
+	public void unsetIsDefault() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __ISDEFAULT_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field isDefault is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetIsDefault() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __ISDEFAULT_ISSET_ID);
+	}
+
+	public void setIsDefaultIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __ISDEFAULT_ISSET_ID, value);
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
+		case ACC:
+			if (value == null) {
+				unsetAcc();
+			}
+			else {
+				setAcc((java.lang.String) value);
+			}
+			break;
+
 		case UID:
 			if (value == null) {
 				unsetUid();
@@ -585,12 +684,24 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 			}
 			break;
 
+		case IS_DEFAULT:
+			if (value == null) {
+				unsetIsDefault();
+			}
+			else {
+				setIsDefault((java.lang.Boolean) value);
+			}
+			break;
+
 		}
 	}
 
 	@org.apache.thrift.annotation.Nullable
 	public java.lang.Object getFieldValue(_Fields field) {
 		switch (field) {
+		case ACC:
+			return getAcc();
+
 		case UID:
 			return getUid();
 
@@ -618,6 +729,9 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 		case EXPIRE_TIME:
 			return getExpireTime();
 
+		case IS_DEFAULT:
+			return isIsDefault();
+
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -632,6 +746,8 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 		}
 
 		switch (field) {
+		case ACC:
+			return isSetAcc();
 		case UID:
 			return isSetUid();
 		case NUMBER:
@@ -650,6 +766,8 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 			return isSetUpdateTime();
 		case EXPIRE_TIME:
 			return isSetExpireTime();
+		case IS_DEFAULT:
+			return isSetIsDefault();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -668,6 +786,15 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 			return false;
 		if (this == that)
 			return true;
+
+		boolean this_present_acc = true && this.isSetAcc();
+		boolean that_present_acc = true && that.isSetAcc();
+		if (this_present_acc || that_present_acc) {
+			if (!(this_present_acc && that_present_acc))
+				return false;
+			if (!this.acc.equals(that.acc))
+				return false;
+		}
 
 		boolean this_present_uid = true && this.isSetUid();
 		boolean that_present_uid = true && that.isSetUid();
@@ -750,12 +877,25 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 				return false;
 		}
 
+		boolean this_present_isDefault = true;
+		boolean that_present_isDefault = true;
+		if (this_present_isDefault || that_present_isDefault) {
+			if (!(this_present_isDefault && that_present_isDefault))
+				return false;
+			if (this.isDefault != that.isDefault)
+				return false;
+		}
+
 		return true;
 	}
 
 	@Override
 	public int hashCode() {
 		int hashCode = 1;
+
+		hashCode = hashCode * 8191 + ((isSetAcc()) ? 131071 : 524287);
+		if (isSetAcc())
+			hashCode = hashCode * 8191 + acc.hashCode();
 
 		hashCode = hashCode * 8191 + ((isSetUid()) ? 131071 : 524287);
 		if (isSetUid())
@@ -793,6 +933,8 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 		if (isSetExpireTime())
 			hashCode = hashCode * 8191 + expireTime.hashCode();
 
+		hashCode = hashCode * 8191 + ((isDefault) ? 131071 : 524287);
+
 		return hashCode;
 	}
 
@@ -804,6 +946,16 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 
 		int lastComparison = 0;
 
+		lastComparison = java.lang.Boolean.valueOf(isSetAcc()).compareTo(other.isSetAcc());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetAcc()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.acc, other.acc);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetUid()).compareTo(other.isSetUid());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -894,6 +1046,16 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetIsDefault()).compareTo(other.isSetIsDefault());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetIsDefault()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.isDefault, other.isDefault);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		return 0;
 	}
 
@@ -915,6 +1077,16 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 		java.lang.StringBuilder sb = new java.lang.StringBuilder("UserBankCard(");
 		boolean first = true;
 
+		sb.append("acc:");
+		if (this.acc == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.acc);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("uid:");
 		if (this.uid == null) {
 			sb.append("null");
@@ -1003,6 +1175,11 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 			sb.append(this.expireTime);
 		}
 		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("isDefault:");
+		sb.append(this.isDefault);
+		first = false;
 		sb.append(")");
 		return sb.toString();
 	}
@@ -1024,6 +1201,9 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 
 	private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
 		try {
+			// it doesn't seem like you should have to do this, but java serialization is
+			// wacky, and doesn't call the default constructor.
+			__isset_bitfield = 0;
 			read(new org.apache.thrift.protocol.TCompactProtocol(
 					new org.apache.thrift.transport.TIOStreamTransport(in)));
 		}
@@ -1052,6 +1232,15 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 					break;
 				}
 				switch (schemeField.id) {
+				case 10: // ACC
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.acc = iprot.readString();
+						struct.setAccIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 1: // UID
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.uid = iprot.readString();
@@ -1133,6 +1322,15 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 11: // IS_DEFAULT
+					if (schemeField.type == org.apache.thrift.protocol.TType.BOOL) {
+						struct.isDefault = iprot.readBool();
+						struct.setIsDefaultIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -1195,6 +1393,14 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 				oprot.writeString(struct.expireTime);
 				oprot.writeFieldEnd();
 			}
+			if (struct.acc != null) {
+				oprot.writeFieldBegin(ACC_FIELD_DESC);
+				oprot.writeString(struct.acc);
+				oprot.writeFieldEnd();
+			}
+			oprot.writeFieldBegin(IS_DEFAULT_FIELD_DESC);
+			oprot.writeBool(struct.isDefault);
+			oprot.writeFieldEnd();
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -1216,34 +1422,43 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 			java.util.BitSet optionals = new java.util.BitSet();
-			if (struct.isSetUid()) {
+			if (struct.isSetAcc()) {
 				optionals.set(0);
 			}
-			if (struct.isSetNumber()) {
+			if (struct.isSetUid()) {
 				optionals.set(1);
 			}
-			if (struct.isSetName()) {
+			if (struct.isSetNumber()) {
 				optionals.set(2);
 			}
-			if (struct.isSetPhone()) {
+			if (struct.isSetName()) {
 				optionals.set(3);
 			}
-			if (struct.isSetBank()) {
+			if (struct.isSetPhone()) {
 				optionals.set(4);
 			}
-			if (struct.isSetBankStart()) {
+			if (struct.isSetBank()) {
 				optionals.set(5);
 			}
-			if (struct.isSetCreateTime()) {
+			if (struct.isSetBankStart()) {
 				optionals.set(6);
 			}
-			if (struct.isSetUpdateTime()) {
+			if (struct.isSetCreateTime()) {
 				optionals.set(7);
 			}
-			if (struct.isSetExpireTime()) {
+			if (struct.isSetUpdateTime()) {
 				optionals.set(8);
 			}
-			oprot.writeBitSet(optionals, 9);
+			if (struct.isSetExpireTime()) {
+				optionals.set(9);
+			}
+			if (struct.isSetIsDefault()) {
+				optionals.set(10);
+			}
+			oprot.writeBitSet(optionals, 11);
+			if (struct.isSetAcc()) {
+				oprot.writeString(struct.acc);
+			}
 			if (struct.isSetUid()) {
 				oprot.writeString(struct.uid);
 			}
@@ -1271,48 +1486,59 @@ public class UserBankCard implements org.apache.thrift.TBase<UserBankCard, UserB
 			if (struct.isSetExpireTime()) {
 				oprot.writeString(struct.expireTime);
 			}
+			if (struct.isSetIsDefault()) {
+				oprot.writeBool(struct.isDefault);
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, UserBankCard struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(9);
+			java.util.BitSet incoming = iprot.readBitSet(11);
 			if (incoming.get(0)) {
+				struct.acc = iprot.readString();
+				struct.setAccIsSet(true);
+			}
+			if (incoming.get(1)) {
 				struct.uid = iprot.readString();
 				struct.setUidIsSet(true);
 			}
-			if (incoming.get(1)) {
+			if (incoming.get(2)) {
 				struct.number = iprot.readString();
 				struct.setNumberIsSet(true);
 			}
-			if (incoming.get(2)) {
+			if (incoming.get(3)) {
 				struct.name = iprot.readString();
 				struct.setNameIsSet(true);
 			}
-			if (incoming.get(3)) {
+			if (incoming.get(4)) {
 				struct.phone = iprot.readString();
 				struct.setPhoneIsSet(true);
 			}
-			if (incoming.get(4)) {
+			if (incoming.get(5)) {
 				struct.bank = iprot.readString();
 				struct.setBankIsSet(true);
 			}
-			if (incoming.get(5)) {
+			if (incoming.get(6)) {
 				struct.bankStart = iprot.readString();
 				struct.setBankStartIsSet(true);
 			}
-			if (incoming.get(6)) {
+			if (incoming.get(7)) {
 				struct.createTime = iprot.readString();
 				struct.setCreateTimeIsSet(true);
 			}
-			if (incoming.get(7)) {
+			if (incoming.get(8)) {
 				struct.updateTime = iprot.readString();
 				struct.setUpdateTimeIsSet(true);
 			}
-			if (incoming.get(8)) {
+			if (incoming.get(9)) {
 				struct.expireTime = iprot.readString();
 				struct.setExpireTimeIsSet(true);
+			}
+			if (incoming.get(10)) {
+				struct.isDefault = iprot.readBool();
+				struct.setIsDefaultIsSet(true);
 			}
 		}
 

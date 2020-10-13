@@ -16,11 +16,8 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 	private static final org.apache.thrift.protocol.TField PID_FIELD_DESC = new org.apache.thrift.protocol.TField("pid",
 			org.apache.thrift.protocol.TType.STRING, (short) 1);
 
-	private static final org.apache.thrift.protocol.TField OID_FIELD_DESC = new org.apache.thrift.protocol.TField("oid",
-			org.apache.thrift.protocol.TType.STRING, (short) 2);
-
-	private static final org.apache.thrift.protocol.TField SID_FIELD_DESC = new org.apache.thrift.protocol.TField("sid",
-			org.apache.thrift.protocol.TType.STRING, (short) 3);
+	private static final org.apache.thrift.protocol.TField XID_FIELD_DESC = new org.apache.thrift.protocol.TField("xid",
+			org.apache.thrift.protocol.TType.STRING, (short) 11);
 
 	private static final org.apache.thrift.protocol.TField CREATE_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"createTime", org.apache.thrift.protocol.TType.STRING, (short) 4);
@@ -49,9 +46,7 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String pid; // required
 
-	public @org.apache.thrift.annotation.Nullable java.lang.String oid; // required
-
-	public @org.apache.thrift.annotation.Nullable java.lang.String sid; // required
+	public @org.apache.thrift.annotation.Nullable java.lang.String xid; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String createTime; // required
 
@@ -73,10 +68,9 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 	 */
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
-		PID((short) 1, "pid"), OID((short) 2, "oid"), SID((short) 3, "sid"), CREATE_TIME((short) 4,
-				"createTime"), UPDATE_TIME((short) 5, "updateTime"), STATUS((short) 6, "status"), SERIAL_ID((short) 7,
-						"serialId"), PLATFORM((short) 8,
-								"platform"), RECEIPT((short) 9, "receipt"), WF_ACC((short) 10, "wfAcc");
+		PID((short) 1, "pid"), XID((short) 11, "xid"), CREATE_TIME((short) 4, "createTime"), UPDATE_TIME((short) 5,
+				"updateTime"), STATUS((short) 6, "status"), SERIAL_ID((short) 7, "serialId"), PLATFORM((short) 8,
+						"platform"), RECEIPT((short) 9, "receipt"), WF_ACC((short) 10, "wfAcc");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -94,10 +88,8 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 			switch (fieldId) {
 			case 1: // PID
 				return PID;
-			case 2: // OID
-				return OID;
-			case 3: // SID
-				return SID;
+			case 11: // XID
+				return XID;
 			case 4: // CREATE_TIME
 				return CREATE_TIME;
 			case 5: // UPDATE_TIME
@@ -167,11 +159,8 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 		tmpMap.put(_Fields.PID,
 				new org.apache.thrift.meta_data.FieldMetaData("pid", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-		tmpMap.put(_Fields.OID,
-				new org.apache.thrift.meta_data.FieldMetaData("oid", org.apache.thrift.TFieldRequirementType.DEFAULT,
-						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-		tmpMap.put(_Fields.SID,
-				new org.apache.thrift.meta_data.FieldMetaData("sid", org.apache.thrift.TFieldRequirementType.DEFAULT,
+		tmpMap.put(_Fields.XID,
+				new org.apache.thrift.meta_data.FieldMetaData("xid", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.CREATE_TIME, new org.apache.thrift.meta_data.FieldMetaData("createTime",
 				org.apache.thrift.TFieldRequirementType.DEFAULT,
@@ -204,13 +193,12 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 	public OrderPay() {
 	}
 
-	public OrderPay(java.lang.String pid, java.lang.String oid, java.lang.String sid, java.lang.String createTime,
+	public OrderPay(java.lang.String pid, java.lang.String xid, java.lang.String createTime,
 			java.lang.String updateTime, int status, java.lang.String serialId, java.lang.String platform,
 			java.lang.String receipt, java.lang.String wfAcc) {
 		this();
 		this.pid = pid;
-		this.oid = oid;
-		this.sid = sid;
+		this.xid = xid;
 		this.createTime = createTime;
 		this.updateTime = updateTime;
 		this.status = status;
@@ -229,11 +217,8 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 		if (other.isSetPid()) {
 			this.pid = other.pid;
 		}
-		if (other.isSetOid()) {
-			this.oid = other.oid;
-		}
-		if (other.isSetSid()) {
-			this.sid = other.sid;
+		if (other.isSetXid()) {
+			this.xid = other.xid;
 		}
 		if (other.isSetCreateTime()) {
 			this.createTime = other.createTime;
@@ -263,8 +248,7 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 	@Override
 	public void clear() {
 		this.pid = null;
-		this.oid = null;
-		this.sid = null;
+		this.xid = null;
 		this.createTime = null;
 		this.updateTime = null;
 		setStatusIsSet(false);
@@ -303,56 +287,29 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 	}
 
 	@org.apache.thrift.annotation.Nullable
-	public java.lang.String getOid() {
-		return this.oid;
+	public java.lang.String getXid() {
+		return this.xid;
 	}
 
-	public OrderPay setOid(@org.apache.thrift.annotation.Nullable java.lang.String oid) {
-		this.oid = oid;
+	public OrderPay setXid(@org.apache.thrift.annotation.Nullable java.lang.String xid) {
+		this.xid = xid;
 		return this;
 	}
 
-	public void unsetOid() {
-		this.oid = null;
+	public void unsetXid() {
+		this.xid = null;
 	}
 
 	/**
-	 * Returns true if field oid is set (has been assigned a value) and false otherwise
+	 * Returns true if field xid is set (has been assigned a value) and false otherwise
 	 */
-	public boolean isSetOid() {
-		return this.oid != null;
+	public boolean isSetXid() {
+		return this.xid != null;
 	}
 
-	public void setOidIsSet(boolean value) {
+	public void setXidIsSet(boolean value) {
 		if (!value) {
-			this.oid = null;
-		}
-	}
-
-	@org.apache.thrift.annotation.Nullable
-	public java.lang.String getSid() {
-		return this.sid;
-	}
-
-	public OrderPay setSid(@org.apache.thrift.annotation.Nullable java.lang.String sid) {
-		this.sid = sid;
-		return this;
-	}
-
-	public void unsetSid() {
-		this.sid = null;
-	}
-
-	/**
-	 * Returns true if field sid is set (has been assigned a value) and false otherwise
-	 */
-	public boolean isSetSid() {
-		return this.sid != null;
-	}
-
-	public void setSidIsSet(boolean value) {
-		if (!value) {
-			this.sid = null;
+			this.xid = null;
 		}
 	}
 
@@ -559,21 +516,12 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 			}
 			break;
 
-		case OID:
+		case XID:
 			if (value == null) {
-				unsetOid();
+				unsetXid();
 			}
 			else {
-				setOid((java.lang.String) value);
-			}
-			break;
-
-		case SID:
-			if (value == null) {
-				unsetSid();
-			}
-			else {
-				setSid((java.lang.String) value);
+				setXid((java.lang.String) value);
 			}
 			break;
 
@@ -649,11 +597,8 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 		case PID:
 			return getPid();
 
-		case OID:
-			return getOid();
-
-		case SID:
-			return getSid();
+		case XID:
+			return getXid();
 
 		case CREATE_TIME:
 			return getCreateTime();
@@ -692,10 +637,8 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 		switch (field) {
 		case PID:
 			return isSetPid();
-		case OID:
-			return isSetOid();
-		case SID:
-			return isSetSid();
+		case XID:
+			return isSetXid();
 		case CREATE_TIME:
 			return isSetCreateTime();
 		case UPDATE_TIME:
@@ -738,21 +681,12 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 				return false;
 		}
 
-		boolean this_present_oid = true && this.isSetOid();
-		boolean that_present_oid = true && that.isSetOid();
-		if (this_present_oid || that_present_oid) {
-			if (!(this_present_oid && that_present_oid))
+		boolean this_present_xid = true && this.isSetXid();
+		boolean that_present_xid = true && that.isSetXid();
+		if (this_present_xid || that_present_xid) {
+			if (!(this_present_xid && that_present_xid))
 				return false;
-			if (!this.oid.equals(that.oid))
-				return false;
-		}
-
-		boolean this_present_sid = true && this.isSetSid();
-		boolean that_present_sid = true && that.isSetSid();
-		if (this_present_sid || that_present_sid) {
-			if (!(this_present_sid && that_present_sid))
-				return false;
-			if (!this.sid.equals(that.sid))
+			if (!this.xid.equals(that.xid))
 				return false;
 		}
 
@@ -830,13 +764,9 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 		if (isSetPid())
 			hashCode = hashCode * 8191 + pid.hashCode();
 
-		hashCode = hashCode * 8191 + ((isSetOid()) ? 131071 : 524287);
-		if (isSetOid())
-			hashCode = hashCode * 8191 + oid.hashCode();
-
-		hashCode = hashCode * 8191 + ((isSetSid()) ? 131071 : 524287);
-		if (isSetSid())
-			hashCode = hashCode * 8191 + sid.hashCode();
+		hashCode = hashCode * 8191 + ((isSetXid()) ? 131071 : 524287);
+		if (isSetXid())
+			hashCode = hashCode * 8191 + xid.hashCode();
 
 		hashCode = hashCode * 8191 + ((isSetCreateTime()) ? 131071 : 524287);
 		if (isSetCreateTime())
@@ -885,22 +815,12 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 				return lastComparison;
 			}
 		}
-		lastComparison = java.lang.Boolean.valueOf(isSetOid()).compareTo(other.isSetOid());
+		lastComparison = java.lang.Boolean.valueOf(isSetXid()).compareTo(other.isSetXid());
 		if (lastComparison != 0) {
 			return lastComparison;
 		}
-		if (isSetOid()) {
-			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.oid, other.oid);
-			if (lastComparison != 0) {
-				return lastComparison;
-			}
-		}
-		lastComparison = java.lang.Boolean.valueOf(isSetSid()).compareTo(other.isSetSid());
-		if (lastComparison != 0) {
-			return lastComparison;
-		}
-		if (isSetSid()) {
-			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.sid, other.sid);
+		if (isSetXid()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.xid, other.xid);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -1006,22 +926,12 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 		first = false;
 		if (!first)
 			sb.append(", ");
-		sb.append("oid:");
-		if (this.oid == null) {
+		sb.append("xid:");
+		if (this.xid == null) {
 			sb.append("null");
 		}
 		else {
-			sb.append(this.oid);
-		}
-		first = false;
-		if (!first)
-			sb.append(", ");
-		sb.append("sid:");
-		if (this.sid == null) {
-			sb.append("null");
-		}
-		else {
-			sb.append(this.sid);
+			sb.append(this.xid);
 		}
 		first = false;
 		if (!first)
@@ -1150,19 +1060,10 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
-				case 2: // OID
+				case 11: // XID
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-						struct.oid = iprot.readString();
-						struct.setOidIsSet(true);
-					}
-					else {
-						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-					}
-					break;
-				case 3: // SID
-					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-						struct.sid = iprot.readString();
-						struct.setSidIsSet(true);
+						struct.xid = iprot.readString();
+						struct.setXidIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -1253,16 +1154,6 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 				oprot.writeString(struct.pid);
 				oprot.writeFieldEnd();
 			}
-			if (struct.oid != null) {
-				oprot.writeFieldBegin(OID_FIELD_DESC);
-				oprot.writeString(struct.oid);
-				oprot.writeFieldEnd();
-			}
-			if (struct.sid != null) {
-				oprot.writeFieldBegin(SID_FIELD_DESC);
-				oprot.writeString(struct.sid);
-				oprot.writeFieldEnd();
-			}
 			if (struct.createTime != null) {
 				oprot.writeFieldBegin(CREATE_TIME_FIELD_DESC);
 				oprot.writeString(struct.createTime);
@@ -1296,6 +1187,11 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 				oprot.writeString(struct.wfAcc);
 				oprot.writeFieldEnd();
 			}
+			if (struct.xid != null) {
+				oprot.writeFieldBegin(XID_FIELD_DESC);
+				oprot.writeString(struct.xid);
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -1320,42 +1216,36 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 			if (struct.isSetPid()) {
 				optionals.set(0);
 			}
-			if (struct.isSetOid()) {
+			if (struct.isSetXid()) {
 				optionals.set(1);
 			}
-			if (struct.isSetSid()) {
+			if (struct.isSetCreateTime()) {
 				optionals.set(2);
 			}
-			if (struct.isSetCreateTime()) {
+			if (struct.isSetUpdateTime()) {
 				optionals.set(3);
 			}
-			if (struct.isSetUpdateTime()) {
+			if (struct.isSetStatus()) {
 				optionals.set(4);
 			}
-			if (struct.isSetStatus()) {
+			if (struct.isSetSerialId()) {
 				optionals.set(5);
 			}
-			if (struct.isSetSerialId()) {
+			if (struct.isSetPlatform()) {
 				optionals.set(6);
 			}
-			if (struct.isSetPlatform()) {
+			if (struct.isSetReceipt()) {
 				optionals.set(7);
 			}
-			if (struct.isSetReceipt()) {
+			if (struct.isSetWfAcc()) {
 				optionals.set(8);
 			}
-			if (struct.isSetWfAcc()) {
-				optionals.set(9);
-			}
-			oprot.writeBitSet(optionals, 10);
+			oprot.writeBitSet(optionals, 9);
 			if (struct.isSetPid()) {
 				oprot.writeString(struct.pid);
 			}
-			if (struct.isSetOid()) {
-				oprot.writeString(struct.oid);
-			}
-			if (struct.isSetSid()) {
-				oprot.writeString(struct.sid);
+			if (struct.isSetXid()) {
+				oprot.writeString(struct.xid);
 			}
 			if (struct.isSetCreateTime()) {
 				oprot.writeString(struct.createTime);
@@ -1384,44 +1274,40 @@ public class OrderPay implements org.apache.thrift.TBase<OrderPay, OrderPay._Fie
 		public void read(org.apache.thrift.protocol.TProtocol prot, OrderPay struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(10);
+			java.util.BitSet incoming = iprot.readBitSet(9);
 			if (incoming.get(0)) {
 				struct.pid = iprot.readString();
 				struct.setPidIsSet(true);
 			}
 			if (incoming.get(1)) {
-				struct.oid = iprot.readString();
-				struct.setOidIsSet(true);
+				struct.xid = iprot.readString();
+				struct.setXidIsSet(true);
 			}
 			if (incoming.get(2)) {
-				struct.sid = iprot.readString();
-				struct.setSidIsSet(true);
-			}
-			if (incoming.get(3)) {
 				struct.createTime = iprot.readString();
 				struct.setCreateTimeIsSet(true);
 			}
-			if (incoming.get(4)) {
+			if (incoming.get(3)) {
 				struct.updateTime = iprot.readString();
 				struct.setUpdateTimeIsSet(true);
 			}
-			if (incoming.get(5)) {
+			if (incoming.get(4)) {
 				struct.status = iprot.readI32();
 				struct.setStatusIsSet(true);
 			}
-			if (incoming.get(6)) {
+			if (incoming.get(5)) {
 				struct.serialId = iprot.readString();
 				struct.setSerialIdIsSet(true);
 			}
-			if (incoming.get(7)) {
+			if (incoming.get(6)) {
 				struct.platform = iprot.readString();
 				struct.setPlatformIsSet(true);
 			}
-			if (incoming.get(8)) {
+			if (incoming.get(7)) {
 				struct.receipt = iprot.readString();
 				struct.setReceiptIsSet(true);
 			}
-			if (incoming.get(9)) {
+			if (incoming.get(8)) {
 				struct.wfAcc = iprot.readString();
 				struct.setWfAccIsSet(true);
 			}

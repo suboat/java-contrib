@@ -8,7 +8,7 @@ package com.suboat.contrib.rpc.user;
 
 @SuppressWarnings({ "cast", "rawtypes", "serial", "unchecked", "unused" })
 /**
- * 用户实例: 微信用户详情
+ * 用户实例: 微信用户详情 TODO: 弃用
  */
 public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, UserWeixinInfo._Fields>,
 		java.io.Serializable, Cloneable, Comparable<UserWeixinInfo> {

@@ -4,14 +4,17 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package com.suboat.contrib.rpc.mall;
+package com.suboat.contrib.rpc.user;
 
 @SuppressWarnings({ "cast", "rawtypes", "serial", "unchecked", "unused" })
-public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultLabel._Fields>, java.io.Serializable,
-		Cloneable, Comparable<ResultLabel> {
+/**
+ * 接口返回: 行政区划 应用场景: 遍历行政区划
+ */
+public class ResultDivision implements org.apache.thrift.TBase<ResultDivision, ResultDivision._Fields>,
+		java.io.Serializable, Cloneable, Comparable<ResultDivision> {
 
 	private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
-			"ResultLabel");
+			"ResultDivision");
 
 	private static final org.apache.thrift.protocol.TField DATA_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"data", org.apache.thrift.protocol.TType.LIST, (short) 1);
@@ -19,11 +22,11 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 	private static final org.apache.thrift.protocol.TField META_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"meta", org.apache.thrift.protocol.TType.STRUCT, (short) 2);
 
-	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ResultLabelStandardSchemeFactory();
+	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ResultDivisionStandardSchemeFactory();
 
-	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ResultLabelTupleSchemeFactory();
+	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ResultDivisionTupleSchemeFactory();
 
-	public @org.apache.thrift.annotation.Nullable java.util.List<Label> data; // required
+	public @org.apache.thrift.annotation.Nullable java.util.List<Division> data; // required
 
 	public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.QueryMeta meta; // required
 
@@ -105,19 +108,19 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 				new org.apache.thrift.meta_data.FieldMetaData("data", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
 								new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
-										Label.class))));
+										Division.class))));
 		tmpMap.put(_Fields.META,
 				new org.apache.thrift.meta_data.FieldMetaData("meta", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
 								com.suboat.contrib.rpc.base.QueryMeta.class)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ResultLabel.class, metaDataMap);
+		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ResultDivision.class, metaDataMap);
 	}
 
-	public ResultLabel() {
+	public ResultDivision() {
 	}
 
-	public ResultLabel(java.util.List<Label> data, com.suboat.contrib.rpc.base.QueryMeta meta) {
+	public ResultDivision(java.util.List<Division> data, com.suboat.contrib.rpc.base.QueryMeta meta) {
 		this();
 		this.data = data;
 		this.meta = meta;
@@ -126,11 +129,11 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 	/**
 	 * Performs a deep copy on <i>other</i>.
 	 */
-	public ResultLabel(ResultLabel other) {
+	public ResultDivision(ResultDivision other) {
 		if (other.isSetData()) {
-			java.util.List<Label> __this__data = new java.util.ArrayList<Label>(other.data.size());
-			for (Label other_element : other.data) {
-				__this__data.add(new Label(other_element));
+			java.util.List<Division> __this__data = new java.util.ArrayList<Division>(other.data.size());
+			for (Division other_element : other.data) {
+				__this__data.add(new Division(other_element));
 			}
 			this.data = __this__data;
 		}
@@ -139,8 +142,8 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 		}
 	}
 
-	public ResultLabel deepCopy() {
-		return new ResultLabel(this);
+	public ResultDivision deepCopy() {
+		return new ResultDivision(this);
 	}
 
 	@Override
@@ -154,23 +157,23 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 	}
 
 	@org.apache.thrift.annotation.Nullable
-	public java.util.Iterator<Label> getDataIterator() {
+	public java.util.Iterator<Division> getDataIterator() {
 		return (this.data == null) ? null : this.data.iterator();
 	}
 
-	public void addToData(Label elem) {
+	public void addToData(Division elem) {
 		if (this.data == null) {
-			this.data = new java.util.ArrayList<Label>();
+			this.data = new java.util.ArrayList<Division>();
 		}
 		this.data.add(elem);
 	}
 
 	@org.apache.thrift.annotation.Nullable
-	public java.util.List<Label> getData() {
+	public java.util.List<Division> getData() {
 		return this.data;
 	}
 
-	public ResultLabel setData(@org.apache.thrift.annotation.Nullable java.util.List<Label> data) {
+	public ResultDivision setData(@org.apache.thrift.annotation.Nullable java.util.List<Division> data) {
 		this.data = data;
 		return this;
 	}
@@ -197,7 +200,7 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 		return this.meta;
 	}
 
-	public ResultLabel setMeta(@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.QueryMeta meta) {
+	public ResultDivision setMeta(@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.QueryMeta meta) {
 		this.meta = meta;
 		return this;
 	}
@@ -226,7 +229,7 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 				unsetData();
 			}
 			else {
-				setData((java.util.List<Label>) value);
+				setData((java.util.List<Division>) value);
 			}
 			break;
 
@@ -277,12 +280,12 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 	public boolean equals(java.lang.Object that) {
 		if (that == null)
 			return false;
-		if (that instanceof ResultLabel)
-			return this.equals((ResultLabel) that);
+		if (that instanceof ResultDivision)
+			return this.equals((ResultDivision) that);
 		return false;
 	}
 
-	public boolean equals(ResultLabel that) {
+	public boolean equals(ResultDivision that) {
 		if (that == null)
 			return false;
 		if (this == that)
@@ -325,7 +328,7 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 	}
 
 	@Override
-	public int compareTo(ResultLabel other) {
+	public int compareTo(ResultDivision other) {
 		if (!getClass().equals(other.getClass())) {
 			return getClass().getName().compareTo(other.getClass().getName());
 		}
@@ -370,7 +373,7 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 
 	@Override
 	public java.lang.String toString() {
-		java.lang.StringBuilder sb = new java.lang.StringBuilder("ResultLabel(");
+		java.lang.StringBuilder sb = new java.lang.StringBuilder("ResultDivision(");
 		boolean first = true;
 
 		sb.append("data:");
@@ -423,17 +426,17 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 		}
 	}
 
-	private static class ResultLabelStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+	private static class ResultDivisionStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
 
-		public ResultLabelStandardScheme getScheme() {
-			return new ResultLabelStandardScheme();
+		public ResultDivisionStandardScheme getScheme() {
+			return new ResultDivisionStandardScheme();
 		}
 
 	}
 
-	private static class ResultLabelStandardScheme extends org.apache.thrift.scheme.StandardScheme<ResultLabel> {
+	private static class ResultDivisionStandardScheme extends org.apache.thrift.scheme.StandardScheme<ResultDivision> {
 
-		public void read(org.apache.thrift.protocol.TProtocol iprot, ResultLabel struct)
+		public void read(org.apache.thrift.protocol.TProtocol iprot, ResultDivision struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TField schemeField;
 			iprot.readStructBegin();
@@ -446,14 +449,14 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list206 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<Label>(_list206.size);
+							org.apache.thrift.protocol.TList _list166 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<Division>(_list166.size);
 							@org.apache.thrift.annotation.Nullable
-							Label _elem207;
-							for (int _i208 = 0; _i208 < _list206.size; ++_i208) {
-								_elem207 = new Label();
-								_elem207.read(iprot);
-								struct.data.add(_elem207);
+							Division _elem167;
+							for (int _i168 = 0; _i168 < _list166.size; ++_i168) {
+								_elem167 = new Division();
+								_elem167.read(iprot);
+								struct.data.add(_elem167);
 							}
 							iprot.readListEnd();
 						}
@@ -485,7 +488,7 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 			struct.validate();
 		}
 
-		public void write(org.apache.thrift.protocol.TProtocol oprot, ResultLabel struct)
+		public void write(org.apache.thrift.protocol.TProtocol oprot, ResultDivision struct)
 				throws org.apache.thrift.TException {
 			struct.validate();
 
@@ -495,8 +498,8 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (Label _iter209 : struct.data) {
-						_iter209.write(oprot);
+					for (Division _iter169 : struct.data) {
+						_iter169.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -513,18 +516,18 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 
 	}
 
-	private static class ResultLabelTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+	private static class ResultDivisionTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
 
-		public ResultLabelTupleScheme getScheme() {
-			return new ResultLabelTupleScheme();
+		public ResultDivisionTupleScheme getScheme() {
+			return new ResultDivisionTupleScheme();
 		}
 
 	}
 
-	private static class ResultLabelTupleScheme extends org.apache.thrift.scheme.TupleScheme<ResultLabel> {
+	private static class ResultDivisionTupleScheme extends org.apache.thrift.scheme.TupleScheme<ResultDivision> {
 
 		@Override
-		public void write(org.apache.thrift.protocol.TProtocol prot, ResultLabel struct)
+		public void write(org.apache.thrift.protocol.TProtocol prot, ResultDivision struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 			java.util.BitSet optionals = new java.util.BitSet();
@@ -538,8 +541,8 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (Label _iter210 : struct.data) {
-						_iter210.write(oprot);
+					for (Division _iter170 : struct.data) {
+						_iter170.write(oprot);
 					}
 				}
 			}
@@ -549,21 +552,21 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 		}
 
 		@Override
-		public void read(org.apache.thrift.protocol.TProtocol prot, ResultLabel struct)
+		public void read(org.apache.thrift.protocol.TProtocol prot, ResultDivision struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list211 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list171 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<Label>(_list211.size);
+					struct.data = new java.util.ArrayList<Division>(_list171.size);
 					@org.apache.thrift.annotation.Nullable
-					Label _elem212;
-					for (int _i213 = 0; _i213 < _list211.size; ++_i213) {
-						_elem212 = new Label();
-						_elem212.read(iprot);
-						struct.data.add(_elem212);
+					Division _elem172;
+					for (int _i173 = 0; _i173 < _list171.size; ++_i173) {
+						_elem172 = new Division();
+						_elem172.read(iprot);
+						struct.data.add(_elem172);
 					}
 				}
 				struct.setDataIsSet(true);

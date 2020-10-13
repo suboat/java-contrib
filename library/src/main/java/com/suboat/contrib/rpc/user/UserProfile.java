@@ -16,23 +16,35 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
 			"UserProfile");
 
+	private static final org.apache.thrift.protocol.TField ICON_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"icon", org.apache.thrift.protocol.TType.STRING, (short) 4);
+
 	private static final org.apache.thrift.protocol.TField NAME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"name", org.apache.thrift.protocol.TType.STRING, (short) 1);
-
-	private static final org.apache.thrift.protocol.TField EMAIL_FIELD_DESC = new org.apache.thrift.protocol.TField(
-			"email", org.apache.thrift.protocol.TType.STRING, (short) 2);
 
 	private static final org.apache.thrift.protocol.TField PHONE_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"phone", org.apache.thrift.protocol.TType.STRING, (short) 3);
 
-	private static final org.apache.thrift.protocol.TField ICON_FIELD_DESC = new org.apache.thrift.protocol.TField(
-			"icon", org.apache.thrift.protocol.TType.STRING, (short) 4);
+	private static final org.apache.thrift.protocol.TField EMAIL_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"email", org.apache.thrift.protocol.TType.STRING, (short) 2);
+
+	private static final org.apache.thrift.protocol.TField SOCIAL_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"social", org.apache.thrift.protocol.TType.STRING, (short) 23);
 
 	private static final org.apache.thrift.protocol.TField SEX_FIELD_DESC = new org.apache.thrift.protocol.TField("sex",
 			org.apache.thrift.protocol.TType.STRING, (short) 5);
 
 	private static final org.apache.thrift.protocol.TField BIRTH_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"birth", org.apache.thrift.protocol.TType.STRING, (short) 6);
+
+	private static final org.apache.thrift.protocol.TField BIRTH_PLACE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"birthPlace", org.apache.thrift.protocol.TType.STRING, (short) 33);
+
+	private static final org.apache.thrift.protocol.TField HEIGHT_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"height", org.apache.thrift.protocol.TType.STRING, (short) 24);
+
+	private static final org.apache.thrift.protocol.TField WEIGHT_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"weight", org.apache.thrift.protocol.TType.STRING, (short) 25);
 
 	private static final org.apache.thrift.protocol.TField SIGN_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"sign", org.apache.thrift.protocol.TType.STRING, (short) 7);
@@ -52,11 +64,20 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	private static final org.apache.thrift.protocol.TField ADDRESS_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"address", org.apache.thrift.protocol.TType.STRING, (short) 12);
 
+	private static final org.apache.thrift.protocol.TField VIP_NAME_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"vipName", org.apache.thrift.protocol.TType.STRING, (short) 26);
+
+	private static final org.apache.thrift.protocol.TField VIP_PHONE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"vipPhone", org.apache.thrift.protocol.TType.STRING, (short) 27);
+
 	private static final org.apache.thrift.protocol.TField PSW_HASH_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"pswHash", org.apache.thrift.protocol.TType.STRING, (short) 13);
 
 	private static final org.apache.thrift.protocol.TField REAL_NAME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"realName", org.apache.thrift.protocol.TType.STRING, (short) 14);
+
+	private static final org.apache.thrift.protocol.TField REAL_ICON_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"realIcon", org.apache.thrift.protocol.TType.STRING, (short) 28);
 
 	private static final org.apache.thrift.protocol.TField CARD_ID_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"cardId", org.apache.thrift.protocol.TType.STRING, (short) 15);
@@ -70,11 +91,23 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	private static final org.apache.thrift.protocol.TField BANK_NUMBER_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"bankNumber", org.apache.thrift.protocol.TType.STRING, (short) 18);
 
+	private static final org.apache.thrift.protocol.TField EDUCATION_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"education", org.apache.thrift.protocol.TType.STRING, (short) 29);
+
+	private static final org.apache.thrift.protocol.TField GRADUATE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"graduate", org.apache.thrift.protocol.TType.STRING, (short) 30);
+
+	private static final org.apache.thrift.protocol.TField MAJOR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"major", org.apache.thrift.protocol.TType.STRING, (short) 31);
+
 	private static final org.apache.thrift.protocol.TField ETHNIC_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"ethnic", org.apache.thrift.protocol.TType.STRING, (short) 19);
 
 	private static final org.apache.thrift.protocol.TField RELIGION_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"religion", org.apache.thrift.protocol.TType.STRING, (short) 20);
+
+	private static final org.apache.thrift.protocol.TField PARTY_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"party", org.apache.thrift.protocol.TType.STRING, (short) 32);
 
 	private static final org.apache.thrift.protocol.TField WX_ICON_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"wxIcon", org.apache.thrift.protocol.TType.STRING, (short) 21);
@@ -86,17 +119,25 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new UserProfileTupleSchemeFactory();
 
-	public @org.apache.thrift.annotation.Nullable java.lang.String name; // required
+	public @org.apache.thrift.annotation.Nullable java.lang.String icon; // required
 
-	public @org.apache.thrift.annotation.Nullable java.lang.String email; // required
+	public @org.apache.thrift.annotation.Nullable java.lang.String name; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String phone; // required
 
-	public @org.apache.thrift.annotation.Nullable java.lang.String icon; // required
+	public @org.apache.thrift.annotation.Nullable java.lang.String email; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String social; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String sex; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String birth; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String birthPlace; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String height; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String weight; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String sign; // required
 
@@ -110,9 +151,15 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String address; // required
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String vipName; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String vipPhone; // required
+
 	public @org.apache.thrift.annotation.Nullable java.lang.String pswHash; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String realName; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String realIcon; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String cardId; // required
 
@@ -122,9 +169,17 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String bankNumber; // required
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String education; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String graduate; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String major; // required
+
 	public @org.apache.thrift.annotation.Nullable java.lang.String ethnic; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String religion; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String party; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String wxIcon; // required
 
@@ -136,16 +191,36 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	 */
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
-		NAME((short) 1, "name"), EMAIL((short) 2, "email"), PHONE((short) 3, "phone"), ICON((short) 4, "icon"), SEX(
-				(short) 5,
-				"sex"), BIRTH((short) 6, "birth"), SIGN((short) 7, "sign"), COUNTRY((short) 8, "country"), PROVINCE(
-						(short) 9,
-						"province"), CITY((short) 10, "city"), DISTRICT((short) 11, "district"), ADDRESS((short) 12,
-								"address"), PSW_HASH((short) 13, "pswHash"), REAL_NAME((short) 14, "realName"), CARD_ID(
-										(short) 15, "cardId"), PASSPORT((short) 16, "passport"), DRIVER((short) 17,
-												"driver"), BANK_NUMBER((short) 18, "bankNumber"), ETHNIC((short) 19,
-														"ethnic"), RELIGION((short) 20, "religion"), WX_ICON((short) 21,
-																"wxIcon"), WX_NICKNAME((short) 22, "wxNickname");
+		ICON((short) 4, "icon"), NAME((short) 1, "name"), PHONE((short) 3, "phone"), EMAIL((short) 2, "email"), SOCIAL(
+				(short) 23, "social"), SEX((short) 5, "sex"), BIRTH((short) 6, "birth"), BIRTH_PLACE((short) 33,
+						"birthPlace"), HEIGHT((short) 24, "height"), WEIGHT((short) 25, "weight"), SIGN((short) 7,
+								"sign"), COUNTRY((short) 8, "country"), PROVINCE((short) 9, "province"), CITY(
+										(short) 10, "city"), DISTRICT((short) 11, "district"), ADDRESS((short) 12,
+												"address"), VIP_NAME((short) 26, "vipName"), VIP_PHONE((short) 27,
+														"vipPhone"), PSW_HASH((short) 13, "pswHash"), REAL_NAME(
+																(short) 14,
+																"realName"), REAL_ICON((short) 28, "realIcon"), CARD_ID(
+																		(short) 15, "cardId"), PASSPORT((short) 16,
+																				"passport"), DRIVER((short) 17,
+																						"driver"), BANK_NUMBER(
+																								(short) 18,
+																								"bankNumber"), EDUCATION(
+																										(short) 29,
+																										"education"), GRADUATE(
+																												(short) 30,
+																												"graduate"), MAJOR(
+																														(short) 31,
+																														"major"), ETHNIC(
+																																(short) 19,
+																																"ethnic"), RELIGION(
+																																		(short) 20,
+																																		"religion"), PARTY(
+																																				(short) 32,
+																																				"party"), WX_ICON(
+																																						(short) 21,
+																																						"wxIcon"), WX_NICKNAME(
+																																								(short) 22,
+																																								"wxNickname");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -161,18 +236,26 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		@org.apache.thrift.annotation.Nullable
 		public static _Fields findByThriftId(int fieldId) {
 			switch (fieldId) {
-			case 1: // NAME
-				return NAME;
-			case 2: // EMAIL
-				return EMAIL;
-			case 3: // PHONE
-				return PHONE;
 			case 4: // ICON
 				return ICON;
+			case 1: // NAME
+				return NAME;
+			case 3: // PHONE
+				return PHONE;
+			case 2: // EMAIL
+				return EMAIL;
+			case 23: // SOCIAL
+				return SOCIAL;
 			case 5: // SEX
 				return SEX;
 			case 6: // BIRTH
 				return BIRTH;
+			case 33: // BIRTH_PLACE
+				return BIRTH_PLACE;
+			case 24: // HEIGHT
+				return HEIGHT;
+			case 25: // WEIGHT
+				return WEIGHT;
 			case 7: // SIGN
 				return SIGN;
 			case 8: // COUNTRY
@@ -185,10 +268,16 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				return DISTRICT;
 			case 12: // ADDRESS
 				return ADDRESS;
+			case 26: // VIP_NAME
+				return VIP_NAME;
+			case 27: // VIP_PHONE
+				return VIP_PHONE;
 			case 13: // PSW_HASH
 				return PSW_HASH;
 			case 14: // REAL_NAME
 				return REAL_NAME;
+			case 28: // REAL_ICON
+				return REAL_ICON;
 			case 15: // CARD_ID
 				return CARD_ID;
 			case 16: // PASSPORT
@@ -197,10 +286,18 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				return DRIVER;
 			case 18: // BANK_NUMBER
 				return BANK_NUMBER;
+			case 29: // EDUCATION
+				return EDUCATION;
+			case 30: // GRADUATE
+				return GRADUATE;
+			case 31: // MAJOR
+				return MAJOR;
 			case 19: // ETHNIC
 				return ETHNIC;
 			case 20: // RELIGION
 				return RELIGION;
+			case 32: // PARTY
+				return PARTY;
 			case 21: // WX_ICON
 				return WX_ICON;
 			case 22: // WX_NICKNAME
@@ -253,23 +350,36 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	static {
 		java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
 				_Fields.class);
+		tmpMap.put(_Fields.ICON,
+				new org.apache.thrift.meta_data.FieldMetaData("icon", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.NAME,
 				new org.apache.thrift.meta_data.FieldMetaData("name", org.apache.thrift.TFieldRequirementType.DEFAULT,
-						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-		tmpMap.put(_Fields.EMAIL,
-				new org.apache.thrift.meta_data.FieldMetaData("email", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.PHONE,
 				new org.apache.thrift.meta_data.FieldMetaData("phone", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-		tmpMap.put(_Fields.ICON,
-				new org.apache.thrift.meta_data.FieldMetaData("icon", org.apache.thrift.TFieldRequirementType.DEFAULT,
+		tmpMap.put(_Fields.EMAIL,
+				new org.apache.thrift.meta_data.FieldMetaData("email", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.SOCIAL,
+				new org.apache.thrift.meta_data.FieldMetaData("social", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.SEX,
 				new org.apache.thrift.meta_data.FieldMetaData("sex", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.BIRTH,
 				new org.apache.thrift.meta_data.FieldMetaData("birth", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.BIRTH_PLACE,
+				new org.apache.thrift.meta_data.FieldMetaData("birthPlace",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.HEIGHT,
+				new org.apache.thrift.meta_data.FieldMetaData("height", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.WEIGHT,
+				new org.apache.thrift.meta_data.FieldMetaData("weight", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.SIGN,
 				new org.apache.thrift.meta_data.FieldMetaData("sign", org.apache.thrift.TFieldRequirementType.DEFAULT,
@@ -293,12 +403,24 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				new org.apache.thrift.meta_data.FieldMetaData("address",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.VIP_NAME,
+				new org.apache.thrift.meta_data.FieldMetaData("vipName",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.VIP_PHONE,
+				new org.apache.thrift.meta_data.FieldMetaData("vipPhone",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.PSW_HASH,
 				new org.apache.thrift.meta_data.FieldMetaData("pswHash",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.REAL_NAME,
 				new org.apache.thrift.meta_data.FieldMetaData("realName",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.REAL_ICON,
+				new org.apache.thrift.meta_data.FieldMetaData("realIcon",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.CARD_ID,
@@ -315,12 +437,26 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				new org.apache.thrift.meta_data.FieldMetaData("bankNumber",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.EDUCATION,
+				new org.apache.thrift.meta_data.FieldMetaData("education",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.GRADUATE,
+				new org.apache.thrift.meta_data.FieldMetaData("graduate",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.MAJOR,
+				new org.apache.thrift.meta_data.FieldMetaData("major", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.ETHNIC,
 				new org.apache.thrift.meta_data.FieldMetaData("ethnic", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.RELIGION,
 				new org.apache.thrift.meta_data.FieldMetaData("religion",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.PARTY,
+				new org.apache.thrift.meta_data.FieldMetaData("party", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.WX_ICON,
 				new org.apache.thrift.meta_data.FieldMetaData("wxIcon", org.apache.thrift.TFieldRequirementType.DEFAULT,
@@ -336,33 +472,47 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	public UserProfile() {
 	}
 
-	public UserProfile(java.lang.String name, java.lang.String email, java.lang.String phone, java.lang.String icon,
-			java.lang.String sex, java.lang.String birth, java.lang.String sign, java.lang.String country,
+	public UserProfile(java.lang.String icon, java.lang.String name, java.lang.String phone, java.lang.String email,
+			java.lang.String social, java.lang.String sex, java.lang.String birth, java.lang.String birthPlace,
+			java.lang.String height, java.lang.String weight, java.lang.String sign, java.lang.String country,
 			java.lang.String province, java.lang.String city, java.lang.String district, java.lang.String address,
-			java.lang.String pswHash, java.lang.String realName, java.lang.String cardId, java.lang.String passport,
-			java.lang.String driver, java.lang.String bankNumber, java.lang.String ethnic, java.lang.String religion,
-			java.lang.String wxIcon, java.lang.String wxNickname) {
+			java.lang.String vipName, java.lang.String vipPhone, java.lang.String pswHash, java.lang.String realName,
+			java.lang.String realIcon, java.lang.String cardId, java.lang.String passport, java.lang.String driver,
+			java.lang.String bankNumber, java.lang.String education, java.lang.String graduate, java.lang.String major,
+			java.lang.String ethnic, java.lang.String religion, java.lang.String party, java.lang.String wxIcon,
+			java.lang.String wxNickname) {
 		this();
-		this.name = name;
-		this.email = email;
-		this.phone = phone;
 		this.icon = icon;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.social = social;
 		this.sex = sex;
 		this.birth = birth;
+		this.birthPlace = birthPlace;
+		this.height = height;
+		this.weight = weight;
 		this.sign = sign;
 		this.country = country;
 		this.province = province;
 		this.city = city;
 		this.district = district;
 		this.address = address;
+		this.vipName = vipName;
+		this.vipPhone = vipPhone;
 		this.pswHash = pswHash;
 		this.realName = realName;
+		this.realIcon = realIcon;
 		this.cardId = cardId;
 		this.passport = passport;
 		this.driver = driver;
 		this.bankNumber = bankNumber;
+		this.education = education;
+		this.graduate = graduate;
+		this.major = major;
 		this.ethnic = ethnic;
 		this.religion = religion;
+		this.party = party;
 		this.wxIcon = wxIcon;
 		this.wxNickname = wxNickname;
 	}
@@ -371,23 +521,35 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	 * Performs a deep copy on <i>other</i>.
 	 */
 	public UserProfile(UserProfile other) {
+		if (other.isSetIcon()) {
+			this.icon = other.icon;
+		}
 		if (other.isSetName()) {
 			this.name = other.name;
-		}
-		if (other.isSetEmail()) {
-			this.email = other.email;
 		}
 		if (other.isSetPhone()) {
 			this.phone = other.phone;
 		}
-		if (other.isSetIcon()) {
-			this.icon = other.icon;
+		if (other.isSetEmail()) {
+			this.email = other.email;
+		}
+		if (other.isSetSocial()) {
+			this.social = other.social;
 		}
 		if (other.isSetSex()) {
 			this.sex = other.sex;
 		}
 		if (other.isSetBirth()) {
 			this.birth = other.birth;
+		}
+		if (other.isSetBirthPlace()) {
+			this.birthPlace = other.birthPlace;
+		}
+		if (other.isSetHeight()) {
+			this.height = other.height;
+		}
+		if (other.isSetWeight()) {
+			this.weight = other.weight;
 		}
 		if (other.isSetSign()) {
 			this.sign = other.sign;
@@ -407,11 +569,20 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		if (other.isSetAddress()) {
 			this.address = other.address;
 		}
+		if (other.isSetVipName()) {
+			this.vipName = other.vipName;
+		}
+		if (other.isSetVipPhone()) {
+			this.vipPhone = other.vipPhone;
+		}
 		if (other.isSetPswHash()) {
 			this.pswHash = other.pswHash;
 		}
 		if (other.isSetRealName()) {
 			this.realName = other.realName;
+		}
+		if (other.isSetRealIcon()) {
+			this.realIcon = other.realIcon;
 		}
 		if (other.isSetCardId()) {
 			this.cardId = other.cardId;
@@ -425,11 +596,23 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		if (other.isSetBankNumber()) {
 			this.bankNumber = other.bankNumber;
 		}
+		if (other.isSetEducation()) {
+			this.education = other.education;
+		}
+		if (other.isSetGraduate()) {
+			this.graduate = other.graduate;
+		}
+		if (other.isSetMajor()) {
+			this.major = other.major;
+		}
 		if (other.isSetEthnic()) {
 			this.ethnic = other.ethnic;
 		}
 		if (other.isSetReligion()) {
 			this.religion = other.religion;
+		}
+		if (other.isSetParty()) {
+			this.party = other.party;
 		}
 		if (other.isSetWxIcon()) {
 			this.wxIcon = other.wxIcon;
@@ -445,28 +628,66 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 
 	@Override
 	public void clear() {
-		this.name = null;
-		this.email = null;
-		this.phone = null;
 		this.icon = null;
+		this.name = null;
+		this.phone = null;
+		this.email = null;
+		this.social = null;
 		this.sex = null;
 		this.birth = null;
+		this.birthPlace = null;
+		this.height = null;
+		this.weight = null;
 		this.sign = null;
 		this.country = null;
 		this.province = null;
 		this.city = null;
 		this.district = null;
 		this.address = null;
+		this.vipName = null;
+		this.vipPhone = null;
 		this.pswHash = null;
 		this.realName = null;
+		this.realIcon = null;
 		this.cardId = null;
 		this.passport = null;
 		this.driver = null;
 		this.bankNumber = null;
+		this.education = null;
+		this.graduate = null;
+		this.major = null;
 		this.ethnic = null;
 		this.religion = null;
+		this.party = null;
 		this.wxIcon = null;
 		this.wxNickname = null;
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getIcon() {
+		return this.icon;
+	}
+
+	public UserProfile setIcon(@org.apache.thrift.annotation.Nullable java.lang.String icon) {
+		this.icon = icon;
+		return this;
+	}
+
+	public void unsetIcon() {
+		this.icon = null;
+	}
+
+	/**
+	 * Returns true if field icon is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetIcon() {
+		return this.icon != null;
+	}
+
+	public void setIconIsSet(boolean value) {
+		if (!value) {
+			this.icon = null;
+		}
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -493,33 +714,6 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	public void setNameIsSet(boolean value) {
 		if (!value) {
 			this.name = null;
-		}
-	}
-
-	@org.apache.thrift.annotation.Nullable
-	public java.lang.String getEmail() {
-		return this.email;
-	}
-
-	public UserProfile setEmail(@org.apache.thrift.annotation.Nullable java.lang.String email) {
-		this.email = email;
-		return this;
-	}
-
-	public void unsetEmail() {
-		this.email = null;
-	}
-
-	/**
-	 * Returns true if field email is set (has been assigned a value) and false otherwise
-	 */
-	public boolean isSetEmail() {
-		return this.email != null;
-	}
-
-	public void setEmailIsSet(boolean value) {
-		if (!value) {
-			this.email = null;
 		}
 	}
 
@@ -551,29 +745,56 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	}
 
 	@org.apache.thrift.annotation.Nullable
-	public java.lang.String getIcon() {
-		return this.icon;
+	public java.lang.String getEmail() {
+		return this.email;
 	}
 
-	public UserProfile setIcon(@org.apache.thrift.annotation.Nullable java.lang.String icon) {
-		this.icon = icon;
+	public UserProfile setEmail(@org.apache.thrift.annotation.Nullable java.lang.String email) {
+		this.email = email;
 		return this;
 	}
 
-	public void unsetIcon() {
-		this.icon = null;
+	public void unsetEmail() {
+		this.email = null;
 	}
 
 	/**
-	 * Returns true if field icon is set (has been assigned a value) and false otherwise
+	 * Returns true if field email is set (has been assigned a value) and false otherwise
 	 */
-	public boolean isSetIcon() {
-		return this.icon != null;
+	public boolean isSetEmail() {
+		return this.email != null;
 	}
 
-	public void setIconIsSet(boolean value) {
+	public void setEmailIsSet(boolean value) {
 		if (!value) {
-			this.icon = null;
+			this.email = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getSocial() {
+		return this.social;
+	}
+
+	public UserProfile setSocial(@org.apache.thrift.annotation.Nullable java.lang.String social) {
+		this.social = social;
+		return this;
+	}
+
+	public void unsetSocial() {
+		this.social = null;
+	}
+
+	/**
+	 * Returns true if field social is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetSocial() {
+		return this.social != null;
+	}
+
+	public void setSocialIsSet(boolean value) {
+		if (!value) {
+			this.social = null;
 		}
 	}
 
@@ -628,6 +849,88 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	public void setBirthIsSet(boolean value) {
 		if (!value) {
 			this.birth = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getBirthPlace() {
+		return this.birthPlace;
+	}
+
+	public UserProfile setBirthPlace(@org.apache.thrift.annotation.Nullable java.lang.String birthPlace) {
+		this.birthPlace = birthPlace;
+		return this;
+	}
+
+	public void unsetBirthPlace() {
+		this.birthPlace = null;
+	}
+
+	/**
+	 * Returns true if field birthPlace is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetBirthPlace() {
+		return this.birthPlace != null;
+	}
+
+	public void setBirthPlaceIsSet(boolean value) {
+		if (!value) {
+			this.birthPlace = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getHeight() {
+		return this.height;
+	}
+
+	public UserProfile setHeight(@org.apache.thrift.annotation.Nullable java.lang.String height) {
+		this.height = height;
+		return this;
+	}
+
+	public void unsetHeight() {
+		this.height = null;
+	}
+
+	/**
+	 * Returns true if field height is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetHeight() {
+		return this.height != null;
+	}
+
+	public void setHeightIsSet(boolean value) {
+		if (!value) {
+			this.height = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getWeight() {
+		return this.weight;
+	}
+
+	public UserProfile setWeight(@org.apache.thrift.annotation.Nullable java.lang.String weight) {
+		this.weight = weight;
+		return this;
+	}
+
+	public void unsetWeight() {
+		this.weight = null;
+	}
+
+	/**
+	 * Returns true if field weight is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetWeight() {
+		return this.weight != null;
+	}
+
+	public void setWeightIsSet(boolean value) {
+		if (!value) {
+			this.weight = null;
 		}
 	}
 
@@ -798,6 +1101,62 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	}
 
 	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getVipName() {
+		return this.vipName;
+	}
+
+	public UserProfile setVipName(@org.apache.thrift.annotation.Nullable java.lang.String vipName) {
+		this.vipName = vipName;
+		return this;
+	}
+
+	public void unsetVipName() {
+		this.vipName = null;
+	}
+
+	/**
+	 * Returns true if field vipName is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetVipName() {
+		return this.vipName != null;
+	}
+
+	public void setVipNameIsSet(boolean value) {
+		if (!value) {
+			this.vipName = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getVipPhone() {
+		return this.vipPhone;
+	}
+
+	public UserProfile setVipPhone(@org.apache.thrift.annotation.Nullable java.lang.String vipPhone) {
+		this.vipPhone = vipPhone;
+		return this;
+	}
+
+	public void unsetVipPhone() {
+		this.vipPhone = null;
+	}
+
+	/**
+	 * Returns true if field vipPhone is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetVipPhone() {
+		return this.vipPhone != null;
+	}
+
+	public void setVipPhoneIsSet(boolean value) {
+		if (!value) {
+			this.vipPhone = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
 	public java.lang.String getPswHash() {
 		return this.pswHash;
 	}
@@ -850,6 +1209,34 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	public void setRealNameIsSet(boolean value) {
 		if (!value) {
 			this.realName = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getRealIcon() {
+		return this.realIcon;
+	}
+
+	public UserProfile setRealIcon(@org.apache.thrift.annotation.Nullable java.lang.String realIcon) {
+		this.realIcon = realIcon;
+		return this;
+	}
+
+	public void unsetRealIcon() {
+		this.realIcon = null;
+	}
+
+	/**
+	 * Returns true if field realIcon is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetRealIcon() {
+		return this.realIcon != null;
+	}
+
+	public void setRealIconIsSet(boolean value) {
+		if (!value) {
+			this.realIcon = null;
 		}
 	}
 
@@ -964,6 +1351,89 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	}
 
 	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getEducation() {
+		return this.education;
+	}
+
+	public UserProfile setEducation(@org.apache.thrift.annotation.Nullable java.lang.String education) {
+		this.education = education;
+		return this;
+	}
+
+	public void unsetEducation() {
+		this.education = null;
+	}
+
+	/**
+	 * Returns true if field education is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetEducation() {
+		return this.education != null;
+	}
+
+	public void setEducationIsSet(boolean value) {
+		if (!value) {
+			this.education = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getGraduate() {
+		return this.graduate;
+	}
+
+	public UserProfile setGraduate(@org.apache.thrift.annotation.Nullable java.lang.String graduate) {
+		this.graduate = graduate;
+		return this;
+	}
+
+	public void unsetGraduate() {
+		this.graduate = null;
+	}
+
+	/**
+	 * Returns true if field graduate is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetGraduate() {
+		return this.graduate != null;
+	}
+
+	public void setGraduateIsSet(boolean value) {
+		if (!value) {
+			this.graduate = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getMajor() {
+		return this.major;
+	}
+
+	public UserProfile setMajor(@org.apache.thrift.annotation.Nullable java.lang.String major) {
+		this.major = major;
+		return this;
+	}
+
+	public void unsetMajor() {
+		this.major = null;
+	}
+
+	/**
+	 * Returns true if field major is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetMajor() {
+		return this.major != null;
+	}
+
+	public void setMajorIsSet(boolean value) {
+		if (!value) {
+			this.major = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
 	public java.lang.String getEthnic() {
 		return this.ethnic;
 	}
@@ -1015,6 +1485,33 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	public void setReligionIsSet(boolean value) {
 		if (!value) {
 			this.religion = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getParty() {
+		return this.party;
+	}
+
+	public UserProfile setParty(@org.apache.thrift.annotation.Nullable java.lang.String party) {
+		this.party = party;
+		return this;
+	}
+
+	public void unsetParty() {
+		this.party = null;
+	}
+
+	/**
+	 * Returns true if field party is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetParty() {
+		return this.party != null;
+	}
+
+	public void setPartyIsSet(boolean value) {
+		if (!value) {
+			this.party = null;
 		}
 	}
 
@@ -1075,21 +1572,21 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
+		case ICON:
+			if (value == null) {
+				unsetIcon();
+			}
+			else {
+				setIcon((java.lang.String) value);
+			}
+			break;
+
 		case NAME:
 			if (value == null) {
 				unsetName();
 			}
 			else {
 				setName((java.lang.String) value);
-			}
-			break;
-
-		case EMAIL:
-			if (value == null) {
-				unsetEmail();
-			}
-			else {
-				setEmail((java.lang.String) value);
 			}
 			break;
 
@@ -1102,12 +1599,21 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			}
 			break;
 
-		case ICON:
+		case EMAIL:
 			if (value == null) {
-				unsetIcon();
+				unsetEmail();
 			}
 			else {
-				setIcon((java.lang.String) value);
+				setEmail((java.lang.String) value);
+			}
+			break;
+
+		case SOCIAL:
+			if (value == null) {
+				unsetSocial();
+			}
+			else {
+				setSocial((java.lang.String) value);
 			}
 			break;
 
@@ -1126,6 +1632,33 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			}
 			else {
 				setBirth((java.lang.String) value);
+			}
+			break;
+
+		case BIRTH_PLACE:
+			if (value == null) {
+				unsetBirthPlace();
+			}
+			else {
+				setBirthPlace((java.lang.String) value);
+			}
+			break;
+
+		case HEIGHT:
+			if (value == null) {
+				unsetHeight();
+			}
+			else {
+				setHeight((java.lang.String) value);
+			}
+			break;
+
+		case WEIGHT:
+			if (value == null) {
+				unsetWeight();
+			}
+			else {
+				setWeight((java.lang.String) value);
 			}
 			break;
 
@@ -1183,6 +1716,24 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			}
 			break;
 
+		case VIP_NAME:
+			if (value == null) {
+				unsetVipName();
+			}
+			else {
+				setVipName((java.lang.String) value);
+			}
+			break;
+
+		case VIP_PHONE:
+			if (value == null) {
+				unsetVipPhone();
+			}
+			else {
+				setVipPhone((java.lang.String) value);
+			}
+			break;
+
 		case PSW_HASH:
 			if (value == null) {
 				unsetPswHash();
@@ -1198,6 +1749,15 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			}
 			else {
 				setRealName((java.lang.String) value);
+			}
+			break;
+
+		case REAL_ICON:
+			if (value == null) {
+				unsetRealIcon();
+			}
+			else {
+				setRealIcon((java.lang.String) value);
 			}
 			break;
 
@@ -1237,6 +1797,33 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			}
 			break;
 
+		case EDUCATION:
+			if (value == null) {
+				unsetEducation();
+			}
+			else {
+				setEducation((java.lang.String) value);
+			}
+			break;
+
+		case GRADUATE:
+			if (value == null) {
+				unsetGraduate();
+			}
+			else {
+				setGraduate((java.lang.String) value);
+			}
+			break;
+
+		case MAJOR:
+			if (value == null) {
+				unsetMajor();
+			}
+			else {
+				setMajor((java.lang.String) value);
+			}
+			break;
+
 		case ETHNIC:
 			if (value == null) {
 				unsetEthnic();
@@ -1252,6 +1839,15 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			}
 			else {
 				setReligion((java.lang.String) value);
+			}
+			break;
+
+		case PARTY:
+			if (value == null) {
+				unsetParty();
+			}
+			else {
+				setParty((java.lang.String) value);
 			}
 			break;
 
@@ -1279,23 +1875,35 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	@org.apache.thrift.annotation.Nullable
 	public java.lang.Object getFieldValue(_Fields field) {
 		switch (field) {
+		case ICON:
+			return getIcon();
+
 		case NAME:
 			return getName();
-
-		case EMAIL:
-			return getEmail();
 
 		case PHONE:
 			return getPhone();
 
-		case ICON:
-			return getIcon();
+		case EMAIL:
+			return getEmail();
+
+		case SOCIAL:
+			return getSocial();
 
 		case SEX:
 			return getSex();
 
 		case BIRTH:
 			return getBirth();
+
+		case BIRTH_PLACE:
+			return getBirthPlace();
+
+		case HEIGHT:
+			return getHeight();
+
+		case WEIGHT:
+			return getWeight();
 
 		case SIGN:
 			return getSign();
@@ -1315,11 +1923,20 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		case ADDRESS:
 			return getAddress();
 
+		case VIP_NAME:
+			return getVipName();
+
+		case VIP_PHONE:
+			return getVipPhone();
+
 		case PSW_HASH:
 			return getPswHash();
 
 		case REAL_NAME:
 			return getRealName();
+
+		case REAL_ICON:
+			return getRealIcon();
 
 		case CARD_ID:
 			return getCardId();
@@ -1333,11 +1950,23 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		case BANK_NUMBER:
 			return getBankNumber();
 
+		case EDUCATION:
+			return getEducation();
+
+		case GRADUATE:
+			return getGraduate();
+
+		case MAJOR:
+			return getMajor();
+
 		case ETHNIC:
 			return getEthnic();
 
 		case RELIGION:
 			return getReligion();
+
+		case PARTY:
+			return getParty();
 
 		case WX_ICON:
 			return getWxIcon();
@@ -1359,18 +1988,26 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		}
 
 		switch (field) {
-		case NAME:
-			return isSetName();
-		case EMAIL:
-			return isSetEmail();
-		case PHONE:
-			return isSetPhone();
 		case ICON:
 			return isSetIcon();
+		case NAME:
+			return isSetName();
+		case PHONE:
+			return isSetPhone();
+		case EMAIL:
+			return isSetEmail();
+		case SOCIAL:
+			return isSetSocial();
 		case SEX:
 			return isSetSex();
 		case BIRTH:
 			return isSetBirth();
+		case BIRTH_PLACE:
+			return isSetBirthPlace();
+		case HEIGHT:
+			return isSetHeight();
+		case WEIGHT:
+			return isSetWeight();
 		case SIGN:
 			return isSetSign();
 		case COUNTRY:
@@ -1383,10 +2020,16 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			return isSetDistrict();
 		case ADDRESS:
 			return isSetAddress();
+		case VIP_NAME:
+			return isSetVipName();
+		case VIP_PHONE:
+			return isSetVipPhone();
 		case PSW_HASH:
 			return isSetPswHash();
 		case REAL_NAME:
 			return isSetRealName();
+		case REAL_ICON:
+			return isSetRealIcon();
 		case CARD_ID:
 			return isSetCardId();
 		case PASSPORT:
@@ -1395,10 +2038,18 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			return isSetDriver();
 		case BANK_NUMBER:
 			return isSetBankNumber();
+		case EDUCATION:
+			return isSetEducation();
+		case GRADUATE:
+			return isSetGraduate();
+		case MAJOR:
+			return isSetMajor();
 		case ETHNIC:
 			return isSetEthnic();
 		case RELIGION:
 			return isSetReligion();
+		case PARTY:
+			return isSetParty();
 		case WX_ICON:
 			return isSetWxIcon();
 		case WX_NICKNAME:
@@ -1422,21 +2073,21 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		if (this == that)
 			return true;
 
+		boolean this_present_icon = true && this.isSetIcon();
+		boolean that_present_icon = true && that.isSetIcon();
+		if (this_present_icon || that_present_icon) {
+			if (!(this_present_icon && that_present_icon))
+				return false;
+			if (!this.icon.equals(that.icon))
+				return false;
+		}
+
 		boolean this_present_name = true && this.isSetName();
 		boolean that_present_name = true && that.isSetName();
 		if (this_present_name || that_present_name) {
 			if (!(this_present_name && that_present_name))
 				return false;
 			if (!this.name.equals(that.name))
-				return false;
-		}
-
-		boolean this_present_email = true && this.isSetEmail();
-		boolean that_present_email = true && that.isSetEmail();
-		if (this_present_email || that_present_email) {
-			if (!(this_present_email && that_present_email))
-				return false;
-			if (!this.email.equals(that.email))
 				return false;
 		}
 
@@ -1449,12 +2100,21 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				return false;
 		}
 
-		boolean this_present_icon = true && this.isSetIcon();
-		boolean that_present_icon = true && that.isSetIcon();
-		if (this_present_icon || that_present_icon) {
-			if (!(this_present_icon && that_present_icon))
+		boolean this_present_email = true && this.isSetEmail();
+		boolean that_present_email = true && that.isSetEmail();
+		if (this_present_email || that_present_email) {
+			if (!(this_present_email && that_present_email))
 				return false;
-			if (!this.icon.equals(that.icon))
+			if (!this.email.equals(that.email))
+				return false;
+		}
+
+		boolean this_present_social = true && this.isSetSocial();
+		boolean that_present_social = true && that.isSetSocial();
+		if (this_present_social || that_present_social) {
+			if (!(this_present_social && that_present_social))
+				return false;
+			if (!this.social.equals(that.social))
 				return false;
 		}
 
@@ -1473,6 +2133,33 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			if (!(this_present_birth && that_present_birth))
 				return false;
 			if (!this.birth.equals(that.birth))
+				return false;
+		}
+
+		boolean this_present_birthPlace = true && this.isSetBirthPlace();
+		boolean that_present_birthPlace = true && that.isSetBirthPlace();
+		if (this_present_birthPlace || that_present_birthPlace) {
+			if (!(this_present_birthPlace && that_present_birthPlace))
+				return false;
+			if (!this.birthPlace.equals(that.birthPlace))
+				return false;
+		}
+
+		boolean this_present_height = true && this.isSetHeight();
+		boolean that_present_height = true && that.isSetHeight();
+		if (this_present_height || that_present_height) {
+			if (!(this_present_height && that_present_height))
+				return false;
+			if (!this.height.equals(that.height))
+				return false;
+		}
+
+		boolean this_present_weight = true && this.isSetWeight();
+		boolean that_present_weight = true && that.isSetWeight();
+		if (this_present_weight || that_present_weight) {
+			if (!(this_present_weight && that_present_weight))
+				return false;
+			if (!this.weight.equals(that.weight))
 				return false;
 		}
 
@@ -1530,6 +2217,24 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				return false;
 		}
 
+		boolean this_present_vipName = true && this.isSetVipName();
+		boolean that_present_vipName = true && that.isSetVipName();
+		if (this_present_vipName || that_present_vipName) {
+			if (!(this_present_vipName && that_present_vipName))
+				return false;
+			if (!this.vipName.equals(that.vipName))
+				return false;
+		}
+
+		boolean this_present_vipPhone = true && this.isSetVipPhone();
+		boolean that_present_vipPhone = true && that.isSetVipPhone();
+		if (this_present_vipPhone || that_present_vipPhone) {
+			if (!(this_present_vipPhone && that_present_vipPhone))
+				return false;
+			if (!this.vipPhone.equals(that.vipPhone))
+				return false;
+		}
+
 		boolean this_present_pswHash = true && this.isSetPswHash();
 		boolean that_present_pswHash = true && that.isSetPswHash();
 		if (this_present_pswHash || that_present_pswHash) {
@@ -1545,6 +2250,15 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			if (!(this_present_realName && that_present_realName))
 				return false;
 			if (!this.realName.equals(that.realName))
+				return false;
+		}
+
+		boolean this_present_realIcon = true && this.isSetRealIcon();
+		boolean that_present_realIcon = true && that.isSetRealIcon();
+		if (this_present_realIcon || that_present_realIcon) {
+			if (!(this_present_realIcon && that_present_realIcon))
+				return false;
+			if (!this.realIcon.equals(that.realIcon))
 				return false;
 		}
 
@@ -1584,6 +2298,33 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				return false;
 		}
 
+		boolean this_present_education = true && this.isSetEducation();
+		boolean that_present_education = true && that.isSetEducation();
+		if (this_present_education || that_present_education) {
+			if (!(this_present_education && that_present_education))
+				return false;
+			if (!this.education.equals(that.education))
+				return false;
+		}
+
+		boolean this_present_graduate = true && this.isSetGraduate();
+		boolean that_present_graduate = true && that.isSetGraduate();
+		if (this_present_graduate || that_present_graduate) {
+			if (!(this_present_graduate && that_present_graduate))
+				return false;
+			if (!this.graduate.equals(that.graduate))
+				return false;
+		}
+
+		boolean this_present_major = true && this.isSetMajor();
+		boolean that_present_major = true && that.isSetMajor();
+		if (this_present_major || that_present_major) {
+			if (!(this_present_major && that_present_major))
+				return false;
+			if (!this.major.equals(that.major))
+				return false;
+		}
+
 		boolean this_present_ethnic = true && this.isSetEthnic();
 		boolean that_present_ethnic = true && that.isSetEthnic();
 		if (this_present_ethnic || that_present_ethnic) {
@@ -1599,6 +2340,15 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			if (!(this_present_religion && that_present_religion))
 				return false;
 			if (!this.religion.equals(that.religion))
+				return false;
+		}
+
+		boolean this_present_party = true && this.isSetParty();
+		boolean that_present_party = true && that.isSetParty();
+		if (this_present_party || that_present_party) {
+			if (!(this_present_party && that_present_party))
+				return false;
+			if (!this.party.equals(that.party))
 				return false;
 		}
 
@@ -1627,21 +2377,25 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	public int hashCode() {
 		int hashCode = 1;
 
+		hashCode = hashCode * 8191 + ((isSetIcon()) ? 131071 : 524287);
+		if (isSetIcon())
+			hashCode = hashCode * 8191 + icon.hashCode();
+
 		hashCode = hashCode * 8191 + ((isSetName()) ? 131071 : 524287);
 		if (isSetName())
 			hashCode = hashCode * 8191 + name.hashCode();
-
-		hashCode = hashCode * 8191 + ((isSetEmail()) ? 131071 : 524287);
-		if (isSetEmail())
-			hashCode = hashCode * 8191 + email.hashCode();
 
 		hashCode = hashCode * 8191 + ((isSetPhone()) ? 131071 : 524287);
 		if (isSetPhone())
 			hashCode = hashCode * 8191 + phone.hashCode();
 
-		hashCode = hashCode * 8191 + ((isSetIcon()) ? 131071 : 524287);
-		if (isSetIcon())
-			hashCode = hashCode * 8191 + icon.hashCode();
+		hashCode = hashCode * 8191 + ((isSetEmail()) ? 131071 : 524287);
+		if (isSetEmail())
+			hashCode = hashCode * 8191 + email.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetSocial()) ? 131071 : 524287);
+		if (isSetSocial())
+			hashCode = hashCode * 8191 + social.hashCode();
 
 		hashCode = hashCode * 8191 + ((isSetSex()) ? 131071 : 524287);
 		if (isSetSex())
@@ -1650,6 +2404,18 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		hashCode = hashCode * 8191 + ((isSetBirth()) ? 131071 : 524287);
 		if (isSetBirth())
 			hashCode = hashCode * 8191 + birth.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetBirthPlace()) ? 131071 : 524287);
+		if (isSetBirthPlace())
+			hashCode = hashCode * 8191 + birthPlace.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetHeight()) ? 131071 : 524287);
+		if (isSetHeight())
+			hashCode = hashCode * 8191 + height.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetWeight()) ? 131071 : 524287);
+		if (isSetWeight())
+			hashCode = hashCode * 8191 + weight.hashCode();
 
 		hashCode = hashCode * 8191 + ((isSetSign()) ? 131071 : 524287);
 		if (isSetSign())
@@ -1675,6 +2441,14 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		if (isSetAddress())
 			hashCode = hashCode * 8191 + address.hashCode();
 
+		hashCode = hashCode * 8191 + ((isSetVipName()) ? 131071 : 524287);
+		if (isSetVipName())
+			hashCode = hashCode * 8191 + vipName.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetVipPhone()) ? 131071 : 524287);
+		if (isSetVipPhone())
+			hashCode = hashCode * 8191 + vipPhone.hashCode();
+
 		hashCode = hashCode * 8191 + ((isSetPswHash()) ? 131071 : 524287);
 		if (isSetPswHash())
 			hashCode = hashCode * 8191 + pswHash.hashCode();
@@ -1682,6 +2456,10 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		hashCode = hashCode * 8191 + ((isSetRealName()) ? 131071 : 524287);
 		if (isSetRealName())
 			hashCode = hashCode * 8191 + realName.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetRealIcon()) ? 131071 : 524287);
+		if (isSetRealIcon())
+			hashCode = hashCode * 8191 + realIcon.hashCode();
 
 		hashCode = hashCode * 8191 + ((isSetCardId()) ? 131071 : 524287);
 		if (isSetCardId())
@@ -1699,6 +2477,18 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		if (isSetBankNumber())
 			hashCode = hashCode * 8191 + bankNumber.hashCode();
 
+		hashCode = hashCode * 8191 + ((isSetEducation()) ? 131071 : 524287);
+		if (isSetEducation())
+			hashCode = hashCode * 8191 + education.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetGraduate()) ? 131071 : 524287);
+		if (isSetGraduate())
+			hashCode = hashCode * 8191 + graduate.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetMajor()) ? 131071 : 524287);
+		if (isSetMajor())
+			hashCode = hashCode * 8191 + major.hashCode();
+
 		hashCode = hashCode * 8191 + ((isSetEthnic()) ? 131071 : 524287);
 		if (isSetEthnic())
 			hashCode = hashCode * 8191 + ethnic.hashCode();
@@ -1706,6 +2496,10 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		hashCode = hashCode * 8191 + ((isSetReligion()) ? 131071 : 524287);
 		if (isSetReligion())
 			hashCode = hashCode * 8191 + religion.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetParty()) ? 131071 : 524287);
+		if (isSetParty())
+			hashCode = hashCode * 8191 + party.hashCode();
 
 		hashCode = hashCode * 8191 + ((isSetWxIcon()) ? 131071 : 524287);
 		if (isSetWxIcon())
@@ -1726,22 +2520,22 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 
 		int lastComparison = 0;
 
+		lastComparison = java.lang.Boolean.valueOf(isSetIcon()).compareTo(other.isSetIcon());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetIcon()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.icon, other.icon);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetName()).compareTo(other.isSetName());
 		if (lastComparison != 0) {
 			return lastComparison;
 		}
 		if (isSetName()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.name, other.name);
-			if (lastComparison != 0) {
-				return lastComparison;
-			}
-		}
-		lastComparison = java.lang.Boolean.valueOf(isSetEmail()).compareTo(other.isSetEmail());
-		if (lastComparison != 0) {
-			return lastComparison;
-		}
-		if (isSetEmail()) {
-			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.email, other.email);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -1756,12 +2550,22 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				return lastComparison;
 			}
 		}
-		lastComparison = java.lang.Boolean.valueOf(isSetIcon()).compareTo(other.isSetIcon());
+		lastComparison = java.lang.Boolean.valueOf(isSetEmail()).compareTo(other.isSetEmail());
 		if (lastComparison != 0) {
 			return lastComparison;
 		}
-		if (isSetIcon()) {
-			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.icon, other.icon);
+		if (isSetEmail()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.email, other.email);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetSocial()).compareTo(other.isSetSocial());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetSocial()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.social, other.social);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -1782,6 +2586,36 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		}
 		if (isSetBirth()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.birth, other.birth);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetBirthPlace()).compareTo(other.isSetBirthPlace());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetBirthPlace()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.birthPlace, other.birthPlace);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetHeight()).compareTo(other.isSetHeight());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetHeight()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.height, other.height);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetWeight()).compareTo(other.isSetWeight());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetWeight()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.weight, other.weight);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -1846,6 +2680,26 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetVipName()).compareTo(other.isSetVipName());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetVipName()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.vipName, other.vipName);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetVipPhone()).compareTo(other.isSetVipPhone());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetVipPhone()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.vipPhone, other.vipPhone);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetPswHash()).compareTo(other.isSetPswHash());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -1862,6 +2716,16 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		}
 		if (isSetRealName()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.realName, other.realName);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetRealIcon()).compareTo(other.isSetRealIcon());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetRealIcon()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.realIcon, other.realIcon);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -1906,6 +2770,36 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetEducation()).compareTo(other.isSetEducation());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetEducation()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.education, other.education);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetGraduate()).compareTo(other.isSetGraduate());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetGraduate()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.graduate, other.graduate);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetMajor()).compareTo(other.isSetMajor());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetMajor()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.major, other.major);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetEthnic()).compareTo(other.isSetEthnic());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -1922,6 +2816,16 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		}
 		if (isSetReligion()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.religion, other.religion);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetParty()).compareTo(other.isSetParty());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetParty()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.party, other.party);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -1967,22 +2871,22 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		java.lang.StringBuilder sb = new java.lang.StringBuilder("UserProfile(");
 		boolean first = true;
 
+		sb.append("icon:");
+		if (this.icon == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.icon);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("name:");
 		if (this.name == null) {
 			sb.append("null");
 		}
 		else {
 			sb.append(this.name);
-		}
-		first = false;
-		if (!first)
-			sb.append(", ");
-		sb.append("email:");
-		if (this.email == null) {
-			sb.append("null");
-		}
-		else {
-			sb.append(this.email);
 		}
 		first = false;
 		if (!first)
@@ -1997,12 +2901,22 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		first = false;
 		if (!first)
 			sb.append(", ");
-		sb.append("icon:");
-		if (this.icon == null) {
+		sb.append("email:");
+		if (this.email == null) {
 			sb.append("null");
 		}
 		else {
-			sb.append(this.icon);
+			sb.append(this.email);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("social:");
+		if (this.social == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.social);
 		}
 		first = false;
 		if (!first)
@@ -2023,6 +2937,36 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		}
 		else {
 			sb.append(this.birth);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("birthPlace:");
+		if (this.birthPlace == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.birthPlace);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("height:");
+		if (this.height == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.height);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("weight:");
+		if (this.weight == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.weight);
 		}
 		first = false;
 		if (!first)
@@ -2087,6 +3031,26 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		first = false;
 		if (!first)
 			sb.append(", ");
+		sb.append("vipName:");
+		if (this.vipName == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.vipName);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("vipPhone:");
+		if (this.vipPhone == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.vipPhone);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("pswHash:");
 		if (this.pswHash == null) {
 			sb.append("null");
@@ -2103,6 +3067,16 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		}
 		else {
 			sb.append(this.realName);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("realIcon:");
+		if (this.realIcon == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.realIcon);
 		}
 		first = false;
 		if (!first)
@@ -2147,6 +3121,36 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		first = false;
 		if (!first)
 			sb.append(", ");
+		sb.append("education:");
+		if (this.education == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.education);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("graduate:");
+		if (this.graduate == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.graduate);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("major:");
+		if (this.major == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.major);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("ethnic:");
 		if (this.ethnic == null) {
 			sb.append("null");
@@ -2163,6 +3167,16 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		}
 		else {
 			sb.append(this.religion);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("party:");
+		if (this.party == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.party);
 		}
 		first = false;
 		if (!first)
@@ -2234,19 +3248,19 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 					break;
 				}
 				switch (schemeField.id) {
-				case 1: // NAME
+				case 4: // ICON
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-						struct.name = iprot.readString();
-						struct.setNameIsSet(true);
+						struct.icon = iprot.readString();
+						struct.setIconIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
-				case 2: // EMAIL
+				case 1: // NAME
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-						struct.email = iprot.readString();
-						struct.setEmailIsSet(true);
+						struct.name = iprot.readString();
+						struct.setNameIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -2261,10 +3275,19 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
-				case 4: // ICON
+				case 2: // EMAIL
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-						struct.icon = iprot.readString();
-						struct.setIconIsSet(true);
+						struct.email = iprot.readString();
+						struct.setEmailIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 23: // SOCIAL
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.social = iprot.readString();
+						struct.setSocialIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -2283,6 +3306,33 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.birth = iprot.readString();
 						struct.setBirthIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 33: // BIRTH_PLACE
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.birthPlace = iprot.readString();
+						struct.setBirthPlaceIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 24: // HEIGHT
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.height = iprot.readString();
+						struct.setHeightIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 25: // WEIGHT
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.weight = iprot.readString();
+						struct.setWeightIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -2342,6 +3392,24 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 26: // VIP_NAME
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.vipName = iprot.readString();
+						struct.setVipNameIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 27: // VIP_PHONE
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.vipPhone = iprot.readString();
+						struct.setVipPhoneIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 13: // PSW_HASH
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.pswHash = iprot.readString();
@@ -2355,6 +3423,15 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.realName = iprot.readString();
 						struct.setRealNameIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 28: // REAL_ICON
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.realIcon = iprot.readString();
+						struct.setRealIconIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -2396,6 +3473,33 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 29: // EDUCATION
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.education = iprot.readString();
+						struct.setEducationIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 30: // GRADUATE
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.graduate = iprot.readString();
+						struct.setGraduateIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 31: // MAJOR
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.major = iprot.readString();
+						struct.setMajorIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 19: // ETHNIC
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.ethnic = iprot.readString();
@@ -2409,6 +3513,15 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.religion = iprot.readString();
 						struct.setReligionIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 32: // PARTY
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.party = iprot.readString();
+						struct.setPartyIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -2559,6 +3672,61 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				oprot.writeString(struct.wxNickname);
 				oprot.writeFieldEnd();
 			}
+			if (struct.social != null) {
+				oprot.writeFieldBegin(SOCIAL_FIELD_DESC);
+				oprot.writeString(struct.social);
+				oprot.writeFieldEnd();
+			}
+			if (struct.height != null) {
+				oprot.writeFieldBegin(HEIGHT_FIELD_DESC);
+				oprot.writeString(struct.height);
+				oprot.writeFieldEnd();
+			}
+			if (struct.weight != null) {
+				oprot.writeFieldBegin(WEIGHT_FIELD_DESC);
+				oprot.writeString(struct.weight);
+				oprot.writeFieldEnd();
+			}
+			if (struct.vipName != null) {
+				oprot.writeFieldBegin(VIP_NAME_FIELD_DESC);
+				oprot.writeString(struct.vipName);
+				oprot.writeFieldEnd();
+			}
+			if (struct.vipPhone != null) {
+				oprot.writeFieldBegin(VIP_PHONE_FIELD_DESC);
+				oprot.writeString(struct.vipPhone);
+				oprot.writeFieldEnd();
+			}
+			if (struct.realIcon != null) {
+				oprot.writeFieldBegin(REAL_ICON_FIELD_DESC);
+				oprot.writeString(struct.realIcon);
+				oprot.writeFieldEnd();
+			}
+			if (struct.education != null) {
+				oprot.writeFieldBegin(EDUCATION_FIELD_DESC);
+				oprot.writeString(struct.education);
+				oprot.writeFieldEnd();
+			}
+			if (struct.graduate != null) {
+				oprot.writeFieldBegin(GRADUATE_FIELD_DESC);
+				oprot.writeString(struct.graduate);
+				oprot.writeFieldEnd();
+			}
+			if (struct.major != null) {
+				oprot.writeFieldBegin(MAJOR_FIELD_DESC);
+				oprot.writeString(struct.major);
+				oprot.writeFieldEnd();
+			}
+			if (struct.party != null) {
+				oprot.writeFieldBegin(PARTY_FIELD_DESC);
+				oprot.writeString(struct.party);
+				oprot.writeFieldEnd();
+			}
+			if (struct.birthPlace != null) {
+				oprot.writeFieldBegin(BIRTH_PLACE_FIELD_DESC);
+				oprot.writeString(struct.birthPlace);
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -2580,90 +3748,135 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 			java.util.BitSet optionals = new java.util.BitSet();
-			if (struct.isSetName()) {
+			if (struct.isSetIcon()) {
 				optionals.set(0);
 			}
-			if (struct.isSetEmail()) {
+			if (struct.isSetName()) {
 				optionals.set(1);
 			}
 			if (struct.isSetPhone()) {
 				optionals.set(2);
 			}
-			if (struct.isSetIcon()) {
+			if (struct.isSetEmail()) {
 				optionals.set(3);
 			}
-			if (struct.isSetSex()) {
+			if (struct.isSetSocial()) {
 				optionals.set(4);
 			}
-			if (struct.isSetBirth()) {
+			if (struct.isSetSex()) {
 				optionals.set(5);
 			}
-			if (struct.isSetSign()) {
+			if (struct.isSetBirth()) {
 				optionals.set(6);
 			}
-			if (struct.isSetCountry()) {
+			if (struct.isSetBirthPlace()) {
 				optionals.set(7);
 			}
-			if (struct.isSetProvince()) {
+			if (struct.isSetHeight()) {
 				optionals.set(8);
 			}
-			if (struct.isSetCity()) {
+			if (struct.isSetWeight()) {
 				optionals.set(9);
 			}
-			if (struct.isSetDistrict()) {
+			if (struct.isSetSign()) {
 				optionals.set(10);
 			}
-			if (struct.isSetAddress()) {
+			if (struct.isSetCountry()) {
 				optionals.set(11);
 			}
-			if (struct.isSetPswHash()) {
+			if (struct.isSetProvince()) {
 				optionals.set(12);
 			}
-			if (struct.isSetRealName()) {
+			if (struct.isSetCity()) {
 				optionals.set(13);
 			}
-			if (struct.isSetCardId()) {
+			if (struct.isSetDistrict()) {
 				optionals.set(14);
 			}
-			if (struct.isSetPassport()) {
+			if (struct.isSetAddress()) {
 				optionals.set(15);
 			}
-			if (struct.isSetDriver()) {
+			if (struct.isSetVipName()) {
 				optionals.set(16);
 			}
-			if (struct.isSetBankNumber()) {
+			if (struct.isSetVipPhone()) {
 				optionals.set(17);
 			}
-			if (struct.isSetEthnic()) {
+			if (struct.isSetPswHash()) {
 				optionals.set(18);
 			}
-			if (struct.isSetReligion()) {
+			if (struct.isSetRealName()) {
 				optionals.set(19);
 			}
-			if (struct.isSetWxIcon()) {
+			if (struct.isSetRealIcon()) {
 				optionals.set(20);
 			}
-			if (struct.isSetWxNickname()) {
+			if (struct.isSetCardId()) {
 				optionals.set(21);
 			}
-			oprot.writeBitSet(optionals, 22);
+			if (struct.isSetPassport()) {
+				optionals.set(22);
+			}
+			if (struct.isSetDriver()) {
+				optionals.set(23);
+			}
+			if (struct.isSetBankNumber()) {
+				optionals.set(24);
+			}
+			if (struct.isSetEducation()) {
+				optionals.set(25);
+			}
+			if (struct.isSetGraduate()) {
+				optionals.set(26);
+			}
+			if (struct.isSetMajor()) {
+				optionals.set(27);
+			}
+			if (struct.isSetEthnic()) {
+				optionals.set(28);
+			}
+			if (struct.isSetReligion()) {
+				optionals.set(29);
+			}
+			if (struct.isSetParty()) {
+				optionals.set(30);
+			}
+			if (struct.isSetWxIcon()) {
+				optionals.set(31);
+			}
+			if (struct.isSetWxNickname()) {
+				optionals.set(32);
+			}
+			oprot.writeBitSet(optionals, 33);
+			if (struct.isSetIcon()) {
+				oprot.writeString(struct.icon);
+			}
 			if (struct.isSetName()) {
 				oprot.writeString(struct.name);
-			}
-			if (struct.isSetEmail()) {
-				oprot.writeString(struct.email);
 			}
 			if (struct.isSetPhone()) {
 				oprot.writeString(struct.phone);
 			}
-			if (struct.isSetIcon()) {
-				oprot.writeString(struct.icon);
+			if (struct.isSetEmail()) {
+				oprot.writeString(struct.email);
+			}
+			if (struct.isSetSocial()) {
+				oprot.writeString(struct.social);
 			}
 			if (struct.isSetSex()) {
 				oprot.writeString(struct.sex);
 			}
 			if (struct.isSetBirth()) {
 				oprot.writeString(struct.birth);
+			}
+			if (struct.isSetBirthPlace()) {
+				oprot.writeString(struct.birthPlace);
+			}
+			if (struct.isSetHeight()) {
+				oprot.writeString(struct.height);
+			}
+			if (struct.isSetWeight()) {
+				oprot.writeString(struct.weight);
 			}
 			if (struct.isSetSign()) {
 				oprot.writeString(struct.sign);
@@ -2683,11 +3896,20 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			if (struct.isSetAddress()) {
 				oprot.writeString(struct.address);
 			}
+			if (struct.isSetVipName()) {
+				oprot.writeString(struct.vipName);
+			}
+			if (struct.isSetVipPhone()) {
+				oprot.writeString(struct.vipPhone);
+			}
 			if (struct.isSetPswHash()) {
 				oprot.writeString(struct.pswHash);
 			}
 			if (struct.isSetRealName()) {
 				oprot.writeString(struct.realName);
+			}
+			if (struct.isSetRealIcon()) {
+				oprot.writeString(struct.realIcon);
 			}
 			if (struct.isSetCardId()) {
 				oprot.writeString(struct.cardId);
@@ -2701,11 +3923,23 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			if (struct.isSetBankNumber()) {
 				oprot.writeString(struct.bankNumber);
 			}
+			if (struct.isSetEducation()) {
+				oprot.writeString(struct.education);
+			}
+			if (struct.isSetGraduate()) {
+				oprot.writeString(struct.graduate);
+			}
+			if (struct.isSetMajor()) {
+				oprot.writeString(struct.major);
+			}
 			if (struct.isSetEthnic()) {
 				oprot.writeString(struct.ethnic);
 			}
 			if (struct.isSetReligion()) {
 				oprot.writeString(struct.religion);
+			}
+			if (struct.isSetParty()) {
+				oprot.writeString(struct.party);
 			}
 			if (struct.isSetWxIcon()) {
 				oprot.writeString(struct.wxIcon);
@@ -2719,92 +3953,136 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		public void read(org.apache.thrift.protocol.TProtocol prot, UserProfile struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(22);
+			java.util.BitSet incoming = iprot.readBitSet(33);
 			if (incoming.get(0)) {
-				struct.name = iprot.readString();
-				struct.setNameIsSet(true);
+				struct.icon = iprot.readString();
+				struct.setIconIsSet(true);
 			}
 			if (incoming.get(1)) {
-				struct.email = iprot.readString();
-				struct.setEmailIsSet(true);
+				struct.name = iprot.readString();
+				struct.setNameIsSet(true);
 			}
 			if (incoming.get(2)) {
 				struct.phone = iprot.readString();
 				struct.setPhoneIsSet(true);
 			}
 			if (incoming.get(3)) {
-				struct.icon = iprot.readString();
-				struct.setIconIsSet(true);
+				struct.email = iprot.readString();
+				struct.setEmailIsSet(true);
 			}
 			if (incoming.get(4)) {
+				struct.social = iprot.readString();
+				struct.setSocialIsSet(true);
+			}
+			if (incoming.get(5)) {
 				struct.sex = iprot.readString();
 				struct.setSexIsSet(true);
 			}
-			if (incoming.get(5)) {
+			if (incoming.get(6)) {
 				struct.birth = iprot.readString();
 				struct.setBirthIsSet(true);
 			}
-			if (incoming.get(6)) {
+			if (incoming.get(7)) {
+				struct.birthPlace = iprot.readString();
+				struct.setBirthPlaceIsSet(true);
+			}
+			if (incoming.get(8)) {
+				struct.height = iprot.readString();
+				struct.setHeightIsSet(true);
+			}
+			if (incoming.get(9)) {
+				struct.weight = iprot.readString();
+				struct.setWeightIsSet(true);
+			}
+			if (incoming.get(10)) {
 				struct.sign = iprot.readString();
 				struct.setSignIsSet(true);
 			}
-			if (incoming.get(7)) {
+			if (incoming.get(11)) {
 				struct.country = iprot.readString();
 				struct.setCountryIsSet(true);
 			}
-			if (incoming.get(8)) {
+			if (incoming.get(12)) {
 				struct.province = iprot.readString();
 				struct.setProvinceIsSet(true);
 			}
-			if (incoming.get(9)) {
+			if (incoming.get(13)) {
 				struct.city = iprot.readString();
 				struct.setCityIsSet(true);
 			}
-			if (incoming.get(10)) {
+			if (incoming.get(14)) {
 				struct.district = iprot.readString();
 				struct.setDistrictIsSet(true);
 			}
-			if (incoming.get(11)) {
+			if (incoming.get(15)) {
 				struct.address = iprot.readString();
 				struct.setAddressIsSet(true);
 			}
-			if (incoming.get(12)) {
+			if (incoming.get(16)) {
+				struct.vipName = iprot.readString();
+				struct.setVipNameIsSet(true);
+			}
+			if (incoming.get(17)) {
+				struct.vipPhone = iprot.readString();
+				struct.setVipPhoneIsSet(true);
+			}
+			if (incoming.get(18)) {
 				struct.pswHash = iprot.readString();
 				struct.setPswHashIsSet(true);
 			}
-			if (incoming.get(13)) {
+			if (incoming.get(19)) {
 				struct.realName = iprot.readString();
 				struct.setRealNameIsSet(true);
 			}
-			if (incoming.get(14)) {
+			if (incoming.get(20)) {
+				struct.realIcon = iprot.readString();
+				struct.setRealIconIsSet(true);
+			}
+			if (incoming.get(21)) {
 				struct.cardId = iprot.readString();
 				struct.setCardIdIsSet(true);
 			}
-			if (incoming.get(15)) {
+			if (incoming.get(22)) {
 				struct.passport = iprot.readString();
 				struct.setPassportIsSet(true);
 			}
-			if (incoming.get(16)) {
+			if (incoming.get(23)) {
 				struct.driver = iprot.readString();
 				struct.setDriverIsSet(true);
 			}
-			if (incoming.get(17)) {
+			if (incoming.get(24)) {
 				struct.bankNumber = iprot.readString();
 				struct.setBankNumberIsSet(true);
 			}
-			if (incoming.get(18)) {
+			if (incoming.get(25)) {
+				struct.education = iprot.readString();
+				struct.setEducationIsSet(true);
+			}
+			if (incoming.get(26)) {
+				struct.graduate = iprot.readString();
+				struct.setGraduateIsSet(true);
+			}
+			if (incoming.get(27)) {
+				struct.major = iprot.readString();
+				struct.setMajorIsSet(true);
+			}
+			if (incoming.get(28)) {
 				struct.ethnic = iprot.readString();
 				struct.setEthnicIsSet(true);
 			}
-			if (incoming.get(19)) {
+			if (incoming.get(29)) {
 				struct.religion = iprot.readString();
 				struct.setReligionIsSet(true);
 			}
-			if (incoming.get(20)) {
+			if (incoming.get(30)) {
+				struct.party = iprot.readString();
+				struct.setPartyIsSet(true);
+			}
+			if (incoming.get(31)) {
 				struct.wxIcon = iprot.readString();
 				struct.setWxIconIsSet(true);
 			}
-			if (incoming.get(21)) {
+			if (incoming.get(32)) {
 				struct.wxNickname = iprot.readString();
 				struct.setWxNicknameIsSet(true);
 			}

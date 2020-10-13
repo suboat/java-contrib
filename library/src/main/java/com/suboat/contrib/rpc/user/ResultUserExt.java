@@ -449,14 +449,14 @@ public class ResultUserExt implements org.apache.thrift.TBase<ResultUserExt, Res
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list142 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<UserExt>(_list142.size);
+							org.apache.thrift.protocol.TList _list174 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<UserExt>(_list174.size);
 							@org.apache.thrift.annotation.Nullable
-							UserExt _elem143;
-							for (int _i144 = 0; _i144 < _list142.size; ++_i144) {
-								_elem143 = new UserExt();
-								_elem143.read(iprot);
-								struct.data.add(_elem143);
+							UserExt _elem175;
+							for (int _i176 = 0; _i176 < _list174.size; ++_i176) {
+								_elem175 = new UserExt();
+								_elem175.read(iprot);
+								struct.data.add(_elem175);
 							}
 							iprot.readListEnd();
 						}
@@ -498,8 +498,8 @@ public class ResultUserExt implements org.apache.thrift.TBase<ResultUserExt, Res
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (UserExt _iter145 : struct.data) {
-						_iter145.write(oprot);
+					for (UserExt _iter177 : struct.data) {
+						_iter177.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -541,8 +541,8 @@ public class ResultUserExt implements org.apache.thrift.TBase<ResultUserExt, Res
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (UserExt _iter146 : struct.data) {
-						_iter146.write(oprot);
+					for (UserExt _iter178 : struct.data) {
+						_iter178.write(oprot);
 					}
 				}
 			}
@@ -558,15 +558,15 @@ public class ResultUserExt implements org.apache.thrift.TBase<ResultUserExt, Res
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list147 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list179 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<UserExt>(_list147.size);
+					struct.data = new java.util.ArrayList<UserExt>(_list179.size);
 					@org.apache.thrift.annotation.Nullable
-					UserExt _elem148;
-					for (int _i149 = 0; _i149 < _list147.size; ++_i149) {
-						_elem148 = new UserExt();
-						_elem148.read(iprot);
-						struct.data.add(_elem148);
+					UserExt _elem180;
+					for (int _i181 = 0; _i181 < _list179.size; ++_i181) {
+						_elem180 = new UserExt();
+						_elem180.read(iprot);
+						struct.data.add(_elem180);
 					}
 				}
 				struct.setDataIsSet(true);

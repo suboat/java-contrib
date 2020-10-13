@@ -61,6 +61,9 @@ public class Goods
 	private static final org.apache.thrift.protocol.TField NUM_LABEL_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"numLabel", org.apache.thrift.protocol.TType.I32, (short) 16);
 
+	private static final org.apache.thrift.protocol.TField LABELS_DESC_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"labelsDesc", org.apache.thrift.protocol.TType.LIST, (short) 24);
+
 	private static final org.apache.thrift.protocol.TField NAME_SPU_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"nameSpu", org.apache.thrift.protocol.TType.STRING, (short) 17);
 
@@ -81,6 +84,15 @@ public class Goods
 
 	private static final org.apache.thrift.protocol.TField MAX_USER_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"maxUser", org.apache.thrift.protocol.TType.I32, (short) 23);
+
+	private static final org.apache.thrift.protocol.TField SELL_SPU_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"sellSpu", org.apache.thrift.protocol.TType.I32, (short) 25);
+
+	private static final org.apache.thrift.protocol.TField SCORE_NUM_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"scoreNum", org.apache.thrift.protocol.TType.I32, (short) 26);
+
+	private static final org.apache.thrift.protocol.TField SCORE_AVG_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"scoreAvg", org.apache.thrift.protocol.TType.DOUBLE, (short) 27);
 
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new GoodsStandardSchemeFactory();
 
@@ -118,6 +130,8 @@ public class Goods
 
 	public int numLabel; // required
 
+	public @org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> labelsDesc; // required
+
 	public @org.apache.thrift.annotation.Nullable java.lang.String nameSpu; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String iconSpu; // required
@@ -132,6 +146,12 @@ public class Goods
 
 	public int maxUser; // required
 
+	public int sellSpu; // required
+
+	public int scoreNum; // required
+
+	public double scoreAvg; // required
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
@@ -144,13 +164,21 @@ public class Goods
 						"applyTime"), EXPIRE_TIME((short) 9, "expireTime"), STATUS((short) 10, "status"), CATEGORY(
 								(short) 11, "category"), IS_VIRTUAL((short) 12, "isVirtual"), IS_CURRENCY((short) 13,
 										"isCurrency"), IS_BUNDLE((short) 14, "isBundle"), IS_MIX((short) 15,
-												"isMix"), NUM_LABEL((short) 16, "numLabel"), NAME_SPU((short) 17,
-														"nameSpu"), ICON_SPU((short) 18, "iconSpu"), DESC_SPU(
-																(short) 19,
-																"descSpu"), PRIORITY((short) 20, "priority"), IS_SEARCH(
-																		(short) 21, "isSearch"), MAX_ORDER((short) 22,
-																				"maxOrder"), MAX_USER((short) 23,
-																						"maxUser");
+												"isMix"), NUM_LABEL((short) 16, "numLabel"), LABELS_DESC((short) 24,
+														"labelsDesc"), NAME_SPU((short) 17, "nameSpu"), ICON_SPU(
+																(short) 18,
+																"iconSpu"), DESC_SPU((short) 19, "descSpu"), PRIORITY(
+																		(short) 20, "priority"), IS_SEARCH((short) 21,
+																				"isSearch"), MAX_ORDER((short) 22,
+																						"maxOrder"), MAX_USER(
+																								(short) 23,
+																								"maxUser"), SELL_SPU(
+																										(short) 25,
+																										"sellSpu"), SCORE_NUM(
+																												(short) 26,
+																												"scoreNum"), SCORE_AVG(
+																														(short) 27,
+																														"scoreAvg");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -198,6 +226,8 @@ public class Goods
 				return IS_MIX;
 			case 16: // NUM_LABEL
 				return NUM_LABEL;
+			case 24: // LABELS_DESC
+				return LABELS_DESC;
 			case 17: // NAME_SPU
 				return NAME_SPU;
 			case 18: // ICON_SPU
@@ -212,6 +242,12 @@ public class Goods
 				return MAX_ORDER;
 			case 23: // MAX_USER
 				return MAX_USER;
+			case 25: // SELL_SPU
+				return SELL_SPU;
+			case 26: // SCORE_NUM
+				return SCORE_NUM;
+			case 27: // SCORE_AVG
+				return SCORE_AVG;
 			default:
 				return null;
 			}
@@ -276,6 +312,12 @@ public class Goods
 
 	private static final int __MAXUSER_ISSET_ID = 9;
 
+	private static final int __SELLSPU_ISSET_ID = 10;
+
+	private static final int __SCORENUM_ISSET_ID = 11;
+
+	private static final int __SCOREAVG_ISSET_ID = 12;
+
 	private short __isset_bitfield = 0;
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
@@ -335,6 +377,10 @@ public class Goods
 				new org.apache.thrift.meta_data.FieldMetaData("numLabel",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.LABELS_DESC, new org.apache.thrift.meta_data.FieldMetaData("labelsDesc",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING))));
 		tmpMap.put(_Fields.NAME_SPU,
 				new org.apache.thrift.meta_data.FieldMetaData("nameSpu",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
@@ -363,6 +409,18 @@ public class Goods
 				new org.apache.thrift.meta_data.FieldMetaData("maxUser",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.SELL_SPU,
+				new org.apache.thrift.meta_data.FieldMetaData("sellSpu",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.SCORE_NUM,
+				new org.apache.thrift.meta_data.FieldMetaData("scoreNum",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.SCORE_AVG,
+				new org.apache.thrift.meta_data.FieldMetaData("scoreAvg",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(Goods.class, metaDataMap);
 	}
@@ -373,8 +431,9 @@ public class Goods
 	public Goods(java.lang.String mid, java.lang.String sid, java.lang.String uid, java.lang.String pid,
 			java.lang.String spu, java.lang.String createTime, java.lang.String updateTime, java.lang.String applyTime,
 			java.lang.String expireTime, int status, java.lang.String category, boolean isVirtual, boolean isCurrency,
-			boolean isBundle, boolean isMix, int numLabel, java.lang.String nameSpu, java.lang.String iconSpu,
-			java.lang.String descSpu, int priority, boolean isSearch, int maxOrder, int maxUser) {
+			boolean isBundle, boolean isMix, int numLabel, java.util.List<java.lang.String> labelsDesc,
+			java.lang.String nameSpu, java.lang.String iconSpu, java.lang.String descSpu, int priority,
+			boolean isSearch, int maxOrder, int maxUser, int sellSpu, int scoreNum, double scoreAvg) {
 		this();
 		this.mid = mid;
 		this.sid = sid;
@@ -398,6 +457,7 @@ public class Goods
 		setIsMixIsSet(true);
 		this.numLabel = numLabel;
 		setNumLabelIsSet(true);
+		this.labelsDesc = labelsDesc;
 		this.nameSpu = nameSpu;
 		this.iconSpu = iconSpu;
 		this.descSpu = descSpu;
@@ -409,6 +469,12 @@ public class Goods
 		setMaxOrderIsSet(true);
 		this.maxUser = maxUser;
 		setMaxUserIsSet(true);
+		this.sellSpu = sellSpu;
+		setSellSpuIsSet(true);
+		this.scoreNum = scoreNum;
+		setScoreNumIsSet(true);
+		this.scoreAvg = scoreAvg;
+		setScoreAvgIsSet(true);
 	}
 
 	/**
@@ -452,6 +518,11 @@ public class Goods
 		this.isBundle = other.isBundle;
 		this.isMix = other.isMix;
 		this.numLabel = other.numLabel;
+		if (other.isSetLabelsDesc()) {
+			java.util.List<java.lang.String> __this__labelsDesc = new java.util.ArrayList<java.lang.String>(
+					other.labelsDesc);
+			this.labelsDesc = __this__labelsDesc;
+		}
 		if (other.isSetNameSpu()) {
 			this.nameSpu = other.nameSpu;
 		}
@@ -465,6 +536,9 @@ public class Goods
 		this.isSearch = other.isSearch;
 		this.maxOrder = other.maxOrder;
 		this.maxUser = other.maxUser;
+		this.sellSpu = other.sellSpu;
+		this.scoreNum = other.scoreNum;
+		this.scoreAvg = other.scoreAvg;
 	}
 
 	public Goods deepCopy() {
@@ -495,6 +569,7 @@ public class Goods
 		this.isMix = false;
 		setNumLabelIsSet(false);
 		this.numLabel = 0;
+		this.labelsDesc = null;
 		this.nameSpu = null;
 		this.iconSpu = null;
 		this.descSpu = null;
@@ -506,6 +581,12 @@ public class Goods
 		this.maxOrder = 0;
 		setMaxUserIsSet(false);
 		this.maxUser = 0;
+		setSellSpuIsSet(false);
+		this.sellSpu = 0;
+		setScoreNumIsSet(false);
+		this.scoreNum = 0;
+		setScoreAvgIsSet(false);
+		this.scoreAvg = 0.0;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -937,6 +1018,50 @@ public class Goods
 		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __NUMLABEL_ISSET_ID, value);
 	}
 
+	public int getLabelsDescSize() {
+		return (this.labelsDesc == null) ? 0 : this.labelsDesc.size();
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.Iterator<java.lang.String> getLabelsDescIterator() {
+		return (this.labelsDesc == null) ? null : this.labelsDesc.iterator();
+	}
+
+	public void addToLabelsDesc(java.lang.String elem) {
+		if (this.labelsDesc == null) {
+			this.labelsDesc = new java.util.ArrayList<java.lang.String>();
+		}
+		this.labelsDesc.add(elem);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.List<java.lang.String> getLabelsDesc() {
+		return this.labelsDesc;
+	}
+
+	public Goods setLabelsDesc(@org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> labelsDesc) {
+		this.labelsDesc = labelsDesc;
+		return this;
+	}
+
+	public void unsetLabelsDesc() {
+		this.labelsDesc = null;
+	}
+
+	/**
+	 * Returns true if field labelsDesc is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetLabelsDesc() {
+		return this.labelsDesc != null;
+	}
+
+	public void setLabelsDescIsSet(boolean value) {
+		if (!value) {
+			this.labelsDesc = null;
+		}
+	}
+
 	@org.apache.thrift.annotation.Nullable
 	public java.lang.String getNameSpu() {
 		return this.nameSpu;
@@ -1125,6 +1250,84 @@ public class Goods
 		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __MAXUSER_ISSET_ID, value);
 	}
 
+	public int getSellSpu() {
+		return this.sellSpu;
+	}
+
+	public Goods setSellSpu(int sellSpu) {
+		this.sellSpu = sellSpu;
+		setSellSpuIsSet(true);
+		return this;
+	}
+
+	public void unsetSellSpu() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __SELLSPU_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field sellSpu is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetSellSpu() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __SELLSPU_ISSET_ID);
+	}
+
+	public void setSellSpuIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __SELLSPU_ISSET_ID, value);
+	}
+
+	public int getScoreNum() {
+		return this.scoreNum;
+	}
+
+	public Goods setScoreNum(int scoreNum) {
+		this.scoreNum = scoreNum;
+		setScoreNumIsSet(true);
+		return this;
+	}
+
+	public void unsetScoreNum() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __SCORENUM_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field scoreNum is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetScoreNum() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __SCORENUM_ISSET_ID);
+	}
+
+	public void setScoreNumIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __SCORENUM_ISSET_ID, value);
+	}
+
+	public double getScoreAvg() {
+		return this.scoreAvg;
+	}
+
+	public Goods setScoreAvg(double scoreAvg) {
+		this.scoreAvg = scoreAvg;
+		setScoreAvgIsSet(true);
+		return this;
+	}
+
+	public void unsetScoreAvg() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __SCOREAVG_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field scoreAvg is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetScoreAvg() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __SCOREAVG_ISSET_ID);
+	}
+
+	public void setScoreAvgIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __SCOREAVG_ISSET_ID, value);
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case MID:
@@ -1271,6 +1474,15 @@ public class Goods
 			}
 			break;
 
+		case LABELS_DESC:
+			if (value == null) {
+				unsetLabelsDesc();
+			}
+			else {
+				setLabelsDesc((java.util.List<java.lang.String>) value);
+			}
+			break;
+
 		case NAME_SPU:
 			if (value == null) {
 				unsetNameSpu();
@@ -1334,6 +1546,33 @@ public class Goods
 			}
 			break;
 
+		case SELL_SPU:
+			if (value == null) {
+				unsetSellSpu();
+			}
+			else {
+				setSellSpu((java.lang.Integer) value);
+			}
+			break;
+
+		case SCORE_NUM:
+			if (value == null) {
+				unsetScoreNum();
+			}
+			else {
+				setScoreNum((java.lang.Integer) value);
+			}
+			break;
+
+		case SCORE_AVG:
+			if (value == null) {
+				unsetScoreAvg();
+			}
+			else {
+				setScoreAvg((java.lang.Double) value);
+			}
+			break;
+
 		}
 	}
 
@@ -1388,6 +1627,9 @@ public class Goods
 		case NUM_LABEL:
 			return getNumLabel();
 
+		case LABELS_DESC:
+			return getLabelsDesc();
+
 		case NAME_SPU:
 			return getNameSpu();
 
@@ -1408,6 +1650,15 @@ public class Goods
 
 		case MAX_USER:
 			return getMaxUser();
+
+		case SELL_SPU:
+			return getSellSpu();
+
+		case SCORE_NUM:
+			return getScoreNum();
+
+		case SCORE_AVG:
+			return getScoreAvg();
 
 		}
 		throw new java.lang.IllegalStateException();
@@ -1455,6 +1706,8 @@ public class Goods
 			return isSetIsMix();
 		case NUM_LABEL:
 			return isSetNumLabel();
+		case LABELS_DESC:
+			return isSetLabelsDesc();
 		case NAME_SPU:
 			return isSetNameSpu();
 		case ICON_SPU:
@@ -1469,6 +1722,12 @@ public class Goods
 			return isSetMaxOrder();
 		case MAX_USER:
 			return isSetMaxUser();
+		case SELL_SPU:
+			return isSetSellSpu();
+		case SCORE_NUM:
+			return isSetScoreNum();
+		case SCORE_AVG:
+			return isSetScoreAvg();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -1632,6 +1891,15 @@ public class Goods
 				return false;
 		}
 
+		boolean this_present_labelsDesc = true && this.isSetLabelsDesc();
+		boolean that_present_labelsDesc = true && that.isSetLabelsDesc();
+		if (this_present_labelsDesc || that_present_labelsDesc) {
+			if (!(this_present_labelsDesc && that_present_labelsDesc))
+				return false;
+			if (!this.labelsDesc.equals(that.labelsDesc))
+				return false;
+		}
+
 		boolean this_present_nameSpu = true && this.isSetNameSpu();
 		boolean that_present_nameSpu = true && that.isSetNameSpu();
 		if (this_present_nameSpu || that_present_nameSpu) {
@@ -1695,6 +1963,33 @@ public class Goods
 				return false;
 		}
 
+		boolean this_present_sellSpu = true;
+		boolean that_present_sellSpu = true;
+		if (this_present_sellSpu || that_present_sellSpu) {
+			if (!(this_present_sellSpu && that_present_sellSpu))
+				return false;
+			if (this.sellSpu != that.sellSpu)
+				return false;
+		}
+
+		boolean this_present_scoreNum = true;
+		boolean that_present_scoreNum = true;
+		if (this_present_scoreNum || that_present_scoreNum) {
+			if (!(this_present_scoreNum && that_present_scoreNum))
+				return false;
+			if (this.scoreNum != that.scoreNum)
+				return false;
+		}
+
+		boolean this_present_scoreAvg = true;
+		boolean that_present_scoreAvg = true;
+		if (this_present_scoreAvg || that_present_scoreAvg) {
+			if (!(this_present_scoreAvg && that_present_scoreAvg))
+				return false;
+			if (this.scoreAvg != that.scoreAvg)
+				return false;
+		}
+
 		return true;
 	}
 
@@ -1754,6 +2049,10 @@ public class Goods
 
 		hashCode = hashCode * 8191 + numLabel;
 
+		hashCode = hashCode * 8191 + ((isSetLabelsDesc()) ? 131071 : 524287);
+		if (isSetLabelsDesc())
+			hashCode = hashCode * 8191 + labelsDesc.hashCode();
+
 		hashCode = hashCode * 8191 + ((isSetNameSpu()) ? 131071 : 524287);
 		if (isSetNameSpu())
 			hashCode = hashCode * 8191 + nameSpu.hashCode();
@@ -1773,6 +2072,12 @@ public class Goods
 		hashCode = hashCode * 8191 + maxOrder;
 
 		hashCode = hashCode * 8191 + maxUser;
+
+		hashCode = hashCode * 8191 + sellSpu;
+
+		hashCode = hashCode * 8191 + scoreNum;
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(scoreAvg);
 
 		return hashCode;
 	}
@@ -1945,6 +2250,16 @@ public class Goods
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetLabelsDesc()).compareTo(other.isSetLabelsDesc());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetLabelsDesc()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.labelsDesc, other.labelsDesc);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetNameSpu()).compareTo(other.isSetNameSpu());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -2011,6 +2326,36 @@ public class Goods
 		}
 		if (isSetMaxUser()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.maxUser, other.maxUser);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetSellSpu()).compareTo(other.isSetSellSpu());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetSellSpu()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.sellSpu, other.sellSpu);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetScoreNum()).compareTo(other.isSetScoreNum());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetScoreNum()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.scoreNum, other.scoreNum);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetScoreAvg()).compareTo(other.isSetScoreAvg());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetScoreAvg()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.scoreAvg, other.scoreAvg);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -2166,6 +2511,16 @@ public class Goods
 		first = false;
 		if (!first)
 			sb.append(", ");
+		sb.append("labelsDesc:");
+		if (this.labelsDesc == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.labelsDesc);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("nameSpu:");
 		if (this.nameSpu == null) {
 			sb.append("null");
@@ -2213,6 +2568,21 @@ public class Goods
 			sb.append(", ");
 		sb.append("maxUser:");
 		sb.append(this.maxUser);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("sellSpu:");
+		sb.append(this.sellSpu);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("scoreNum:");
+		sb.append(this.scoreNum);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("scoreAvg:");
+		sb.append(this.scoreAvg);
 		first = false;
 		sb.append(")");
 		return sb.toString();
@@ -2409,6 +2779,25 @@ public class Goods
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 24: // LABELS_DESC
+					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+						{
+							org.apache.thrift.protocol.TList _list0 = iprot.readListBegin();
+							struct.labelsDesc = new java.util.ArrayList<java.lang.String>(_list0.size);
+							@org.apache.thrift.annotation.Nullable
+							java.lang.String _elem1;
+							for (int _i2 = 0; _i2 < _list0.size; ++_i2) {
+								_elem1 = iprot.readString();
+								struct.labelsDesc.add(_elem1);
+							}
+							iprot.readListEnd();
+						}
+						struct.setLabelsDescIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 17: // NAME_SPU
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.nameSpu = iprot.readString();
@@ -2467,6 +2856,33 @@ public class Goods
 					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
 						struct.maxUser = iprot.readI32();
 						struct.setMaxUserIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 25: // SELL_SPU
+					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+						struct.sellSpu = iprot.readI32();
+						struct.setSellSpuIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 26: // SCORE_NUM
+					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+						struct.scoreNum = iprot.readI32();
+						struct.setScoreNumIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 27: // SCORE_AVG
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.scoreAvg = iprot.readDouble();
+						struct.setScoreAvgIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -2584,6 +3000,27 @@ public class Goods
 			oprot.writeFieldBegin(MAX_USER_FIELD_DESC);
 			oprot.writeI32(struct.maxUser);
 			oprot.writeFieldEnd();
+			if (struct.labelsDesc != null) {
+				oprot.writeFieldBegin(LABELS_DESC_FIELD_DESC);
+				{
+					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING,
+							struct.labelsDesc.size()));
+					for (java.lang.String _iter3 : struct.labelsDesc) {
+						oprot.writeString(_iter3);
+					}
+					oprot.writeListEnd();
+				}
+				oprot.writeFieldEnd();
+			}
+			oprot.writeFieldBegin(SELL_SPU_FIELD_DESC);
+			oprot.writeI32(struct.sellSpu);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(SCORE_NUM_FIELD_DESC);
+			oprot.writeI32(struct.scoreNum);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(SCORE_AVG_FIELD_DESC);
+			oprot.writeDouble(struct.scoreAvg);
+			oprot.writeFieldEnd();
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -2652,28 +3089,40 @@ public class Goods
 			if (struct.isSetNumLabel()) {
 				optionals.set(15);
 			}
-			if (struct.isSetNameSpu()) {
+			if (struct.isSetLabelsDesc()) {
 				optionals.set(16);
 			}
-			if (struct.isSetIconSpu()) {
+			if (struct.isSetNameSpu()) {
 				optionals.set(17);
 			}
-			if (struct.isSetDescSpu()) {
+			if (struct.isSetIconSpu()) {
 				optionals.set(18);
 			}
-			if (struct.isSetPriority()) {
+			if (struct.isSetDescSpu()) {
 				optionals.set(19);
 			}
-			if (struct.isSetIsSearch()) {
+			if (struct.isSetPriority()) {
 				optionals.set(20);
 			}
-			if (struct.isSetMaxOrder()) {
+			if (struct.isSetIsSearch()) {
 				optionals.set(21);
 			}
-			if (struct.isSetMaxUser()) {
+			if (struct.isSetMaxOrder()) {
 				optionals.set(22);
 			}
-			oprot.writeBitSet(optionals, 23);
+			if (struct.isSetMaxUser()) {
+				optionals.set(23);
+			}
+			if (struct.isSetSellSpu()) {
+				optionals.set(24);
+			}
+			if (struct.isSetScoreNum()) {
+				optionals.set(25);
+			}
+			if (struct.isSetScoreAvg()) {
+				optionals.set(26);
+			}
+			oprot.writeBitSet(optionals, 27);
 			if (struct.isSetMid()) {
 				oprot.writeString(struct.mid);
 			}
@@ -2722,6 +3171,14 @@ public class Goods
 			if (struct.isSetNumLabel()) {
 				oprot.writeI32(struct.numLabel);
 			}
+			if (struct.isSetLabelsDesc()) {
+				{
+					oprot.writeI32(struct.labelsDesc.size());
+					for (java.lang.String _iter4 : struct.labelsDesc) {
+						oprot.writeString(_iter4);
+					}
+				}
+			}
 			if (struct.isSetNameSpu()) {
 				oprot.writeString(struct.nameSpu);
 			}
@@ -2743,12 +3200,21 @@ public class Goods
 			if (struct.isSetMaxUser()) {
 				oprot.writeI32(struct.maxUser);
 			}
+			if (struct.isSetSellSpu()) {
+				oprot.writeI32(struct.sellSpu);
+			}
+			if (struct.isSetScoreNum()) {
+				oprot.writeI32(struct.scoreNum);
+			}
+			if (struct.isSetScoreAvg()) {
+				oprot.writeDouble(struct.scoreAvg);
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, Goods struct) throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(23);
+			java.util.BitSet incoming = iprot.readBitSet(27);
 			if (incoming.get(0)) {
 				struct.mid = iprot.readString();
 				struct.setMidIsSet(true);
@@ -2814,32 +3280,58 @@ public class Goods
 				struct.setNumLabelIsSet(true);
 			}
 			if (incoming.get(16)) {
+				{
+					org.apache.thrift.protocol.TList _list5 = new org.apache.thrift.protocol.TList(
+							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+					struct.labelsDesc = new java.util.ArrayList<java.lang.String>(_list5.size);
+					@org.apache.thrift.annotation.Nullable
+					java.lang.String _elem6;
+					for (int _i7 = 0; _i7 < _list5.size; ++_i7) {
+						_elem6 = iprot.readString();
+						struct.labelsDesc.add(_elem6);
+					}
+				}
+				struct.setLabelsDescIsSet(true);
+			}
+			if (incoming.get(17)) {
 				struct.nameSpu = iprot.readString();
 				struct.setNameSpuIsSet(true);
 			}
-			if (incoming.get(17)) {
+			if (incoming.get(18)) {
 				struct.iconSpu = iprot.readString();
 				struct.setIconSpuIsSet(true);
 			}
-			if (incoming.get(18)) {
+			if (incoming.get(19)) {
 				struct.descSpu = iprot.readString();
 				struct.setDescSpuIsSet(true);
 			}
-			if (incoming.get(19)) {
+			if (incoming.get(20)) {
 				struct.priority = iprot.readI32();
 				struct.setPriorityIsSet(true);
 			}
-			if (incoming.get(20)) {
+			if (incoming.get(21)) {
 				struct.isSearch = iprot.readBool();
 				struct.setIsSearchIsSet(true);
 			}
-			if (incoming.get(21)) {
+			if (incoming.get(22)) {
 				struct.maxOrder = iprot.readI32();
 				struct.setMaxOrderIsSet(true);
 			}
-			if (incoming.get(22)) {
+			if (incoming.get(23)) {
 				struct.maxUser = iprot.readI32();
 				struct.setMaxUserIsSet(true);
+			}
+			if (incoming.get(24)) {
+				struct.sellSpu = iprot.readI32();
+				struct.setSellSpuIsSet(true);
+			}
+			if (incoming.get(25)) {
+				struct.scoreNum = iprot.readI32();
+				struct.setScoreNumIsSet(true);
+			}
+			if (incoming.get(26)) {
+				struct.scoreAvg = iprot.readDouble();
+				struct.setScoreAvgIsSet(true);
 			}
 		}
 

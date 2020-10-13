@@ -8,32 +8,32 @@ package com.suboat.contrib.rpc.user;
 
 @SuppressWarnings({ "cast", "rawtypes", "serial", "unchecked", "unused" })
 /**
- * Rbac描述单元的备注
+ * 特定参数: 行政区划 有效条件：key 或 code 或 name 填写一个
  */
-public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacComment._Fields>, java.io.Serializable,
-		Cloneable, Comparable<RbacComment> {
+public class ArgDivision implements org.apache.thrift.TBase<ArgDivision, ArgDivision._Fields>, java.io.Serializable,
+		Cloneable, Comparable<ArgDivision> {
 
 	private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
-			"RbacComment");
+			"ArgDivision");
+
+	private static final org.apache.thrift.protocol.TField KEY_FIELD_DESC = new org.apache.thrift.protocol.TField("key",
+			org.apache.thrift.protocol.TType.STRING, (short) 1);
+
+	private static final org.apache.thrift.protocol.TField CODE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"code", org.apache.thrift.protocol.TType.STRING, (short) 2);
 
 	private static final org.apache.thrift.protocol.TField NAME_FIELD_DESC = new org.apache.thrift.protocol.TField(
-			"name", org.apache.thrift.protocol.TType.STRING, (short) 1);
+			"name", org.apache.thrift.protocol.TType.STRING, (short) 3);
 
-	private static final org.apache.thrift.protocol.TField DESC_FIELD_DESC = new org.apache.thrift.protocol.TField(
-			"desc", org.apache.thrift.protocol.TType.STRING, (short) 2);
+	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ArgDivisionStandardSchemeFactory();
 
-	private static final org.apache.thrift.protocol.TField LABEL_FIELD_DESC = new org.apache.thrift.protocol.TField(
-			"label", org.apache.thrift.protocol.TType.STRING, (short) 3);
+	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ArgDivisionTupleSchemeFactory();
 
-	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new RbacCommentStandardSchemeFactory();
+	public @org.apache.thrift.annotation.Nullable java.lang.String key; // required
 
-	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new RbacCommentTupleSchemeFactory();
+	public @org.apache.thrift.annotation.Nullable java.lang.String code; // optional
 
-	public @org.apache.thrift.annotation.Nullable java.lang.String name; // required
-
-	public @org.apache.thrift.annotation.Nullable java.lang.String desc; // required
-
-	public @org.apache.thrift.annotation.Nullable java.lang.String label; // required
+	public @org.apache.thrift.annotation.Nullable java.lang.String name; // optional
 
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
@@ -41,7 +41,7 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 	 */
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
-		NAME((short) 1, "name"), DESC((short) 2, "desc"), LABEL((short) 3, "label");
+		KEY((short) 1, "key"), CODE((short) 2, "code"), NAME((short) 3, "name");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -57,12 +57,12 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 		@org.apache.thrift.annotation.Nullable
 		public static _Fields findByThriftId(int fieldId) {
 			switch (fieldId) {
-			case 1: // NAME
+			case 1: // KEY
+				return KEY;
+			case 2: // CODE
+				return CODE;
+			case 3: // NAME
 				return NAME;
-			case 2: // DESC
-				return DESC;
-			case 3: // LABEL
-				return LABEL;
 			default:
 				return null;
 			}
@@ -107,57 +107,111 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 	}
 
 	// isset id assignments
+	private static final _Fields optionals[] = { _Fields.CODE, _Fields.NAME };
+
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
 		java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
 				_Fields.class);
+		tmpMap.put(_Fields.KEY,
+				new org.apache.thrift.meta_data.FieldMetaData("key", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.CODE,
+				new org.apache.thrift.meta_data.FieldMetaData("code", org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.NAME,
-				new org.apache.thrift.meta_data.FieldMetaData("name", org.apache.thrift.TFieldRequirementType.DEFAULT,
-						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-		tmpMap.put(_Fields.DESC,
-				new org.apache.thrift.meta_data.FieldMetaData("desc", org.apache.thrift.TFieldRequirementType.DEFAULT,
-						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-		tmpMap.put(_Fields.LABEL,
-				new org.apache.thrift.meta_data.FieldMetaData("label", org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.FieldMetaData("name", org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(RbacComment.class, metaDataMap);
+		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ArgDivision.class, metaDataMap);
 	}
 
-	public RbacComment() {
+	public ArgDivision() {
 	}
 
-	public RbacComment(java.lang.String name, java.lang.String desc, java.lang.String label) {
+	public ArgDivision(java.lang.String key) {
 		this();
-		this.name = name;
-		this.desc = desc;
-		this.label = label;
+		this.key = key;
 	}
 
 	/**
 	 * Performs a deep copy on <i>other</i>.
 	 */
-	public RbacComment(RbacComment other) {
+	public ArgDivision(ArgDivision other) {
+		if (other.isSetKey()) {
+			this.key = other.key;
+		}
+		if (other.isSetCode()) {
+			this.code = other.code;
+		}
 		if (other.isSetName()) {
 			this.name = other.name;
 		}
-		if (other.isSetDesc()) {
-			this.desc = other.desc;
-		}
-		if (other.isSetLabel()) {
-			this.label = other.label;
-		}
 	}
 
-	public RbacComment deepCopy() {
-		return new RbacComment(this);
+	public ArgDivision deepCopy() {
+		return new ArgDivision(this);
 	}
 
 	@Override
 	public void clear() {
+		this.key = null;
+		this.code = null;
 		this.name = null;
-		this.desc = null;
-		this.label = null;
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getKey() {
+		return this.key;
+	}
+
+	public ArgDivision setKey(@org.apache.thrift.annotation.Nullable java.lang.String key) {
+		this.key = key;
+		return this;
+	}
+
+	public void unsetKey() {
+		this.key = null;
+	}
+
+	/**
+	 * Returns true if field key is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetKey() {
+		return this.key != null;
+	}
+
+	public void setKeyIsSet(boolean value) {
+		if (!value) {
+			this.key = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getCode() {
+		return this.code;
+	}
+
+	public ArgDivision setCode(@org.apache.thrift.annotation.Nullable java.lang.String code) {
+		this.code = code;
+		return this;
+	}
+
+	public void unsetCode() {
+		this.code = null;
+	}
+
+	/**
+	 * Returns true if field code is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetCode() {
+		return this.code != null;
+	}
+
+	public void setCodeIsSet(boolean value) {
+		if (!value) {
+			this.code = null;
+		}
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -165,7 +219,7 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 		return this.name;
 	}
 
-	public RbacComment setName(@org.apache.thrift.annotation.Nullable java.lang.String name) {
+	public ArgDivision setName(@org.apache.thrift.annotation.Nullable java.lang.String name) {
 		this.name = name;
 		return this;
 	}
@@ -187,62 +241,26 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 		}
 	}
 
-	@org.apache.thrift.annotation.Nullable
-	public java.lang.String getDesc() {
-		return this.desc;
-	}
-
-	public RbacComment setDesc(@org.apache.thrift.annotation.Nullable java.lang.String desc) {
-		this.desc = desc;
-		return this;
-	}
-
-	public void unsetDesc() {
-		this.desc = null;
-	}
-
-	/**
-	 * Returns true if field desc is set (has been assigned a value) and false otherwise
-	 */
-	public boolean isSetDesc() {
-		return this.desc != null;
-	}
-
-	public void setDescIsSet(boolean value) {
-		if (!value) {
-			this.desc = null;
-		}
-	}
-
-	@org.apache.thrift.annotation.Nullable
-	public java.lang.String getLabel() {
-		return this.label;
-	}
-
-	public RbacComment setLabel(@org.apache.thrift.annotation.Nullable java.lang.String label) {
-		this.label = label;
-		return this;
-	}
-
-	public void unsetLabel() {
-		this.label = null;
-	}
-
-	/**
-	 * Returns true if field label is set (has been assigned a value) and false otherwise
-	 */
-	public boolean isSetLabel() {
-		return this.label != null;
-	}
-
-	public void setLabelIsSet(boolean value) {
-		if (!value) {
-			this.label = null;
-		}
-	}
-
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
+		case KEY:
+			if (value == null) {
+				unsetKey();
+			}
+			else {
+				setKey((java.lang.String) value);
+			}
+			break;
+
+		case CODE:
+			if (value == null) {
+				unsetCode();
+			}
+			else {
+				setCode((java.lang.String) value);
+			}
+			break;
+
 		case NAME:
 			if (value == null) {
 				unsetName();
@@ -252,38 +270,20 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 			}
 			break;
 
-		case DESC:
-			if (value == null) {
-				unsetDesc();
-			}
-			else {
-				setDesc((java.lang.String) value);
-			}
-			break;
-
-		case LABEL:
-			if (value == null) {
-				unsetLabel();
-			}
-			else {
-				setLabel((java.lang.String) value);
-			}
-			break;
-
 		}
 	}
 
 	@org.apache.thrift.annotation.Nullable
 	public java.lang.Object getFieldValue(_Fields field) {
 		switch (field) {
+		case KEY:
+			return getKey();
+
+		case CODE:
+			return getCode();
+
 		case NAME:
 			return getName();
-
-		case DESC:
-			return getDesc();
-
-		case LABEL:
-			return getLabel();
 
 		}
 		throw new java.lang.IllegalStateException();
@@ -299,12 +299,12 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 		}
 
 		switch (field) {
+		case KEY:
+			return isSetKey();
+		case CODE:
+			return isSetCode();
 		case NAME:
 			return isSetName();
-		case DESC:
-			return isSetDesc();
-		case LABEL:
-			return isSetLabel();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -313,16 +313,34 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 	public boolean equals(java.lang.Object that) {
 		if (that == null)
 			return false;
-		if (that instanceof RbacComment)
-			return this.equals((RbacComment) that);
+		if (that instanceof ArgDivision)
+			return this.equals((ArgDivision) that);
 		return false;
 	}
 
-	public boolean equals(RbacComment that) {
+	public boolean equals(ArgDivision that) {
 		if (that == null)
 			return false;
 		if (this == that)
 			return true;
+
+		boolean this_present_key = true && this.isSetKey();
+		boolean that_present_key = true && that.isSetKey();
+		if (this_present_key || that_present_key) {
+			if (!(this_present_key && that_present_key))
+				return false;
+			if (!this.key.equals(that.key))
+				return false;
+		}
+
+		boolean this_present_code = true && this.isSetCode();
+		boolean that_present_code = true && that.isSetCode();
+		if (this_present_code || that_present_code) {
+			if (!(this_present_code && that_present_code))
+				return false;
+			if (!this.code.equals(that.code))
+				return false;
+		}
 
 		boolean this_present_name = true && this.isSetName();
 		boolean that_present_name = true && that.isSetName();
@@ -333,24 +351,6 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 				return false;
 		}
 
-		boolean this_present_desc = true && this.isSetDesc();
-		boolean that_present_desc = true && that.isSetDesc();
-		if (this_present_desc || that_present_desc) {
-			if (!(this_present_desc && that_present_desc))
-				return false;
-			if (!this.desc.equals(that.desc))
-				return false;
-		}
-
-		boolean this_present_label = true && this.isSetLabel();
-		boolean that_present_label = true && that.isSetLabel();
-		if (this_present_label || that_present_label) {
-			if (!(this_present_label && that_present_label))
-				return false;
-			if (!this.label.equals(that.label))
-				return false;
-		}
-
 		return true;
 	}
 
@@ -358,55 +358,55 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 	public int hashCode() {
 		int hashCode = 1;
 
+		hashCode = hashCode * 8191 + ((isSetKey()) ? 131071 : 524287);
+		if (isSetKey())
+			hashCode = hashCode * 8191 + key.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetCode()) ? 131071 : 524287);
+		if (isSetCode())
+			hashCode = hashCode * 8191 + code.hashCode();
+
 		hashCode = hashCode * 8191 + ((isSetName()) ? 131071 : 524287);
 		if (isSetName())
 			hashCode = hashCode * 8191 + name.hashCode();
-
-		hashCode = hashCode * 8191 + ((isSetDesc()) ? 131071 : 524287);
-		if (isSetDesc())
-			hashCode = hashCode * 8191 + desc.hashCode();
-
-		hashCode = hashCode * 8191 + ((isSetLabel()) ? 131071 : 524287);
-		if (isSetLabel())
-			hashCode = hashCode * 8191 + label.hashCode();
 
 		return hashCode;
 	}
 
 	@Override
-	public int compareTo(RbacComment other) {
+	public int compareTo(ArgDivision other) {
 		if (!getClass().equals(other.getClass())) {
 			return getClass().getName().compareTo(other.getClass().getName());
 		}
 
 		int lastComparison = 0;
 
+		lastComparison = java.lang.Boolean.valueOf(isSetKey()).compareTo(other.isSetKey());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetKey()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.key, other.key);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetCode()).compareTo(other.isSetCode());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetCode()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.code, other.code);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetName()).compareTo(other.isSetName());
 		if (lastComparison != 0) {
 			return lastComparison;
 		}
 		if (isSetName()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.name, other.name);
-			if (lastComparison != 0) {
-				return lastComparison;
-			}
-		}
-		lastComparison = java.lang.Boolean.valueOf(isSetDesc()).compareTo(other.isSetDesc());
-		if (lastComparison != 0) {
-			return lastComparison;
-		}
-		if (isSetDesc()) {
-			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.desc, other.desc);
-			if (lastComparison != 0) {
-				return lastComparison;
-			}
-		}
-		lastComparison = java.lang.Boolean.valueOf(isSetLabel()).compareTo(other.isSetLabel());
-		if (lastComparison != 0) {
-			return lastComparison;
-		}
-		if (isSetLabel()) {
-			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.label, other.label);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -429,37 +429,41 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 
 	@Override
 	public java.lang.String toString() {
-		java.lang.StringBuilder sb = new java.lang.StringBuilder("RbacComment(");
+		java.lang.StringBuilder sb = new java.lang.StringBuilder("ArgDivision(");
 		boolean first = true;
 
-		sb.append("name:");
-		if (this.name == null) {
+		sb.append("key:");
+		if (this.key == null) {
 			sb.append("null");
 		}
 		else {
-			sb.append(this.name);
+			sb.append(this.key);
 		}
 		first = false;
-		if (!first)
-			sb.append(", ");
-		sb.append("desc:");
-		if (this.desc == null) {
-			sb.append("null");
+		if (isSetCode()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("code:");
+			if (this.code == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.code);
+			}
+			first = false;
 		}
-		else {
-			sb.append(this.desc);
+		if (isSetName()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("name:");
+			if (this.name == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.name);
+			}
+			first = false;
 		}
-		first = false;
-		if (!first)
-			sb.append(", ");
-		sb.append("label:");
-		if (this.label == null) {
-			sb.append("null");
-		}
-		else {
-			sb.append(this.label);
-		}
-		first = false;
 		sb.append(")");
 		return sb.toString();
 	}
@@ -489,17 +493,17 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 		}
 	}
 
-	private static class RbacCommentStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+	private static class ArgDivisionStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
 
-		public RbacCommentStandardScheme getScheme() {
-			return new RbacCommentStandardScheme();
+		public ArgDivisionStandardScheme getScheme() {
+			return new ArgDivisionStandardScheme();
 		}
 
 	}
 
-	private static class RbacCommentStandardScheme extends org.apache.thrift.scheme.StandardScheme<RbacComment> {
+	private static class ArgDivisionStandardScheme extends org.apache.thrift.scheme.StandardScheme<ArgDivision> {
 
-		public void read(org.apache.thrift.protocol.TProtocol iprot, RbacComment struct)
+		public void read(org.apache.thrift.protocol.TProtocol iprot, ArgDivision struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TField schemeField;
 			iprot.readStructBegin();
@@ -509,28 +513,28 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 					break;
 				}
 				switch (schemeField.id) {
-				case 1: // NAME
+				case 1: // KEY
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.key = iprot.readString();
+						struct.setKeyIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 2: // CODE
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.code = iprot.readString();
+						struct.setCodeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 3: // NAME
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.name = iprot.readString();
 						struct.setNameIsSet(true);
-					}
-					else {
-						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-					}
-					break;
-				case 2: // DESC
-					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-						struct.desc = iprot.readString();
-						struct.setDescIsSet(true);
-					}
-					else {
-						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-					}
-					break;
-				case 3: // LABEL
-					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-						struct.label = iprot.readString();
-						struct.setLabelIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -548,25 +552,29 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 			struct.validate();
 		}
 
-		public void write(org.apache.thrift.protocol.TProtocol oprot, RbacComment struct)
+		public void write(org.apache.thrift.protocol.TProtocol oprot, ArgDivision struct)
 				throws org.apache.thrift.TException {
 			struct.validate();
 
 			oprot.writeStructBegin(STRUCT_DESC);
+			if (struct.key != null) {
+				oprot.writeFieldBegin(KEY_FIELD_DESC);
+				oprot.writeString(struct.key);
+				oprot.writeFieldEnd();
+			}
+			if (struct.code != null) {
+				if (struct.isSetCode()) {
+					oprot.writeFieldBegin(CODE_FIELD_DESC);
+					oprot.writeString(struct.code);
+					oprot.writeFieldEnd();
+				}
+			}
 			if (struct.name != null) {
-				oprot.writeFieldBegin(NAME_FIELD_DESC);
-				oprot.writeString(struct.name);
-				oprot.writeFieldEnd();
-			}
-			if (struct.desc != null) {
-				oprot.writeFieldBegin(DESC_FIELD_DESC);
-				oprot.writeString(struct.desc);
-				oprot.writeFieldEnd();
-			}
-			if (struct.label != null) {
-				oprot.writeFieldBegin(LABEL_FIELD_DESC);
-				oprot.writeString(struct.label);
-				oprot.writeFieldEnd();
+				if (struct.isSetName()) {
+					oprot.writeFieldBegin(NAME_FIELD_DESC);
+					oprot.writeString(struct.name);
+					oprot.writeFieldEnd();
+				}
 			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
@@ -574,58 +582,58 @@ public class RbacComment implements org.apache.thrift.TBase<RbacComment, RbacCom
 
 	}
 
-	private static class RbacCommentTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+	private static class ArgDivisionTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
 
-		public RbacCommentTupleScheme getScheme() {
-			return new RbacCommentTupleScheme();
+		public ArgDivisionTupleScheme getScheme() {
+			return new ArgDivisionTupleScheme();
 		}
 
 	}
 
-	private static class RbacCommentTupleScheme extends org.apache.thrift.scheme.TupleScheme<RbacComment> {
+	private static class ArgDivisionTupleScheme extends org.apache.thrift.scheme.TupleScheme<ArgDivision> {
 
 		@Override
-		public void write(org.apache.thrift.protocol.TProtocol prot, RbacComment struct)
+		public void write(org.apache.thrift.protocol.TProtocol prot, ArgDivision struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 			java.util.BitSet optionals = new java.util.BitSet();
-			if (struct.isSetName()) {
+			if (struct.isSetKey()) {
 				optionals.set(0);
 			}
-			if (struct.isSetDesc()) {
+			if (struct.isSetCode()) {
 				optionals.set(1);
 			}
-			if (struct.isSetLabel()) {
+			if (struct.isSetName()) {
 				optionals.set(2);
 			}
 			oprot.writeBitSet(optionals, 3);
+			if (struct.isSetKey()) {
+				oprot.writeString(struct.key);
+			}
+			if (struct.isSetCode()) {
+				oprot.writeString(struct.code);
+			}
 			if (struct.isSetName()) {
 				oprot.writeString(struct.name);
-			}
-			if (struct.isSetDesc()) {
-				oprot.writeString(struct.desc);
-			}
-			if (struct.isSetLabel()) {
-				oprot.writeString(struct.label);
 			}
 		}
 
 		@Override
-		public void read(org.apache.thrift.protocol.TProtocol prot, RbacComment struct)
+		public void read(org.apache.thrift.protocol.TProtocol prot, ArgDivision struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 			java.util.BitSet incoming = iprot.readBitSet(3);
 			if (incoming.get(0)) {
-				struct.name = iprot.readString();
-				struct.setNameIsSet(true);
+				struct.key = iprot.readString();
+				struct.setKeyIsSet(true);
 			}
 			if (incoming.get(1)) {
-				struct.desc = iprot.readString();
-				struct.setDescIsSet(true);
+				struct.code = iprot.readString();
+				struct.setCodeIsSet(true);
 			}
 			if (incoming.get(2)) {
-				struct.label = iprot.readString();
-				struct.setLabelIsSet(true);
+				struct.name = iprot.readString();
+				struct.setNameIsSet(true);
 			}
 		}
 

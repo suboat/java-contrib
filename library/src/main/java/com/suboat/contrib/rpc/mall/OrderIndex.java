@@ -46,6 +46,21 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 	private static final org.apache.thrift.protocol.TField SERIAL_ID_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"serialId", org.apache.thrift.protocol.TType.STRING, (short) 11);
 
+	private static final org.apache.thrift.protocol.TField PRICE_BEFORE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"priceBefore", org.apache.thrift.protocol.TType.MAP, (short) 13);
+
+	private static final org.apache.thrift.protocol.TField PRICE_AFTER_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"priceAfter", org.apache.thrift.protocol.TType.MAP, (short) 14);
+
+	private static final org.apache.thrift.protocol.TField COUPON_ARR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"couponArr", org.apache.thrift.protocol.TType.LIST, (short) 15);
+
+	private static final org.apache.thrift.protocol.TField INDEX_ARR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"indexArr", org.apache.thrift.protocol.TType.LIST, (short) 16);
+
+	private static final org.apache.thrift.protocol.TField ORDER_ARR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"orderArr", org.apache.thrift.protocol.TType.LIST, (short) 17);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new OrderIndexStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new OrderIndexTupleSchemeFactory();
@@ -72,6 +87,16 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String serialId; // required
 
+	public @org.apache.thrift.annotation.Nullable java.util.Map<java.lang.String, java.lang.Double> priceBefore; // required
+
+	public @org.apache.thrift.annotation.Nullable java.util.Map<java.lang.String, java.lang.Double> priceAfter; // required
+
+	public @org.apache.thrift.annotation.Nullable java.util.List<CouponFlow> couponArr; // required
+
+	public @org.apache.thrift.annotation.Nullable java.util.List<OrderIndex> indexArr; // required
+
+	public @org.apache.thrift.annotation.Nullable java.util.List<Order> orderArr; // required
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
@@ -81,7 +106,10 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 		XID((short) 1, "xid"), UID((short) 2, "uid"), UID_REL((short) 3, "uidRel"), SID((short) 4, "sid"), PARENT(
 				(short) 5, "parent"), CATEGORY((short) 6, "category"), CREATE_TIME((short) 7,
 						"createTime"), UPDATE_TIME((short) 8, "updateTime"), IS_DELETE((short) 9,
-								"isDelete"), STATUS((short) 10, "status"), SERIAL_ID((short) 11, "serialId");
+								"isDelete"), STATUS((short) 10, "status"), SERIAL_ID((short) 11,
+										"serialId"), PRICE_BEFORE((short) 13, "priceBefore"), PRICE_AFTER((short) 14,
+												"priceAfter"), COUPON_ARR((short) 15, "couponArr"), INDEX_ARR(
+														(short) 16, "indexArr"), ORDER_ARR((short) 17, "orderArr");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -119,6 +147,16 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 				return STATUS;
 			case 11: // SERIAL_ID
 				return SERIAL_ID;
+			case 13: // PRICE_BEFORE
+				return PRICE_BEFORE;
+			case 14: // PRICE_AFTER
+				return PRICE_AFTER;
+			case 15: // COUPON_ARR
+				return COUPON_ARR;
+			case 16: // INDEX_ARR
+				return INDEX_ARR;
+			case 17: // ORDER_ARR
+				return ORDER_ARR;
 			default:
 				return null;
 			}
@@ -209,6 +247,31 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 				new org.apache.thrift.meta_data.FieldMetaData("serialId",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.PRICE_BEFORE, new org.apache.thrift.meta_data.FieldMetaData("priceBefore",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.MapMetaData(org.apache.thrift.protocol.TType.MAP,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING),
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE))));
+		tmpMap.put(_Fields.PRICE_AFTER, new org.apache.thrift.meta_data.FieldMetaData("priceAfter",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.MapMetaData(org.apache.thrift.protocol.TType.MAP,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING),
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE))));
+		tmpMap.put(_Fields.COUPON_ARR, new org.apache.thrift.meta_data.FieldMetaData("couponArr",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
+								"CouponFlow"))));
+		tmpMap.put(_Fields.INDEX_ARR, new org.apache.thrift.meta_data.FieldMetaData("indexArr",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
+								"OrderIndex"))));
+		tmpMap.put(_Fields.ORDER_ARR, new org.apache.thrift.meta_data.FieldMetaData("orderArr",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
+								"Order"))));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(OrderIndex.class, metaDataMap);
 	}
@@ -218,7 +281,10 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 
 	public OrderIndex(java.lang.String xid, java.lang.String uid, java.lang.String uidRel, java.lang.String sid,
 			java.lang.String parent, java.lang.String category, java.lang.String createTime,
-			java.lang.String updateTime, boolean isDelete, int status, java.lang.String serialId) {
+			java.lang.String updateTime, boolean isDelete, int status, java.lang.String serialId,
+			java.util.Map<java.lang.String, java.lang.Double> priceBefore,
+			java.util.Map<java.lang.String, java.lang.Double> priceAfter, java.util.List<CouponFlow> couponArr,
+			java.util.List<OrderIndex> indexArr, java.util.List<Order> orderArr) {
 		this();
 		this.xid = xid;
 		this.uid = uid;
@@ -233,6 +299,11 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 		this.status = status;
 		setStatusIsSet(true);
 		this.serialId = serialId;
+		this.priceBefore = priceBefore;
+		this.priceAfter = priceAfter;
+		this.couponArr = couponArr;
+		this.indexArr = indexArr;
+		this.orderArr = orderArr;
 	}
 
 	/**
@@ -269,6 +340,37 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 		if (other.isSetSerialId()) {
 			this.serialId = other.serialId;
 		}
+		if (other.isSetPriceBefore()) {
+			java.util.Map<java.lang.String, java.lang.Double> __this__priceBefore = new java.util.HashMap<java.lang.String, java.lang.Double>(
+					other.priceBefore);
+			this.priceBefore = __this__priceBefore;
+		}
+		if (other.isSetPriceAfter()) {
+			java.util.Map<java.lang.String, java.lang.Double> __this__priceAfter = new java.util.HashMap<java.lang.String, java.lang.Double>(
+					other.priceAfter);
+			this.priceAfter = __this__priceAfter;
+		}
+		if (other.isSetCouponArr()) {
+			java.util.List<CouponFlow> __this__couponArr = new java.util.ArrayList<CouponFlow>(other.couponArr.size());
+			for (CouponFlow other_element : other.couponArr) {
+				__this__couponArr.add(new CouponFlow(other_element));
+			}
+			this.couponArr = __this__couponArr;
+		}
+		if (other.isSetIndexArr()) {
+			java.util.List<OrderIndex> __this__indexArr = new java.util.ArrayList<OrderIndex>(other.indexArr.size());
+			for (OrderIndex other_element : other.indexArr) {
+				__this__indexArr.add(new OrderIndex(other_element));
+			}
+			this.indexArr = __this__indexArr;
+		}
+		if (other.isSetOrderArr()) {
+			java.util.List<Order> __this__orderArr = new java.util.ArrayList<Order>(other.orderArr.size());
+			for (Order other_element : other.orderArr) {
+				__this__orderArr.add(new Order(other_element));
+			}
+			this.orderArr = __this__orderArr;
+		}
 	}
 
 	public OrderIndex deepCopy() {
@@ -290,6 +392,11 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 		setStatusIsSet(false);
 		this.status = 0;
 		this.serialId = null;
+		this.priceBefore = null;
+		this.priceAfter = null;
+		this.couponArr = null;
+		this.indexArr = null;
+		this.orderArr = null;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -590,6 +697,218 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 		}
 	}
 
+	public int getPriceBeforeSize() {
+		return (this.priceBefore == null) ? 0 : this.priceBefore.size();
+	}
+
+	public void putToPriceBefore(java.lang.String key, double val) {
+		if (this.priceBefore == null) {
+			this.priceBefore = new java.util.HashMap<java.lang.String, java.lang.Double>();
+		}
+		this.priceBefore.put(key, val);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.Map<java.lang.String, java.lang.Double> getPriceBefore() {
+		return this.priceBefore;
+	}
+
+	public OrderIndex setPriceBefore(
+			@org.apache.thrift.annotation.Nullable java.util.Map<java.lang.String, java.lang.Double> priceBefore) {
+		this.priceBefore = priceBefore;
+		return this;
+	}
+
+	public void unsetPriceBefore() {
+		this.priceBefore = null;
+	}
+
+	/**
+	 * Returns true if field priceBefore is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetPriceBefore() {
+		return this.priceBefore != null;
+	}
+
+	public void setPriceBeforeIsSet(boolean value) {
+		if (!value) {
+			this.priceBefore = null;
+		}
+	}
+
+	public int getPriceAfterSize() {
+		return (this.priceAfter == null) ? 0 : this.priceAfter.size();
+	}
+
+	public void putToPriceAfter(java.lang.String key, double val) {
+		if (this.priceAfter == null) {
+			this.priceAfter = new java.util.HashMap<java.lang.String, java.lang.Double>();
+		}
+		this.priceAfter.put(key, val);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.Map<java.lang.String, java.lang.Double> getPriceAfter() {
+		return this.priceAfter;
+	}
+
+	public OrderIndex setPriceAfter(
+			@org.apache.thrift.annotation.Nullable java.util.Map<java.lang.String, java.lang.Double> priceAfter) {
+		this.priceAfter = priceAfter;
+		return this;
+	}
+
+	public void unsetPriceAfter() {
+		this.priceAfter = null;
+	}
+
+	/**
+	 * Returns true if field priceAfter is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetPriceAfter() {
+		return this.priceAfter != null;
+	}
+
+	public void setPriceAfterIsSet(boolean value) {
+		if (!value) {
+			this.priceAfter = null;
+		}
+	}
+
+	public int getCouponArrSize() {
+		return (this.couponArr == null) ? 0 : this.couponArr.size();
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.Iterator<CouponFlow> getCouponArrIterator() {
+		return (this.couponArr == null) ? null : this.couponArr.iterator();
+	}
+
+	public void addToCouponArr(CouponFlow elem) {
+		if (this.couponArr == null) {
+			this.couponArr = new java.util.ArrayList<CouponFlow>();
+		}
+		this.couponArr.add(elem);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.List<CouponFlow> getCouponArr() {
+		return this.couponArr;
+	}
+
+	public OrderIndex setCouponArr(@org.apache.thrift.annotation.Nullable java.util.List<CouponFlow> couponArr) {
+		this.couponArr = couponArr;
+		return this;
+	}
+
+	public void unsetCouponArr() {
+		this.couponArr = null;
+	}
+
+	/**
+	 * Returns true if field couponArr is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetCouponArr() {
+		return this.couponArr != null;
+	}
+
+	public void setCouponArrIsSet(boolean value) {
+		if (!value) {
+			this.couponArr = null;
+		}
+	}
+
+	public int getIndexArrSize() {
+		return (this.indexArr == null) ? 0 : this.indexArr.size();
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.Iterator<OrderIndex> getIndexArrIterator() {
+		return (this.indexArr == null) ? null : this.indexArr.iterator();
+	}
+
+	public void addToIndexArr(OrderIndex elem) {
+		if (this.indexArr == null) {
+			this.indexArr = new java.util.ArrayList<OrderIndex>();
+		}
+		this.indexArr.add(elem);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.List<OrderIndex> getIndexArr() {
+		return this.indexArr;
+	}
+
+	public OrderIndex setIndexArr(@org.apache.thrift.annotation.Nullable java.util.List<OrderIndex> indexArr) {
+		this.indexArr = indexArr;
+		return this;
+	}
+
+	public void unsetIndexArr() {
+		this.indexArr = null;
+	}
+
+	/**
+	 * Returns true if field indexArr is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetIndexArr() {
+		return this.indexArr != null;
+	}
+
+	public void setIndexArrIsSet(boolean value) {
+		if (!value) {
+			this.indexArr = null;
+		}
+	}
+
+	public int getOrderArrSize() {
+		return (this.orderArr == null) ? 0 : this.orderArr.size();
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.Iterator<Order> getOrderArrIterator() {
+		return (this.orderArr == null) ? null : this.orderArr.iterator();
+	}
+
+	public void addToOrderArr(Order elem) {
+		if (this.orderArr == null) {
+			this.orderArr = new java.util.ArrayList<Order>();
+		}
+		this.orderArr.add(elem);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.List<Order> getOrderArr() {
+		return this.orderArr;
+	}
+
+	public OrderIndex setOrderArr(@org.apache.thrift.annotation.Nullable java.util.List<Order> orderArr) {
+		this.orderArr = orderArr;
+		return this;
+	}
+
+	public void unsetOrderArr() {
+		this.orderArr = null;
+	}
+
+	/**
+	 * Returns true if field orderArr is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetOrderArr() {
+		return this.orderArr != null;
+	}
+
+	public void setOrderArrIsSet(boolean value) {
+		if (!value) {
+			this.orderArr = null;
+		}
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case XID:
@@ -691,6 +1010,51 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 			}
 			break;
 
+		case PRICE_BEFORE:
+			if (value == null) {
+				unsetPriceBefore();
+			}
+			else {
+				setPriceBefore((java.util.Map<java.lang.String, java.lang.Double>) value);
+			}
+			break;
+
+		case PRICE_AFTER:
+			if (value == null) {
+				unsetPriceAfter();
+			}
+			else {
+				setPriceAfter((java.util.Map<java.lang.String, java.lang.Double>) value);
+			}
+			break;
+
+		case COUPON_ARR:
+			if (value == null) {
+				unsetCouponArr();
+			}
+			else {
+				setCouponArr((java.util.List<CouponFlow>) value);
+			}
+			break;
+
+		case INDEX_ARR:
+			if (value == null) {
+				unsetIndexArr();
+			}
+			else {
+				setIndexArr((java.util.List<OrderIndex>) value);
+			}
+			break;
+
+		case ORDER_ARR:
+			if (value == null) {
+				unsetOrderArr();
+			}
+			else {
+				setOrderArr((java.util.List<Order>) value);
+			}
+			break;
+
 		}
 	}
 
@@ -730,6 +1094,21 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 		case SERIAL_ID:
 			return getSerialId();
 
+		case PRICE_BEFORE:
+			return getPriceBefore();
+
+		case PRICE_AFTER:
+			return getPriceAfter();
+
+		case COUPON_ARR:
+			return getCouponArr();
+
+		case INDEX_ARR:
+			return getIndexArr();
+
+		case ORDER_ARR:
+			return getOrderArr();
+
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -766,6 +1145,16 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 			return isSetStatus();
 		case SERIAL_ID:
 			return isSetSerialId();
+		case PRICE_BEFORE:
+			return isSetPriceBefore();
+		case PRICE_AFTER:
+			return isSetPriceAfter();
+		case COUPON_ARR:
+			return isSetCouponArr();
+		case INDEX_ARR:
+			return isSetIndexArr();
+		case ORDER_ARR:
+			return isSetOrderArr();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -884,6 +1273,51 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 				return false;
 		}
 
+		boolean this_present_priceBefore = true && this.isSetPriceBefore();
+		boolean that_present_priceBefore = true && that.isSetPriceBefore();
+		if (this_present_priceBefore || that_present_priceBefore) {
+			if (!(this_present_priceBefore && that_present_priceBefore))
+				return false;
+			if (!this.priceBefore.equals(that.priceBefore))
+				return false;
+		}
+
+		boolean this_present_priceAfter = true && this.isSetPriceAfter();
+		boolean that_present_priceAfter = true && that.isSetPriceAfter();
+		if (this_present_priceAfter || that_present_priceAfter) {
+			if (!(this_present_priceAfter && that_present_priceAfter))
+				return false;
+			if (!this.priceAfter.equals(that.priceAfter))
+				return false;
+		}
+
+		boolean this_present_couponArr = true && this.isSetCouponArr();
+		boolean that_present_couponArr = true && that.isSetCouponArr();
+		if (this_present_couponArr || that_present_couponArr) {
+			if (!(this_present_couponArr && that_present_couponArr))
+				return false;
+			if (!this.couponArr.equals(that.couponArr))
+				return false;
+		}
+
+		boolean this_present_indexArr = true && this.isSetIndexArr();
+		boolean that_present_indexArr = true && that.isSetIndexArr();
+		if (this_present_indexArr || that_present_indexArr) {
+			if (!(this_present_indexArr && that_present_indexArr))
+				return false;
+			if (!this.indexArr.equals(that.indexArr))
+				return false;
+		}
+
+		boolean this_present_orderArr = true && this.isSetOrderArr();
+		boolean that_present_orderArr = true && that.isSetOrderArr();
+		if (this_present_orderArr || that_present_orderArr) {
+			if (!(this_present_orderArr && that_present_orderArr))
+				return false;
+			if (!this.orderArr.equals(that.orderArr))
+				return false;
+		}
+
 		return true;
 	}
 
@@ -930,6 +1364,26 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 		hashCode = hashCode * 8191 + ((isSetSerialId()) ? 131071 : 524287);
 		if (isSetSerialId())
 			hashCode = hashCode * 8191 + serialId.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetPriceBefore()) ? 131071 : 524287);
+		if (isSetPriceBefore())
+			hashCode = hashCode * 8191 + priceBefore.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetPriceAfter()) ? 131071 : 524287);
+		if (isSetPriceAfter())
+			hashCode = hashCode * 8191 + priceAfter.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetCouponArr()) ? 131071 : 524287);
+		if (isSetCouponArr())
+			hashCode = hashCode * 8191 + couponArr.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetIndexArr()) ? 131071 : 524287);
+		if (isSetIndexArr())
+			hashCode = hashCode * 8191 + indexArr.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetOrderArr()) ? 131071 : 524287);
+		if (isSetOrderArr())
+			hashCode = hashCode * 8191 + orderArr.hashCode();
 
 		return hashCode;
 	}
@@ -1052,6 +1506,56 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetPriceBefore()).compareTo(other.isSetPriceBefore());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetPriceBefore()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.priceBefore, other.priceBefore);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetPriceAfter()).compareTo(other.isSetPriceAfter());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetPriceAfter()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.priceAfter, other.priceAfter);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetCouponArr()).compareTo(other.isSetCouponArr());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetCouponArr()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.couponArr, other.couponArr);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetIndexArr()).compareTo(other.isSetIndexArr());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetIndexArr()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.indexArr, other.indexArr);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetOrderArr()).compareTo(other.isSetOrderArr());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetOrderArr()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.orderArr, other.orderArr);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		return 0;
 	}
 
@@ -1169,6 +1673,56 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 		}
 		else {
 			sb.append(this.serialId);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("priceBefore:");
+		if (this.priceBefore == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.priceBefore);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("priceAfter:");
+		if (this.priceAfter == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.priceAfter);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("couponArr:");
+		if (this.couponArr == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.couponArr);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("indexArr:");
+		if (this.indexArr == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.indexArr);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("orderArr:");
+		if (this.orderArr == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.orderArr);
 		}
 		first = false;
 		sb.append(")");
@@ -1322,6 +1876,110 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 13: // PRICE_BEFORE
+					if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
+						{
+							org.apache.thrift.protocol.TMap _map42 = iprot.readMapBegin();
+							struct.priceBefore = new java.util.HashMap<java.lang.String, java.lang.Double>(
+									2 * _map42.size);
+							@org.apache.thrift.annotation.Nullable
+							java.lang.String _key43;
+							double _val44;
+							for (int _i45 = 0; _i45 < _map42.size; ++_i45) {
+								_key43 = iprot.readString();
+								_val44 = iprot.readDouble();
+								struct.priceBefore.put(_key43, _val44);
+							}
+							iprot.readMapEnd();
+						}
+						struct.setPriceBeforeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 14: // PRICE_AFTER
+					if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
+						{
+							org.apache.thrift.protocol.TMap _map46 = iprot.readMapBegin();
+							struct.priceAfter = new java.util.HashMap<java.lang.String, java.lang.Double>(
+									2 * _map46.size);
+							@org.apache.thrift.annotation.Nullable
+							java.lang.String _key47;
+							double _val48;
+							for (int _i49 = 0; _i49 < _map46.size; ++_i49) {
+								_key47 = iprot.readString();
+								_val48 = iprot.readDouble();
+								struct.priceAfter.put(_key47, _val48);
+							}
+							iprot.readMapEnd();
+						}
+						struct.setPriceAfterIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 15: // COUPON_ARR
+					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+						{
+							org.apache.thrift.protocol.TList _list50 = iprot.readListBegin();
+							struct.couponArr = new java.util.ArrayList<CouponFlow>(_list50.size);
+							@org.apache.thrift.annotation.Nullable
+							CouponFlow _elem51;
+							for (int _i52 = 0; _i52 < _list50.size; ++_i52) {
+								_elem51 = new CouponFlow();
+								_elem51.read(iprot);
+								struct.couponArr.add(_elem51);
+							}
+							iprot.readListEnd();
+						}
+						struct.setCouponArrIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 16: // INDEX_ARR
+					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+						{
+							org.apache.thrift.protocol.TList _list53 = iprot.readListBegin();
+							struct.indexArr = new java.util.ArrayList<OrderIndex>(_list53.size);
+							@org.apache.thrift.annotation.Nullable
+							OrderIndex _elem54;
+							for (int _i55 = 0; _i55 < _list53.size; ++_i55) {
+								_elem54 = new OrderIndex();
+								_elem54.read(iprot);
+								struct.indexArr.add(_elem54);
+							}
+							iprot.readListEnd();
+						}
+						struct.setIndexArrIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 17: // ORDER_ARR
+					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+						{
+							org.apache.thrift.protocol.TList _list56 = iprot.readListBegin();
+							struct.orderArr = new java.util.ArrayList<Order>(_list56.size);
+							@org.apache.thrift.annotation.Nullable
+							Order _elem57;
+							for (int _i58 = 0; _i58 < _list56.size; ++_i58) {
+								_elem57 = new Order();
+								_elem57.read(iprot);
+								struct.orderArr.add(_elem57);
+							}
+							iprot.readListEnd();
+						}
+						struct.setOrderArrIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -1390,6 +2048,70 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 				oprot.writeString(struct.serialId);
 				oprot.writeFieldEnd();
 			}
+			if (struct.priceBefore != null) {
+				oprot.writeFieldBegin(PRICE_BEFORE_FIELD_DESC);
+				{
+					oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
+							org.apache.thrift.protocol.TType.DOUBLE, struct.priceBefore.size()));
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter59 : struct.priceBefore
+							.entrySet()) {
+						oprot.writeString(_iter59.getKey());
+						oprot.writeDouble(_iter59.getValue());
+					}
+					oprot.writeMapEnd();
+				}
+				oprot.writeFieldEnd();
+			}
+			if (struct.priceAfter != null) {
+				oprot.writeFieldBegin(PRICE_AFTER_FIELD_DESC);
+				{
+					oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
+							org.apache.thrift.protocol.TType.DOUBLE, struct.priceAfter.size()));
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter60 : struct.priceAfter
+							.entrySet()) {
+						oprot.writeString(_iter60.getKey());
+						oprot.writeDouble(_iter60.getValue());
+					}
+					oprot.writeMapEnd();
+				}
+				oprot.writeFieldEnd();
+			}
+			if (struct.couponArr != null) {
+				oprot.writeFieldBegin(COUPON_ARR_FIELD_DESC);
+				{
+					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
+							struct.couponArr.size()));
+					for (CouponFlow _iter61 : struct.couponArr) {
+						_iter61.write(oprot);
+					}
+					oprot.writeListEnd();
+				}
+				oprot.writeFieldEnd();
+			}
+			if (struct.indexArr != null) {
+				oprot.writeFieldBegin(INDEX_ARR_FIELD_DESC);
+				{
+					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
+							struct.indexArr.size()));
+					for (OrderIndex _iter62 : struct.indexArr) {
+						_iter62.write(oprot);
+					}
+					oprot.writeListEnd();
+				}
+				oprot.writeFieldEnd();
+			}
+			if (struct.orderArr != null) {
+				oprot.writeFieldBegin(ORDER_ARR_FIELD_DESC);
+				{
+					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
+							struct.orderArr.size()));
+					for (Order _iter63 : struct.orderArr) {
+						_iter63.write(oprot);
+					}
+					oprot.writeListEnd();
+				}
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -1444,7 +2166,22 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 			if (struct.isSetSerialId()) {
 				optionals.set(10);
 			}
-			oprot.writeBitSet(optionals, 11);
+			if (struct.isSetPriceBefore()) {
+				optionals.set(11);
+			}
+			if (struct.isSetPriceAfter()) {
+				optionals.set(12);
+			}
+			if (struct.isSetCouponArr()) {
+				optionals.set(13);
+			}
+			if (struct.isSetIndexArr()) {
+				optionals.set(14);
+			}
+			if (struct.isSetOrderArr()) {
+				optionals.set(15);
+			}
+			oprot.writeBitSet(optionals, 16);
 			if (struct.isSetXid()) {
 				oprot.writeString(struct.xid);
 			}
@@ -1478,13 +2215,57 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 			if (struct.isSetSerialId()) {
 				oprot.writeString(struct.serialId);
 			}
+			if (struct.isSetPriceBefore()) {
+				{
+					oprot.writeI32(struct.priceBefore.size());
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter64 : struct.priceBefore
+							.entrySet()) {
+						oprot.writeString(_iter64.getKey());
+						oprot.writeDouble(_iter64.getValue());
+					}
+				}
+			}
+			if (struct.isSetPriceAfter()) {
+				{
+					oprot.writeI32(struct.priceAfter.size());
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter65 : struct.priceAfter
+							.entrySet()) {
+						oprot.writeString(_iter65.getKey());
+						oprot.writeDouble(_iter65.getValue());
+					}
+				}
+			}
+			if (struct.isSetCouponArr()) {
+				{
+					oprot.writeI32(struct.couponArr.size());
+					for (CouponFlow _iter66 : struct.couponArr) {
+						_iter66.write(oprot);
+					}
+				}
+			}
+			if (struct.isSetIndexArr()) {
+				{
+					oprot.writeI32(struct.indexArr.size());
+					for (OrderIndex _iter67 : struct.indexArr) {
+						_iter67.write(oprot);
+					}
+				}
+			}
+			if (struct.isSetOrderArr()) {
+				{
+					oprot.writeI32(struct.orderArr.size());
+					for (Order _iter68 : struct.orderArr) {
+						_iter68.write(oprot);
+					}
+				}
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, OrderIndex struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(11);
+			java.util.BitSet incoming = iprot.readBitSet(16);
 			if (incoming.get(0)) {
 				struct.xid = iprot.readString();
 				struct.setXidIsSet(true);
@@ -1528,6 +2309,85 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 			if (incoming.get(10)) {
 				struct.serialId = iprot.readString();
 				struct.setSerialIdIsSet(true);
+			}
+			if (incoming.get(11)) {
+				{
+					org.apache.thrift.protocol.TMap _map69 = new org.apache.thrift.protocol.TMap(
+							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.DOUBLE,
+							iprot.readI32());
+					struct.priceBefore = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map69.size);
+					@org.apache.thrift.annotation.Nullable
+					java.lang.String _key70;
+					double _val71;
+					for (int _i72 = 0; _i72 < _map69.size; ++_i72) {
+						_key70 = iprot.readString();
+						_val71 = iprot.readDouble();
+						struct.priceBefore.put(_key70, _val71);
+					}
+				}
+				struct.setPriceBeforeIsSet(true);
+			}
+			if (incoming.get(12)) {
+				{
+					org.apache.thrift.protocol.TMap _map73 = new org.apache.thrift.protocol.TMap(
+							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.DOUBLE,
+							iprot.readI32());
+					struct.priceAfter = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map73.size);
+					@org.apache.thrift.annotation.Nullable
+					java.lang.String _key74;
+					double _val75;
+					for (int _i76 = 0; _i76 < _map73.size; ++_i76) {
+						_key74 = iprot.readString();
+						_val75 = iprot.readDouble();
+						struct.priceAfter.put(_key74, _val75);
+					}
+				}
+				struct.setPriceAfterIsSet(true);
+			}
+			if (incoming.get(13)) {
+				{
+					org.apache.thrift.protocol.TList _list77 = new org.apache.thrift.protocol.TList(
+							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
+					struct.couponArr = new java.util.ArrayList<CouponFlow>(_list77.size);
+					@org.apache.thrift.annotation.Nullable
+					CouponFlow _elem78;
+					for (int _i79 = 0; _i79 < _list77.size; ++_i79) {
+						_elem78 = new CouponFlow();
+						_elem78.read(iprot);
+						struct.couponArr.add(_elem78);
+					}
+				}
+				struct.setCouponArrIsSet(true);
+			}
+			if (incoming.get(14)) {
+				{
+					org.apache.thrift.protocol.TList _list80 = new org.apache.thrift.protocol.TList(
+							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
+					struct.indexArr = new java.util.ArrayList<OrderIndex>(_list80.size);
+					@org.apache.thrift.annotation.Nullable
+					OrderIndex _elem81;
+					for (int _i82 = 0; _i82 < _list80.size; ++_i82) {
+						_elem81 = new OrderIndex();
+						_elem81.read(iprot);
+						struct.indexArr.add(_elem81);
+					}
+				}
+				struct.setIndexArrIsSet(true);
+			}
+			if (incoming.get(15)) {
+				{
+					org.apache.thrift.protocol.TList _list83 = new org.apache.thrift.protocol.TList(
+							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
+					struct.orderArr = new java.util.ArrayList<Order>(_list83.size);
+					@org.apache.thrift.annotation.Nullable
+					Order _elem84;
+					for (int _i85 = 0; _i85 < _list83.size; ++_i85) {
+						_elem84 = new Order();
+						_elem84.read(iprot);
+						struct.orderArr.add(_elem84);
+					}
+				}
+				struct.setOrderArrIsSet(true);
 			}
 		}
 

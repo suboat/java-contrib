@@ -61,6 +61,12 @@ public class Good
 	private static final org.apache.thrift.protocol.TField VOLUME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"volume", org.apache.thrift.protocol.TType.I32, (short) 16);
 
+	private static final org.apache.thrift.protocol.TField LABELS_TXT_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"labelsTxt", org.apache.thrift.protocol.TType.LIST, (short) 24);
+
+	private static final org.apache.thrift.protocol.TField LABELS_TAG_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"labelsTag", org.apache.thrift.protocol.TType.LIST, (short) 25);
+
 	private static final org.apache.thrift.protocol.TField STOCK_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"stock", org.apache.thrift.protocol.TType.I32, (short) 17);
 
@@ -72,6 +78,12 @@ public class Good
 
 	private static final org.apache.thrift.protocol.TField PRICE_COST_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"priceCost", org.apache.thrift.protocol.TType.DOUBLE, (short) 20);
+
+	private static final org.apache.thrift.protocol.TField PRICE_ADVICE_FROM_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"priceAdviceFrom", org.apache.thrift.protocol.TType.DOUBLE, (short) 22);
+
+	private static final org.apache.thrift.protocol.TField PRICE_ADVICE_TO_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"priceAdviceTo", org.apache.thrift.protocol.TType.DOUBLE, (short) 23);
 
 	private static final org.apache.thrift.protocol.TField PAY_METHOD_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"payMethod", org.apache.thrift.protocol.TType.LIST, (short) 21);
@@ -112,6 +124,10 @@ public class Good
 
 	public int volume; // required
 
+	public @org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> labelsTxt; // required
+
+	public @org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> labelsTag; // required
+
 	public int stock; // required
 
 	public double price; // required
@@ -119,6 +135,10 @@ public class Good
 	public double priceOld; // required
 
 	public double priceCost; // required
+
+	public double priceAdviceFrom; // required
+
+	public double priceAdviceTo; // required
 
 	public @org.apache.thrift.annotation.Nullable java.util.List<java.util.Map<java.lang.String, java.lang.Double>> payMethod; // required
 
@@ -134,10 +154,16 @@ public class Good
 								(short) 11,
 								"status"), NAME_SKU((short) 12, "nameSku"), ICON_SKU((short) 13, "iconSku"), DESC_SKU(
 										(short) 14, "descSku"), WEIGHT((short) 15, "weight"), VOLUME((short) 16,
-												"volume"), STOCK((short) 17, "stock"), PRICE((short) 18,
-														"price"), PRICE_OLD((short) 19, "priceOld"), PRICE_COST(
-																(short) 20,
-																"priceCost"), PAY_METHOD((short) 21, "payMethod");
+												"volume"), LABELS_TXT((short) 24, "labelsTxt"), LABELS_TAG((short) 25,
+														"labelsTag"), STOCK((short) 17, "stock"), PRICE((short) 18,
+																"price"), PRICE_OLD((short) 19, "priceOld"), PRICE_COST(
+																		(short) 20,
+																		"priceCost"), PRICE_ADVICE_FROM((short) 22,
+																				"priceAdviceFrom"), PRICE_ADVICE_TO(
+																						(short) 23,
+																						"priceAdviceTo"), PAY_METHOD(
+																								(short) 21,
+																								"payMethod");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -185,6 +211,10 @@ public class Good
 				return WEIGHT;
 			case 16: // VOLUME
 				return VOLUME;
+			case 24: // LABELS_TXT
+				return LABELS_TXT;
+			case 25: // LABELS_TAG
+				return LABELS_TAG;
 			case 17: // STOCK
 				return STOCK;
 			case 18: // PRICE
@@ -193,6 +223,10 @@ public class Good
 				return PRICE_OLD;
 			case 20: // PRICE_COST
 				return PRICE_COST;
+			case 22: // PRICE_ADVICE_FROM
+				return PRICE_ADVICE_FROM;
+			case 23: // PRICE_ADVICE_TO
+				return PRICE_ADVICE_TO;
 			case 21: // PAY_METHOD
 				return PAY_METHOD;
 			default:
@@ -257,6 +291,10 @@ public class Good
 
 	private static final int __PRICECOST_ISSET_ID = 8;
 
+	private static final int __PRICEADVICEFROM_ISSET_ID = 9;
+
+	private static final int __PRICEADVICETO_ISSET_ID = 10;
+
 	private short __isset_bitfield = 0;
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
@@ -316,6 +354,14 @@ public class Good
 		tmpMap.put(_Fields.VOLUME,
 				new org.apache.thrift.meta_data.FieldMetaData("volume", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.LABELS_TXT, new org.apache.thrift.meta_data.FieldMetaData("labelsTxt",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING))));
+		tmpMap.put(_Fields.LABELS_TAG, new org.apache.thrift.meta_data.FieldMetaData("labelsTag",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING))));
 		tmpMap.put(_Fields.STOCK,
 				new org.apache.thrift.meta_data.FieldMetaData("stock", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
@@ -328,6 +374,14 @@ public class Good
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
 		tmpMap.put(_Fields.PRICE_COST,
 				new org.apache.thrift.meta_data.FieldMetaData("priceCost",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.PRICE_ADVICE_FROM,
+				new org.apache.thrift.meta_data.FieldMetaData("priceAdviceFrom",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.PRICE_ADVICE_TO,
+				new org.apache.thrift.meta_data.FieldMetaData("priceAdviceTo",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
 		tmpMap.put(_Fields.PAY_METHOD,
@@ -349,8 +403,10 @@ public class Good
 	public Good(java.lang.String gid, java.lang.String sid, java.lang.String mid, java.lang.String uid,
 			java.lang.String spu, java.lang.String label, java.lang.String createTime, java.lang.String updateTime,
 			boolean isSample, boolean isAttach, int status, java.lang.String nameSku, java.lang.String iconSku,
-			java.lang.String descSku, int weight, int volume, int stock, double price, double priceOld,
-			double priceCost, java.util.List<java.util.Map<java.lang.String, java.lang.Double>> payMethod) {
+			java.lang.String descSku, int weight, int volume, java.util.List<java.lang.String> labelsTxt,
+			java.util.List<java.lang.String> labelsTag, int stock, double price, double priceOld, double priceCost,
+			double priceAdviceFrom, double priceAdviceTo,
+			java.util.List<java.util.Map<java.lang.String, java.lang.Double>> payMethod) {
 		this();
 		this.gid = gid;
 		this.sid = sid;
@@ -373,6 +429,8 @@ public class Good
 		setWeightIsSet(true);
 		this.volume = volume;
 		setVolumeIsSet(true);
+		this.labelsTxt = labelsTxt;
+		this.labelsTag = labelsTag;
 		this.stock = stock;
 		setStockIsSet(true);
 		this.price = price;
@@ -381,6 +439,10 @@ public class Good
 		setPriceOldIsSet(true);
 		this.priceCost = priceCost;
 		setPriceCostIsSet(true);
+		this.priceAdviceFrom = priceAdviceFrom;
+		setPriceAdviceFromIsSet(true);
+		this.priceAdviceTo = priceAdviceTo;
+		setPriceAdviceToIsSet(true);
 		this.payMethod = payMethod;
 	}
 
@@ -427,10 +489,22 @@ public class Good
 		}
 		this.weight = other.weight;
 		this.volume = other.volume;
+		if (other.isSetLabelsTxt()) {
+			java.util.List<java.lang.String> __this__labelsTxt = new java.util.ArrayList<java.lang.String>(
+					other.labelsTxt);
+			this.labelsTxt = __this__labelsTxt;
+		}
+		if (other.isSetLabelsTag()) {
+			java.util.List<java.lang.String> __this__labelsTag = new java.util.ArrayList<java.lang.String>(
+					other.labelsTag);
+			this.labelsTag = __this__labelsTag;
+		}
 		this.stock = other.stock;
 		this.price = other.price;
 		this.priceOld = other.priceOld;
 		this.priceCost = other.priceCost;
+		this.priceAdviceFrom = other.priceAdviceFrom;
+		this.priceAdviceTo = other.priceAdviceTo;
 		if (other.isSetPayMethod()) {
 			java.util.List<java.util.Map<java.lang.String, java.lang.Double>> __this__payMethod = new java.util.ArrayList<java.util.Map<java.lang.String, java.lang.Double>>(
 					other.payMethod.size());
@@ -470,6 +544,8 @@ public class Good
 		this.weight = 0;
 		setVolumeIsSet(false);
 		this.volume = 0;
+		this.labelsTxt = null;
+		this.labelsTag = null;
 		setStockIsSet(false);
 		this.stock = 0;
 		setPriceIsSet(false);
@@ -478,6 +554,10 @@ public class Good
 		this.priceOld = 0.0;
 		setPriceCostIsSet(false);
 		this.priceCost = 0.0;
+		setPriceAdviceFromIsSet(false);
+		this.priceAdviceFrom = 0.0;
+		setPriceAdviceToIsSet(false);
+		this.priceAdviceTo = 0.0;
 		this.payMethod = null;
 	}
 
@@ -910,6 +990,94 @@ public class Good
 		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __VOLUME_ISSET_ID, value);
 	}
 
+	public int getLabelsTxtSize() {
+		return (this.labelsTxt == null) ? 0 : this.labelsTxt.size();
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.Iterator<java.lang.String> getLabelsTxtIterator() {
+		return (this.labelsTxt == null) ? null : this.labelsTxt.iterator();
+	}
+
+	public void addToLabelsTxt(java.lang.String elem) {
+		if (this.labelsTxt == null) {
+			this.labelsTxt = new java.util.ArrayList<java.lang.String>();
+		}
+		this.labelsTxt.add(elem);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.List<java.lang.String> getLabelsTxt() {
+		return this.labelsTxt;
+	}
+
+	public Good setLabelsTxt(@org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> labelsTxt) {
+		this.labelsTxt = labelsTxt;
+		return this;
+	}
+
+	public void unsetLabelsTxt() {
+		this.labelsTxt = null;
+	}
+
+	/**
+	 * Returns true if field labelsTxt is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetLabelsTxt() {
+		return this.labelsTxt != null;
+	}
+
+	public void setLabelsTxtIsSet(boolean value) {
+		if (!value) {
+			this.labelsTxt = null;
+		}
+	}
+
+	public int getLabelsTagSize() {
+		return (this.labelsTag == null) ? 0 : this.labelsTag.size();
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.Iterator<java.lang.String> getLabelsTagIterator() {
+		return (this.labelsTag == null) ? null : this.labelsTag.iterator();
+	}
+
+	public void addToLabelsTag(java.lang.String elem) {
+		if (this.labelsTag == null) {
+			this.labelsTag = new java.util.ArrayList<java.lang.String>();
+		}
+		this.labelsTag.add(elem);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.List<java.lang.String> getLabelsTag() {
+		return this.labelsTag;
+	}
+
+	public Good setLabelsTag(@org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> labelsTag) {
+		this.labelsTag = labelsTag;
+		return this;
+	}
+
+	public void unsetLabelsTag() {
+		this.labelsTag = null;
+	}
+
+	/**
+	 * Returns true if field labelsTag is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetLabelsTag() {
+		return this.labelsTag != null;
+	}
+
+	public void setLabelsTagIsSet(boolean value) {
+		if (!value) {
+			this.labelsTag = null;
+		}
+	}
+
 	public int getStock() {
 		return this.stock;
 	}
@@ -1010,6 +1178,58 @@ public class Good
 
 	public void setPriceCostIsSet(boolean value) {
 		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __PRICECOST_ISSET_ID, value);
+	}
+
+	public double getPriceAdviceFrom() {
+		return this.priceAdviceFrom;
+	}
+
+	public Good setPriceAdviceFrom(double priceAdviceFrom) {
+		this.priceAdviceFrom = priceAdviceFrom;
+		setPriceAdviceFromIsSet(true);
+		return this;
+	}
+
+	public void unsetPriceAdviceFrom() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __PRICEADVICEFROM_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field priceAdviceFrom is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetPriceAdviceFrom() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __PRICEADVICEFROM_ISSET_ID);
+	}
+
+	public void setPriceAdviceFromIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __PRICEADVICEFROM_ISSET_ID, value);
+	}
+
+	public double getPriceAdviceTo() {
+		return this.priceAdviceTo;
+	}
+
+	public Good setPriceAdviceTo(double priceAdviceTo) {
+		this.priceAdviceTo = priceAdviceTo;
+		setPriceAdviceToIsSet(true);
+		return this;
+	}
+
+	public void unsetPriceAdviceTo() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __PRICEADVICETO_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field priceAdviceTo is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetPriceAdviceTo() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __PRICEADVICETO_ISSET_ID);
+	}
+
+	public void setPriceAdviceToIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __PRICEADVICETO_ISSET_ID, value);
 	}
 
 	public int getPayMethodSize() {
@@ -1203,6 +1423,24 @@ public class Good
 			}
 			break;
 
+		case LABELS_TXT:
+			if (value == null) {
+				unsetLabelsTxt();
+			}
+			else {
+				setLabelsTxt((java.util.List<java.lang.String>) value);
+			}
+			break;
+
+		case LABELS_TAG:
+			if (value == null) {
+				unsetLabelsTag();
+			}
+			else {
+				setLabelsTag((java.util.List<java.lang.String>) value);
+			}
+			break;
+
 		case STOCK:
 			if (value == null) {
 				unsetStock();
@@ -1236,6 +1474,24 @@ public class Good
 			}
 			else {
 				setPriceCost((java.lang.Double) value);
+			}
+			break;
+
+		case PRICE_ADVICE_FROM:
+			if (value == null) {
+				unsetPriceAdviceFrom();
+			}
+			else {
+				setPriceAdviceFrom((java.lang.Double) value);
+			}
+			break;
+
+		case PRICE_ADVICE_TO:
+			if (value == null) {
+				unsetPriceAdviceTo();
+			}
+			else {
+				setPriceAdviceTo((java.lang.Double) value);
 			}
 			break;
 
@@ -1302,6 +1558,12 @@ public class Good
 		case VOLUME:
 			return getVolume();
 
+		case LABELS_TXT:
+			return getLabelsTxt();
+
+		case LABELS_TAG:
+			return getLabelsTag();
+
 		case STOCK:
 			return getStock();
 
@@ -1313,6 +1575,12 @@ public class Good
 
 		case PRICE_COST:
 			return getPriceCost();
+
+		case PRICE_ADVICE_FROM:
+			return getPriceAdviceFrom();
+
+		case PRICE_ADVICE_TO:
+			return getPriceAdviceTo();
 
 		case PAY_METHOD:
 			return getPayMethod();
@@ -1363,6 +1631,10 @@ public class Good
 			return isSetWeight();
 		case VOLUME:
 			return isSetVolume();
+		case LABELS_TXT:
+			return isSetLabelsTxt();
+		case LABELS_TAG:
+			return isSetLabelsTag();
 		case STOCK:
 			return isSetStock();
 		case PRICE:
@@ -1371,6 +1643,10 @@ public class Good
 			return isSetPriceOld();
 		case PRICE_COST:
 			return isSetPriceCost();
+		case PRICE_ADVICE_FROM:
+			return isSetPriceAdviceFrom();
+		case PRICE_ADVICE_TO:
+			return isSetPriceAdviceTo();
 		case PAY_METHOD:
 			return isSetPayMethod();
 		}
@@ -1536,6 +1812,24 @@ public class Good
 				return false;
 		}
 
+		boolean this_present_labelsTxt = true && this.isSetLabelsTxt();
+		boolean that_present_labelsTxt = true && that.isSetLabelsTxt();
+		if (this_present_labelsTxt || that_present_labelsTxt) {
+			if (!(this_present_labelsTxt && that_present_labelsTxt))
+				return false;
+			if (!this.labelsTxt.equals(that.labelsTxt))
+				return false;
+		}
+
+		boolean this_present_labelsTag = true && this.isSetLabelsTag();
+		boolean that_present_labelsTag = true && that.isSetLabelsTag();
+		if (this_present_labelsTag || that_present_labelsTag) {
+			if (!(this_present_labelsTag && that_present_labelsTag))
+				return false;
+			if (!this.labelsTag.equals(that.labelsTag))
+				return false;
+		}
+
 		boolean this_present_stock = true;
 		boolean that_present_stock = true;
 		if (this_present_stock || that_present_stock) {
@@ -1569,6 +1863,24 @@ public class Good
 			if (!(this_present_priceCost && that_present_priceCost))
 				return false;
 			if (this.priceCost != that.priceCost)
+				return false;
+		}
+
+		boolean this_present_priceAdviceFrom = true;
+		boolean that_present_priceAdviceFrom = true;
+		if (this_present_priceAdviceFrom || that_present_priceAdviceFrom) {
+			if (!(this_present_priceAdviceFrom && that_present_priceAdviceFrom))
+				return false;
+			if (this.priceAdviceFrom != that.priceAdviceFrom)
+				return false;
+		}
+
+		boolean this_present_priceAdviceTo = true;
+		boolean that_present_priceAdviceTo = true;
+		if (this_present_priceAdviceTo || that_present_priceAdviceTo) {
+			if (!(this_present_priceAdviceTo && that_present_priceAdviceTo))
+				return false;
+			if (this.priceAdviceTo != that.priceAdviceTo)
 				return false;
 		}
 
@@ -1642,6 +1954,14 @@ public class Good
 
 		hashCode = hashCode * 8191 + volume;
 
+		hashCode = hashCode * 8191 + ((isSetLabelsTxt()) ? 131071 : 524287);
+		if (isSetLabelsTxt())
+			hashCode = hashCode * 8191 + labelsTxt.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetLabelsTag()) ? 131071 : 524287);
+		if (isSetLabelsTag())
+			hashCode = hashCode * 8191 + labelsTag.hashCode();
+
 		hashCode = hashCode * 8191 + stock;
 
 		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(price);
@@ -1649,6 +1969,10 @@ public class Good
 		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(priceOld);
 
 		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(priceCost);
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(priceAdviceFrom);
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(priceAdviceTo);
 
 		hashCode = hashCode * 8191 + ((isSetPayMethod()) ? 131071 : 524287);
 		if (isSetPayMethod())
@@ -1825,6 +2149,26 @@ public class Good
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetLabelsTxt()).compareTo(other.isSetLabelsTxt());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetLabelsTxt()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.labelsTxt, other.labelsTxt);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetLabelsTag()).compareTo(other.isSetLabelsTag());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetLabelsTag()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.labelsTag, other.labelsTag);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetStock()).compareTo(other.isSetStock());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -1861,6 +2205,26 @@ public class Good
 		}
 		if (isSetPriceCost()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.priceCost, other.priceCost);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetPriceAdviceFrom()).compareTo(other.isSetPriceAdviceFrom());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetPriceAdviceFrom()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.priceAdviceFrom, other.priceAdviceFrom);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetPriceAdviceTo()).compareTo(other.isSetPriceAdviceTo());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetPriceAdviceTo()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.priceAdviceTo, other.priceAdviceTo);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -2031,6 +2395,26 @@ public class Good
 		first = false;
 		if (!first)
 			sb.append(", ");
+		sb.append("labelsTxt:");
+		if (this.labelsTxt == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.labelsTxt);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("labelsTag:");
+		if (this.labelsTag == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.labelsTag);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("stock:");
 		sb.append(this.stock);
 		first = false;
@@ -2048,6 +2432,16 @@ public class Good
 			sb.append(", ");
 		sb.append("priceCost:");
 		sb.append(this.priceCost);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("priceAdviceFrom:");
+		sb.append(this.priceAdviceFrom);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("priceAdviceTo:");
+		sb.append(this.priceAdviceTo);
 		first = false;
 		if (!first)
 			sb.append(", ");
@@ -2254,6 +2648,44 @@ public class Good
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 24: // LABELS_TXT
+					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+						{
+							org.apache.thrift.protocol.TList _list8 = iprot.readListBegin();
+							struct.labelsTxt = new java.util.ArrayList<java.lang.String>(_list8.size);
+							@org.apache.thrift.annotation.Nullable
+							java.lang.String _elem9;
+							for (int _i10 = 0; _i10 < _list8.size; ++_i10) {
+								_elem9 = iprot.readString();
+								struct.labelsTxt.add(_elem9);
+							}
+							iprot.readListEnd();
+						}
+						struct.setLabelsTxtIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 25: // LABELS_TAG
+					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+						{
+							org.apache.thrift.protocol.TList _list11 = iprot.readListBegin();
+							struct.labelsTag = new java.util.ArrayList<java.lang.String>(_list11.size);
+							@org.apache.thrift.annotation.Nullable
+							java.lang.String _elem12;
+							for (int _i13 = 0; _i13 < _list11.size; ++_i13) {
+								_elem12 = iprot.readString();
+								struct.labelsTag.add(_elem12);
+							}
+							iprot.readListEnd();
+						}
+						struct.setLabelsTagIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 17: // STOCK
 					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
 						struct.stock = iprot.readI32();
@@ -2290,29 +2722,48 @@ public class Good
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 22: // PRICE_ADVICE_FROM
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.priceAdviceFrom = iprot.readDouble();
+						struct.setPriceAdviceFromIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 23: // PRICE_ADVICE_TO
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.priceAdviceTo = iprot.readDouble();
+						struct.setPriceAdviceToIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 21: // PAY_METHOD
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list0 = iprot.readListBegin();
+							org.apache.thrift.protocol.TList _list14 = iprot.readListBegin();
 							struct.payMethod = new java.util.ArrayList<java.util.Map<java.lang.String, java.lang.Double>>(
-									_list0.size);
+									_list14.size);
 							@org.apache.thrift.annotation.Nullable
-							java.util.Map<java.lang.String, java.lang.Double> _elem1;
-							for (int _i2 = 0; _i2 < _list0.size; ++_i2) {
+							java.util.Map<java.lang.String, java.lang.Double> _elem15;
+							for (int _i16 = 0; _i16 < _list14.size; ++_i16) {
 								{
-									org.apache.thrift.protocol.TMap _map3 = iprot.readMapBegin();
-									_elem1 = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map3.size);
+									org.apache.thrift.protocol.TMap _map17 = iprot.readMapBegin();
+									_elem15 = new java.util.HashMap<java.lang.String, java.lang.Double>(
+											2 * _map17.size);
 									@org.apache.thrift.annotation.Nullable
-									java.lang.String _key4;
-									double _val5;
-									for (int _i6 = 0; _i6 < _map3.size; ++_i6) {
-										_key4 = iprot.readString();
-										_val5 = iprot.readDouble();
-										_elem1.put(_key4, _val5);
+									java.lang.String _key18;
+									double _val19;
+									for (int _i20 = 0; _i20 < _map17.size; ++_i20) {
+										_key18 = iprot.readString();
+										_val19 = iprot.readDouble();
+										_elem15.put(_key18, _val19);
 									}
 									iprot.readMapEnd();
 								}
-								struct.payMethod.add(_elem1);
+								struct.payMethod.add(_elem15);
 							}
 							iprot.readListEnd();
 						}
@@ -2425,17 +2876,47 @@ public class Good
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.MAP,
 							struct.payMethod.size()));
-					for (java.util.Map<java.lang.String, java.lang.Double> _iter7 : struct.payMethod) {
+					for (java.util.Map<java.lang.String, java.lang.Double> _iter21 : struct.payMethod) {
 						{
 							oprot.writeMapBegin(
 									new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
-											org.apache.thrift.protocol.TType.DOUBLE, _iter7.size()));
-							for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter8 : _iter7.entrySet()) {
-								oprot.writeString(_iter8.getKey());
-								oprot.writeDouble(_iter8.getValue());
+											org.apache.thrift.protocol.TType.DOUBLE, _iter21.size()));
+							for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter22 : _iter21.entrySet()) {
+								oprot.writeString(_iter22.getKey());
+								oprot.writeDouble(_iter22.getValue());
 							}
 							oprot.writeMapEnd();
 						}
+					}
+					oprot.writeListEnd();
+				}
+				oprot.writeFieldEnd();
+			}
+			oprot.writeFieldBegin(PRICE_ADVICE_FROM_FIELD_DESC);
+			oprot.writeDouble(struct.priceAdviceFrom);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(PRICE_ADVICE_TO_FIELD_DESC);
+			oprot.writeDouble(struct.priceAdviceTo);
+			oprot.writeFieldEnd();
+			if (struct.labelsTxt != null) {
+				oprot.writeFieldBegin(LABELS_TXT_FIELD_DESC);
+				{
+					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING,
+							struct.labelsTxt.size()));
+					for (java.lang.String _iter23 : struct.labelsTxt) {
+						oprot.writeString(_iter23);
+					}
+					oprot.writeListEnd();
+				}
+				oprot.writeFieldEnd();
+			}
+			if (struct.labelsTag != null) {
+				oprot.writeFieldBegin(LABELS_TAG_FIELD_DESC);
+				{
+					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING,
+							struct.labelsTag.size()));
+					for (java.lang.String _iter24 : struct.labelsTag) {
+						oprot.writeString(_iter24);
 					}
 					oprot.writeListEnd();
 				}
@@ -2509,22 +2990,34 @@ public class Good
 			if (struct.isSetVolume()) {
 				optionals.set(15);
 			}
-			if (struct.isSetStock()) {
+			if (struct.isSetLabelsTxt()) {
 				optionals.set(16);
 			}
-			if (struct.isSetPrice()) {
+			if (struct.isSetLabelsTag()) {
 				optionals.set(17);
 			}
-			if (struct.isSetPriceOld()) {
+			if (struct.isSetStock()) {
 				optionals.set(18);
 			}
-			if (struct.isSetPriceCost()) {
+			if (struct.isSetPrice()) {
 				optionals.set(19);
 			}
-			if (struct.isSetPayMethod()) {
+			if (struct.isSetPriceOld()) {
 				optionals.set(20);
 			}
-			oprot.writeBitSet(optionals, 21);
+			if (struct.isSetPriceCost()) {
+				optionals.set(21);
+			}
+			if (struct.isSetPriceAdviceFrom()) {
+				optionals.set(22);
+			}
+			if (struct.isSetPriceAdviceTo()) {
+				optionals.set(23);
+			}
+			if (struct.isSetPayMethod()) {
+				optionals.set(24);
+			}
+			oprot.writeBitSet(optionals, 25);
 			if (struct.isSetGid()) {
 				oprot.writeString(struct.gid);
 			}
@@ -2573,6 +3066,22 @@ public class Good
 			if (struct.isSetVolume()) {
 				oprot.writeI32(struct.volume);
 			}
+			if (struct.isSetLabelsTxt()) {
+				{
+					oprot.writeI32(struct.labelsTxt.size());
+					for (java.lang.String _iter25 : struct.labelsTxt) {
+						oprot.writeString(_iter25);
+					}
+				}
+			}
+			if (struct.isSetLabelsTag()) {
+				{
+					oprot.writeI32(struct.labelsTag.size());
+					for (java.lang.String _iter26 : struct.labelsTag) {
+						oprot.writeString(_iter26);
+					}
+				}
+			}
 			if (struct.isSetStock()) {
 				oprot.writeI32(struct.stock);
 			}
@@ -2585,15 +3094,21 @@ public class Good
 			if (struct.isSetPriceCost()) {
 				oprot.writeDouble(struct.priceCost);
 			}
+			if (struct.isSetPriceAdviceFrom()) {
+				oprot.writeDouble(struct.priceAdviceFrom);
+			}
+			if (struct.isSetPriceAdviceTo()) {
+				oprot.writeDouble(struct.priceAdviceTo);
+			}
 			if (struct.isSetPayMethod()) {
 				{
 					oprot.writeI32(struct.payMethod.size());
-					for (java.util.Map<java.lang.String, java.lang.Double> _iter9 : struct.payMethod) {
+					for (java.util.Map<java.lang.String, java.lang.Double> _iter27 : struct.payMethod) {
 						{
-							oprot.writeI32(_iter9.size());
-							for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter10 : _iter9.entrySet()) {
-								oprot.writeString(_iter10.getKey());
-								oprot.writeDouble(_iter10.getValue());
+							oprot.writeI32(_iter27.size());
+							for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter28 : _iter27.entrySet()) {
+								oprot.writeString(_iter28.getKey());
+								oprot.writeDouble(_iter28.getValue());
 							}
 						}
 					}
@@ -2604,7 +3119,7 @@ public class Good
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, Good struct) throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(21);
+			java.util.BitSet incoming = iprot.readBitSet(25);
 			if (incoming.get(0)) {
 				struct.gid = iprot.readString();
 				struct.setGidIsSet(true);
@@ -2670,45 +3185,81 @@ public class Good
 				struct.setVolumeIsSet(true);
 			}
 			if (incoming.get(16)) {
+				{
+					org.apache.thrift.protocol.TList _list29 = new org.apache.thrift.protocol.TList(
+							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+					struct.labelsTxt = new java.util.ArrayList<java.lang.String>(_list29.size);
+					@org.apache.thrift.annotation.Nullable
+					java.lang.String _elem30;
+					for (int _i31 = 0; _i31 < _list29.size; ++_i31) {
+						_elem30 = iprot.readString();
+						struct.labelsTxt.add(_elem30);
+					}
+				}
+				struct.setLabelsTxtIsSet(true);
+			}
+			if (incoming.get(17)) {
+				{
+					org.apache.thrift.protocol.TList _list32 = new org.apache.thrift.protocol.TList(
+							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+					struct.labelsTag = new java.util.ArrayList<java.lang.String>(_list32.size);
+					@org.apache.thrift.annotation.Nullable
+					java.lang.String _elem33;
+					for (int _i34 = 0; _i34 < _list32.size; ++_i34) {
+						_elem33 = iprot.readString();
+						struct.labelsTag.add(_elem33);
+					}
+				}
+				struct.setLabelsTagIsSet(true);
+			}
+			if (incoming.get(18)) {
 				struct.stock = iprot.readI32();
 				struct.setStockIsSet(true);
 			}
-			if (incoming.get(17)) {
+			if (incoming.get(19)) {
 				struct.price = iprot.readDouble();
 				struct.setPriceIsSet(true);
 			}
-			if (incoming.get(18)) {
+			if (incoming.get(20)) {
 				struct.priceOld = iprot.readDouble();
 				struct.setPriceOldIsSet(true);
 			}
-			if (incoming.get(19)) {
+			if (incoming.get(21)) {
 				struct.priceCost = iprot.readDouble();
 				struct.setPriceCostIsSet(true);
 			}
-			if (incoming.get(20)) {
+			if (incoming.get(22)) {
+				struct.priceAdviceFrom = iprot.readDouble();
+				struct.setPriceAdviceFromIsSet(true);
+			}
+			if (incoming.get(23)) {
+				struct.priceAdviceTo = iprot.readDouble();
+				struct.setPriceAdviceToIsSet(true);
+			}
+			if (incoming.get(24)) {
 				{
-					org.apache.thrift.protocol.TList _list11 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list35 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.MAP, iprot.readI32());
 					struct.payMethod = new java.util.ArrayList<java.util.Map<java.lang.String, java.lang.Double>>(
-							_list11.size);
+							_list35.size);
 					@org.apache.thrift.annotation.Nullable
-					java.util.Map<java.lang.String, java.lang.Double> _elem12;
-					for (int _i13 = 0; _i13 < _list11.size; ++_i13) {
+					java.util.Map<java.lang.String, java.lang.Double> _elem36;
+					for (int _i37 = 0; _i37 < _list35.size; ++_i37) {
 						{
-							org.apache.thrift.protocol.TMap _map14 = new org.apache.thrift.protocol.TMap(
+							org.apache.thrift.protocol.TMap _map38 = new org.apache.thrift.protocol.TMap(
 									org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.DOUBLE,
 									iprot.readI32());
-							_elem12 = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map14.size);
+							_elem36 = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map38.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _key15;
-							double _val16;
-							for (int _i17 = 0; _i17 < _map14.size; ++_i17) {
-								_key15 = iprot.readString();
-								_val16 = iprot.readDouble();
-								_elem12.put(_key15, _val16);
+							java.lang.String _key39;
+							double _val40;
+							for (int _i41 = 0; _i41 < _map38.size; ++_i41) {
+								_key39 = iprot.readString();
+								_val40 = iprot.readDouble();
+								_elem36.put(_key39, _val40);
 							}
 						}
-						struct.payMethod.add(_elem12);
+						struct.payMethod.add(_elem36);
 					}
 				}
 				struct.setPayMethodIsSet(true);

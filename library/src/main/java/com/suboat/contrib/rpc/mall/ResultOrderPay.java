@@ -446,14 +446,14 @@ public class ResultOrderPay implements org.apache.thrift.TBase<ResultOrderPay, R
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list156 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<OrderPay>(_list156.size);
+							org.apache.thrift.protocol.TList _list262 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<OrderPay>(_list262.size);
 							@org.apache.thrift.annotation.Nullable
-							OrderPay _elem157;
-							for (int _i158 = 0; _i158 < _list156.size; ++_i158) {
-								_elem157 = new OrderPay();
-								_elem157.read(iprot);
-								struct.data.add(_elem157);
+							OrderPay _elem263;
+							for (int _i264 = 0; _i264 < _list262.size; ++_i264) {
+								_elem263 = new OrderPay();
+								_elem263.read(iprot);
+								struct.data.add(_elem263);
 							}
 							iprot.readListEnd();
 						}
@@ -495,8 +495,8 @@ public class ResultOrderPay implements org.apache.thrift.TBase<ResultOrderPay, R
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (OrderPay _iter159 : struct.data) {
-						_iter159.write(oprot);
+					for (OrderPay _iter265 : struct.data) {
+						_iter265.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -538,8 +538,8 @@ public class ResultOrderPay implements org.apache.thrift.TBase<ResultOrderPay, R
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (OrderPay _iter160 : struct.data) {
-						_iter160.write(oprot);
+					for (OrderPay _iter266 : struct.data) {
+						_iter266.write(oprot);
 					}
 				}
 			}
@@ -555,15 +555,15 @@ public class ResultOrderPay implements org.apache.thrift.TBase<ResultOrderPay, R
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list161 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list267 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<OrderPay>(_list161.size);
+					struct.data = new java.util.ArrayList<OrderPay>(_list267.size);
 					@org.apache.thrift.annotation.Nullable
-					OrderPay _elem162;
-					for (int _i163 = 0; _i163 < _list161.size; ++_i163) {
-						_elem162 = new OrderPay();
-						_elem162.read(iprot);
-						struct.data.add(_elem162);
+					OrderPay _elem268;
+					for (int _i269 = 0; _i269 < _list267.size; ++_i269) {
+						_elem268 = new OrderPay();
+						_elem268.read(iprot);
+						struct.data.add(_elem268);
 					}
 				}
 				struct.setDataIsSet(true);

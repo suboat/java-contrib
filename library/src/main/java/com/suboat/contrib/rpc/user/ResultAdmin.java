@@ -449,14 +449,14 @@ public class ResultAdmin implements org.apache.thrift.TBase<ResultAdmin, ResultA
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list126 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<Admin>(_list126.size);
+							org.apache.thrift.protocol.TList _list150 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<Admin>(_list150.size);
 							@org.apache.thrift.annotation.Nullable
-							Admin _elem127;
-							for (int _i128 = 0; _i128 < _list126.size; ++_i128) {
-								_elem127 = new Admin();
-								_elem127.read(iprot);
-								struct.data.add(_elem127);
+							Admin _elem151;
+							for (int _i152 = 0; _i152 < _list150.size; ++_i152) {
+								_elem151 = new Admin();
+								_elem151.read(iprot);
+								struct.data.add(_elem151);
 							}
 							iprot.readListEnd();
 						}
@@ -498,8 +498,8 @@ public class ResultAdmin implements org.apache.thrift.TBase<ResultAdmin, ResultA
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (Admin _iter129 : struct.data) {
-						_iter129.write(oprot);
+					for (Admin _iter153 : struct.data) {
+						_iter153.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -541,8 +541,8 @@ public class ResultAdmin implements org.apache.thrift.TBase<ResultAdmin, ResultA
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (Admin _iter130 : struct.data) {
-						_iter130.write(oprot);
+					for (Admin _iter154 : struct.data) {
+						_iter154.write(oprot);
 					}
 				}
 			}
@@ -558,15 +558,15 @@ public class ResultAdmin implements org.apache.thrift.TBase<ResultAdmin, ResultA
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list131 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list155 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<Admin>(_list131.size);
+					struct.data = new java.util.ArrayList<Admin>(_list155.size);
 					@org.apache.thrift.annotation.Nullable
-					Admin _elem132;
-					for (int _i133 = 0; _i133 < _list131.size; ++_i133) {
-						_elem132 = new Admin();
-						_elem132.read(iprot);
-						struct.data.add(_elem132);
+					Admin _elem156;
+					for (int _i157 = 0; _i157 < _list155.size; ++_i157) {
+						_elem156 = new Admin();
+						_elem156.read(iprot);
+						struct.data.add(_elem156);
 					}
 				}
 				struct.setDataIsSet(true);

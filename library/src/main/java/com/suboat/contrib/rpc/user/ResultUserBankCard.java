@@ -451,14 +451,14 @@ public class ResultUserBankCard implements org.apache.thrift.TBase<ResultUserBan
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list166 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<UserBankCard>(_list166.size);
+							org.apache.thrift.protocol.TList _list198 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<UserBankCard>(_list198.size);
 							@org.apache.thrift.annotation.Nullable
-							UserBankCard _elem167;
-							for (int _i168 = 0; _i168 < _list166.size; ++_i168) {
-								_elem167 = new UserBankCard();
-								_elem167.read(iprot);
-								struct.data.add(_elem167);
+							UserBankCard _elem199;
+							for (int _i200 = 0; _i200 < _list198.size; ++_i200) {
+								_elem199 = new UserBankCard();
+								_elem199.read(iprot);
+								struct.data.add(_elem199);
 							}
 							iprot.readListEnd();
 						}
@@ -500,8 +500,8 @@ public class ResultUserBankCard implements org.apache.thrift.TBase<ResultUserBan
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (UserBankCard _iter169 : struct.data) {
-						_iter169.write(oprot);
+					for (UserBankCard _iter201 : struct.data) {
+						_iter201.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -544,8 +544,8 @@ public class ResultUserBankCard implements org.apache.thrift.TBase<ResultUserBan
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (UserBankCard _iter170 : struct.data) {
-						_iter170.write(oprot);
+					for (UserBankCard _iter202 : struct.data) {
+						_iter202.write(oprot);
 					}
 				}
 			}
@@ -561,15 +561,15 @@ public class ResultUserBankCard implements org.apache.thrift.TBase<ResultUserBan
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list171 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list203 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<UserBankCard>(_list171.size);
+					struct.data = new java.util.ArrayList<UserBankCard>(_list203.size);
 					@org.apache.thrift.annotation.Nullable
-					UserBankCard _elem172;
-					for (int _i173 = 0; _i173 < _list171.size; ++_i173) {
-						_elem172 = new UserBankCard();
-						_elem172.read(iprot);
-						struct.data.add(_elem172);
+					UserBankCard _elem204;
+					for (int _i205 = 0; _i205 < _list203.size; ++_i205) {
+						_elem204 = new UserBankCard();
+						_elem204.read(iprot);
+						struct.data.add(_elem204);
 					}
 				}
 				struct.setDataIsSet(true);

@@ -446,14 +446,14 @@ public class ResultOrder implements org.apache.thrift.TBase<ResultOrder, ResultO
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list148 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<Order>(_list148.size);
+							org.apache.thrift.protocol.TList _list254 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<Order>(_list254.size);
 							@org.apache.thrift.annotation.Nullable
-							Order _elem149;
-							for (int _i150 = 0; _i150 < _list148.size; ++_i150) {
-								_elem149 = new Order();
-								_elem149.read(iprot);
-								struct.data.add(_elem149);
+							Order _elem255;
+							for (int _i256 = 0; _i256 < _list254.size; ++_i256) {
+								_elem255 = new Order();
+								_elem255.read(iprot);
+								struct.data.add(_elem255);
 							}
 							iprot.readListEnd();
 						}
@@ -495,8 +495,8 @@ public class ResultOrder implements org.apache.thrift.TBase<ResultOrder, ResultO
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (Order _iter151 : struct.data) {
-						_iter151.write(oprot);
+					for (Order _iter257 : struct.data) {
+						_iter257.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -538,8 +538,8 @@ public class ResultOrder implements org.apache.thrift.TBase<ResultOrder, ResultO
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (Order _iter152 : struct.data) {
-						_iter152.write(oprot);
+					for (Order _iter258 : struct.data) {
+						_iter258.write(oprot);
 					}
 				}
 			}
@@ -555,15 +555,15 @@ public class ResultOrder implements org.apache.thrift.TBase<ResultOrder, ResultO
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list153 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list259 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<Order>(_list153.size);
+					struct.data = new java.util.ArrayList<Order>(_list259.size);
 					@org.apache.thrift.annotation.Nullable
-					Order _elem154;
-					for (int _i155 = 0; _i155 < _list153.size; ++_i155) {
-						_elem154 = new Order();
-						_elem154.read(iprot);
-						struct.data.add(_elem154);
+					Order _elem260;
+					for (int _i261 = 0; _i261 < _list259.size; ++_i261) {
+						_elem260 = new Order();
+						_elem260.read(iprot);
+						struct.data.add(_elem260);
 					}
 				}
 				struct.setDataIsSet(true);

@@ -450,14 +450,14 @@ public class ResultUserAction implements org.apache.thrift.TBase<ResultUserActio
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list158 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<UserAction>(_list158.size);
+							org.apache.thrift.protocol.TList _list190 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<UserAction>(_list190.size);
 							@org.apache.thrift.annotation.Nullable
-							UserAction _elem159;
-							for (int _i160 = 0; _i160 < _list158.size; ++_i160) {
-								_elem159 = new UserAction();
-								_elem159.read(iprot);
-								struct.data.add(_elem159);
+							UserAction _elem191;
+							for (int _i192 = 0; _i192 < _list190.size; ++_i192) {
+								_elem191 = new UserAction();
+								_elem191.read(iprot);
+								struct.data.add(_elem191);
 							}
 							iprot.readListEnd();
 						}
@@ -499,8 +499,8 @@ public class ResultUserAction implements org.apache.thrift.TBase<ResultUserActio
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (UserAction _iter161 : struct.data) {
-						_iter161.write(oprot);
+					for (UserAction _iter193 : struct.data) {
+						_iter193.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -542,8 +542,8 @@ public class ResultUserAction implements org.apache.thrift.TBase<ResultUserActio
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (UserAction _iter162 : struct.data) {
-						_iter162.write(oprot);
+					for (UserAction _iter194 : struct.data) {
+						_iter194.write(oprot);
 					}
 				}
 			}
@@ -559,15 +559,15 @@ public class ResultUserAction implements org.apache.thrift.TBase<ResultUserActio
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list163 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list195 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<UserAction>(_list163.size);
+					struct.data = new java.util.ArrayList<UserAction>(_list195.size);
 					@org.apache.thrift.annotation.Nullable
-					UserAction _elem164;
-					for (int _i165 = 0; _i165 < _list163.size; ++_i165) {
-						_elem164 = new UserAction();
-						_elem164.read(iprot);
-						struct.data.add(_elem164);
+					UserAction _elem196;
+					for (int _i197 = 0; _i197 < _list195.size; ++_i197) {
+						_elem196 = new UserAction();
+						_elem196.read(iprot);
+						struct.data.add(_elem196);
 					}
 				}
 				struct.setDataIsSet(true);
