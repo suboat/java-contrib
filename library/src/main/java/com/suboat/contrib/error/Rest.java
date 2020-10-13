@@ -234,14 +234,14 @@ public class Rest {
 
 	}
 
-	// 参数未定义
+	// 无效的输入
 	public static class ParamUndefined extends Error {
 
 		public ParamUndefined(Object... args) {
 			super(args);
 			this.setPrefix("rest");
 			this.setCode(63);
-			this.setDetail("参数未定义");
+			this.setDetail("无效的输入");
 		}
 
 	}
@@ -438,14 +438,14 @@ public class Rest {
 
 	}
 
-	// token状态改变
+	// 已禁用的用户
 	public static class TokenChangeFreeze extends Error {
 
 		public TokenChangeFreeze(Object... args) {
 			super(args);
 			this.setPrefix("rest");
 			this.setCode(80);
-			this.setDetail("token状态改变");
+			this.setDetail("已禁用的用户");
 		}
 
 	}
@@ -506,6 +506,18 @@ public class Rest {
 			this.setPrefix("rest");
 			this.setCode(85);
 			this.setDetail("初始化错误");
+		}
+
+	}
+
+	// 会话错误 {{.var1}}
+	public static class SessionInvalid extends Error {
+
+		public SessionInvalid(Object... args) {
+			super(args);
+			this.setPrefix("rest");
+			this.setCode(86);
+			this.setDetail("会话错误 {0}");
 		}
 
 	}
