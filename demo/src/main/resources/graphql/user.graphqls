@@ -1,12 +1,17 @@
 #
 type Me {
+    # uid
     uid: String!
+    # detail
+    detail: User
 }
 
 # 用户登录
 type Login {
     # 用密码登录 value: 登录密码
     withPassword(form: UserID!, value: LoginValue!): Token!
+    # 小程序登录
+    withMiniApp(appid: String!, code: String!): Token!
 }
 
 # token
@@ -16,33 +21,29 @@ type Token {
 }
 
 # 用户基本信息
-interface UserBase {
+type UserBase {
     # 用户的uid
     uid: String
-    # 用户显示名称,为email/用户名/手机号中的一种
-    nickname: String!
     # 用户所选语言
     lang: String
-}
-
-# 用户详细信息, 用户自己或管理员访问时返回这种格式
-type User implements UserBase {
-    # 用户显示名称,优先显示: profile.name>username>email>phone
+    # 用户显示名称,为email/用户名/手机号中的一种
     nickname: String!
     # 用户名
     username: String
-    # 用户唯一ID
-    uid: String
-    # 创建时间
-    createTime: String
-    # 用户所选语言
-    lang: String
-    # 所在地区(国家),国际电话区号,不带"+"号
-    locNum: String
     # 电话号码,不带区号:与locNum关联唯一
     phone: String
+    # 所在地区(国家),国际电话区号,不带"+"号
+    locNum: String
     # 登录邮箱/密保邮箱
     email: String
+    # 用户自定义唯一值
+    unique: String
+    # 创建时间
+    createTime: Date
+    # 更新时间
+    updateTime: Date
+    # 注册来源
+    source: String
     # 0:正常,1:异常警告,2:冻结,3:创建中,4:禁用,5:已删除待清理
     status: Int
     # email状态 0:未设置 1:设置了email; 2:设置了email并已激活
@@ -54,7 +55,9 @@ type User implements UserBase {
     # 安全问题状态 0:未设置 1:设置了安全问题1; 2:设置了安全问题2; 4:设置了安全问题3; -1:已忽略设置
     statusQuest: Int
     # 身份信息 0:未设置 1:提交了身份证; 2:提交了护照; 4:提交了驾照
-    statusId: Int
+    statusCard: Int
+    # true: 启用了两步验证
+    isTwoFactor: Boolean
     # 二级信息/用户资料
     profile: UserProfile
 }
@@ -85,16 +88,22 @@ type UserProfile {
     district: String
     # 普通用户个人资料填写的详细地址
     address: String
-    # 民族
-    ethnic: String
-    # 宗教
-    religion: String
     # 真实姓名
     realName: String
     # 用户身份证信息
-    id: String
+    cardId: String
     # 用户护照信息
     passport: String
     # 用户驾照信息
     driver: String
+    # 默认(支付)银行卡号
+    bankNumber: String
+    # 民族
+    ethnic: String
+    # 宗教
+    religion: String
+    # 微信头像
+    wxIcon: String
+    # 微信昵称
+    wxNickname: String
 }

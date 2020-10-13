@@ -26,13 +26,13 @@ graphql.playground:
     enabled: true
 # 数据库配置
 spring.datasource:
-  url: jdbc:mysql://your.host:3306/he_user?useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
-  username: name
-  password: pass
+  url: jdbc:mysql://192.168.6.6:3306/tester_java?useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
+  username: tester
+  password: tester
   hikari:
     max-lifetime: 60000
 # 同步数据结构
-spring.jpa.hibernate.ddl-auto: none
+spring.jpa.hibernate.ddl-auto: update
 spring:
   # 忽略关键字命名字段
   jpa:
@@ -52,79 +52,79 @@ security:
       secretAdmin: lalala
       # 用户rsa私钥
       key-user: -----BEGIN PRIVATE KEY-----
-        MIIEwAIBADANBgkqhkiG9w0BAQEFAASCBKowggSmAgEAAoIBAQCmGsPfhS6WNk9D
-        ycWL+w4djGOWpFGAHgFimnMg34aVKfueUqYCPNwNJsF8N0LttSjpLj269++vIwnJ
-        2gNSuEyamoyDkIWZCveF/Zgjel1/PugiE2Wg5o0eUmNaXkYrD+b/Z2/1sfNo+Y6q
-        2KCR16DMfEygUhonzUso0ehq37ZRiLCXizK+9cGc2gY+CQE0RhaDt9MLe2FTsoW4
-        oDmvDmVZj67nBwLEL17Dmgdlzrzchoz+A3Gdk5zpYTiaYAa4MSnSHd3GrrP7Bsek
-        TB3tf2GoEA/gWEyM5qVOcSmd1EIQmjPymScgoiKhhEztlvY41cVfQx+Zz1s4EdyA
-        J1cCn2RtAgMBAAECggEBAJZZmbyj96Q96oeIhoiLKZ6zaZ18hMz72/MdrGIwEcjI
-        5JnNY7iYz/ITh4VhG/LATRSsJ3IqZEjZ5U1RSjrA2Y4DoHaiBVufIqelAOX0J9c6
-        4LGfbxkyNsAggQ/WT5tA3K2IOj5h4dq+MVYRmV4JmOIfDNj9F/G5EHQVdFPwxT2M
-        kDCJyPYl3fl04U7W72MytpHeAbwaiCsV500IkXgfpmnkR5S9tBxy6NBypy3OZ3rK
-        VGiMrT+RZmNgfJAHov0myo7xq0SptBM1DAGscGNIK+uCSlMcgMa78k/oeOPCPzEU
-        g8K9WUsgcIflPtfImaZhZ1PRzydVEcUALng/JwLGG0ECgYEA0nhLTvIKTYpUPTHA
-        yC9tAlSTU/GcXbDJn3NvnAQ4CiZYGy6/gv8WWaOfppGzgWeTsTao5hEUiSycigeK
-        WIyG11FmZ9AHoyL77kPcShnPXmnT4alL/vNvcZg7QfkIqdCRjHpdHeu3OG61aeMT
-        ZXq3SOcJjEQmip1not2CeJs1mLECgYEAygmK7hNy4cwFVdwZNWo3/Z/fvUG8k0eR
-        R7gML8HRHoWRHgyFYTcqQC096/rf1RnSxH9CLj8e9UQ9uk4hicdh8aNdZk4vIEob
-        98JRtHi+mSOiJvwdxLk/BuIH95n5ycB6N6QTQ1AbQRgQ4XUIFp0tubtHUyh72MyL
-        Mu52+ObGtn0CgYEAhg2Uec3z/ftTOD7OOTLrzYYs6FSFca8+XE7cEZUmVGCj0Xxv
-        AnKSu7lZ4HAA0zUzfrX/0bmjSNOfSNMQrOGkqNPx08FOe/u2VsXmM1RJHitthteb
-        zeEjZEi/xX9mozJy4fS2Bm6yHkF1TuIQ4pvMzaRKEor9uWAUOEm55jOFaaECgYEA
-        t4J5bYu+0nck9XrIbur+1mDLsbSu2zurKvByKUKrdkStrhSDZezcdJRjZR9nBcHB
-        3ncUnrr4nKCSTNHAxsuSHBBdupoTVgnaY21eF0WBIcnq8+wWAeSc6dyOjgiOiQFK
-        QZXHZWGyj6qTUqWhZiD4MnZ374GbFC2d1fIhoCzFm2UCgYEAvbHF6MvhZVk8Mz6q
-        NE4GhGshwaEwOW+KXKdSSHAixX9cS1xBQ6GypFKuZpRE5xyTAECllxjSkPgxeiL2
-        BKEwI3jxl5UW14MKtTN/LRy8sO+aWdQEStHLNBMOHyXmx2kYWMr+M94B4yoO8k77
-        D3W8rBEFoRkfQt+7vcYSqSKQfrk=
+        MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDIvzmdWOR4dy7A
+        GakUfpkGrCEAhZ4ZQrADqGm/7waWx9Hz4nHBDbXBqhPlCn19eLSI3Blt480b89+C
+        eZW8iAFWTkDYx1PXvFfPv3yrOO9Ejh1gggB2JaAQGuKUawuWYU6t8fAx6Qi5xYC7
+        OLOggqHprJyqnTKmsDY+HELf1w6RM7qe6kaNBpT8Vm5h4vUbF0BUVCIFY2IssAeu
+        UdMBGyyFYnV8uqvlnpzPgV9q0aSQF4dQzhNGjefymQlLW2D/uWoKEgqIITbNwW8g
+        aC5n6eYGMyUmL+e/cK7Q9LyNYKuPU3ogDXqjVLqoTIsWQnaNxPH1oxKr6LP9Is/T
+        aTch3lBhAgMBAAECggEBAMUw0e91+jc7G3knu6aeFMMxIdnZZst5blypefdHXDmQ
+        XvQqY4M3bGqoHpLGEy7E+tHVIkWHl1r123/W3vcqweV9SMWoRvuLztYLSvMGIkI9
+        Ny4thTaJDwnC3v7bh65YN2k2VrMwLZoOH73InOn2aAWZwOr3L2H9hcrNCAPIxE5r
+        vGdp0NfB7t3KVQV7yEsVuSqee4b/4g3EjE4GWAGrVNZBvhlKVCAVNyecfoQVkTz5
+        38tCOJ88z5JyEWsrzvsnLrFJ1U3pf5cf/J/cof9DiFpGEFzO+5rStWPX8reQx6pr
+        ihjFlNXzZcBkCw72k2Vnvj55B/ESKL9kZkE2wxmE0WECgYEA5WhEuNE8SsrvrGLQ
+        AjuGIkJN6h8sA0fZPB3x+GUnuF5XmFAHywgB0lgsbV9Zy6v32WsXUXm6Nfp8PFBj
+        K+EjZbdd8OCfAkIn6/5MSmz30DNRxhGITUqZabKRWfZT6zpVxVCM23FVYXs/jwU7
+        RaXL3SyCHv/RckGhO8XkUV5Bc2sCgYEA4ARz5HMmXMXeTNx9b53xv635NtPg3d6L
+        rRvM+w75UDKIWWysVc0Qd2IIytlIXGV2oyfosCt7KgDCVzggF7JNMHpPCRzO6qQY
+        8Msoo+SnjHapFWPfNgPpPlkoWIHZL3FCmHKsT42WILFSi9FlOJ7zDdNgG24kc7Rk
+        MUA1kf/FimMCgYBZE0Zz2NKnW+r6LZgE9eXcUZB9UsM9Nt2zyRDWWTi2DvPGMXUF
+        McO7T/9YLIjqW4iuRDXWrgROx0cMCE6pkA61hSCV0jILp3Jm4OPwliUXE4Yx+UbK
+        dCfjcbGck9f74zfAmMlIv9XeNwPz3Z0pKvpgk9KmhMBns/IOCoXfzlBtpwKBgQDT
+        WYAZrcYoywnTjEbP8rztMe8pGjdSPC+db9gxmUwArNxVOiFRhfoeGCDheKQ7gAKx
+        JerzouI9m5+++BXXJYKL1SkSGNrjJ1TcgV/jWMv2ytD1fFdQN9pr12QoNMG6b+n7
+        uFz3ZUaZq5KMlU8hX11C0wUefAjqHOxWRxUDnMM7rwKBgH96UkH5Tito1lx6vPgb
+        L3ozTIqlokBySEOdYWaCrsR1sDTai+b6fjIXcjRXU7+NDCQKD7JlbYvaOD2Jsz/u
+        fhNnyr/dH+zXwMhEeT6zSKj9IwJ6f+2TRdq4HRbnh1ZSPq3R0BvlxL1HWOfE+5uo
+        Gf7C377OrZo5ZhmeVqiqeHip
         -----END PRIVATE KEY-----
       # 用户rsa公钥
       pub-user: -----BEGIN PUBLIC KEY-----
-        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAphrD34UuljZPQ8nFi/sO
-        HYxjlqRRgB4BYppzIN+GlSn7nlKmAjzcDSbBfDdC7bUo6S49uvfvryMJydoDUrhM
-        mpqMg5CFmQr3hf2YI3pdfz7oIhNloOaNHlJjWl5GKw/m/2dv9bHzaPmOqtigkdeg
-        zHxMoFIaJ81LKNHoat+2UYiwl4syvvXBnNoGPgkBNEYWg7fTC3thU7KFuKA5rw5l
-        WY+u5wcCxC9ew5oHZc683IaM/gNxnZOc6WE4mmAGuDEp0h3dxq6z+wbHpEwd7X9h
-        qBAP4FhMjOalTnEpndRCEJoz8pknIKIioYRM7Zb2ONXFX0Mfmc9bOBHcgCdXAp9k
-        bQIDAQAB
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyL85nVjkeHcuwBmpFH6Z
+        BqwhAIWeGUKwA6hpv+8GlsfR8+JxwQ21waoT5Qp9fXi0iNwZbePNG/PfgnmVvIgB
+        Vk5A2MdT17xXz798qzjvRI4dYIIAdiWgEBrilGsLlmFOrfHwMekIucWAuzizoIKh
+        6aycqp0yprA2PhxC39cOkTO6nupGjQaU/FZuYeL1GxdAVFQiBWNiLLAHrlHTARss
+        hWJ1fLqr5Z6cz4FfatGkkBeHUM4TRo3n8pkJS1tg/7lqChIKiCE2zcFvIGguZ+nm
+        BjMlJi/nv3Cu0PS8jWCrj1N6IA16o1S6qEyLFkJ2jcTx9aMSq+iz/SLP02k3Id5Q
+        YQIDAQAB
         -----END PUBLIC KEY-----
       # 管理员rsa私钥
       key-admin: -----BEGIN PRIVATE KEY-----
-        MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDRwwfYKIFcNyC1
-        txrWz1ceBDo7EeL6ODD26kSBSiBVyU5G4nm1SZWwdzWe/Nc8Mgz76JhQO3ybW/7Z
-        rJH+pTnR0yEhE+Ol9AcgJQo1ZDH3nS1HqiUCxdHSkAF3lP1eepI2Kwcf4ZgK27cX
-        hAKDto1dkAaMPEIiG5xnGqWu6eFV2Dgi9rf8T9oCwK/ezRp0PFWsBcGKEKmBx+PY
-        +8QrRSbhVDIk1Jmpf17GtMRR/fdW90bR3cZul/Dl44Q2BDKix8cs3DUqY9fZbNP/
-        0qJ6KuZF2VcrUkrSVm28544qE3m9oyHi51l8PZ0WuvxqAGjS+R4m85f00JbYMhdN
-        jE7y8mAbAgMBAAECggEBAKSVoKwMbCPM5Y9vElIF8dcNfhsnF685M8IpYoMHhIOL
-        Ji4cOV7zU85YWuxaew8yPlnR0ODzK/xCnJ5y90KUpd9rB42Kq45lAMpKBc6KxWIC
-        I6sdZ1jbmpzafSw07PCav+pcrIRpYAD1EJ4U6FwsepM1FM4n4cQdYgTMNcAepr3R
-        M9bouNJ0BOvslp8Cmp2sQ1PGD42gVk1Enioj8NFlGokshNCbckLQmjAHYQBptH6e
-        vEYiRyiXcDoUmGCqit/QWPERBO3MRT6gafU2iMUSbTW8keG4Y4RsyxLueWaL2lIA
-        Neykm6AqjzE6nnFOw2+qRroIy0uzf424ASdON+/wJcECgYEA68A8shiZblk+It6f
-        XUZFzg7N7THhxrjRXWBiop1JULeBx87PU/jWZoOv5O+eDhUFl75ONZmYC7N2F/+J
-        advC8pFFBNQNwwU5pKaLT0/vi37PPMoUXSVtK6vXA1moi8CrWud7vxppePO2l/eg
-        NvPnNeaaq/OMGQj2WOezM4R+N1ECgYEA48dWbRsocHYszMQnHpsQx+pG6tvA0s5n
-        oLGPhyW/AC4HRrb/sSw4UC/5SaUDHnSO96rVBzHIx7onog2VFSJyQyGo0oeoCnCB
-        AS5IVy31r238l/Gnhj1nMcxvOFYucpLx5zK6VJIrDCv4IxxF57NpIxWvSm7bv9PB
-        h3/UHNMbXasCgYAXvsgeRB4IIFMC3ht9IJvdUl5perG7+1eTKScmK+N7jtAymOEH
-        GzQ1JSRtUblAv9tNWmy0N2E6JHxLlIB5uhnbpsgl4Vn1f6w7qk6z0WBWU5J6E/yT
-        GTbyxB8nBjvUv7ZCtLghGn7vINUOX3Gyt0RdiHmhwiklSGLPt560HK890QKBgB/b
-        a10LJVbFUHK7JHWFXo13WL/USF2zfI7fBqHyR4pw5ZegVJalBqNAcm84Yv1JdA1z
-        mSPOdLRqdsyVdbpk/PIirQf07S24mnJd1MRMq0YD7gYaSEHgKKSwYQXSF+DyaF7b
-        m2/kmZy0MZpHhAdp8lRz3fZdFuL3bOPUnwgBBpzNAoGBALUrNsuBrcyF1KRERifW
-        fy/gAnpAVjqajxPch9oY0DeOs8ATpDer2juh9oF6gkL0GDI7TCWJMRi+mc8ayE25
-        gJPn5O1rDwr8K3ErfreY6rx74rScH+YrFJ7+6lzynk7Jc/Vs9gKCuP/2Q4yi4kev
-        QzULtW3Wdd7d8foOLStSqVXo
+        MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCsStkTtrvov6gi
+        sOxpR+tY3Zpj0ilNX2gbJQ3hzcuhpu8TW9Q4wBjQdv2xcTeeDGRzyyvg/fdLzmLz
+        sEx1jCNgCuGRDeyisIAUAQWP8dMFolMLu9f0+Bh5RGEN0X+eX3DvNTwJYOqegoLe
+        yZ6M0s+XHjB13pv15EL2bDh8l4nZ/6JGDKV3jbVydIh0hqtXp0Flfa78ewC6F8Wb
+        fzwmBM18puG/+cz6Y0QsQGboUww9dCK9/8mogmbfhqRqU/5UVpvAANifq2cy8Qtn
+        baCgRQUVzvvSXjLHNQOarx2FCYwiIhdSYW5MzIO4wdX2iFOMy+k4vQucwNjSKpnW
+        TnbrpGd1AgMBAAECggEAewoQsAVleDe2iN+0VRMpPRM0eGjTWg/yNsBlg4YGD/E4
+        9qgzjDuS/Pyc+6UQxOuwqQjE0y5K9nXzMHgMgj2L3cCniYFaJmzJan+4Sy21N2bO
+        y6hf9u9d+uwcK1QbQSyDaDCqKUBvDLfDYfq2IXdDDHZgwSwyUI2sTHLIfCF0Lps2
+        Lom4v5o6NRcPqy6d0j+Ghc6spY2cks9FOPsoaodw2MdT83nGOHvD6jr7t9aq/UaB
+        u8zOMyYlfaVxmA0kNLxVdMgxn2wji94XhjJ+XQgbqCTGdfXQaHwey4fOiXhLHHdz
+        GbeybGF1Tfvvn4mAIuBjoUFntOjtZkBRVqB7dhRNwQKBgQDb3cC2FZ2gBnAqH9Uc
+        cJSSJHDe+kM/cl05OlYzVBuadfMybMyGeR5md0ozRvT0j7UJvdSx1N9u2nDxFk2f
+        jjM/ITu/11E+9oWpuZjV+6OSYq/BICwcdicjwwfAbCz3b4EV5dQsDmUNVBrVjjhp
+        ff8upgHLjmM2dEWuoP4GSePi6QKBgQDIm4+Dd1HR7X4RizGRss6BDzPELn1GsASL
+        WY4cE1eSyohWd97AezKSmxhpEPjoGiwxnQIGgmhLsuPBBDzTnyKYT+K4JLTaWzHf
+        9yNYtWunXK9eFP2YscIe8cvefCVWb432P4qfHEirPvVSMhEk4Oegc3tj0Pf7F559
+        wFkPWlmQrQKBgCOpdkaSfvyjzrGmdCSmxhJmQsCICzxRSnmr0quEqu2E0CuPpiTx
+        pFKuaqSij7zTSmQIHGWzx4HtgIA6Q+DrabiFpXFadV0nE0sSRY3/wOpPg35pv33m
+        VDbivXEimrCPr3pjyuRSeWWODMQyy0ehHjDs0EG6GLGObncCufE/Lu1xAoGAEUXr
+        vosonWXQpBwTIZN+2nf/ohXKrap8Sa9lYB9+O+J6iM97e6FgAmWeXXWbqQiP45m8
+        Uekqp9H4cGc4AZTDOtAuGmL2u5J8oec6wOmmIlwFsZknGN29dEKnpjmUUXP7ikeA
+        XSDnVO9v2ir7dOx0pUksR7T3lUQ8XmGQiZTi/2UCgYA3j4VyfC5i/m40qjC7smGl
+        fINF8w6pPUSByuPd9FXjCQOqIarL/gT7uLVTkpSgAsmox3uvmXadcRbBePDdPhMo
+        tVnSrwBC9Wtvt5jdtIpSCGWJvVjTLuX1R0MPaTQVavZUzFN84TsLYx2rPKU1Et8+
+        bGbOmyNMO7AuZOYuXJYnuA==
         -----END PRIVATE KEY-----
       # 管理员rsa公钥
       pub-admin: -----BEGIN PUBLIC KEY-----
-        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0cMH2CiBXDcgtbca1s9X
-        HgQ6OxHi+jgw9upEgUogVclORuJ5tUmVsHc1nvzXPDIM++iYUDt8m1v+2ayR/qU5
-        0dMhIRPjpfQHICUKNWQx950tR6olAsXR0pABd5T9XnqSNisHH+GYCtu3F4QCg7aN
-        XZAGjDxCIhucZxqlrunhVdg4Iva3/E/aAsCv3s0adDxVrAXBihCpgcfj2PvEK0Um
-        4VQyJNSZqX9exrTEUf33VvdG0d3Gbpfw5eOENgQyosfHLNw1KmPX2WzT/9Kieirm
-        RdlXK1JK0lZtvOeOKhN5vaMh4udZfD2dFrr8agBo0vkeJvOX9NCW2DIXTYxO8vJg
-        GwIDAQAB
+        MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArErZE7a76L+oIrDsaUfr
+        WN2aY9IpTV9oGyUN4c3LoabvE1vUOMAY0Hb9sXE3ngxkc8sr4P33S85i87BMdYwj
+        YArhkQ3sorCAFAEFj/HTBaJTC7vX9PgYeURhDdF/nl9w7zU8CWDqnoKC3smejNLP
+        lx4wdd6b9eRC9mw4fJeJ2f+iRgyld421cnSIdIarV6dBZX2u/HsAuhfFm388JgTN
+        fKbhv/nM+mNELEBm6FMMPXQivf/JqIJm34akalP+VFabwADYn6tnMvELZ22goEUF
+        Fc770l4yxzUDmq8dhQmMIiIXUmFuTMyDuMHV9ohTjMvpOL0LnMDY0iqZ1k5266Rn
+        dQIDAQAB
         -----END PUBLIC KEY-----

@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 public interface UserBaseRepository extends JpaRepository<UserBase, Integer>, JpaSpecificationExecutor<UserBase> {
 
+	UserBase findByUid(String uid);
 }
