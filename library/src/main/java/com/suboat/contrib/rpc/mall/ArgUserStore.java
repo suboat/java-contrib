@@ -16,11 +16,26 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 	private static final org.apache.thrift.protocol.TField UID_FIELD_DESC = new org.apache.thrift.protocol.TField("uid",
 			org.apache.thrift.protocol.TType.STRING, (short) 1);
 
+	private static final org.apache.thrift.protocol.TField SID_FIELD_DESC = new org.apache.thrift.protocol.TField("sid",
+			org.apache.thrift.protocol.TType.STRING, (short) 2);
+
+	private static final org.apache.thrift.protocol.TField STATUS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"status", org.apache.thrift.protocol.TType.I32, (short) 3);
+
+	private static final org.apache.thrift.protocol.TField IS_BUSINESS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"isBusiness", org.apache.thrift.protocol.TType.BOOL, (short) 4);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ArgUserStoreStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ArgUserStoreTupleSchemeFactory();
 
-	public @org.apache.thrift.annotation.Nullable java.lang.String uid; // optional
+	public @org.apache.thrift.annotation.Nullable java.lang.String uid; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String sid; // required
+
+	public int status; // optional
+
+	public boolean isBusiness; // optional
 
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
@@ -28,7 +43,7 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 	 */
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
-		UID((short) 1, "uid");
+		UID((short) 1, "uid"), SID((short) 2, "sid"), STATUS((short) 3, "status"), IS_BUSINESS((short) 4, "isBusiness");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -46,6 +61,12 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 			switch (fieldId) {
 			case 1: // UID
 				return UID;
+			case 2: // SID
+				return SID;
+			case 3: // STATUS
+				return STATUS;
+			case 4: // IS_BUSINESS
+				return IS_BUSINESS;
 			default:
 				return null;
 			}
@@ -90,15 +111,32 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 	}
 
 	// isset id assignments
-	private static final _Fields optionals[] = { _Fields.UID };
+	private static final int __STATUS_ISSET_ID = 0;
+
+	private static final int __ISBUSINESS_ISSET_ID = 1;
+
+	private byte __isset_bitfield = 0;
+
+	private static final _Fields optionals[] = { _Fields.STATUS, _Fields.IS_BUSINESS };
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
 		java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
 				_Fields.class);
 		tmpMap.put(_Fields.UID,
-				new org.apache.thrift.meta_data.FieldMetaData("uid", org.apache.thrift.TFieldRequirementType.OPTIONAL,
+				new org.apache.thrift.meta_data.FieldMetaData("uid", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.SID,
+				new org.apache.thrift.meta_data.FieldMetaData("sid", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.STATUS,
+				new org.apache.thrift.meta_data.FieldMetaData("status",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.IS_BUSINESS,
+				new org.apache.thrift.meta_data.FieldMetaData("isBusiness",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ArgUserStore.class, metaDataMap);
 	}
@@ -106,13 +144,25 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 	public ArgUserStore() {
 	}
 
+	public ArgUserStore(java.lang.String uid, java.lang.String sid) {
+		this();
+		this.uid = uid;
+		this.sid = sid;
+	}
+
 	/**
 	 * Performs a deep copy on <i>other</i>.
 	 */
 	public ArgUserStore(ArgUserStore other) {
+		__isset_bitfield = other.__isset_bitfield;
 		if (other.isSetUid()) {
 			this.uid = other.uid;
 		}
+		if (other.isSetSid()) {
+			this.sid = other.sid;
+		}
+		this.status = other.status;
+		this.isBusiness = other.isBusiness;
 	}
 
 	public ArgUserStore deepCopy() {
@@ -122,6 +172,11 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 	@Override
 	public void clear() {
 		this.uid = null;
+		this.sid = null;
+		setStatusIsSet(false);
+		this.status = 0;
+		setIsBusinessIsSet(false);
+		this.isBusiness = false;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -151,6 +206,84 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 		}
 	}
 
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getSid() {
+		return this.sid;
+	}
+
+	public ArgUserStore setSid(@org.apache.thrift.annotation.Nullable java.lang.String sid) {
+		this.sid = sid;
+		return this;
+	}
+
+	public void unsetSid() {
+		this.sid = null;
+	}
+
+	/**
+	 * Returns true if field sid is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetSid() {
+		return this.sid != null;
+	}
+
+	public void setSidIsSet(boolean value) {
+		if (!value) {
+			this.sid = null;
+		}
+	}
+
+	public int getStatus() {
+		return this.status;
+	}
+
+	public ArgUserStore setStatus(int status) {
+		this.status = status;
+		setStatusIsSet(true);
+		return this;
+	}
+
+	public void unsetStatus() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __STATUS_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field status is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetStatus() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __STATUS_ISSET_ID);
+	}
+
+	public void setStatusIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __STATUS_ISSET_ID, value);
+	}
+
+	public boolean isIsBusiness() {
+		return this.isBusiness;
+	}
+
+	public ArgUserStore setIsBusiness(boolean isBusiness) {
+		this.isBusiness = isBusiness;
+		setIsBusinessIsSet(true);
+		return this;
+	}
+
+	public void unsetIsBusiness() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __ISBUSINESS_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field isBusiness is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetIsBusiness() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __ISBUSINESS_ISSET_ID);
+	}
+
+	public void setIsBusinessIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __ISBUSINESS_ISSET_ID, value);
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case UID:
@@ -162,6 +295,33 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 			}
 			break;
 
+		case SID:
+			if (value == null) {
+				unsetSid();
+			}
+			else {
+				setSid((java.lang.String) value);
+			}
+			break;
+
+		case STATUS:
+			if (value == null) {
+				unsetStatus();
+			}
+			else {
+				setStatus((java.lang.Integer) value);
+			}
+			break;
+
+		case IS_BUSINESS:
+			if (value == null) {
+				unsetIsBusiness();
+			}
+			else {
+				setIsBusiness((java.lang.Boolean) value);
+			}
+			break;
+
 		}
 	}
 
@@ -170,6 +330,15 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 		switch (field) {
 		case UID:
 			return getUid();
+
+		case SID:
+			return getSid();
+
+		case STATUS:
+			return getStatus();
+
+		case IS_BUSINESS:
+			return isIsBusiness();
 
 		}
 		throw new java.lang.IllegalStateException();
@@ -187,6 +356,12 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 		switch (field) {
 		case UID:
 			return isSetUid();
+		case SID:
+			return isSetSid();
+		case STATUS:
+			return isSetStatus();
+		case IS_BUSINESS:
+			return isSetIsBusiness();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -215,6 +390,33 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 				return false;
 		}
 
+		boolean this_present_sid = true && this.isSetSid();
+		boolean that_present_sid = true && that.isSetSid();
+		if (this_present_sid || that_present_sid) {
+			if (!(this_present_sid && that_present_sid))
+				return false;
+			if (!this.sid.equals(that.sid))
+				return false;
+		}
+
+		boolean this_present_status = true && this.isSetStatus();
+		boolean that_present_status = true && that.isSetStatus();
+		if (this_present_status || that_present_status) {
+			if (!(this_present_status && that_present_status))
+				return false;
+			if (this.status != that.status)
+				return false;
+		}
+
+		boolean this_present_isBusiness = true && this.isSetIsBusiness();
+		boolean that_present_isBusiness = true && that.isSetIsBusiness();
+		if (this_present_isBusiness || that_present_isBusiness) {
+			if (!(this_present_isBusiness && that_present_isBusiness))
+				return false;
+			if (this.isBusiness != that.isBusiness)
+				return false;
+		}
+
 		return true;
 	}
 
@@ -225,6 +427,18 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 		hashCode = hashCode * 8191 + ((isSetUid()) ? 131071 : 524287);
 		if (isSetUid())
 			hashCode = hashCode * 8191 + uid.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetSid()) ? 131071 : 524287);
+		if (isSetSid())
+			hashCode = hashCode * 8191 + sid.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetStatus()) ? 131071 : 524287);
+		if (isSetStatus())
+			hashCode = hashCode * 8191 + status;
+
+		hashCode = hashCode * 8191 + ((isSetIsBusiness()) ? 131071 : 524287);
+		if (isSetIsBusiness())
+			hashCode = hashCode * 8191 + ((isBusiness) ? 131071 : 524287);
 
 		return hashCode;
 	}
@@ -243,6 +457,36 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 		}
 		if (isSetUid()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.uid, other.uid);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetSid()).compareTo(other.isSetSid());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetSid()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.sid, other.sid);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetStatus()).compareTo(other.isSetStatus());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetStatus()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.status, other.status);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetIsBusiness()).compareTo(other.isSetIsBusiness());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetIsBusiness()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.isBusiness, other.isBusiness);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -268,14 +512,36 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 		java.lang.StringBuilder sb = new java.lang.StringBuilder("ArgUserStore(");
 		boolean first = true;
 
-		if (isSetUid()) {
-			sb.append("uid:");
-			if (this.uid == null) {
-				sb.append("null");
-			}
-			else {
-				sb.append(this.uid);
-			}
+		sb.append("uid:");
+		if (this.uid == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.uid);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("sid:");
+		if (this.sid == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.sid);
+		}
+		first = false;
+		if (isSetStatus()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("status:");
+			sb.append(this.status);
+			first = false;
+		}
+		if (isSetIsBusiness()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("isBusiness:");
+			sb.append(this.isBusiness);
 			first = false;
 		}
 		sb.append(")");
@@ -299,6 +565,9 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 
 	private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
 		try {
+			// it doesn't seem like you should have to do this, but java serialization is
+			// wacky, and doesn't call the default constructor.
+			__isset_bitfield = 0;
 			read(new org.apache.thrift.protocol.TCompactProtocol(
 					new org.apache.thrift.transport.TIOStreamTransport(in)));
 		}
@@ -336,6 +605,33 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 2: // SID
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.sid = iprot.readString();
+						struct.setSidIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 3: // STATUS
+					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+						struct.status = iprot.readI32();
+						struct.setStatusIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 4: // IS_BUSINESS
+					if (schemeField.type == org.apache.thrift.protocol.TType.BOOL) {
+						struct.isBusiness = iprot.readBool();
+						struct.setIsBusinessIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -354,11 +650,24 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 
 			oprot.writeStructBegin(STRUCT_DESC);
 			if (struct.uid != null) {
-				if (struct.isSetUid()) {
-					oprot.writeFieldBegin(UID_FIELD_DESC);
-					oprot.writeString(struct.uid);
-					oprot.writeFieldEnd();
-				}
+				oprot.writeFieldBegin(UID_FIELD_DESC);
+				oprot.writeString(struct.uid);
+				oprot.writeFieldEnd();
+			}
+			if (struct.sid != null) {
+				oprot.writeFieldBegin(SID_FIELD_DESC);
+				oprot.writeString(struct.sid);
+				oprot.writeFieldEnd();
+			}
+			if (struct.isSetStatus()) {
+				oprot.writeFieldBegin(STATUS_FIELD_DESC);
+				oprot.writeI32(struct.status);
+				oprot.writeFieldEnd();
+			}
+			if (struct.isSetIsBusiness()) {
+				oprot.writeFieldBegin(IS_BUSINESS_FIELD_DESC);
+				oprot.writeBool(struct.isBusiness);
+				oprot.writeFieldEnd();
 			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
@@ -384,9 +693,27 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 			if (struct.isSetUid()) {
 				optionals.set(0);
 			}
-			oprot.writeBitSet(optionals, 1);
+			if (struct.isSetSid()) {
+				optionals.set(1);
+			}
+			if (struct.isSetStatus()) {
+				optionals.set(2);
+			}
+			if (struct.isSetIsBusiness()) {
+				optionals.set(3);
+			}
+			oprot.writeBitSet(optionals, 4);
 			if (struct.isSetUid()) {
 				oprot.writeString(struct.uid);
+			}
+			if (struct.isSetSid()) {
+				oprot.writeString(struct.sid);
+			}
+			if (struct.isSetStatus()) {
+				oprot.writeI32(struct.status);
+			}
+			if (struct.isSetIsBusiness()) {
+				oprot.writeBool(struct.isBusiness);
 			}
 		}
 
@@ -394,10 +721,22 @@ public class ArgUserStore implements org.apache.thrift.TBase<ArgUserStore, ArgUs
 		public void read(org.apache.thrift.protocol.TProtocol prot, ArgUserStore struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(1);
+			java.util.BitSet incoming = iprot.readBitSet(4);
 			if (incoming.get(0)) {
 				struct.uid = iprot.readString();
 				struct.setUidIsSet(true);
+			}
+			if (incoming.get(1)) {
+				struct.sid = iprot.readString();
+				struct.setSidIsSet(true);
+			}
+			if (incoming.get(2)) {
+				struct.status = iprot.readI32();
+				struct.setStatusIsSet(true);
+			}
+			if (incoming.get(3)) {
+				struct.isBusiness = iprot.readBool();
+				struct.setIsBusinessIsSet(true);
 			}
 		}
 

@@ -567,14 +567,14 @@ public class ArgOrderUser implements org.apache.thrift.TBase<ArgOrderUser, ArgOr
 				case 2: // GOOD_ARR
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list286 = iprot.readListBegin();
-							struct.goodArr = new java.util.ArrayList<ArgOrderGood>(_list286.size);
+							org.apache.thrift.protocol.TList _list294 = iprot.readListBegin();
+							struct.goodArr = new java.util.ArrayList<ArgOrderGood>(_list294.size);
 							@org.apache.thrift.annotation.Nullable
-							ArgOrderGood _elem287;
-							for (int _i288 = 0; _i288 < _list286.size; ++_i288) {
-								_elem287 = new ArgOrderGood();
-								_elem287.read(iprot);
-								struct.goodArr.add(_elem287);
+							ArgOrderGood _elem295;
+							for (int _i296 = 0; _i296 < _list294.size; ++_i296) {
+								_elem295 = new ArgOrderGood();
+								_elem295.read(iprot);
+								struct.goodArr.add(_elem295);
 							}
 							iprot.readListEnd();
 						}
@@ -587,14 +587,14 @@ public class ArgOrderUser implements org.apache.thrift.TBase<ArgOrderUser, ArgOr
 				case 3: // COUPON_ARR
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list289 = iprot.readListBegin();
-							struct.couponArr = new java.util.ArrayList<ArgCouponUserUpdate>(_list289.size);
+							org.apache.thrift.protocol.TList _list297 = iprot.readListBegin();
+							struct.couponArr = new java.util.ArrayList<ArgCouponUserUpdate>(_list297.size);
 							@org.apache.thrift.annotation.Nullable
-							ArgCouponUserUpdate _elem290;
-							for (int _i291 = 0; _i291 < _list289.size; ++_i291) {
-								_elem290 = new ArgCouponUserUpdate();
-								_elem290.read(iprot);
-								struct.couponArr.add(_elem290);
+							ArgCouponUserUpdate _elem298;
+							for (int _i299 = 0; _i299 < _list297.size; ++_i299) {
+								_elem298 = new ArgCouponUserUpdate();
+								_elem298.read(iprot);
+								struct.couponArr.add(_elem298);
 							}
 							iprot.readListEnd();
 						}
@@ -631,8 +631,8 @@ public class ArgOrderUser implements org.apache.thrift.TBase<ArgOrderUser, ArgOr
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.goodArr.size()));
-					for (ArgOrderGood _iter292 : struct.goodArr) {
-						_iter292.write(oprot);
+					for (ArgOrderGood _iter300 : struct.goodArr) {
+						_iter300.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -643,8 +643,8 @@ public class ArgOrderUser implements org.apache.thrift.TBase<ArgOrderUser, ArgOr
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.couponArr.size()));
-					for (ArgCouponUserUpdate _iter293 : struct.couponArr) {
-						_iter293.write(oprot);
+					for (ArgCouponUserUpdate _iter301 : struct.couponArr) {
+						_iter301.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -687,16 +687,16 @@ public class ArgOrderUser implements org.apache.thrift.TBase<ArgOrderUser, ArgOr
 			if (struct.isSetGoodArr()) {
 				{
 					oprot.writeI32(struct.goodArr.size());
-					for (ArgOrderGood _iter294 : struct.goodArr) {
-						_iter294.write(oprot);
+					for (ArgOrderGood _iter302 : struct.goodArr) {
+						_iter302.write(oprot);
 					}
 				}
 			}
 			if (struct.isSetCouponArr()) {
 				{
 					oprot.writeI32(struct.couponArr.size());
-					for (ArgCouponUserUpdate _iter295 : struct.couponArr) {
-						_iter295.write(oprot);
+					for (ArgCouponUserUpdate _iter303 : struct.couponArr) {
+						_iter303.write(oprot);
 					}
 				}
 			}
@@ -713,30 +713,30 @@ public class ArgOrderUser implements org.apache.thrift.TBase<ArgOrderUser, ArgOr
 			}
 			if (incoming.get(1)) {
 				{
-					org.apache.thrift.protocol.TList _list296 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list304 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.goodArr = new java.util.ArrayList<ArgOrderGood>(_list296.size);
+					struct.goodArr = new java.util.ArrayList<ArgOrderGood>(_list304.size);
 					@org.apache.thrift.annotation.Nullable
-					ArgOrderGood _elem297;
-					for (int _i298 = 0; _i298 < _list296.size; ++_i298) {
-						_elem297 = new ArgOrderGood();
-						_elem297.read(iprot);
-						struct.goodArr.add(_elem297);
+					ArgOrderGood _elem305;
+					for (int _i306 = 0; _i306 < _list304.size; ++_i306) {
+						_elem305 = new ArgOrderGood();
+						_elem305.read(iprot);
+						struct.goodArr.add(_elem305);
 					}
 				}
 				struct.setGoodArrIsSet(true);
 			}
 			if (incoming.get(2)) {
 				{
-					org.apache.thrift.protocol.TList _list299 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list307 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.couponArr = new java.util.ArrayList<ArgCouponUserUpdate>(_list299.size);
+					struct.couponArr = new java.util.ArrayList<ArgCouponUserUpdate>(_list307.size);
 					@org.apache.thrift.annotation.Nullable
-					ArgCouponUserUpdate _elem300;
-					for (int _i301 = 0; _i301 < _list299.size; ++_i301) {
-						_elem300 = new ArgCouponUserUpdate();
-						_elem300.read(iprot);
-						struct.couponArr.add(_elem300);
+					ArgCouponUserUpdate _elem308;
+					for (int _i309 = 0; _i309 < _list307.size; ++_i309) {
+						_elem308 = new ArgCouponUserUpdate();
+						_elem308.read(iprot);
+						struct.couponArr.add(_elem308);
 					}
 				}
 				struct.setCouponArrIsSet(true);

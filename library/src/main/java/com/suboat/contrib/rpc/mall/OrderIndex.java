@@ -61,6 +61,9 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 	private static final org.apache.thrift.protocol.TField ORDER_ARR_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"orderArr", org.apache.thrift.protocol.TType.LIST, (short) 17);
 
+	private static final org.apache.thrift.protocol.TField TRANS_FEE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"transFee", org.apache.thrift.protocol.TType.DOUBLE, (short) 18);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new OrderIndexStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new OrderIndexTupleSchemeFactory();
@@ -97,6 +100,8 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 
 	public @org.apache.thrift.annotation.Nullable java.util.List<Order> orderArr; // required
 
+	public double transFee; // required
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
@@ -105,11 +110,11 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 
 		XID((short) 1, "xid"), UID((short) 2, "uid"), UID_REL((short) 3, "uidRel"), SID((short) 4, "sid"), PARENT(
 				(short) 5, "parent"), CATEGORY((short) 6, "category"), CREATE_TIME((short) 7,
-						"createTime"), UPDATE_TIME((short) 8, "updateTime"), IS_DELETE((short) 9,
-								"isDelete"), STATUS((short) 10, "status"), SERIAL_ID((short) 11,
-										"serialId"), PRICE_BEFORE((short) 13, "priceBefore"), PRICE_AFTER((short) 14,
-												"priceAfter"), COUPON_ARR((short) 15, "couponArr"), INDEX_ARR(
-														(short) 16, "indexArr"), ORDER_ARR((short) 17, "orderArr");
+						"createTime"), UPDATE_TIME((short) 8, "updateTime"), IS_DELETE((short) 9, "isDelete"), STATUS(
+								(short) 10, "status"), SERIAL_ID((short) 11, "serialId"), PRICE_BEFORE((short) 13,
+										"priceBefore"), PRICE_AFTER((short) 14, "priceAfter"), COUPON_ARR((short) 15,
+												"couponArr"), INDEX_ARR((short) 16, "indexArr"), ORDER_ARR((short) 17,
+														"orderArr"), TRANS_FEE((short) 18, "transFee");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -157,6 +162,8 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 				return INDEX_ARR;
 			case 17: // ORDER_ARR
 				return ORDER_ARR;
+			case 18: // TRANS_FEE
+				return TRANS_FEE;
 			default:
 				return null;
 			}
@@ -204,6 +211,8 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 	private static final int __ISDELETE_ISSET_ID = 0;
 
 	private static final int __STATUS_ISSET_ID = 1;
+
+	private static final int __TRANSFEE_ISSET_ID = 2;
 
 	private byte __isset_bitfield = 0;
 
@@ -272,6 +281,10 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 				new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
 								"Order"))));
+		tmpMap.put(_Fields.TRANS_FEE,
+				new org.apache.thrift.meta_data.FieldMetaData("transFee",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(OrderIndex.class, metaDataMap);
 	}
@@ -284,7 +297,7 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 			java.lang.String updateTime, boolean isDelete, int status, java.lang.String serialId,
 			java.util.Map<java.lang.String, java.lang.Double> priceBefore,
 			java.util.Map<java.lang.String, java.lang.Double> priceAfter, java.util.List<CouponFlow> couponArr,
-			java.util.List<OrderIndex> indexArr, java.util.List<Order> orderArr) {
+			java.util.List<OrderIndex> indexArr, java.util.List<Order> orderArr, double transFee) {
 		this();
 		this.xid = xid;
 		this.uid = uid;
@@ -304,6 +317,8 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 		this.couponArr = couponArr;
 		this.indexArr = indexArr;
 		this.orderArr = orderArr;
+		this.transFee = transFee;
+		setTransFeeIsSet(true);
 	}
 
 	/**
@@ -371,6 +386,7 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 			}
 			this.orderArr = __this__orderArr;
 		}
+		this.transFee = other.transFee;
 	}
 
 	public OrderIndex deepCopy() {
@@ -397,6 +413,8 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 		this.couponArr = null;
 		this.indexArr = null;
 		this.orderArr = null;
+		setTransFeeIsSet(false);
+		this.transFee = 0.0;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -909,6 +927,32 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 		}
 	}
 
+	public double getTransFee() {
+		return this.transFee;
+	}
+
+	public OrderIndex setTransFee(double transFee) {
+		this.transFee = transFee;
+		setTransFeeIsSet(true);
+		return this;
+	}
+
+	public void unsetTransFee() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __TRANSFEE_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field transFee is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetTransFee() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __TRANSFEE_ISSET_ID);
+	}
+
+	public void setTransFeeIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __TRANSFEE_ISSET_ID, value);
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case XID:
@@ -1055,6 +1099,15 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 			}
 			break;
 
+		case TRANS_FEE:
+			if (value == null) {
+				unsetTransFee();
+			}
+			else {
+				setTransFee((java.lang.Double) value);
+			}
+			break;
+
 		}
 	}
 
@@ -1109,6 +1162,9 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 		case ORDER_ARR:
 			return getOrderArr();
 
+		case TRANS_FEE:
+			return getTransFee();
+
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -1155,6 +1211,8 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 			return isSetIndexArr();
 		case ORDER_ARR:
 			return isSetOrderArr();
+		case TRANS_FEE:
+			return isSetTransFee();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -1318,6 +1376,15 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 				return false;
 		}
 
+		boolean this_present_transFee = true;
+		boolean that_present_transFee = true;
+		if (this_present_transFee || that_present_transFee) {
+			if (!(this_present_transFee && that_present_transFee))
+				return false;
+			if (this.transFee != that.transFee)
+				return false;
+		}
+
 		return true;
 	}
 
@@ -1384,6 +1451,8 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 		hashCode = hashCode * 8191 + ((isSetOrderArr()) ? 131071 : 524287);
 		if (isSetOrderArr())
 			hashCode = hashCode * 8191 + orderArr.hashCode();
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(transFee);
 
 		return hashCode;
 	}
@@ -1556,6 +1625,16 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetTransFee()).compareTo(other.isSetTransFee());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetTransFee()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.transFee, other.transFee);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		return 0;
 	}
 
@@ -1724,6 +1803,11 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 		else {
 			sb.append(this.orderArr);
 		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("transFee:");
+		sb.append(this.transFee);
 		first = false;
 		sb.append(")");
 		return sb.toString();
@@ -1980,6 +2064,15 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 18: // TRANS_FEE
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.transFee = iprot.readDouble();
+						struct.setTransFeeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -2112,6 +2205,9 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 				}
 				oprot.writeFieldEnd();
 			}
+			oprot.writeFieldBegin(TRANS_FEE_FIELD_DESC);
+			oprot.writeDouble(struct.transFee);
+			oprot.writeFieldEnd();
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -2181,7 +2277,10 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 			if (struct.isSetOrderArr()) {
 				optionals.set(15);
 			}
-			oprot.writeBitSet(optionals, 16);
+			if (struct.isSetTransFee()) {
+				optionals.set(16);
+			}
+			oprot.writeBitSet(optionals, 17);
 			if (struct.isSetXid()) {
 				oprot.writeString(struct.xid);
 			}
@@ -2259,13 +2358,16 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 					}
 				}
 			}
+			if (struct.isSetTransFee()) {
+				oprot.writeDouble(struct.transFee);
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, OrderIndex struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(16);
+			java.util.BitSet incoming = iprot.readBitSet(17);
 			if (incoming.get(0)) {
 				struct.xid = iprot.readString();
 				struct.setXidIsSet(true);
@@ -2388,6 +2490,10 @@ public class OrderIndex implements org.apache.thrift.TBase<OrderIndex, OrderInde
 					}
 				}
 				struct.setOrderArrIsSet(true);
+			}
+			if (incoming.get(16)) {
+				struct.transFee = iprot.readDouble();
+				struct.setTransFeeIsSet(true);
 			}
 		}
 

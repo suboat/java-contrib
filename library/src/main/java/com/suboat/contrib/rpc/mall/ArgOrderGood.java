@@ -49,6 +49,9 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 	private static final org.apache.thrift.protocol.TField NOTE_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"note", org.apache.thrift.protocol.TType.STRING, (short) 9);
 
+	private static final org.apache.thrift.protocol.TField INVOICE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"invoice", org.apache.thrift.protocol.TType.STRUCT, (short) 13);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ArgOrderGoodStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ArgOrderGoodTupleSchemeFactory();
@@ -77,6 +80,8 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String note; // optional
 
+	public @org.apache.thrift.annotation.Nullable ArgOrderInvoice invoice; // optional
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
@@ -86,8 +91,8 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 		GID((short) 1, "gid"), NUM_BUY((short) 2, "numBuy"), UID((short) 3, "uid"), UID_SELL((short) 4,
 				"uidSell"), PRICE((short) 10, "price"), PRICE_OLD((short) 11, "priceOld"), PRICE_COST((short) 12,
 						"priceCost"), PAY_METHOD_PICK((short) 5, "payMethodPick"), PAY_METHOD_COVER((short) 6,
-								"payMethodCover"), TRANSPORT((short) 7,
-										"transport"), ADDRESS((short) 8, "address"), NOTE((short) 9, "note");
+								"payMethodCover"), TRANSPORT((short) 7, "transport"), ADDRESS((short) 8,
+										"address"), NOTE((short) 9, "note"), INVOICE((short) 13, "invoice");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -127,6 +132,8 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 				return ADDRESS;
 			case 9: // NOTE
 				return NOTE;
+			case 13: // INVOICE
+				return INVOICE;
 			default:
 				return null;
 			}
@@ -187,7 +194,7 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 
 	private static final _Fields optionals[] = { _Fields.UID, _Fields.UID_SELL, _Fields.PRICE, _Fields.PRICE_OLD,
 			_Fields.PRICE_COST, _Fields.PAY_METHOD_PICK, _Fields.PAY_METHOD_COVER, _Fields.TRANSPORT, _Fields.ADDRESS,
-			_Fields.NOTE };
+			_Fields.NOTE, _Fields.INVOICE };
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
@@ -236,6 +243,11 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 		tmpMap.put(_Fields.NOTE,
 				new org.apache.thrift.meta_data.FieldMetaData("note", org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.INVOICE,
+				new org.apache.thrift.meta_data.FieldMetaData("invoice",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
+								"ArgOrderInvoice")));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ArgOrderGood.class, metaDataMap);
 	}
@@ -279,6 +291,9 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 		if (other.isSetNote()) {
 			this.note = other.note;
 		}
+		if (other.isSetInvoice()) {
+			this.invoice = new ArgOrderInvoice(other.invoice);
+		}
 	}
 
 	public ArgOrderGood deepCopy() {
@@ -305,6 +320,7 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 		this.transport = 0;
 		this.address = null;
 		this.note = null;
+		this.invoice = null;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -626,6 +642,34 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 		}
 	}
 
+	@org.apache.thrift.annotation.Nullable
+	public ArgOrderInvoice getInvoice() {
+		return this.invoice;
+	}
+
+	public ArgOrderGood setInvoice(@org.apache.thrift.annotation.Nullable ArgOrderInvoice invoice) {
+		this.invoice = invoice;
+		return this;
+	}
+
+	public void unsetInvoice() {
+		this.invoice = null;
+	}
+
+	/**
+	 * Returns true if field invoice is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetInvoice() {
+		return this.invoice != null;
+	}
+
+	public void setInvoiceIsSet(boolean value) {
+		if (!value) {
+			this.invoice = null;
+		}
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case GID:
@@ -736,6 +780,15 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 			}
 			break;
 
+		case INVOICE:
+			if (value == null) {
+				unsetInvoice();
+			}
+			else {
+				setInvoice((ArgOrderInvoice) value);
+			}
+			break;
+
 		}
 	}
 
@@ -778,6 +831,9 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 		case NOTE:
 			return getNote();
 
+		case INVOICE:
+			return getInvoice();
+
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -816,6 +872,8 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 			return isSetAddress();
 		case NOTE:
 			return isSetNote();
+		case INVOICE:
+			return isSetInvoice();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -943,6 +1001,15 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 				return false;
 		}
 
+		boolean this_present_invoice = true && this.isSetInvoice();
+		boolean that_present_invoice = true && that.isSetInvoice();
+		if (this_present_invoice || that_present_invoice) {
+			if (!(this_present_invoice && that_present_invoice))
+				return false;
+			if (!this.invoice.equals(that.invoice))
+				return false;
+		}
+
 		return true;
 	}
 
@@ -995,6 +1062,10 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 		hashCode = hashCode * 8191 + ((isSetNote()) ? 131071 : 524287);
 		if (isSetNote())
 			hashCode = hashCode * 8191 + note.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetInvoice()) ? 131071 : 524287);
+		if (isSetInvoice())
+			hashCode = hashCode * 8191 + invoice.hashCode();
 
 		return hashCode;
 	}
@@ -1127,6 +1198,16 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetInvoice()).compareTo(other.isSetInvoice());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetInvoice()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.invoice, other.invoice);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		return 0;
 	}
 
@@ -1253,6 +1334,18 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 			}
 			else {
 				sb.append(this.note);
+			}
+			first = false;
+		}
+		if (isSetInvoice()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("invoice:");
+			if (this.invoice == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.invoice);
 			}
 			first = false;
 		}
@@ -1416,6 +1509,16 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 13: // INVOICE
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+						struct.invoice = new ArgOrderInvoice();
+						struct.invoice.read(iprot);
+						struct.setInvoiceIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -1501,6 +1604,13 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 				oprot.writeDouble(struct.priceCost);
 				oprot.writeFieldEnd();
 			}
+			if (struct.invoice != null) {
+				if (struct.isSetInvoice()) {
+					oprot.writeFieldBegin(INVOICE_FIELD_DESC);
+					struct.invoice.write(oprot);
+					oprot.writeFieldEnd();
+				}
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -1558,7 +1668,10 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 			if (struct.isSetNote()) {
 				optionals.set(11);
 			}
-			oprot.writeBitSet(optionals, 12);
+			if (struct.isSetInvoice()) {
+				optionals.set(12);
+			}
+			oprot.writeBitSet(optionals, 13);
 			if (struct.isSetGid()) {
 				oprot.writeString(struct.gid);
 			}
@@ -1595,13 +1708,16 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 			if (struct.isSetNote()) {
 				oprot.writeString(struct.note);
 			}
+			if (struct.isSetInvoice()) {
+				struct.invoice.write(oprot);
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, ArgOrderGood struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(12);
+			java.util.BitSet incoming = iprot.readBitSet(13);
 			if (incoming.get(0)) {
 				struct.gid = iprot.readString();
 				struct.setGidIsSet(true);
@@ -1649,6 +1765,11 @@ public class ArgOrderGood implements org.apache.thrift.TBase<ArgOrderGood, ArgOr
 			if (incoming.get(11)) {
 				struct.note = iprot.readString();
 				struct.setNoteIsSet(true);
+			}
+			if (incoming.get(12)) {
+				struct.invoice = new ArgOrderInvoice();
+				struct.invoice.read(iprot);
+				struct.setInvoiceIsSet(true);
 			}
 		}
 

@@ -46,6 +46,9 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 	private static final org.apache.thrift.protocol.TField SUBSCRIBE_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"subscribeTime", org.apache.thrift.protocol.TType.STRING, (short) 10);
 
+	private static final org.apache.thrift.protocol.TField APP_ID_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"appId", org.apache.thrift.protocol.TType.STRING, (short) 11);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new UserWeixinInfoStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new UserWeixinInfoTupleSchemeFactory();
@@ -70,6 +73,8 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String subscribeTime; // optional
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String appId; // optional
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
@@ -77,9 +82,9 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
 		WX_OPENID((short) 1, "wxOpenid"), WX_UNIONID((short) 2, "wxUnionid"), NICKNAME((short) 3, "nickname"), PROVINCE(
-				(short) 4,
-				"province"), CITY((short) 5, "city"), ICON((short) 6, "icon"), SEX((short) 7, "sex"), COUNTRY((short) 8,
-						"country"), SUBSCRIBE((short) 9, "subscribe"), SUBSCRIBE_TIME((short) 10, "subscribeTime");
+				(short) 4, "province"), CITY((short) 5, "city"), ICON((short) 6, "icon"), SEX((short) 7,
+						"sex"), COUNTRY((short) 8, "country"), SUBSCRIBE((short) 9,
+								"subscribe"), SUBSCRIBE_TIME((short) 10, "subscribeTime"), APP_ID((short) 11, "appId");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -115,6 +120,8 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 				return SUBSCRIBE;
 			case 10: // SUBSCRIBE_TIME
 				return SUBSCRIBE_TIME;
+			case 11: // APP_ID
+				return APP_ID;
 			default:
 				return null;
 			}
@@ -166,7 +173,7 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 	private byte __isset_bitfield = 0;
 
 	private static final _Fields optionals[] = { _Fields.WX_UNIONID, _Fields.NICKNAME, _Fields.PROVINCE, _Fields.CITY,
-			_Fields.ICON, _Fields.SEX, _Fields.COUNTRY, _Fields.SUBSCRIBE, _Fields.SUBSCRIBE_TIME };
+			_Fields.ICON, _Fields.SEX, _Fields.COUNTRY, _Fields.SUBSCRIBE, _Fields.SUBSCRIBE_TIME, _Fields.APP_ID };
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
@@ -208,6 +215,9 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 		tmpMap.put(_Fields.SUBSCRIBE_TIME, new org.apache.thrift.meta_data.FieldMetaData("subscribeTime",
 				org.apache.thrift.TFieldRequirementType.OPTIONAL,
 				new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING, "Time")));
+		tmpMap.put(_Fields.APP_ID,
+				new org.apache.thrift.meta_data.FieldMetaData("appId", org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(UserWeixinInfo.class, metaDataMap);
 	}
@@ -251,6 +261,9 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 		if (other.isSetSubscribeTime()) {
 			this.subscribeTime = other.subscribeTime;
 		}
+		if (other.isSetAppId()) {
+			this.appId = other.appId;
+		}
 	}
 
 	public UserWeixinInfo deepCopy() {
@@ -271,6 +284,7 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 		setSubscribeIsSet(false);
 		this.subscribe = false;
 		this.subscribeTime = null;
+		this.appId = null;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -546,6 +560,33 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 		}
 	}
 
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getAppId() {
+		return this.appId;
+	}
+
+	public UserWeixinInfo setAppId(@org.apache.thrift.annotation.Nullable java.lang.String appId) {
+		this.appId = appId;
+		return this;
+	}
+
+	public void unsetAppId() {
+		this.appId = null;
+	}
+
+	/**
+	 * Returns true if field appId is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetAppId() {
+		return this.appId != null;
+	}
+
+	public void setAppIdIsSet(boolean value) {
+		if (!value) {
+			this.appId = null;
+		}
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case WX_OPENID:
@@ -638,6 +679,15 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 			}
 			break;
 
+		case APP_ID:
+			if (value == null) {
+				unsetAppId();
+			}
+			else {
+				setAppId((java.lang.String) value);
+			}
+			break;
+
 		}
 	}
 
@@ -674,6 +724,9 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 		case SUBSCRIBE_TIME:
 			return getSubscribeTime();
 
+		case APP_ID:
+			return getAppId();
+
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -708,6 +761,8 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 			return isSetSubscribe();
 		case SUBSCRIBE_TIME:
 			return isSetSubscribeTime();
+		case APP_ID:
+			return isSetAppId();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -817,6 +872,15 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 				return false;
 		}
 
+		boolean this_present_appId = true && this.isSetAppId();
+		boolean that_present_appId = true && that.isSetAppId();
+		if (this_present_appId || that_present_appId) {
+			if (!(this_present_appId && that_present_appId))
+				return false;
+			if (!this.appId.equals(that.appId))
+				return false;
+		}
+
 		return true;
 	}
 
@@ -863,6 +927,10 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 		hashCode = hashCode * 8191 + ((isSetSubscribeTime()) ? 131071 : 524287);
 		if (isSetSubscribeTime())
 			hashCode = hashCode * 8191 + subscribeTime.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetAppId()) ? 131071 : 524287);
+		if (isSetAppId())
+			hashCode = hashCode * 8191 + appId.hashCode();
 
 		return hashCode;
 	}
@@ -971,6 +1039,16 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 		}
 		if (isSetSubscribeTime()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.subscribeTime, other.subscribeTime);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetAppId()).compareTo(other.isSetAppId());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetAppId()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.appId, other.appId);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -1099,6 +1177,18 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 			}
 			else {
 				sb.append(this.subscribeTime);
+			}
+			first = false;
+		}
+		if (isSetAppId()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("appId:");
+			if (this.appId == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.appId);
 			}
 			first = false;
 		}
@@ -1244,6 +1334,15 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 11: // APP_ID
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.appId = iprot.readString();
+						struct.setAppIdIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -1325,6 +1424,13 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 					oprot.writeFieldEnd();
 				}
 			}
+			if (struct.appId != null) {
+				if (struct.isSetAppId()) {
+					oprot.writeFieldBegin(APP_ID_FIELD_DESC);
+					oprot.writeString(struct.appId);
+					oprot.writeFieldEnd();
+				}
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -1376,7 +1482,10 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 			if (struct.isSetSubscribeTime()) {
 				optionals.set(9);
 			}
-			oprot.writeBitSet(optionals, 10);
+			if (struct.isSetAppId()) {
+				optionals.set(10);
+			}
+			oprot.writeBitSet(optionals, 11);
 			if (struct.isSetWxOpenid()) {
 				oprot.writeString(struct.wxOpenid);
 			}
@@ -1407,13 +1516,16 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 			if (struct.isSetSubscribeTime()) {
 				oprot.writeString(struct.subscribeTime);
 			}
+			if (struct.isSetAppId()) {
+				oprot.writeString(struct.appId);
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, UserWeixinInfo struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(10);
+			java.util.BitSet incoming = iprot.readBitSet(11);
 			if (incoming.get(0)) {
 				struct.wxOpenid = iprot.readString();
 				struct.setWxOpenidIsSet(true);
@@ -1453,6 +1565,10 @@ public class UserWeixinInfo implements org.apache.thrift.TBase<UserWeixinInfo, U
 			if (incoming.get(9)) {
 				struct.subscribeTime = iprot.readString();
 				struct.setSubscribeTimeIsSet(true);
+			}
+			if (incoming.get(10)) {
+				struct.appId = iprot.readString();
+				struct.setAppIdIsSet(true);
 			}
 		}
 

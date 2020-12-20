@@ -43,6 +43,8 @@ public class userConstants {
 
 	public static final java.lang.String USEREXT_WX_UNIONID = "wx_unionid";
 
+	public static final java.lang.String USEREXT_WX_USERID = "wx_userid";
+
 	/**
 	 * 用户公共拓展表的预留字段(key)
 	 */
@@ -73,5 +75,7 @@ public class userConstants {
 	public static final java.lang.String USER_WX_PLATFORM_WEB = "wx_web";
 
 	public static final java.lang.String USER_WX_PLATFORM_MINIAPP = "wx_miniapp";
+
+	public static final java.lang.String USER_WX_PLATFORM_COM = "wx_com";
 
 }

@@ -52,6 +52,9 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 	private static final org.apache.thrift.protocol.TField TASK_ID_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"taskId", org.apache.thrift.protocol.TType.STRING, (short) 12);
 
+	private static final org.apache.thrift.protocol.TField COMMENT_JSON_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"commentJson", org.apache.thrift.protocol.TType.STRING, (short) 13);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new UserActionStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new UserActionTupleSchemeFactory();
@@ -80,6 +83,8 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String taskId; // required
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String commentJson; // required
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
@@ -88,8 +93,8 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 
 		UID((short) 1, "uid"), UID_DO((short) 2, "uidDo"), HOST((short) 3, "host"), IP((short) 4, "ip"), TIME((short) 5,
 				"time"), IS_STAFF((short) 6, "isStaff"), IS_STAFF_DO((short) 7, "isStaffDo"), STATUS((short) 8,
-						"status"), ACTION((short) 9, "action"), AGENT((short) 10,
-								"agent"), DESC((short) 11, "desc"), TASK_ID((short) 12, "taskId");
+						"status"), ACTION((short) 9, "action"), AGENT((short) 10, "agent"), DESC((short) 11,
+								"desc"), TASK_ID((short) 12, "taskId"), COMMENT_JSON((short) 13, "commentJson");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -129,6 +134,8 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 				return DESC;
 			case 12: // TASK_ID
 				return TASK_ID;
+			case 13: // COMMENT_JSON
+				return COMMENT_JSON;
 			default:
 				return null;
 			}
@@ -223,6 +230,10 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 		tmpMap.put(_Fields.TASK_ID,
 				new org.apache.thrift.meta_data.FieldMetaData("taskId", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.COMMENT_JSON,
+				new org.apache.thrift.meta_data.FieldMetaData("commentJson",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(UserAction.class, metaDataMap);
 	}
@@ -232,7 +243,7 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 
 	public UserAction(java.lang.String uid, java.lang.String uidDo, java.lang.String host, java.lang.String ip,
 			java.lang.String time, boolean isStaff, boolean isStaffDo, int status, java.lang.String action,
-			java.lang.String agent, java.lang.String desc, java.lang.String taskId) {
+			java.lang.String agent, java.lang.String desc, java.lang.String taskId, java.lang.String commentJson) {
 		this();
 		this.uid = uid;
 		this.uidDo = uidDo;
@@ -249,6 +260,7 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 		this.agent = agent;
 		this.desc = desc;
 		this.taskId = taskId;
+		this.commentJson = commentJson;
 	}
 
 	/**
@@ -286,6 +298,9 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 		if (other.isSetTaskId()) {
 			this.taskId = other.taskId;
 		}
+		if (other.isSetCommentJson()) {
+			this.commentJson = other.commentJson;
+		}
 	}
 
 	public UserAction deepCopy() {
@@ -309,6 +324,7 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 		this.agent = null;
 		this.desc = null;
 		this.taskId = null;
+		this.commentJson = null;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -629,6 +645,34 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 		}
 	}
 
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getCommentJson() {
+		return this.commentJson;
+	}
+
+	public UserAction setCommentJson(@org.apache.thrift.annotation.Nullable java.lang.String commentJson) {
+		this.commentJson = commentJson;
+		return this;
+	}
+
+	public void unsetCommentJson() {
+		this.commentJson = null;
+	}
+
+	/**
+	 * Returns true if field commentJson is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetCommentJson() {
+		return this.commentJson != null;
+	}
+
+	public void setCommentJsonIsSet(boolean value) {
+		if (!value) {
+			this.commentJson = null;
+		}
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case UID:
@@ -739,6 +783,15 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 			}
 			break;
 
+		case COMMENT_JSON:
+			if (value == null) {
+				unsetCommentJson();
+			}
+			else {
+				setCommentJson((java.lang.String) value);
+			}
+			break;
+
 		}
 	}
 
@@ -781,6 +834,9 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 		case TASK_ID:
 			return getTaskId();
 
+		case COMMENT_JSON:
+			return getCommentJson();
+
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -819,6 +875,8 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 			return isSetDesc();
 		case TASK_ID:
 			return isSetTaskId();
+		case COMMENT_JSON:
+			return isSetCommentJson();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -946,6 +1004,15 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 				return false;
 		}
 
+		boolean this_present_commentJson = true && this.isSetCommentJson();
+		boolean that_present_commentJson = true && that.isSetCommentJson();
+		if (this_present_commentJson || that_present_commentJson) {
+			if (!(this_present_commentJson && that_present_commentJson))
+				return false;
+			if (!this.commentJson.equals(that.commentJson))
+				return false;
+		}
+
 		return true;
 	}
 
@@ -994,6 +1061,10 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 		hashCode = hashCode * 8191 + ((isSetTaskId()) ? 131071 : 524287);
 		if (isSetTaskId())
 			hashCode = hashCode * 8191 + taskId.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetCommentJson()) ? 131071 : 524287);
+		if (isSetCommentJson())
+			hashCode = hashCode * 8191 + commentJson.hashCode();
 
 		return hashCode;
 	}
@@ -1126,6 +1197,16 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetCommentJson()).compareTo(other.isSetCommentJson());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetCommentJson()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.commentJson, other.commentJson);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		return 0;
 	}
 
@@ -1248,6 +1329,16 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 		}
 		else {
 			sb.append(this.taskId);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("commentJson:");
+		if (this.commentJson == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.commentJson);
 		}
 		first = false;
 		sb.append(")");
@@ -1410,6 +1501,15 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 13: // COMMENT_JSON
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.commentJson = iprot.readString();
+						struct.setCommentJsonIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -1481,6 +1581,11 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 				oprot.writeString(struct.taskId);
 				oprot.writeFieldEnd();
 			}
+			if (struct.commentJson != null) {
+				oprot.writeFieldBegin(COMMENT_JSON_FIELD_DESC);
+				oprot.writeString(struct.commentJson);
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -1538,7 +1643,10 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 			if (struct.isSetTaskId()) {
 				optionals.set(11);
 			}
-			oprot.writeBitSet(optionals, 12);
+			if (struct.isSetCommentJson()) {
+				optionals.set(12);
+			}
+			oprot.writeBitSet(optionals, 13);
 			if (struct.isSetUid()) {
 				oprot.writeString(struct.uid);
 			}
@@ -1575,13 +1683,16 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 			if (struct.isSetTaskId()) {
 				oprot.writeString(struct.taskId);
 			}
+			if (struct.isSetCommentJson()) {
+				oprot.writeString(struct.commentJson);
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, UserAction struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(12);
+			java.util.BitSet incoming = iprot.readBitSet(13);
 			if (incoming.get(0)) {
 				struct.uid = iprot.readString();
 				struct.setUidIsSet(true);
@@ -1629,6 +1740,10 @@ public class UserAction implements org.apache.thrift.TBase<UserAction, UserActio
 			if (incoming.get(11)) {
 				struct.taskId = iprot.readString();
 				struct.setTaskIdIsSet(true);
+			}
+			if (incoming.get(12)) {
+				struct.commentJson = iprot.readString();
+				struct.setCommentJsonIsSet(true);
 			}
 		}
 

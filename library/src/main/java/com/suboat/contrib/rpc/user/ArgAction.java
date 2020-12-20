@@ -52,6 +52,9 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 	private static final org.apache.thrift.protocol.TField TASK_ID_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"taskId", org.apache.thrift.protocol.TType.STRING, (short) 12);
 
+	private static final org.apache.thrift.protocol.TField COMMENT_JSON_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"commentJson", org.apache.thrift.protocol.TType.STRING, (short) 13);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ArgActionStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ArgActionTupleSchemeFactory();
@@ -80,6 +83,8 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String taskId; // optional
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String commentJson; // optional
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
@@ -88,8 +93,9 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 
 		IS_STAFF((short) 1, "isStaff"), UID((short) 2, "uid"), ACTION((short) 3, "action"), DESC((short) 4,
 				"desc"), UID_DO((short) 5, "uidDo"), IS_STAFF_DO((short) 6, "isStaffDo"), STATUS((short) 7,
-						"status"), HOST((short) 8, "host"), IP((short) 9, "ip"), TIME((short) 10,
-								"time"), AGENT((short) 11, "agent"), TASK_ID((short) 12, "taskId");
+						"status"), HOST((short) 8, "host"), IP((short) 9, "ip"), TIME((short) 10, "time"), AGENT(
+								(short) 11,
+								"agent"), TASK_ID((short) 12, "taskId"), COMMENT_JSON((short) 13, "commentJson");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -129,6 +135,8 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 				return AGENT;
 			case 12: // TASK_ID
 				return TASK_ID;
+			case 13: // COMMENT_JSON
+				return COMMENT_JSON;
 			default:
 				return null;
 			}
@@ -182,7 +190,7 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 	private byte __isset_bitfield = 0;
 
 	private static final _Fields optionals[] = { _Fields.UID_DO, _Fields.IS_STAFF_DO, _Fields.STATUS, _Fields.HOST,
-			_Fields.IP, _Fields.TIME, _Fields.AGENT, _Fields.TASK_ID };
+			_Fields.IP, _Fields.TIME, _Fields.AGENT, _Fields.TASK_ID, _Fields.COMMENT_JSON };
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
@@ -226,6 +234,10 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.TASK_ID,
 				new org.apache.thrift.meta_data.FieldMetaData("taskId",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.COMMENT_JSON,
+				new org.apache.thrift.meta_data.FieldMetaData("commentJson",
 						org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
@@ -279,6 +291,9 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 		if (other.isSetTaskId()) {
 			this.taskId = other.taskId;
 		}
+		if (other.isSetCommentJson()) {
+			this.commentJson = other.commentJson;
+		}
 	}
 
 	public ArgAction deepCopy() {
@@ -302,6 +317,7 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 		this.time = null;
 		this.agent = null;
 		this.taskId = null;
+		this.commentJson = null;
 	}
 
 	public boolean isIsStaff() {
@@ -622,6 +638,34 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 		}
 	}
 
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getCommentJson() {
+		return this.commentJson;
+	}
+
+	public ArgAction setCommentJson(@org.apache.thrift.annotation.Nullable java.lang.String commentJson) {
+		this.commentJson = commentJson;
+		return this;
+	}
+
+	public void unsetCommentJson() {
+		this.commentJson = null;
+	}
+
+	/**
+	 * Returns true if field commentJson is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetCommentJson() {
+		return this.commentJson != null;
+	}
+
+	public void setCommentJsonIsSet(boolean value) {
+		if (!value) {
+			this.commentJson = null;
+		}
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case IS_STAFF:
@@ -732,6 +776,15 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 			}
 			break;
 
+		case COMMENT_JSON:
+			if (value == null) {
+				unsetCommentJson();
+			}
+			else {
+				setCommentJson((java.lang.String) value);
+			}
+			break;
+
 		}
 	}
 
@@ -774,6 +827,9 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 		case TASK_ID:
 			return getTaskId();
 
+		case COMMENT_JSON:
+			return getCommentJson();
+
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -812,6 +868,8 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 			return isSetAgent();
 		case TASK_ID:
 			return isSetTaskId();
+		case COMMENT_JSON:
+			return isSetCommentJson();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -939,6 +997,15 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 				return false;
 		}
 
+		boolean this_present_commentJson = true && this.isSetCommentJson();
+		boolean that_present_commentJson = true && that.isSetCommentJson();
+		if (this_present_commentJson || that_present_commentJson) {
+			if (!(this_present_commentJson && that_present_commentJson))
+				return false;
+			if (!this.commentJson.equals(that.commentJson))
+				return false;
+		}
+
 		return true;
 	}
 
@@ -991,6 +1058,10 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 		hashCode = hashCode * 8191 + ((isSetTaskId()) ? 131071 : 524287);
 		if (isSetTaskId())
 			hashCode = hashCode * 8191 + taskId.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetCommentJson()) ? 131071 : 524287);
+		if (isSetCommentJson())
+			hashCode = hashCode * 8191 + commentJson.hashCode();
 
 		return hashCode;
 	}
@@ -1119,6 +1190,16 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 		}
 		if (isSetTaskId()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.taskId, other.taskId);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetCommentJson()).compareTo(other.isSetCommentJson());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetCommentJson()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.commentJson, other.commentJson);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -1260,6 +1341,18 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 			}
 			else {
 				sb.append(this.taskId);
+			}
+			first = false;
+		}
+		if (isSetCommentJson()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("commentJson:");
+			if (this.commentJson == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.commentJson);
 			}
 			first = false;
 		}
@@ -1423,6 +1516,15 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 13: // COMMENT_JSON
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.commentJson = iprot.readString();
+						struct.setCommentJsonIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -1510,6 +1612,13 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 					oprot.writeFieldEnd();
 				}
 			}
+			if (struct.commentJson != null) {
+				if (struct.isSetCommentJson()) {
+					oprot.writeFieldBegin(COMMENT_JSON_FIELD_DESC);
+					oprot.writeString(struct.commentJson);
+					oprot.writeFieldEnd();
+				}
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -1567,7 +1676,10 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 			if (struct.isSetTaskId()) {
 				optionals.set(11);
 			}
-			oprot.writeBitSet(optionals, 12);
+			if (struct.isSetCommentJson()) {
+				optionals.set(12);
+			}
+			oprot.writeBitSet(optionals, 13);
 			if (struct.isSetIsStaff()) {
 				oprot.writeBool(struct.isStaff);
 			}
@@ -1604,13 +1716,16 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 			if (struct.isSetTaskId()) {
 				oprot.writeString(struct.taskId);
 			}
+			if (struct.isSetCommentJson()) {
+				oprot.writeString(struct.commentJson);
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, ArgAction struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(12);
+			java.util.BitSet incoming = iprot.readBitSet(13);
 			if (incoming.get(0)) {
 				struct.isStaff = iprot.readBool();
 				struct.setIsStaffIsSet(true);
@@ -1658,6 +1773,10 @@ public class ArgAction implements org.apache.thrift.TBase<ArgAction, ArgAction._
 			if (incoming.get(11)) {
 				struct.taskId = iprot.readString();
 				struct.setTaskIdIsSet(true);
+			}
+			if (incoming.get(12)) {
+				struct.commentJson = iprot.readString();
+				struct.setCommentJsonIsSet(true);
 			}
 		}
 

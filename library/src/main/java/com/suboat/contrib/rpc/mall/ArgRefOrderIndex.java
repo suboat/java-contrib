@@ -16,11 +16,16 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 	private static final org.apache.thrift.protocol.TField XID_FIELD_DESC = new org.apache.thrift.protocol.TField("xid",
 			org.apache.thrift.protocol.TType.STRING, (short) 1);
 
+	private static final org.apache.thrift.protocol.TField UID_FIELD_DESC = new org.apache.thrift.protocol.TField("uid",
+			org.apache.thrift.protocol.TType.STRING, (short) 2);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ArgRefOrderIndexStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ArgRefOrderIndexTupleSchemeFactory();
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String xid; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String uid; // optional
 
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
@@ -28,7 +33,7 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 	 */
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
-		XID((short) 1, "xid");
+		XID((short) 1, "xid"), UID((short) 2, "uid");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -46,6 +51,8 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 			switch (fieldId) {
 			case 1: // XID
 				return XID;
+			case 2: // UID
+				return UID;
 			default:
 				return null;
 			}
@@ -90,7 +97,7 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 	}
 
 	// isset id assignments
-	private static final _Fields optionals[] = { _Fields.XID };
+	private static final _Fields optionals[] = { _Fields.XID, _Fields.UID };
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
@@ -98,6 +105,9 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 				_Fields.class);
 		tmpMap.put(_Fields.XID,
 				new org.apache.thrift.meta_data.FieldMetaData("xid", org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.UID,
+				new org.apache.thrift.meta_data.FieldMetaData("uid", org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ArgRefOrderIndex.class, metaDataMap);
@@ -113,6 +123,9 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 		if (other.isSetXid()) {
 			this.xid = other.xid;
 		}
+		if (other.isSetUid()) {
+			this.uid = other.uid;
+		}
 	}
 
 	public ArgRefOrderIndex deepCopy() {
@@ -122,6 +135,7 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 	@Override
 	public void clear() {
 		this.xid = null;
+		this.uid = null;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -151,6 +165,33 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 		}
 	}
 
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getUid() {
+		return this.uid;
+	}
+
+	public ArgRefOrderIndex setUid(@org.apache.thrift.annotation.Nullable java.lang.String uid) {
+		this.uid = uid;
+		return this;
+	}
+
+	public void unsetUid() {
+		this.uid = null;
+	}
+
+	/**
+	 * Returns true if field uid is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetUid() {
+		return this.uid != null;
+	}
+
+	public void setUidIsSet(boolean value) {
+		if (!value) {
+			this.uid = null;
+		}
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case XID:
@@ -162,6 +203,15 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 			}
 			break;
 
+		case UID:
+			if (value == null) {
+				unsetUid();
+			}
+			else {
+				setUid((java.lang.String) value);
+			}
+			break;
+
 		}
 	}
 
@@ -170,6 +220,9 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 		switch (field) {
 		case XID:
 			return getXid();
+
+		case UID:
+			return getUid();
 
 		}
 		throw new java.lang.IllegalStateException();
@@ -187,6 +240,8 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 		switch (field) {
 		case XID:
 			return isSetXid();
+		case UID:
+			return isSetUid();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -215,6 +270,15 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 				return false;
 		}
 
+		boolean this_present_uid = true && this.isSetUid();
+		boolean that_present_uid = true && that.isSetUid();
+		if (this_present_uid || that_present_uid) {
+			if (!(this_present_uid && that_present_uid))
+				return false;
+			if (!this.uid.equals(that.uid))
+				return false;
+		}
+
 		return true;
 	}
 
@@ -225,6 +289,10 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 		hashCode = hashCode * 8191 + ((isSetXid()) ? 131071 : 524287);
 		if (isSetXid())
 			hashCode = hashCode * 8191 + xid.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetUid()) ? 131071 : 524287);
+		if (isSetUid())
+			hashCode = hashCode * 8191 + uid.hashCode();
 
 		return hashCode;
 	}
@@ -243,6 +311,16 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 		}
 		if (isSetXid()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.xid, other.xid);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetUid()).compareTo(other.isSetUid());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetUid()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.uid, other.uid);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -275,6 +353,18 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 			}
 			else {
 				sb.append(this.xid);
+			}
+			first = false;
+		}
+		if (isSetUid()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("uid:");
+			if (this.uid == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.uid);
 			}
 			first = false;
 		}
@@ -337,6 +427,15 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 2: // UID
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.uid = iprot.readString();
+						struct.setUidIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -358,6 +457,13 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 				if (struct.isSetXid()) {
 					oprot.writeFieldBegin(XID_FIELD_DESC);
 					oprot.writeString(struct.xid);
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.uid != null) {
+				if (struct.isSetUid()) {
+					oprot.writeFieldBegin(UID_FIELD_DESC);
+					oprot.writeString(struct.uid);
 					oprot.writeFieldEnd();
 				}
 			}
@@ -385,9 +491,15 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 			if (struct.isSetXid()) {
 				optionals.set(0);
 			}
-			oprot.writeBitSet(optionals, 1);
+			if (struct.isSetUid()) {
+				optionals.set(1);
+			}
+			oprot.writeBitSet(optionals, 2);
 			if (struct.isSetXid()) {
 				oprot.writeString(struct.xid);
+			}
+			if (struct.isSetUid()) {
+				oprot.writeString(struct.uid);
 			}
 		}
 
@@ -395,10 +507,14 @@ public class ArgRefOrderIndex implements org.apache.thrift.TBase<ArgRefOrderInde
 		public void read(org.apache.thrift.protocol.TProtocol prot, ArgRefOrderIndex struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(1);
+			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				struct.xid = iprot.readString();
 				struct.setXidIsSet(true);
+			}
+			if (incoming.get(1)) {
+				struct.uid = iprot.readString();
+				struct.setUidIsSet(true);
 			}
 		}
 

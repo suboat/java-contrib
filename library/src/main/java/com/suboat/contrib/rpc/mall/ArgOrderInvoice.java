@@ -7,25 +7,25 @@
 package com.suboat.contrib.rpc.mall;
 
 @SuppressWarnings({ "cast", "rawtypes", "serial", "unchecked", "unused" })
-public class ArgRefOrder implements org.apache.thrift.TBase<ArgRefOrder, ArgRefOrder._Fields>, java.io.Serializable,
-		Cloneable, Comparable<ArgRefOrder> {
+public class ArgOrderInvoice implements org.apache.thrift.TBase<ArgOrderInvoice, ArgOrderInvoice._Fields>,
+		java.io.Serializable, Cloneable, Comparable<ArgOrderInvoice> {
 
 	private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
-			"ArgRefOrder");
+			"ArgOrderInvoice");
 
-	private static final org.apache.thrift.protocol.TField OID_FIELD_DESC = new org.apache.thrift.protocol.TField("oid",
-			org.apache.thrift.protocol.TType.STRING, (short) 1);
+	private static final org.apache.thrift.protocol.TField TITLE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"title", org.apache.thrift.protocol.TType.STRING, (short) 1);
 
-	private static final org.apache.thrift.protocol.TField UID_FIELD_DESC = new org.apache.thrift.protocol.TField("uid",
-			org.apache.thrift.protocol.TType.STRING, (short) 2);
+	private static final org.apache.thrift.protocol.TField TAX_NUMBER_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"taxNumber", org.apache.thrift.protocol.TType.STRING, (short) 2);
 
-	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ArgRefOrderStandardSchemeFactory();
+	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ArgOrderInvoiceStandardSchemeFactory();
 
-	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ArgRefOrderTupleSchemeFactory();
+	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ArgOrderInvoiceTupleSchemeFactory();
 
-	public @org.apache.thrift.annotation.Nullable java.lang.String oid; // optional
+	public @org.apache.thrift.annotation.Nullable java.lang.String title; // required
 
-	public @org.apache.thrift.annotation.Nullable java.lang.String uid; // optional
+	public @org.apache.thrift.annotation.Nullable java.lang.String taxNumber; // optional
 
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
@@ -33,7 +33,7 @@ public class ArgRefOrder implements org.apache.thrift.TBase<ArgRefOrder, ArgRefO
 	 */
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
-		OID((short) 1, "oid"), UID((short) 2, "uid");
+		TITLE((short) 1, "title"), TAX_NUMBER((short) 2, "taxNumber");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -49,10 +49,10 @@ public class ArgRefOrder implements org.apache.thrift.TBase<ArgRefOrder, ArgRefO
 		@org.apache.thrift.annotation.Nullable
 		public static _Fields findByThriftId(int fieldId) {
 			switch (fieldId) {
-			case 1: // OID
-				return OID;
-			case 2: // UID
-				return UID;
+			case 1: // TITLE
+				return TITLE;
+			case 2: // TAX_NUMBER
+				return TAX_NUMBER;
 			default:
 				return null;
 			}
@@ -97,118 +97,125 @@ public class ArgRefOrder implements org.apache.thrift.TBase<ArgRefOrder, ArgRefO
 	}
 
 	// isset id assignments
-	private static final _Fields optionals[] = { _Fields.OID, _Fields.UID };
+	private static final _Fields optionals[] = { _Fields.TAX_NUMBER };
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
 		java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
 				_Fields.class);
-		tmpMap.put(_Fields.OID,
-				new org.apache.thrift.meta_data.FieldMetaData("oid", org.apache.thrift.TFieldRequirementType.OPTIONAL,
+		tmpMap.put(_Fields.TITLE,
+				new org.apache.thrift.meta_data.FieldMetaData("title", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-		tmpMap.put(_Fields.UID,
-				new org.apache.thrift.meta_data.FieldMetaData("uid", org.apache.thrift.TFieldRequirementType.OPTIONAL,
+		tmpMap.put(_Fields.TAX_NUMBER,
+				new org.apache.thrift.meta_data.FieldMetaData("taxNumber",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ArgRefOrder.class, metaDataMap);
+		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ArgOrderInvoice.class, metaDataMap);
 	}
 
-	public ArgRefOrder() {
+	public ArgOrderInvoice() {
+	}
+
+	public ArgOrderInvoice(java.lang.String title) {
+		this();
+		this.title = title;
 	}
 
 	/**
 	 * Performs a deep copy on <i>other</i>.
 	 */
-	public ArgRefOrder(ArgRefOrder other) {
-		if (other.isSetOid()) {
-			this.oid = other.oid;
+	public ArgOrderInvoice(ArgOrderInvoice other) {
+		if (other.isSetTitle()) {
+			this.title = other.title;
 		}
-		if (other.isSetUid()) {
-			this.uid = other.uid;
+		if (other.isSetTaxNumber()) {
+			this.taxNumber = other.taxNumber;
 		}
 	}
 
-	public ArgRefOrder deepCopy() {
-		return new ArgRefOrder(this);
+	public ArgOrderInvoice deepCopy() {
+		return new ArgOrderInvoice(this);
 	}
 
 	@Override
 	public void clear() {
-		this.oid = null;
-		this.uid = null;
+		this.title = null;
+		this.taxNumber = null;
 	}
 
 	@org.apache.thrift.annotation.Nullable
-	public java.lang.String getOid() {
-		return this.oid;
+	public java.lang.String getTitle() {
+		return this.title;
 	}
 
-	public ArgRefOrder setOid(@org.apache.thrift.annotation.Nullable java.lang.String oid) {
-		this.oid = oid;
+	public ArgOrderInvoice setTitle(@org.apache.thrift.annotation.Nullable java.lang.String title) {
+		this.title = title;
 		return this;
 	}
 
-	public void unsetOid() {
-		this.oid = null;
+	public void unsetTitle() {
+		this.title = null;
 	}
 
 	/**
-	 * Returns true if field oid is set (has been assigned a value) and false otherwise
+	 * Returns true if field title is set (has been assigned a value) and false otherwise
 	 */
-	public boolean isSetOid() {
-		return this.oid != null;
+	public boolean isSetTitle() {
+		return this.title != null;
 	}
 
-	public void setOidIsSet(boolean value) {
+	public void setTitleIsSet(boolean value) {
 		if (!value) {
-			this.oid = null;
+			this.title = null;
 		}
 	}
 
 	@org.apache.thrift.annotation.Nullable
-	public java.lang.String getUid() {
-		return this.uid;
+	public java.lang.String getTaxNumber() {
+		return this.taxNumber;
 	}
 
-	public ArgRefOrder setUid(@org.apache.thrift.annotation.Nullable java.lang.String uid) {
-		this.uid = uid;
+	public ArgOrderInvoice setTaxNumber(@org.apache.thrift.annotation.Nullable java.lang.String taxNumber) {
+		this.taxNumber = taxNumber;
 		return this;
 	}
 
-	public void unsetUid() {
-		this.uid = null;
+	public void unsetTaxNumber() {
+		this.taxNumber = null;
 	}
 
 	/**
-	 * Returns true if field uid is set (has been assigned a value) and false otherwise
+	 * Returns true if field taxNumber is set (has been assigned a value) and false
+	 * otherwise
 	 */
-	public boolean isSetUid() {
-		return this.uid != null;
+	public boolean isSetTaxNumber() {
+		return this.taxNumber != null;
 	}
 
-	public void setUidIsSet(boolean value) {
+	public void setTaxNumberIsSet(boolean value) {
 		if (!value) {
-			this.uid = null;
+			this.taxNumber = null;
 		}
 	}
 
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
-		case OID:
+		case TITLE:
 			if (value == null) {
-				unsetOid();
+				unsetTitle();
 			}
 			else {
-				setOid((java.lang.String) value);
+				setTitle((java.lang.String) value);
 			}
 			break;
 
-		case UID:
+		case TAX_NUMBER:
 			if (value == null) {
-				unsetUid();
+				unsetTaxNumber();
 			}
 			else {
-				setUid((java.lang.String) value);
+				setTaxNumber((java.lang.String) value);
 			}
 			break;
 
@@ -218,11 +225,11 @@ public class ArgRefOrder implements org.apache.thrift.TBase<ArgRefOrder, ArgRefO
 	@org.apache.thrift.annotation.Nullable
 	public java.lang.Object getFieldValue(_Fields field) {
 		switch (field) {
-		case OID:
-			return getOid();
+		case TITLE:
+			return getTitle();
 
-		case UID:
-			return getUid();
+		case TAX_NUMBER:
+			return getTaxNumber();
 
 		}
 		throw new java.lang.IllegalStateException();
@@ -238,10 +245,10 @@ public class ArgRefOrder implements org.apache.thrift.TBase<ArgRefOrder, ArgRefO
 		}
 
 		switch (field) {
-		case OID:
-			return isSetOid();
-		case UID:
-			return isSetUid();
+		case TITLE:
+			return isSetTitle();
+		case TAX_NUMBER:
+			return isSetTaxNumber();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -250,32 +257,32 @@ public class ArgRefOrder implements org.apache.thrift.TBase<ArgRefOrder, ArgRefO
 	public boolean equals(java.lang.Object that) {
 		if (that == null)
 			return false;
-		if (that instanceof ArgRefOrder)
-			return this.equals((ArgRefOrder) that);
+		if (that instanceof ArgOrderInvoice)
+			return this.equals((ArgOrderInvoice) that);
 		return false;
 	}
 
-	public boolean equals(ArgRefOrder that) {
+	public boolean equals(ArgOrderInvoice that) {
 		if (that == null)
 			return false;
 		if (this == that)
 			return true;
 
-		boolean this_present_oid = true && this.isSetOid();
-		boolean that_present_oid = true && that.isSetOid();
-		if (this_present_oid || that_present_oid) {
-			if (!(this_present_oid && that_present_oid))
+		boolean this_present_title = true && this.isSetTitle();
+		boolean that_present_title = true && that.isSetTitle();
+		if (this_present_title || that_present_title) {
+			if (!(this_present_title && that_present_title))
 				return false;
-			if (!this.oid.equals(that.oid))
+			if (!this.title.equals(that.title))
 				return false;
 		}
 
-		boolean this_present_uid = true && this.isSetUid();
-		boolean that_present_uid = true && that.isSetUid();
-		if (this_present_uid || that_present_uid) {
-			if (!(this_present_uid && that_present_uid))
+		boolean this_present_taxNumber = true && this.isSetTaxNumber();
+		boolean that_present_taxNumber = true && that.isSetTaxNumber();
+		if (this_present_taxNumber || that_present_taxNumber) {
+			if (!(this_present_taxNumber && that_present_taxNumber))
 				return false;
-			if (!this.uid.equals(that.uid))
+			if (!this.taxNumber.equals(that.taxNumber))
 				return false;
 		}
 
@@ -286,41 +293,41 @@ public class ArgRefOrder implements org.apache.thrift.TBase<ArgRefOrder, ArgRefO
 	public int hashCode() {
 		int hashCode = 1;
 
-		hashCode = hashCode * 8191 + ((isSetOid()) ? 131071 : 524287);
-		if (isSetOid())
-			hashCode = hashCode * 8191 + oid.hashCode();
+		hashCode = hashCode * 8191 + ((isSetTitle()) ? 131071 : 524287);
+		if (isSetTitle())
+			hashCode = hashCode * 8191 + title.hashCode();
 
-		hashCode = hashCode * 8191 + ((isSetUid()) ? 131071 : 524287);
-		if (isSetUid())
-			hashCode = hashCode * 8191 + uid.hashCode();
+		hashCode = hashCode * 8191 + ((isSetTaxNumber()) ? 131071 : 524287);
+		if (isSetTaxNumber())
+			hashCode = hashCode * 8191 + taxNumber.hashCode();
 
 		return hashCode;
 	}
 
 	@Override
-	public int compareTo(ArgRefOrder other) {
+	public int compareTo(ArgOrderInvoice other) {
 		if (!getClass().equals(other.getClass())) {
 			return getClass().getName().compareTo(other.getClass().getName());
 		}
 
 		int lastComparison = 0;
 
-		lastComparison = java.lang.Boolean.valueOf(isSetOid()).compareTo(other.isSetOid());
+		lastComparison = java.lang.Boolean.valueOf(isSetTitle()).compareTo(other.isSetTitle());
 		if (lastComparison != 0) {
 			return lastComparison;
 		}
-		if (isSetOid()) {
-			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.oid, other.oid);
+		if (isSetTitle()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.title, other.title);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
 		}
-		lastComparison = java.lang.Boolean.valueOf(isSetUid()).compareTo(other.isSetUid());
+		lastComparison = java.lang.Boolean.valueOf(isSetTaxNumber()).compareTo(other.isSetTaxNumber());
 		if (lastComparison != 0) {
 			return lastComparison;
 		}
-		if (isSetUid()) {
-			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.uid, other.uid);
+		if (isSetTaxNumber()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.taxNumber, other.taxNumber);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -343,28 +350,26 @@ public class ArgRefOrder implements org.apache.thrift.TBase<ArgRefOrder, ArgRefO
 
 	@Override
 	public java.lang.String toString() {
-		java.lang.StringBuilder sb = new java.lang.StringBuilder("ArgRefOrder(");
+		java.lang.StringBuilder sb = new java.lang.StringBuilder("ArgOrderInvoice(");
 		boolean first = true;
 
-		if (isSetOid()) {
-			sb.append("oid:");
-			if (this.oid == null) {
-				sb.append("null");
-			}
-			else {
-				sb.append(this.oid);
-			}
-			first = false;
+		sb.append("title:");
+		if (this.title == null) {
+			sb.append("null");
 		}
-		if (isSetUid()) {
+		else {
+			sb.append(this.title);
+		}
+		first = false;
+		if (isSetTaxNumber()) {
 			if (!first)
 				sb.append(", ");
-			sb.append("uid:");
-			if (this.uid == null) {
+			sb.append("taxNumber:");
+			if (this.taxNumber == null) {
 				sb.append("null");
 			}
 			else {
-				sb.append(this.uid);
+				sb.append(this.taxNumber);
 			}
 			first = false;
 		}
@@ -397,17 +402,18 @@ public class ArgRefOrder implements org.apache.thrift.TBase<ArgRefOrder, ArgRefO
 		}
 	}
 
-	private static class ArgRefOrderStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+	private static class ArgOrderInvoiceStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
 
-		public ArgRefOrderStandardScheme getScheme() {
-			return new ArgRefOrderStandardScheme();
+		public ArgOrderInvoiceStandardScheme getScheme() {
+			return new ArgOrderInvoiceStandardScheme();
 		}
 
 	}
 
-	private static class ArgRefOrderStandardScheme extends org.apache.thrift.scheme.StandardScheme<ArgRefOrder> {
+	private static class ArgOrderInvoiceStandardScheme
+			extends org.apache.thrift.scheme.StandardScheme<ArgOrderInvoice> {
 
-		public void read(org.apache.thrift.protocol.TProtocol iprot, ArgRefOrder struct)
+		public void read(org.apache.thrift.protocol.TProtocol iprot, ArgOrderInvoice struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TField schemeField;
 			iprot.readStructBegin();
@@ -417,19 +423,19 @@ public class ArgRefOrder implements org.apache.thrift.TBase<ArgRefOrder, ArgRefO
 					break;
 				}
 				switch (schemeField.id) {
-				case 1: // OID
+				case 1: // TITLE
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-						struct.oid = iprot.readString();
-						struct.setOidIsSet(true);
+						struct.title = iprot.readString();
+						struct.setTitleIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
-				case 2: // UID
+				case 2: // TAX_NUMBER
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
-						struct.uid = iprot.readString();
-						struct.setUidIsSet(true);
+						struct.taxNumber = iprot.readString();
+						struct.setTaxNumberIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -447,22 +453,20 @@ public class ArgRefOrder implements org.apache.thrift.TBase<ArgRefOrder, ArgRefO
 			struct.validate();
 		}
 
-		public void write(org.apache.thrift.protocol.TProtocol oprot, ArgRefOrder struct)
+		public void write(org.apache.thrift.protocol.TProtocol oprot, ArgOrderInvoice struct)
 				throws org.apache.thrift.TException {
 			struct.validate();
 
 			oprot.writeStructBegin(STRUCT_DESC);
-			if (struct.oid != null) {
-				if (struct.isSetOid()) {
-					oprot.writeFieldBegin(OID_FIELD_DESC);
-					oprot.writeString(struct.oid);
-					oprot.writeFieldEnd();
-				}
+			if (struct.title != null) {
+				oprot.writeFieldBegin(TITLE_FIELD_DESC);
+				oprot.writeString(struct.title);
+				oprot.writeFieldEnd();
 			}
-			if (struct.uid != null) {
-				if (struct.isSetUid()) {
-					oprot.writeFieldBegin(UID_FIELD_DESC);
-					oprot.writeString(struct.uid);
+			if (struct.taxNumber != null) {
+				if (struct.isSetTaxNumber()) {
+					oprot.writeFieldBegin(TAX_NUMBER_FIELD_DESC);
+					oprot.writeString(struct.taxNumber);
 					oprot.writeFieldEnd();
 				}
 			}
@@ -472,48 +476,48 @@ public class ArgRefOrder implements org.apache.thrift.TBase<ArgRefOrder, ArgRefO
 
 	}
 
-	private static class ArgRefOrderTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+	private static class ArgOrderInvoiceTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
 
-		public ArgRefOrderTupleScheme getScheme() {
-			return new ArgRefOrderTupleScheme();
+		public ArgOrderInvoiceTupleScheme getScheme() {
+			return new ArgOrderInvoiceTupleScheme();
 		}
 
 	}
 
-	private static class ArgRefOrderTupleScheme extends org.apache.thrift.scheme.TupleScheme<ArgRefOrder> {
+	private static class ArgOrderInvoiceTupleScheme extends org.apache.thrift.scheme.TupleScheme<ArgOrderInvoice> {
 
 		@Override
-		public void write(org.apache.thrift.protocol.TProtocol prot, ArgRefOrder struct)
+		public void write(org.apache.thrift.protocol.TProtocol prot, ArgOrderInvoice struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 			java.util.BitSet optionals = new java.util.BitSet();
-			if (struct.isSetOid()) {
+			if (struct.isSetTitle()) {
 				optionals.set(0);
 			}
-			if (struct.isSetUid()) {
+			if (struct.isSetTaxNumber()) {
 				optionals.set(1);
 			}
 			oprot.writeBitSet(optionals, 2);
-			if (struct.isSetOid()) {
-				oprot.writeString(struct.oid);
+			if (struct.isSetTitle()) {
+				oprot.writeString(struct.title);
 			}
-			if (struct.isSetUid()) {
-				oprot.writeString(struct.uid);
+			if (struct.isSetTaxNumber()) {
+				oprot.writeString(struct.taxNumber);
 			}
 		}
 
 		@Override
-		public void read(org.apache.thrift.protocol.TProtocol prot, ArgRefOrder struct)
+		public void read(org.apache.thrift.protocol.TProtocol prot, ArgOrderInvoice struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
-				struct.oid = iprot.readString();
-				struct.setOidIsSet(true);
+				struct.title = iprot.readString();
+				struct.setTitleIsSet(true);
 			}
 			if (incoming.get(1)) {
-				struct.uid = iprot.readString();
-				struct.setUidIsSet(true);
+				struct.taxNumber = iprot.readString();
+				struct.setTaxNumberIsSet(true);
 			}
 		}
 

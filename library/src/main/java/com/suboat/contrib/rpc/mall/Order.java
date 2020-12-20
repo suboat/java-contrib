@@ -199,6 +199,9 @@ public class Order
 	private static final org.apache.thrift.protocol.TField GOODS_SHOT_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"goodsShot", org.apache.thrift.protocol.TType.STRING, (short) 58);
 
+	private static final org.apache.thrift.protocol.TField INVOICE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"invoice", org.apache.thrift.protocol.TType.STRUCT, (short) 63);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new OrderStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new OrderTupleSchemeFactory();
@@ -327,6 +330,8 @@ public class Order
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String goodsShot; // required
 
+	public @org.apache.thrift.annotation.Nullable OrderInvoice invoice; // required
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
@@ -427,7 +432,9 @@ public class Order
 																																																																																																								(short) 57,
 																																																																																																								"goodShot"), GOODS_SHOT(
 																																																																																																										(short) 58,
-																																																																																																										"goodsShot");
+																																																																																																										"goodsShot"), INVOICE(
+																																																																																																												(short) 63,
+																																																																																																												"invoice");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -567,6 +574,8 @@ public class Order
 				return GOOD_SHOT;
 			case 58: // GOODS_SHOT
 				return GOODS_SHOT;
+			case 63: // INVOICE
+				return INVOICE;
 			default:
 				return null;
 			}
@@ -915,6 +924,11 @@ public class Order
 				new org.apache.thrift.meta_data.FieldMetaData("goodsShot",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.INVOICE,
+				new org.apache.thrift.meta_data.FieldMetaData("invoice",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
+								"OrderInvoice")));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(Order.class, metaDataMap);
 	}
@@ -942,7 +956,7 @@ public class Order
 			double couponPayThis, double couponPayAll, double couponCashThis, double couponCashAll,
 			double couponDisThis, double couponDisAll, java.lang.String note, java.lang.String noteSell,
 			java.lang.String address, java.util.List<CouponFlow> couponArr, java.lang.String goodShot,
-			java.lang.String goodsShot) {
+			java.lang.String goodsShot, OrderInvoice invoice) {
 		this();
 		this.oid = oid;
 		this.xid = xid;
@@ -1035,6 +1049,7 @@ public class Order
 		this.couponArr = couponArr;
 		this.goodShot = goodShot;
 		this.goodsShot = goodsShot;
+		this.invoice = invoice;
 	}
 
 	/**
@@ -1190,6 +1205,9 @@ public class Order
 		if (other.isSetGoodsShot()) {
 			this.goodsShot = other.goodsShot;
 		}
+		if (other.isSetInvoice()) {
+			this.invoice = new OrderInvoice(other.invoice);
+		}
 	}
 
 	public Order deepCopy() {
@@ -1289,6 +1307,7 @@ public class Order
 		this.couponArr = null;
 		this.goodShot = null;
 		this.goodsShot = null;
+		this.invoice = null;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -3070,6 +3089,34 @@ public class Order
 		}
 	}
 
+	@org.apache.thrift.annotation.Nullable
+	public OrderInvoice getInvoice() {
+		return this.invoice;
+	}
+
+	public Order setInvoice(@org.apache.thrift.annotation.Nullable OrderInvoice invoice) {
+		this.invoice = invoice;
+		return this;
+	}
+
+	public void unsetInvoice() {
+		this.invoice = null;
+	}
+
+	/**
+	 * Returns true if field invoice is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetInvoice() {
+		return this.invoice != null;
+	}
+
+	public void setInvoiceIsSet(boolean value) {
+		if (!value) {
+			this.invoice = null;
+		}
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case OID:
@@ -3630,6 +3677,15 @@ public class Order
 			}
 			break;
 
+		case INVOICE:
+			if (value == null) {
+				unsetInvoice();
+			}
+			else {
+				setInvoice((OrderInvoice) value);
+			}
+			break;
+
 		}
 	}
 
@@ -3822,6 +3878,9 @@ public class Order
 		case GOODS_SHOT:
 			return getGoodsShot();
 
+		case INVOICE:
+			return getInvoice();
+
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -3960,6 +4019,8 @@ public class Order
 			return isSetGoodShot();
 		case GOODS_SHOT:
 			return isSetGoodsShot();
+		case INVOICE:
+			return isSetInvoice();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -4537,6 +4598,15 @@ public class Order
 				return false;
 		}
 
+		boolean this_present_invoice = true && this.isSetInvoice();
+		boolean that_present_invoice = true && that.isSetInvoice();
+		if (this_present_invoice || that_present_invoice) {
+			if (!(this_present_invoice && that_present_invoice))
+				return false;
+			if (!this.invoice.equals(that.invoice))
+				return false;
+		}
+
 		return true;
 	}
 
@@ -4733,6 +4803,10 @@ public class Order
 		hashCode = hashCode * 8191 + ((isSetGoodsShot()) ? 131071 : 524287);
 		if (isSetGoodsShot())
 			hashCode = hashCode * 8191 + goodsShot.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetInvoice()) ? 131071 : 524287);
+		if (isSetInvoice())
+			hashCode = hashCode * 8191 + invoice.hashCode();
 
 		return hashCode;
 	}
@@ -5365,6 +5439,16 @@ public class Order
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetInvoice()).compareTo(other.isSetInvoice());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetInvoice()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.invoice, other.invoice);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		return 0;
 	}
 
@@ -5857,6 +5941,16 @@ public class Order
 		}
 		else {
 			sb.append(this.goodsShot);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("invoice:");
+		if (this.invoice == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.invoice);
 		}
 		first = false;
 		sb.append(")");
@@ -6583,6 +6677,16 @@ public class Order
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 63: // INVOICE
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+						struct.invoice = new OrderInvoice();
+						struct.invoice.read(iprot);
+						struct.setInvoiceIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -6931,6 +7035,11 @@ public class Order
 				oprot.writeString(struct.noteSell);
 				oprot.writeFieldEnd();
 			}
+			if (struct.invoice != null) {
+				oprot.writeFieldBegin(INVOICE_FIELD_DESC);
+				struct.invoice.write(oprot);
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -7137,7 +7246,10 @@ public class Order
 			if (struct.isSetGoodsShot()) {
 				optionals.set(61);
 			}
-			oprot.writeBitSet(optionals, 62);
+			if (struct.isSetInvoice()) {
+				optionals.set(62);
+			}
+			oprot.writeBitSet(optionals, 63);
 			if (struct.isSetOid()) {
 				oprot.writeString(struct.oid);
 			}
@@ -7385,12 +7497,15 @@ public class Order
 			if (struct.isSetGoodsShot()) {
 				oprot.writeString(struct.goodsShot);
 			}
+			if (struct.isSetInvoice()) {
+				struct.invoice.write(oprot);
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, Order struct) throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(62);
+			java.util.BitSet incoming = iprot.readBitSet(63);
 			if (incoming.get(0)) {
 				struct.oid = iprot.readString();
 				struct.setOidIsSet(true);
@@ -7753,6 +7868,11 @@ public class Order
 			if (incoming.get(61)) {
 				struct.goodsShot = iprot.readString();
 				struct.setGoodsShotIsSet(true);
+			}
+			if (incoming.get(62)) {
+				struct.invoice = new OrderInvoice();
+				struct.invoice.read(iprot);
+				struct.setInvoiceIsSet(true);
 			}
 		}
 

@@ -25,8 +25,20 @@ public class Store
 	private static final org.apache.thrift.protocol.TField UPDATE_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"updateTime", org.apache.thrift.protocol.TType.STRING, (short) 4);
 
+	private static final org.apache.thrift.protocol.TField LONGITUDE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"longitude", org.apache.thrift.protocol.TType.DOUBLE, (short) 20);
+
+	private static final org.apache.thrift.protocol.TField LATITUDE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"latitude", org.apache.thrift.protocol.TType.DOUBLE, (short) 21);
+
+	private static final org.apache.thrift.protocol.TField LOCATION_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"location", org.apache.thrift.protocol.TType.STRING, (short) 22);
+
 	private static final org.apache.thrift.protocol.TField NAME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"name", org.apache.thrift.protocol.TType.STRING, (short) 5);
+
+	private static final org.apache.thrift.protocol.TField NAME_ALIAS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"nameAlias", org.apache.thrift.protocol.TType.STRING, (short) 23);
 
 	private static final org.apache.thrift.protocol.TField KEY_FIELD_DESC = new org.apache.thrift.protocol.TField("key",
 			org.apache.thrift.protocol.TType.STRING, (short) 6);
@@ -82,7 +94,15 @@ public class Store
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String updateTime; // required
 
+	public double longitude; // required
+
+	public double latitude; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String location; // required
+
 	public @org.apache.thrift.annotation.Nullable java.lang.String name; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String nameAlias; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String key; // required
 
@@ -119,15 +139,19 @@ public class Store
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
 		SID((short) 1, "sid"), UID((short) 2, "uid"), CREATE_TIME((short) 3, "createTime"), UPDATE_TIME((short) 4,
-				"updateTime"), NAME((short) 5, "name"), KEY((short) 6, "key"), IS_STAFF((short) 7,
-						"isStaff"), IS_ACTIVE((short) 8, "isActive"), IS_DELETE((short) 9,
-								"isDelete"), IS_PAY((short) 10, "isPay"), STATUS((short) 11, "status"), ICON((short) 12,
-										"icon"), DESCRIPTION((short) 13, "description"), ADDRESS((short) 14,
-												"address"), NUM_FANS((short) 15, "numFans"), PROFIT_RATE((short) 16,
-														"profitRate"), PROFIT_BANK_AGENT((short) 17,
-																"profitBankAgent"), PROFIT_BANK_NAME((short) 18,
-																		"profitBankName"), PROFIT_BANK_NUMBER(
-																				(short) 19, "profitBankNumber");
+				"updateTime"), LONGITUDE((short) 20, "longitude"), LATITUDE((short) 21, "latitude"), LOCATION(
+						(short) 22,
+						"location"), NAME((short) 5, "name"), NAME_ALIAS((short) 23, "nameAlias"), KEY((short) 6,
+								"key"), IS_STAFF((short) 7, "isStaff"), IS_ACTIVE((short) 8, "isActive"), IS_DELETE(
+										(short) 9,
+										"isDelete"), IS_PAY((short) 10, "isPay"), STATUS((short) 11, "status"), ICON(
+												(short) 12,
+												"icon"), DESCRIPTION((short) 13, "description"), ADDRESS((short) 14,
+														"address"), NUM_FANS((short) 15, "numFans"), PROFIT_RATE(
+																(short) 16, "profitRate"), PROFIT_BANK_AGENT((short) 17,
+																		"profitBankAgent"), PROFIT_BANK_NAME((short) 18,
+																				"profitBankName"), PROFIT_BANK_NUMBER(
+																						(short) 19, "profitBankNumber");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -151,8 +175,16 @@ public class Store
 				return CREATE_TIME;
 			case 4: // UPDATE_TIME
 				return UPDATE_TIME;
+			case 20: // LONGITUDE
+				return LONGITUDE;
+			case 21: // LATITUDE
+				return LATITUDE;
+			case 22: // LOCATION
+				return LOCATION;
 			case 5: // NAME
 				return NAME;
+			case 23: // NAME_ALIAS
+				return NAME_ALIAS;
 			case 6: // KEY
 				return KEY;
 			case 7: // IS_STAFF
@@ -225,21 +257,25 @@ public class Store
 	}
 
 	// isset id assignments
-	private static final int __ISSTAFF_ISSET_ID = 0;
+	private static final int __LONGITUDE_ISSET_ID = 0;
 
-	private static final int __ISACTIVE_ISSET_ID = 1;
+	private static final int __LATITUDE_ISSET_ID = 1;
 
-	private static final int __ISDELETE_ISSET_ID = 2;
+	private static final int __ISSTAFF_ISSET_ID = 2;
 
-	private static final int __ISPAY_ISSET_ID = 3;
+	private static final int __ISACTIVE_ISSET_ID = 3;
 
-	private static final int __STATUS_ISSET_ID = 4;
+	private static final int __ISDELETE_ISSET_ID = 4;
 
-	private static final int __NUMFANS_ISSET_ID = 5;
+	private static final int __ISPAY_ISSET_ID = 5;
 
-	private static final int __PROFITRATE_ISSET_ID = 6;
+	private static final int __STATUS_ISSET_ID = 6;
 
-	private byte __isset_bitfield = 0;
+	private static final int __NUMFANS_ISSET_ID = 7;
+
+	private static final int __PROFITRATE_ISSET_ID = 8;
+
+	private short __isset_bitfield = 0;
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
@@ -257,8 +293,24 @@ public class Store
 		tmpMap.put(_Fields.UPDATE_TIME, new org.apache.thrift.meta_data.FieldMetaData("updateTime",
 				org.apache.thrift.TFieldRequirementType.DEFAULT,
 				new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING, "Time")));
+		tmpMap.put(_Fields.LONGITUDE,
+				new org.apache.thrift.meta_data.FieldMetaData("longitude",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.LATITUDE,
+				new org.apache.thrift.meta_data.FieldMetaData("latitude",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.LOCATION,
+				new org.apache.thrift.meta_data.FieldMetaData("location",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.NAME,
 				new org.apache.thrift.meta_data.FieldMetaData("name", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.NAME_ALIAS,
+				new org.apache.thrift.meta_data.FieldMetaData("nameAlias",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.KEY,
 				new org.apache.thrift.meta_data.FieldMetaData("key", org.apache.thrift.TFieldRequirementType.DEFAULT,
@@ -320,7 +372,8 @@ public class Store
 	}
 
 	public Store(java.lang.String sid, java.lang.String uid, java.lang.String createTime, java.lang.String updateTime,
-			java.lang.String name, java.lang.String key, boolean isStaff, boolean isActive, boolean isDelete,
+			double longitude, double latitude, java.lang.String location, java.lang.String name,
+			java.lang.String nameAlias, java.lang.String key, boolean isStaff, boolean isActive, boolean isDelete,
 			boolean isPay, int status, java.lang.String icon, java.lang.String description, java.lang.String address,
 			int numFans, double profitRate, java.lang.String profitBankAgent, java.lang.String profitBankName,
 			java.lang.String profitBankNumber) {
@@ -329,7 +382,13 @@ public class Store
 		this.uid = uid;
 		this.createTime = createTime;
 		this.updateTime = updateTime;
+		this.longitude = longitude;
+		setLongitudeIsSet(true);
+		this.latitude = latitude;
+		setLatitudeIsSet(true);
+		this.location = location;
 		this.name = name;
+		this.nameAlias = nameAlias;
 		this.key = key;
 		this.isStaff = isStaff;
 		setIsStaffIsSet(true);
@@ -370,8 +429,16 @@ public class Store
 		if (other.isSetUpdateTime()) {
 			this.updateTime = other.updateTime;
 		}
+		this.longitude = other.longitude;
+		this.latitude = other.latitude;
+		if (other.isSetLocation()) {
+			this.location = other.location;
+		}
 		if (other.isSetName()) {
 			this.name = other.name;
+		}
+		if (other.isSetNameAlias()) {
+			this.nameAlias = other.nameAlias;
 		}
 		if (other.isSetKey()) {
 			this.key = other.key;
@@ -413,7 +480,13 @@ public class Store
 		this.uid = null;
 		this.createTime = null;
 		this.updateTime = null;
+		setLongitudeIsSet(false);
+		this.longitude = 0.0;
+		setLatitudeIsSet(false);
+		this.latitude = 0.0;
+		this.location = null;
 		this.name = null;
+		this.nameAlias = null;
 		this.key = null;
 		setIsStaffIsSet(false);
 		this.isStaff = false;
@@ -547,6 +620,86 @@ public class Store
 		}
 	}
 
+	public double getLongitude() {
+		return this.longitude;
+	}
+
+	public Store setLongitude(double longitude) {
+		this.longitude = longitude;
+		setLongitudeIsSet(true);
+		return this;
+	}
+
+	public void unsetLongitude() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __LONGITUDE_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field longitude is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetLongitude() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __LONGITUDE_ISSET_ID);
+	}
+
+	public void setLongitudeIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __LONGITUDE_ISSET_ID, value);
+	}
+
+	public double getLatitude() {
+		return this.latitude;
+	}
+
+	public Store setLatitude(double latitude) {
+		this.latitude = latitude;
+		setLatitudeIsSet(true);
+		return this;
+	}
+
+	public void unsetLatitude() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __LATITUDE_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field latitude is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetLatitude() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __LATITUDE_ISSET_ID);
+	}
+
+	public void setLatitudeIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __LATITUDE_ISSET_ID, value);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getLocation() {
+		return this.location;
+	}
+
+	public Store setLocation(@org.apache.thrift.annotation.Nullable java.lang.String location) {
+		this.location = location;
+		return this;
+	}
+
+	public void unsetLocation() {
+		this.location = null;
+	}
+
+	/**
+	 * Returns true if field location is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetLocation() {
+		return this.location != null;
+	}
+
+	public void setLocationIsSet(boolean value) {
+		if (!value) {
+			this.location = null;
+		}
+	}
+
 	@org.apache.thrift.annotation.Nullable
 	public java.lang.String getName() {
 		return this.name;
@@ -571,6 +724,34 @@ public class Store
 	public void setNameIsSet(boolean value) {
 		if (!value) {
 			this.name = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getNameAlias() {
+		return this.nameAlias;
+	}
+
+	public Store setNameAlias(@org.apache.thrift.annotation.Nullable java.lang.String nameAlias) {
+		this.nameAlias = nameAlias;
+		return this;
+	}
+
+	public void unsetNameAlias() {
+		this.nameAlias = null;
+	}
+
+	/**
+	 * Returns true if field nameAlias is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetNameAlias() {
+		return this.nameAlias != null;
+	}
+
+	public void setNameAliasIsSet(boolean value) {
+		if (!value) {
+			this.nameAlias = null;
 		}
 	}
 
@@ -986,12 +1167,48 @@ public class Store
 			}
 			break;
 
+		case LONGITUDE:
+			if (value == null) {
+				unsetLongitude();
+			}
+			else {
+				setLongitude((java.lang.Double) value);
+			}
+			break;
+
+		case LATITUDE:
+			if (value == null) {
+				unsetLatitude();
+			}
+			else {
+				setLatitude((java.lang.Double) value);
+			}
+			break;
+
+		case LOCATION:
+			if (value == null) {
+				unsetLocation();
+			}
+			else {
+				setLocation((java.lang.String) value);
+			}
+			break;
+
 		case NAME:
 			if (value == null) {
 				unsetName();
 			}
 			else {
 				setName((java.lang.String) value);
+			}
+			break;
+
+		case NAME_ALIAS:
+			if (value == null) {
+				unsetNameAlias();
+			}
+			else {
+				setNameAlias((java.lang.String) value);
 			}
 			break;
 
@@ -1139,8 +1356,20 @@ public class Store
 		case UPDATE_TIME:
 			return getUpdateTime();
 
+		case LONGITUDE:
+			return getLongitude();
+
+		case LATITUDE:
+			return getLatitude();
+
+		case LOCATION:
+			return getLocation();
+
 		case NAME:
 			return getName();
+
+		case NAME_ALIAS:
+			return getNameAlias();
 
 		case KEY:
 			return getKey();
@@ -1206,8 +1435,16 @@ public class Store
 			return isSetCreateTime();
 		case UPDATE_TIME:
 			return isSetUpdateTime();
+		case LONGITUDE:
+			return isSetLongitude();
+		case LATITUDE:
+			return isSetLatitude();
+		case LOCATION:
+			return isSetLocation();
 		case NAME:
 			return isSetName();
+		case NAME_ALIAS:
+			return isSetNameAlias();
 		case KEY:
 			return isSetKey();
 		case IS_STAFF:
@@ -1291,12 +1528,48 @@ public class Store
 				return false;
 		}
 
+		boolean this_present_longitude = true;
+		boolean that_present_longitude = true;
+		if (this_present_longitude || that_present_longitude) {
+			if (!(this_present_longitude && that_present_longitude))
+				return false;
+			if (this.longitude != that.longitude)
+				return false;
+		}
+
+		boolean this_present_latitude = true;
+		boolean that_present_latitude = true;
+		if (this_present_latitude || that_present_latitude) {
+			if (!(this_present_latitude && that_present_latitude))
+				return false;
+			if (this.latitude != that.latitude)
+				return false;
+		}
+
+		boolean this_present_location = true && this.isSetLocation();
+		boolean that_present_location = true && that.isSetLocation();
+		if (this_present_location || that_present_location) {
+			if (!(this_present_location && that_present_location))
+				return false;
+			if (!this.location.equals(that.location))
+				return false;
+		}
+
 		boolean this_present_name = true && this.isSetName();
 		boolean that_present_name = true && that.isSetName();
 		if (this_present_name || that_present_name) {
 			if (!(this_present_name && that_present_name))
 				return false;
 			if (!this.name.equals(that.name))
+				return false;
+		}
+
+		boolean this_present_nameAlias = true && this.isSetNameAlias();
+		boolean that_present_nameAlias = true && that.isSetNameAlias();
+		if (this_present_nameAlias || that_present_nameAlias) {
+			if (!(this_present_nameAlias && that_present_nameAlias))
+				return false;
+			if (!this.nameAlias.equals(that.nameAlias))
 				return false;
 		}
 
@@ -1449,9 +1722,21 @@ public class Store
 		if (isSetUpdateTime())
 			hashCode = hashCode * 8191 + updateTime.hashCode();
 
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(longitude);
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(latitude);
+
+		hashCode = hashCode * 8191 + ((isSetLocation()) ? 131071 : 524287);
+		if (isSetLocation())
+			hashCode = hashCode * 8191 + location.hashCode();
+
 		hashCode = hashCode * 8191 + ((isSetName()) ? 131071 : 524287);
 		if (isSetName())
 			hashCode = hashCode * 8191 + name.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetNameAlias()) ? 131071 : 524287);
+		if (isSetNameAlias())
+			hashCode = hashCode * 8191 + nameAlias.hashCode();
 
 		hashCode = hashCode * 8191 + ((isSetKey()) ? 131071 : 524287);
 		if (isSetKey())
@@ -1546,12 +1831,52 @@ public class Store
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetLongitude()).compareTo(other.isSetLongitude());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetLongitude()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.longitude, other.longitude);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetLatitude()).compareTo(other.isSetLatitude());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetLatitude()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.latitude, other.latitude);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetLocation()).compareTo(other.isSetLocation());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetLocation()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.location, other.location);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetName()).compareTo(other.isSetName());
 		if (lastComparison != 0) {
 			return lastComparison;
 		}
 		if (isSetName()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.name, other.name);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetNameAlias()).compareTo(other.isSetNameAlias());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetNameAlias()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.nameAlias, other.nameAlias);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -1757,12 +2082,42 @@ public class Store
 		first = false;
 		if (!first)
 			sb.append(", ");
+		sb.append("longitude:");
+		sb.append(this.longitude);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("latitude:");
+		sb.append(this.latitude);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("location:");
+		if (this.location == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.location);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("name:");
 		if (this.name == null) {
 			sb.append("null");
 		}
 		else {
 			sb.append(this.name);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("nameAlias:");
+		if (this.nameAlias == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.nameAlias);
 		}
 		first = false;
 		if (!first)
@@ -1957,10 +2312,46 @@ public class Store
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 20: // LONGITUDE
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.longitude = iprot.readDouble();
+						struct.setLongitudeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 21: // LATITUDE
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.latitude = iprot.readDouble();
+						struct.setLatitudeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 22: // LOCATION
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.location = iprot.readString();
+						struct.setLocationIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 5: // NAME
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.name = iprot.readString();
 						struct.setNameIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 23: // NAME_ALIAS
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.nameAlias = iprot.readString();
+						struct.setNameAliasIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -2190,6 +2581,22 @@ public class Store
 				oprot.writeString(struct.profitBankNumber);
 				oprot.writeFieldEnd();
 			}
+			oprot.writeFieldBegin(LONGITUDE_FIELD_DESC);
+			oprot.writeDouble(struct.longitude);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(LATITUDE_FIELD_DESC);
+			oprot.writeDouble(struct.latitude);
+			oprot.writeFieldEnd();
+			if (struct.location != null) {
+				oprot.writeFieldBegin(LOCATION_FIELD_DESC);
+				oprot.writeString(struct.location);
+				oprot.writeFieldEnd();
+			}
+			if (struct.nameAlias != null) {
+				oprot.writeFieldBegin(NAME_ALIAS_FIELD_DESC);
+				oprot.writeString(struct.nameAlias);
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -2222,52 +2629,64 @@ public class Store
 			if (struct.isSetUpdateTime()) {
 				optionals.set(3);
 			}
-			if (struct.isSetName()) {
+			if (struct.isSetLongitude()) {
 				optionals.set(4);
 			}
-			if (struct.isSetKey()) {
+			if (struct.isSetLatitude()) {
 				optionals.set(5);
 			}
-			if (struct.isSetIsStaff()) {
+			if (struct.isSetLocation()) {
 				optionals.set(6);
 			}
-			if (struct.isSetIsActive()) {
+			if (struct.isSetName()) {
 				optionals.set(7);
 			}
-			if (struct.isSetIsDelete()) {
+			if (struct.isSetNameAlias()) {
 				optionals.set(8);
 			}
-			if (struct.isSetIsPay()) {
+			if (struct.isSetKey()) {
 				optionals.set(9);
 			}
-			if (struct.isSetStatus()) {
+			if (struct.isSetIsStaff()) {
 				optionals.set(10);
 			}
-			if (struct.isSetIcon()) {
+			if (struct.isSetIsActive()) {
 				optionals.set(11);
 			}
-			if (struct.isSetDescription()) {
+			if (struct.isSetIsDelete()) {
 				optionals.set(12);
 			}
-			if (struct.isSetAddress()) {
+			if (struct.isSetIsPay()) {
 				optionals.set(13);
 			}
-			if (struct.isSetNumFans()) {
+			if (struct.isSetStatus()) {
 				optionals.set(14);
 			}
-			if (struct.isSetProfitRate()) {
+			if (struct.isSetIcon()) {
 				optionals.set(15);
 			}
-			if (struct.isSetProfitBankAgent()) {
+			if (struct.isSetDescription()) {
 				optionals.set(16);
 			}
-			if (struct.isSetProfitBankName()) {
+			if (struct.isSetAddress()) {
 				optionals.set(17);
 			}
-			if (struct.isSetProfitBankNumber()) {
+			if (struct.isSetNumFans()) {
 				optionals.set(18);
 			}
-			oprot.writeBitSet(optionals, 19);
+			if (struct.isSetProfitRate()) {
+				optionals.set(19);
+			}
+			if (struct.isSetProfitBankAgent()) {
+				optionals.set(20);
+			}
+			if (struct.isSetProfitBankName()) {
+				optionals.set(21);
+			}
+			if (struct.isSetProfitBankNumber()) {
+				optionals.set(22);
+			}
+			oprot.writeBitSet(optionals, 23);
 			if (struct.isSetSid()) {
 				oprot.writeString(struct.sid);
 			}
@@ -2280,8 +2699,20 @@ public class Store
 			if (struct.isSetUpdateTime()) {
 				oprot.writeString(struct.updateTime);
 			}
+			if (struct.isSetLongitude()) {
+				oprot.writeDouble(struct.longitude);
+			}
+			if (struct.isSetLatitude()) {
+				oprot.writeDouble(struct.latitude);
+			}
+			if (struct.isSetLocation()) {
+				oprot.writeString(struct.location);
+			}
 			if (struct.isSetName()) {
 				oprot.writeString(struct.name);
+			}
+			if (struct.isSetNameAlias()) {
+				oprot.writeString(struct.nameAlias);
 			}
 			if (struct.isSetKey()) {
 				oprot.writeString(struct.key);
@@ -2330,7 +2761,7 @@ public class Store
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, Store struct) throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(19);
+			java.util.BitSet incoming = iprot.readBitSet(23);
 			if (incoming.get(0)) {
 				struct.sid = iprot.readString();
 				struct.setSidIsSet(true);
@@ -2348,62 +2779,78 @@ public class Store
 				struct.setUpdateTimeIsSet(true);
 			}
 			if (incoming.get(4)) {
+				struct.longitude = iprot.readDouble();
+				struct.setLongitudeIsSet(true);
+			}
+			if (incoming.get(5)) {
+				struct.latitude = iprot.readDouble();
+				struct.setLatitudeIsSet(true);
+			}
+			if (incoming.get(6)) {
+				struct.location = iprot.readString();
+				struct.setLocationIsSet(true);
+			}
+			if (incoming.get(7)) {
 				struct.name = iprot.readString();
 				struct.setNameIsSet(true);
 			}
-			if (incoming.get(5)) {
+			if (incoming.get(8)) {
+				struct.nameAlias = iprot.readString();
+				struct.setNameAliasIsSet(true);
+			}
+			if (incoming.get(9)) {
 				struct.key = iprot.readString();
 				struct.setKeyIsSet(true);
 			}
-			if (incoming.get(6)) {
+			if (incoming.get(10)) {
 				struct.isStaff = iprot.readBool();
 				struct.setIsStaffIsSet(true);
 			}
-			if (incoming.get(7)) {
+			if (incoming.get(11)) {
 				struct.isActive = iprot.readBool();
 				struct.setIsActiveIsSet(true);
 			}
-			if (incoming.get(8)) {
+			if (incoming.get(12)) {
 				struct.isDelete = iprot.readBool();
 				struct.setIsDeleteIsSet(true);
 			}
-			if (incoming.get(9)) {
+			if (incoming.get(13)) {
 				struct.isPay = iprot.readBool();
 				struct.setIsPayIsSet(true);
 			}
-			if (incoming.get(10)) {
+			if (incoming.get(14)) {
 				struct.status = iprot.readI32();
 				struct.setStatusIsSet(true);
 			}
-			if (incoming.get(11)) {
+			if (incoming.get(15)) {
 				struct.icon = iprot.readString();
 				struct.setIconIsSet(true);
 			}
-			if (incoming.get(12)) {
+			if (incoming.get(16)) {
 				struct.description = iprot.readString();
 				struct.setDescriptionIsSet(true);
 			}
-			if (incoming.get(13)) {
+			if (incoming.get(17)) {
 				struct.address = iprot.readString();
 				struct.setAddressIsSet(true);
 			}
-			if (incoming.get(14)) {
+			if (incoming.get(18)) {
 				struct.numFans = iprot.readI32();
 				struct.setNumFansIsSet(true);
 			}
-			if (incoming.get(15)) {
+			if (incoming.get(19)) {
 				struct.profitRate = iprot.readDouble();
 				struct.setProfitRateIsSet(true);
 			}
-			if (incoming.get(16)) {
+			if (incoming.get(20)) {
 				struct.profitBankAgent = iprot.readString();
 				struct.setProfitBankAgentIsSet(true);
 			}
-			if (incoming.get(17)) {
+			if (incoming.get(21)) {
 				struct.profitBankName = iprot.readString();
 				struct.setProfitBankNameIsSet(true);
 			}
-			if (incoming.get(18)) {
+			if (incoming.get(22)) {
 				struct.profitBankNumber = iprot.readString();
 				struct.setProfitBankNumberIsSet(true);
 			}

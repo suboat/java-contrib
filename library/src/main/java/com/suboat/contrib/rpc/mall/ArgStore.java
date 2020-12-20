@@ -13,14 +13,69 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 	private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
 			"ArgStore");
 
-	private static final org.apache.thrift.protocol.TField UID_FIELD_DESC = new org.apache.thrift.protocol.TField("uid",
+	private static final org.apache.thrift.protocol.TField SID_FIELD_DESC = new org.apache.thrift.protocol.TField("sid",
 			org.apache.thrift.protocol.TType.STRING, (short) 1);
+
+	private static final org.apache.thrift.protocol.TField UID_FIELD_DESC = new org.apache.thrift.protocol.TField("uid",
+			org.apache.thrift.protocol.TType.STRING, (short) 2);
+
+	private static final org.apache.thrift.protocol.TField NAME_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"name", org.apache.thrift.protocol.TType.STRING, (short) 3);
+
+	private static final org.apache.thrift.protocol.TField NAME_ALIAS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"nameAlias", org.apache.thrift.protocol.TType.STRING, (short) 4);
+
+	private static final org.apache.thrift.protocol.TField KEY_FIELD_DESC = new org.apache.thrift.protocol.TField("key",
+			org.apache.thrift.protocol.TType.STRING, (short) 5);
+
+	private static final org.apache.thrift.protocol.TField ICON_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"icon", org.apache.thrift.protocol.TType.STRING, (short) 6);
+
+	private static final org.apache.thrift.protocol.TField DESCRIPTION_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"description", org.apache.thrift.protocol.TType.STRING, (short) 7);
+
+	private static final org.apache.thrift.protocol.TField ADDRESS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"address", org.apache.thrift.protocol.TType.STRING, (short) 8);
+
+	private static final org.apache.thrift.protocol.TField PHONE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"phone", org.apache.thrift.protocol.TType.STRING, (short) 9);
+
+	private static final org.apache.thrift.protocol.TField LONGITUDE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"longitude", org.apache.thrift.protocol.TType.DOUBLE, (short) 10);
+
+	private static final org.apache.thrift.protocol.TField LATITUDE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"latitude", org.apache.thrift.protocol.TType.DOUBLE, (short) 11);
+
+	private static final org.apache.thrift.protocol.TField LOCATION_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"location", org.apache.thrift.protocol.TType.STRING, (short) 12);
 
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ArgStoreStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ArgStoreTupleSchemeFactory();
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String sid; // optional
+
 	public @org.apache.thrift.annotation.Nullable java.lang.String uid; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String name; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String nameAlias; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String key; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String icon; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String description; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String address; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String phone; // optional
+
+	public double longitude; // optional
+
+	public double latitude; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String location; // optional
 
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
@@ -28,7 +83,10 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 	 */
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
-		UID((short) 1, "uid");
+		SID((short) 1, "sid"), UID((short) 2, "uid"), NAME((short) 3, "name"), NAME_ALIAS((short) 4, "nameAlias"), KEY(
+				(short) 5, "key"), ICON((short) 6, "icon"), DESCRIPTION((short) 7, "description"), ADDRESS((short) 8,
+						"address"), PHONE((short) 9, "phone"), LONGITUDE((short) 10,
+								"longitude"), LATITUDE((short) 11, "latitude"), LOCATION((short) 12, "location");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -44,8 +102,30 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 		@org.apache.thrift.annotation.Nullable
 		public static _Fields findByThriftId(int fieldId) {
 			switch (fieldId) {
-			case 1: // UID
+			case 1: // SID
+				return SID;
+			case 2: // UID
 				return UID;
+			case 3: // NAME
+				return NAME;
+			case 4: // NAME_ALIAS
+				return NAME_ALIAS;
+			case 5: // KEY
+				return KEY;
+			case 6: // ICON
+				return ICON;
+			case 7: // DESCRIPTION
+				return DESCRIPTION;
+			case 8: // ADDRESS
+				return ADDRESS;
+			case 9: // PHONE
+				return PHONE;
+			case 10: // LONGITUDE
+				return LONGITUDE;
+			case 11: // LATITUDE
+				return LATITUDE;
+			case 12: // LOCATION
+				return LOCATION;
 			default:
 				return null;
 			}
@@ -90,14 +170,61 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 	}
 
 	// isset id assignments
-	private static final _Fields optionals[] = { _Fields.UID };
+	private static final int __LONGITUDE_ISSET_ID = 0;
+
+	private static final int __LATITUDE_ISSET_ID = 1;
+
+	private byte __isset_bitfield = 0;
+
+	private static final _Fields optionals[] = { _Fields.SID, _Fields.UID, _Fields.NAME, _Fields.NAME_ALIAS,
+			_Fields.KEY, _Fields.ICON, _Fields.DESCRIPTION, _Fields.ADDRESS, _Fields.PHONE, _Fields.LONGITUDE,
+			_Fields.LATITUDE, _Fields.LOCATION };
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
 		java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
 				_Fields.class);
+		tmpMap.put(_Fields.SID,
+				new org.apache.thrift.meta_data.FieldMetaData("sid", org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.UID,
 				new org.apache.thrift.meta_data.FieldMetaData("uid", org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.NAME,
+				new org.apache.thrift.meta_data.FieldMetaData("name", org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.NAME_ALIAS,
+				new org.apache.thrift.meta_data.FieldMetaData("nameAlias",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.KEY,
+				new org.apache.thrift.meta_data.FieldMetaData("key", org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.ICON,
+				new org.apache.thrift.meta_data.FieldMetaData("icon", org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.DESCRIPTION,
+				new org.apache.thrift.meta_data.FieldMetaData("description",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.ADDRESS,
+				new org.apache.thrift.meta_data.FieldMetaData("address",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.PHONE,
+				new org.apache.thrift.meta_data.FieldMetaData("phone", org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.LONGITUDE,
+				new org.apache.thrift.meta_data.FieldMetaData("longitude",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.LATITUDE,
+				new org.apache.thrift.meta_data.FieldMetaData("latitude",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.LOCATION,
+				new org.apache.thrift.meta_data.FieldMetaData("location",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ArgStore.class, metaDataMap);
@@ -110,8 +237,38 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 	 * Performs a deep copy on <i>other</i>.
 	 */
 	public ArgStore(ArgStore other) {
+		__isset_bitfield = other.__isset_bitfield;
+		if (other.isSetSid()) {
+			this.sid = other.sid;
+		}
 		if (other.isSetUid()) {
 			this.uid = other.uid;
+		}
+		if (other.isSetName()) {
+			this.name = other.name;
+		}
+		if (other.isSetNameAlias()) {
+			this.nameAlias = other.nameAlias;
+		}
+		if (other.isSetKey()) {
+			this.key = other.key;
+		}
+		if (other.isSetIcon()) {
+			this.icon = other.icon;
+		}
+		if (other.isSetDescription()) {
+			this.description = other.description;
+		}
+		if (other.isSetAddress()) {
+			this.address = other.address;
+		}
+		if (other.isSetPhone()) {
+			this.phone = other.phone;
+		}
+		this.longitude = other.longitude;
+		this.latitude = other.latitude;
+		if (other.isSetLocation()) {
+			this.location = other.location;
 		}
 	}
 
@@ -121,7 +278,47 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 
 	@Override
 	public void clear() {
+		this.sid = null;
 		this.uid = null;
+		this.name = null;
+		this.nameAlias = null;
+		this.key = null;
+		this.icon = null;
+		this.description = null;
+		this.address = null;
+		this.phone = null;
+		setLongitudeIsSet(false);
+		this.longitude = 0.0;
+		setLatitudeIsSet(false);
+		this.latitude = 0.0;
+		this.location = null;
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getSid() {
+		return this.sid;
+	}
+
+	public ArgStore setSid(@org.apache.thrift.annotation.Nullable java.lang.String sid) {
+		this.sid = sid;
+		return this;
+	}
+
+	public void unsetSid() {
+		this.sid = null;
+	}
+
+	/**
+	 * Returns true if field sid is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetSid() {
+		return this.sid != null;
+	}
+
+	public void setSidIsSet(boolean value) {
+		if (!value) {
+			this.sid = null;
+		}
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -151,8 +348,289 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 		}
 	}
 
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getName() {
+		return this.name;
+	}
+
+	public ArgStore setName(@org.apache.thrift.annotation.Nullable java.lang.String name) {
+		this.name = name;
+		return this;
+	}
+
+	public void unsetName() {
+		this.name = null;
+	}
+
+	/**
+	 * Returns true if field name is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetName() {
+		return this.name != null;
+	}
+
+	public void setNameIsSet(boolean value) {
+		if (!value) {
+			this.name = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getNameAlias() {
+		return this.nameAlias;
+	}
+
+	public ArgStore setNameAlias(@org.apache.thrift.annotation.Nullable java.lang.String nameAlias) {
+		this.nameAlias = nameAlias;
+		return this;
+	}
+
+	public void unsetNameAlias() {
+		this.nameAlias = null;
+	}
+
+	/**
+	 * Returns true if field nameAlias is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetNameAlias() {
+		return this.nameAlias != null;
+	}
+
+	public void setNameAliasIsSet(boolean value) {
+		if (!value) {
+			this.nameAlias = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getKey() {
+		return this.key;
+	}
+
+	public ArgStore setKey(@org.apache.thrift.annotation.Nullable java.lang.String key) {
+		this.key = key;
+		return this;
+	}
+
+	public void unsetKey() {
+		this.key = null;
+	}
+
+	/**
+	 * Returns true if field key is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetKey() {
+		return this.key != null;
+	}
+
+	public void setKeyIsSet(boolean value) {
+		if (!value) {
+			this.key = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getIcon() {
+		return this.icon;
+	}
+
+	public ArgStore setIcon(@org.apache.thrift.annotation.Nullable java.lang.String icon) {
+		this.icon = icon;
+		return this;
+	}
+
+	public void unsetIcon() {
+		this.icon = null;
+	}
+
+	/**
+	 * Returns true if field icon is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetIcon() {
+		return this.icon != null;
+	}
+
+	public void setIconIsSet(boolean value) {
+		if (!value) {
+			this.icon = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getDescription() {
+		return this.description;
+	}
+
+	public ArgStore setDescription(@org.apache.thrift.annotation.Nullable java.lang.String description) {
+		this.description = description;
+		return this;
+	}
+
+	public void unsetDescription() {
+		this.description = null;
+	}
+
+	/**
+	 * Returns true if field description is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetDescription() {
+		return this.description != null;
+	}
+
+	public void setDescriptionIsSet(boolean value) {
+		if (!value) {
+			this.description = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getAddress() {
+		return this.address;
+	}
+
+	public ArgStore setAddress(@org.apache.thrift.annotation.Nullable java.lang.String address) {
+		this.address = address;
+		return this;
+	}
+
+	public void unsetAddress() {
+		this.address = null;
+	}
+
+	/**
+	 * Returns true if field address is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetAddress() {
+		return this.address != null;
+	}
+
+	public void setAddressIsSet(boolean value) {
+		if (!value) {
+			this.address = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getPhone() {
+		return this.phone;
+	}
+
+	public ArgStore setPhone(@org.apache.thrift.annotation.Nullable java.lang.String phone) {
+		this.phone = phone;
+		return this;
+	}
+
+	public void unsetPhone() {
+		this.phone = null;
+	}
+
+	/**
+	 * Returns true if field phone is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetPhone() {
+		return this.phone != null;
+	}
+
+	public void setPhoneIsSet(boolean value) {
+		if (!value) {
+			this.phone = null;
+		}
+	}
+
+	public double getLongitude() {
+		return this.longitude;
+	}
+
+	public ArgStore setLongitude(double longitude) {
+		this.longitude = longitude;
+		setLongitudeIsSet(true);
+		return this;
+	}
+
+	public void unsetLongitude() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __LONGITUDE_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field longitude is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetLongitude() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __LONGITUDE_ISSET_ID);
+	}
+
+	public void setLongitudeIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __LONGITUDE_ISSET_ID, value);
+	}
+
+	public double getLatitude() {
+		return this.latitude;
+	}
+
+	public ArgStore setLatitude(double latitude) {
+		this.latitude = latitude;
+		setLatitudeIsSet(true);
+		return this;
+	}
+
+	public void unsetLatitude() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __LATITUDE_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field latitude is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetLatitude() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __LATITUDE_ISSET_ID);
+	}
+
+	public void setLatitudeIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __LATITUDE_ISSET_ID, value);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getLocation() {
+		return this.location;
+	}
+
+	public ArgStore setLocation(@org.apache.thrift.annotation.Nullable java.lang.String location) {
+		this.location = location;
+		return this;
+	}
+
+	public void unsetLocation() {
+		this.location = null;
+	}
+
+	/**
+	 * Returns true if field location is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetLocation() {
+		return this.location != null;
+	}
+
+	public void setLocationIsSet(boolean value) {
+		if (!value) {
+			this.location = null;
+		}
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
+		case SID:
+			if (value == null) {
+				unsetSid();
+			}
+			else {
+				setSid((java.lang.String) value);
+			}
+			break;
+
 		case UID:
 			if (value == null) {
 				unsetUid();
@@ -162,14 +640,137 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 			}
 			break;
 
+		case NAME:
+			if (value == null) {
+				unsetName();
+			}
+			else {
+				setName((java.lang.String) value);
+			}
+			break;
+
+		case NAME_ALIAS:
+			if (value == null) {
+				unsetNameAlias();
+			}
+			else {
+				setNameAlias((java.lang.String) value);
+			}
+			break;
+
+		case KEY:
+			if (value == null) {
+				unsetKey();
+			}
+			else {
+				setKey((java.lang.String) value);
+			}
+			break;
+
+		case ICON:
+			if (value == null) {
+				unsetIcon();
+			}
+			else {
+				setIcon((java.lang.String) value);
+			}
+			break;
+
+		case DESCRIPTION:
+			if (value == null) {
+				unsetDescription();
+			}
+			else {
+				setDescription((java.lang.String) value);
+			}
+			break;
+
+		case ADDRESS:
+			if (value == null) {
+				unsetAddress();
+			}
+			else {
+				setAddress((java.lang.String) value);
+			}
+			break;
+
+		case PHONE:
+			if (value == null) {
+				unsetPhone();
+			}
+			else {
+				setPhone((java.lang.String) value);
+			}
+			break;
+
+		case LONGITUDE:
+			if (value == null) {
+				unsetLongitude();
+			}
+			else {
+				setLongitude((java.lang.Double) value);
+			}
+			break;
+
+		case LATITUDE:
+			if (value == null) {
+				unsetLatitude();
+			}
+			else {
+				setLatitude((java.lang.Double) value);
+			}
+			break;
+
+		case LOCATION:
+			if (value == null) {
+				unsetLocation();
+			}
+			else {
+				setLocation((java.lang.String) value);
+			}
+			break;
+
 		}
 	}
 
 	@org.apache.thrift.annotation.Nullable
 	public java.lang.Object getFieldValue(_Fields field) {
 		switch (field) {
+		case SID:
+			return getSid();
+
 		case UID:
 			return getUid();
+
+		case NAME:
+			return getName();
+
+		case NAME_ALIAS:
+			return getNameAlias();
+
+		case KEY:
+			return getKey();
+
+		case ICON:
+			return getIcon();
+
+		case DESCRIPTION:
+			return getDescription();
+
+		case ADDRESS:
+			return getAddress();
+
+		case PHONE:
+			return getPhone();
+
+		case LONGITUDE:
+			return getLongitude();
+
+		case LATITUDE:
+			return getLatitude();
+
+		case LOCATION:
+			return getLocation();
 
 		}
 		throw new java.lang.IllegalStateException();
@@ -185,8 +786,30 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 		}
 
 		switch (field) {
+		case SID:
+			return isSetSid();
 		case UID:
 			return isSetUid();
+		case NAME:
+			return isSetName();
+		case NAME_ALIAS:
+			return isSetNameAlias();
+		case KEY:
+			return isSetKey();
+		case ICON:
+			return isSetIcon();
+		case DESCRIPTION:
+			return isSetDescription();
+		case ADDRESS:
+			return isSetAddress();
+		case PHONE:
+			return isSetPhone();
+		case LONGITUDE:
+			return isSetLongitude();
+		case LATITUDE:
+			return isSetLatitude();
+		case LOCATION:
+			return isSetLocation();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -206,12 +829,111 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 		if (this == that)
 			return true;
 
+		boolean this_present_sid = true && this.isSetSid();
+		boolean that_present_sid = true && that.isSetSid();
+		if (this_present_sid || that_present_sid) {
+			if (!(this_present_sid && that_present_sid))
+				return false;
+			if (!this.sid.equals(that.sid))
+				return false;
+		}
+
 		boolean this_present_uid = true && this.isSetUid();
 		boolean that_present_uid = true && that.isSetUid();
 		if (this_present_uid || that_present_uid) {
 			if (!(this_present_uid && that_present_uid))
 				return false;
 			if (!this.uid.equals(that.uid))
+				return false;
+		}
+
+		boolean this_present_name = true && this.isSetName();
+		boolean that_present_name = true && that.isSetName();
+		if (this_present_name || that_present_name) {
+			if (!(this_present_name && that_present_name))
+				return false;
+			if (!this.name.equals(that.name))
+				return false;
+		}
+
+		boolean this_present_nameAlias = true && this.isSetNameAlias();
+		boolean that_present_nameAlias = true && that.isSetNameAlias();
+		if (this_present_nameAlias || that_present_nameAlias) {
+			if (!(this_present_nameAlias && that_present_nameAlias))
+				return false;
+			if (!this.nameAlias.equals(that.nameAlias))
+				return false;
+		}
+
+		boolean this_present_key = true && this.isSetKey();
+		boolean that_present_key = true && that.isSetKey();
+		if (this_present_key || that_present_key) {
+			if (!(this_present_key && that_present_key))
+				return false;
+			if (!this.key.equals(that.key))
+				return false;
+		}
+
+		boolean this_present_icon = true && this.isSetIcon();
+		boolean that_present_icon = true && that.isSetIcon();
+		if (this_present_icon || that_present_icon) {
+			if (!(this_present_icon && that_present_icon))
+				return false;
+			if (!this.icon.equals(that.icon))
+				return false;
+		}
+
+		boolean this_present_description = true && this.isSetDescription();
+		boolean that_present_description = true && that.isSetDescription();
+		if (this_present_description || that_present_description) {
+			if (!(this_present_description && that_present_description))
+				return false;
+			if (!this.description.equals(that.description))
+				return false;
+		}
+
+		boolean this_present_address = true && this.isSetAddress();
+		boolean that_present_address = true && that.isSetAddress();
+		if (this_present_address || that_present_address) {
+			if (!(this_present_address && that_present_address))
+				return false;
+			if (!this.address.equals(that.address))
+				return false;
+		}
+
+		boolean this_present_phone = true && this.isSetPhone();
+		boolean that_present_phone = true && that.isSetPhone();
+		if (this_present_phone || that_present_phone) {
+			if (!(this_present_phone && that_present_phone))
+				return false;
+			if (!this.phone.equals(that.phone))
+				return false;
+		}
+
+		boolean this_present_longitude = true && this.isSetLongitude();
+		boolean that_present_longitude = true && that.isSetLongitude();
+		if (this_present_longitude || that_present_longitude) {
+			if (!(this_present_longitude && that_present_longitude))
+				return false;
+			if (this.longitude != that.longitude)
+				return false;
+		}
+
+		boolean this_present_latitude = true && this.isSetLatitude();
+		boolean that_present_latitude = true && that.isSetLatitude();
+		if (this_present_latitude || that_present_latitude) {
+			if (!(this_present_latitude && that_present_latitude))
+				return false;
+			if (this.latitude != that.latitude)
+				return false;
+		}
+
+		boolean this_present_location = true && this.isSetLocation();
+		boolean that_present_location = true && that.isSetLocation();
+		if (this_present_location || that_present_location) {
+			if (!(this_present_location && that_present_location))
+				return false;
+			if (!this.location.equals(that.location))
 				return false;
 		}
 
@@ -222,9 +944,53 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 	public int hashCode() {
 		int hashCode = 1;
 
+		hashCode = hashCode * 8191 + ((isSetSid()) ? 131071 : 524287);
+		if (isSetSid())
+			hashCode = hashCode * 8191 + sid.hashCode();
+
 		hashCode = hashCode * 8191 + ((isSetUid()) ? 131071 : 524287);
 		if (isSetUid())
 			hashCode = hashCode * 8191 + uid.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetName()) ? 131071 : 524287);
+		if (isSetName())
+			hashCode = hashCode * 8191 + name.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetNameAlias()) ? 131071 : 524287);
+		if (isSetNameAlias())
+			hashCode = hashCode * 8191 + nameAlias.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetKey()) ? 131071 : 524287);
+		if (isSetKey())
+			hashCode = hashCode * 8191 + key.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetIcon()) ? 131071 : 524287);
+		if (isSetIcon())
+			hashCode = hashCode * 8191 + icon.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetDescription()) ? 131071 : 524287);
+		if (isSetDescription())
+			hashCode = hashCode * 8191 + description.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetAddress()) ? 131071 : 524287);
+		if (isSetAddress())
+			hashCode = hashCode * 8191 + address.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetPhone()) ? 131071 : 524287);
+		if (isSetPhone())
+			hashCode = hashCode * 8191 + phone.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetLongitude()) ? 131071 : 524287);
+		if (isSetLongitude())
+			hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(longitude);
+
+		hashCode = hashCode * 8191 + ((isSetLatitude()) ? 131071 : 524287);
+		if (isSetLatitude())
+			hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(latitude);
+
+		hashCode = hashCode * 8191 + ((isSetLocation()) ? 131071 : 524287);
+		if (isSetLocation())
+			hashCode = hashCode * 8191 + location.hashCode();
 
 		return hashCode;
 	}
@@ -237,12 +1003,122 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 
 		int lastComparison = 0;
 
+		lastComparison = java.lang.Boolean.valueOf(isSetSid()).compareTo(other.isSetSid());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetSid()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.sid, other.sid);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetUid()).compareTo(other.isSetUid());
 		if (lastComparison != 0) {
 			return lastComparison;
 		}
 		if (isSetUid()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.uid, other.uid);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetName()).compareTo(other.isSetName());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetName()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.name, other.name);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetNameAlias()).compareTo(other.isSetNameAlias());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetNameAlias()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.nameAlias, other.nameAlias);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetKey()).compareTo(other.isSetKey());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetKey()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.key, other.key);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetIcon()).compareTo(other.isSetIcon());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetIcon()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.icon, other.icon);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetDescription()).compareTo(other.isSetDescription());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetDescription()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.description, other.description);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetAddress()).compareTo(other.isSetAddress());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetAddress()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.address, other.address);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetPhone()).compareTo(other.isSetPhone());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetPhone()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.phone, other.phone);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetLongitude()).compareTo(other.isSetLongitude());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetLongitude()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.longitude, other.longitude);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetLatitude()).compareTo(other.isSetLatitude());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetLatitude()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.latitude, other.latitude);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetLocation()).compareTo(other.isSetLocation());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetLocation()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.location, other.location);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -268,13 +1144,135 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 		java.lang.StringBuilder sb = new java.lang.StringBuilder("ArgStore(");
 		boolean first = true;
 
+		if (isSetSid()) {
+			sb.append("sid:");
+			if (this.sid == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.sid);
+			}
+			first = false;
+		}
 		if (isSetUid()) {
+			if (!first)
+				sb.append(", ");
 			sb.append("uid:");
 			if (this.uid == null) {
 				sb.append("null");
 			}
 			else {
 				sb.append(this.uid);
+			}
+			first = false;
+		}
+		if (isSetName()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("name:");
+			if (this.name == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.name);
+			}
+			first = false;
+		}
+		if (isSetNameAlias()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("nameAlias:");
+			if (this.nameAlias == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.nameAlias);
+			}
+			first = false;
+		}
+		if (isSetKey()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("key:");
+			if (this.key == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.key);
+			}
+			first = false;
+		}
+		if (isSetIcon()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("icon:");
+			if (this.icon == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.icon);
+			}
+			first = false;
+		}
+		if (isSetDescription()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("description:");
+			if (this.description == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.description);
+			}
+			first = false;
+		}
+		if (isSetAddress()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("address:");
+			if (this.address == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.address);
+			}
+			first = false;
+		}
+		if (isSetPhone()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("phone:");
+			if (this.phone == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.phone);
+			}
+			first = false;
+		}
+		if (isSetLongitude()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("longitude:");
+			sb.append(this.longitude);
+			first = false;
+		}
+		if (isSetLatitude()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("latitude:");
+			sb.append(this.latitude);
+			first = false;
+		}
+		if (isSetLocation()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("location:");
+			if (this.location == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.location);
 			}
 			first = false;
 		}
@@ -299,6 +1297,9 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 
 	private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
 		try {
+			// it doesn't seem like you should have to do this, but java serialization is
+			// wacky, and doesn't call the default constructor.
+			__isset_bitfield = 0;
 			read(new org.apache.thrift.protocol.TCompactProtocol(
 					new org.apache.thrift.transport.TIOStreamTransport(in)));
 		}
@@ -327,10 +1328,109 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 					break;
 				}
 				switch (schemeField.id) {
-				case 1: // UID
+				case 1: // SID
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.sid = iprot.readString();
+						struct.setSidIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 2: // UID
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.uid = iprot.readString();
 						struct.setUidIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 3: // NAME
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.name = iprot.readString();
+						struct.setNameIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 4: // NAME_ALIAS
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.nameAlias = iprot.readString();
+						struct.setNameAliasIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 5: // KEY
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.key = iprot.readString();
+						struct.setKeyIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 6: // ICON
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.icon = iprot.readString();
+						struct.setIconIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 7: // DESCRIPTION
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.description = iprot.readString();
+						struct.setDescriptionIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 8: // ADDRESS
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.address = iprot.readString();
+						struct.setAddressIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 9: // PHONE
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.phone = iprot.readString();
+						struct.setPhoneIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 10: // LONGITUDE
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.longitude = iprot.readDouble();
+						struct.setLongitudeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 11: // LATITUDE
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.latitude = iprot.readDouble();
+						struct.setLatitudeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 12: // LOCATION
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.location = iprot.readString();
+						struct.setLocationIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -353,10 +1453,83 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 			struct.validate();
 
 			oprot.writeStructBegin(STRUCT_DESC);
+			if (struct.sid != null) {
+				if (struct.isSetSid()) {
+					oprot.writeFieldBegin(SID_FIELD_DESC);
+					oprot.writeString(struct.sid);
+					oprot.writeFieldEnd();
+				}
+			}
 			if (struct.uid != null) {
 				if (struct.isSetUid()) {
 					oprot.writeFieldBegin(UID_FIELD_DESC);
 					oprot.writeString(struct.uid);
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.name != null) {
+				if (struct.isSetName()) {
+					oprot.writeFieldBegin(NAME_FIELD_DESC);
+					oprot.writeString(struct.name);
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.nameAlias != null) {
+				if (struct.isSetNameAlias()) {
+					oprot.writeFieldBegin(NAME_ALIAS_FIELD_DESC);
+					oprot.writeString(struct.nameAlias);
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.key != null) {
+				if (struct.isSetKey()) {
+					oprot.writeFieldBegin(KEY_FIELD_DESC);
+					oprot.writeString(struct.key);
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.icon != null) {
+				if (struct.isSetIcon()) {
+					oprot.writeFieldBegin(ICON_FIELD_DESC);
+					oprot.writeString(struct.icon);
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.description != null) {
+				if (struct.isSetDescription()) {
+					oprot.writeFieldBegin(DESCRIPTION_FIELD_DESC);
+					oprot.writeString(struct.description);
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.address != null) {
+				if (struct.isSetAddress()) {
+					oprot.writeFieldBegin(ADDRESS_FIELD_DESC);
+					oprot.writeString(struct.address);
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.phone != null) {
+				if (struct.isSetPhone()) {
+					oprot.writeFieldBegin(PHONE_FIELD_DESC);
+					oprot.writeString(struct.phone);
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.isSetLongitude()) {
+				oprot.writeFieldBegin(LONGITUDE_FIELD_DESC);
+				oprot.writeDouble(struct.longitude);
+				oprot.writeFieldEnd();
+			}
+			if (struct.isSetLatitude()) {
+				oprot.writeFieldBegin(LATITUDE_FIELD_DESC);
+				oprot.writeDouble(struct.latitude);
+				oprot.writeFieldEnd();
+			}
+			if (struct.location != null) {
+				if (struct.isSetLocation()) {
+					oprot.writeFieldBegin(LOCATION_FIELD_DESC);
+					oprot.writeString(struct.location);
 					oprot.writeFieldEnd();
 				}
 			}
@@ -381,12 +1554,78 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 			java.util.BitSet optionals = new java.util.BitSet();
-			if (struct.isSetUid()) {
+			if (struct.isSetSid()) {
 				optionals.set(0);
 			}
-			oprot.writeBitSet(optionals, 1);
+			if (struct.isSetUid()) {
+				optionals.set(1);
+			}
+			if (struct.isSetName()) {
+				optionals.set(2);
+			}
+			if (struct.isSetNameAlias()) {
+				optionals.set(3);
+			}
+			if (struct.isSetKey()) {
+				optionals.set(4);
+			}
+			if (struct.isSetIcon()) {
+				optionals.set(5);
+			}
+			if (struct.isSetDescription()) {
+				optionals.set(6);
+			}
+			if (struct.isSetAddress()) {
+				optionals.set(7);
+			}
+			if (struct.isSetPhone()) {
+				optionals.set(8);
+			}
+			if (struct.isSetLongitude()) {
+				optionals.set(9);
+			}
+			if (struct.isSetLatitude()) {
+				optionals.set(10);
+			}
+			if (struct.isSetLocation()) {
+				optionals.set(11);
+			}
+			oprot.writeBitSet(optionals, 12);
+			if (struct.isSetSid()) {
+				oprot.writeString(struct.sid);
+			}
 			if (struct.isSetUid()) {
 				oprot.writeString(struct.uid);
+			}
+			if (struct.isSetName()) {
+				oprot.writeString(struct.name);
+			}
+			if (struct.isSetNameAlias()) {
+				oprot.writeString(struct.nameAlias);
+			}
+			if (struct.isSetKey()) {
+				oprot.writeString(struct.key);
+			}
+			if (struct.isSetIcon()) {
+				oprot.writeString(struct.icon);
+			}
+			if (struct.isSetDescription()) {
+				oprot.writeString(struct.description);
+			}
+			if (struct.isSetAddress()) {
+				oprot.writeString(struct.address);
+			}
+			if (struct.isSetPhone()) {
+				oprot.writeString(struct.phone);
+			}
+			if (struct.isSetLongitude()) {
+				oprot.writeDouble(struct.longitude);
+			}
+			if (struct.isSetLatitude()) {
+				oprot.writeDouble(struct.latitude);
+			}
+			if (struct.isSetLocation()) {
+				oprot.writeString(struct.location);
 			}
 		}
 
@@ -394,10 +1633,54 @@ public class ArgStore implements org.apache.thrift.TBase<ArgStore, ArgStore._Fie
 		public void read(org.apache.thrift.protocol.TProtocol prot, ArgStore struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(1);
+			java.util.BitSet incoming = iprot.readBitSet(12);
 			if (incoming.get(0)) {
+				struct.sid = iprot.readString();
+				struct.setSidIsSet(true);
+			}
+			if (incoming.get(1)) {
 				struct.uid = iprot.readString();
 				struct.setUidIsSet(true);
+			}
+			if (incoming.get(2)) {
+				struct.name = iprot.readString();
+				struct.setNameIsSet(true);
+			}
+			if (incoming.get(3)) {
+				struct.nameAlias = iprot.readString();
+				struct.setNameAliasIsSet(true);
+			}
+			if (incoming.get(4)) {
+				struct.key = iprot.readString();
+				struct.setKeyIsSet(true);
+			}
+			if (incoming.get(5)) {
+				struct.icon = iprot.readString();
+				struct.setIconIsSet(true);
+			}
+			if (incoming.get(6)) {
+				struct.description = iprot.readString();
+				struct.setDescriptionIsSet(true);
+			}
+			if (incoming.get(7)) {
+				struct.address = iprot.readString();
+				struct.setAddressIsSet(true);
+			}
+			if (incoming.get(8)) {
+				struct.phone = iprot.readString();
+				struct.setPhoneIsSet(true);
+			}
+			if (incoming.get(9)) {
+				struct.longitude = iprot.readDouble();
+				struct.setLongitudeIsSet(true);
+			}
+			if (incoming.get(10)) {
+				struct.latitude = iprot.readDouble();
+				struct.setLatitudeIsSet(true);
+			}
+			if (incoming.get(11)) {
+				struct.location = iprot.readString();
+				struct.setLocationIsSet(true);
 			}
 		}
 

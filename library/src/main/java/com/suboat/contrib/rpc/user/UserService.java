@@ -102,6 +102,23 @@ public class UserService {
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
 		/**
+		 * -----银行卡编辑------ getUserBankCardList 取用户银行卡 createUserBankCard 创建用户银行卡
+		 * setUserBankCard 修改银行卡信息 delUserBankCard 删除银行卡信息
+		 * @param query
+		 */
+		public ResultUserBankCard getUserBankCardList(com.suboat.contrib.rpc.base.ArgQuery query)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
+
+		public UserBankCard createUserBankCard(ArgUserBankCard form)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
+
+		public UserBankCard setUserBankCard(ArgUserBankCard form)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
+
+		public UserBankCard delUserBankCard(ArgUserBankCard form)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
+
+		/**
 		 * ----- 拓展信息------ getUserExt 传入argQuery参数,取用户安全拓展表 getUserExtPub
 		 * 传入argQuery参数,取用户普通拓展表 getUserBankCardList 传入argQuery参数,取银行卡列表 getUserActionList
 		 * 传入argQuery参数,取操作历史列表
@@ -111,9 +128,6 @@ public class UserService {
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
 		public ResultUserExtPub getUserExtPub(com.suboat.contrib.rpc.base.ArgQuery query)
-				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
-
-		public ResultUserBankCard getUserBankCardList(com.suboat.contrib.rpc.base.ArgQuery query)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
 		public ResultUserAction getUserActionList(com.suboat.contrib.rpc.base.ArgQuery query)
@@ -306,16 +320,28 @@ public class UserService {
 				org.apache.thrift.async.AsyncMethodCallback<java.util.List<java.lang.String>> resultHandler)
 				throws org.apache.thrift.TException;
 
+		public void getUserBankCardList(com.suboat.contrib.rpc.base.ArgQuery query,
+				org.apache.thrift.async.AsyncMethodCallback<ResultUserBankCard> resultHandler)
+				throws org.apache.thrift.TException;
+
+		public void createUserBankCard(ArgUserBankCard form,
+				org.apache.thrift.async.AsyncMethodCallback<UserBankCard> resultHandler)
+				throws org.apache.thrift.TException;
+
+		public void setUserBankCard(ArgUserBankCard form,
+				org.apache.thrift.async.AsyncMethodCallback<UserBankCard> resultHandler)
+				throws org.apache.thrift.TException;
+
+		public void delUserBankCard(ArgUserBankCard form,
+				org.apache.thrift.async.AsyncMethodCallback<UserBankCard> resultHandler)
+				throws org.apache.thrift.TException;
+
 		public void getUserExt(com.suboat.contrib.rpc.base.ArgQuery query,
 				org.apache.thrift.async.AsyncMethodCallback<ResultUserExt> resultHandler)
 				throws org.apache.thrift.TException;
 
 		public void getUserExtPub(com.suboat.contrib.rpc.base.ArgQuery query,
 				org.apache.thrift.async.AsyncMethodCallback<ResultUserExtPub> resultHandler)
-				throws org.apache.thrift.TException;
-
-		public void getUserBankCardList(com.suboat.contrib.rpc.base.ArgQuery query,
-				org.apache.thrift.async.AsyncMethodCallback<ResultUserBankCard> resultHandler)
 				throws org.apache.thrift.TException;
 
 		public void getUserActionList(com.suboat.contrib.rpc.base.ArgQuery query,
@@ -991,6 +1017,111 @@ public class UserService {
 					"setUserRolesDel failed: unknown result");
 		}
 
+		public ResultUserBankCard getUserBankCardList(com.suboat.contrib.rpc.base.ArgQuery query)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			send_getUserBankCardList(query);
+			return recv_getUserBankCardList();
+		}
+
+		public void send_getUserBankCardList(com.suboat.contrib.rpc.base.ArgQuery query)
+				throws org.apache.thrift.TException {
+			getUserBankCardList_args args = new getUserBankCardList_args();
+			args.setQuery(query);
+			sendBase("getUserBankCardList", args);
+		}
+
+		public ResultUserBankCard recv_getUserBankCardList()
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			getUserBankCardList_result result = new getUserBankCardList_result();
+			receiveBase(result, "getUserBankCardList");
+			if (result.isSetSuccess()) {
+				return result.success;
+			}
+			if (result.err != null) {
+				throw result.err;
+			}
+			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
+					"getUserBankCardList failed: unknown result");
+		}
+
+		public UserBankCard createUserBankCard(ArgUserBankCard form)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			send_createUserBankCard(form);
+			return recv_createUserBankCard();
+		}
+
+		public void send_createUserBankCard(ArgUserBankCard form) throws org.apache.thrift.TException {
+			createUserBankCard_args args = new createUserBankCard_args();
+			args.setForm(form);
+			sendBase("createUserBankCard", args);
+		}
+
+		public UserBankCard recv_createUserBankCard()
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			createUserBankCard_result result = new createUserBankCard_result();
+			receiveBase(result, "createUserBankCard");
+			if (result.isSetSuccess()) {
+				return result.success;
+			}
+			if (result.err != null) {
+				throw result.err;
+			}
+			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
+					"createUserBankCard failed: unknown result");
+		}
+
+		public UserBankCard setUserBankCard(ArgUserBankCard form)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			send_setUserBankCard(form);
+			return recv_setUserBankCard();
+		}
+
+		public void send_setUserBankCard(ArgUserBankCard form) throws org.apache.thrift.TException {
+			setUserBankCard_args args = new setUserBankCard_args();
+			args.setForm(form);
+			sendBase("setUserBankCard", args);
+		}
+
+		public UserBankCard recv_setUserBankCard()
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			setUserBankCard_result result = new setUserBankCard_result();
+			receiveBase(result, "setUserBankCard");
+			if (result.isSetSuccess()) {
+				return result.success;
+			}
+			if (result.err != null) {
+				throw result.err;
+			}
+			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
+					"setUserBankCard failed: unknown result");
+		}
+
+		public UserBankCard delUserBankCard(ArgUserBankCard form)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			send_delUserBankCard(form);
+			return recv_delUserBankCard();
+		}
+
+		public void send_delUserBankCard(ArgUserBankCard form) throws org.apache.thrift.TException {
+			delUserBankCard_args args = new delUserBankCard_args();
+			args.setForm(form);
+			sendBase("delUserBankCard", args);
+		}
+
+		public UserBankCard recv_delUserBankCard()
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			delUserBankCard_result result = new delUserBankCard_result();
+			receiveBase(result, "delUserBankCard");
+			if (result.isSetSuccess()) {
+				return result.success;
+			}
+			if (result.err != null) {
+				throw result.err;
+			}
+			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
+					"delUserBankCard failed: unknown result");
+		}
+
 		public ResultUserExt getUserExt(com.suboat.contrib.rpc.base.ArgQuery query)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
 			send_getUserExt(query);
@@ -1040,33 +1171,6 @@ public class UserService {
 			}
 			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
 					"getUserExtPub failed: unknown result");
-		}
-
-		public ResultUserBankCard getUserBankCardList(com.suboat.contrib.rpc.base.ArgQuery query)
-				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
-			send_getUserBankCardList(query);
-			return recv_getUserBankCardList();
-		}
-
-		public void send_getUserBankCardList(com.suboat.contrib.rpc.base.ArgQuery query)
-				throws org.apache.thrift.TException {
-			getUserBankCardList_args args = new getUserBankCardList_args();
-			args.setQuery(query);
-			sendBase("getUserBankCardList", args);
-		}
-
-		public ResultUserBankCard recv_getUserBankCardList()
-				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
-			getUserBankCardList_result result = new getUserBankCardList_result();
-			receiveBase(result, "getUserBankCardList");
-			if (result.isSetSuccess()) {
-				return result.success;
-			}
-			if (result.err != null) {
-				throw result.err;
-			}
-			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
-					"getUserBankCardList failed: unknown result");
 		}
 
 		public ResultUserAction getUserActionList(com.suboat.contrib.rpc.base.ArgQuery query)
@@ -2829,6 +2933,184 @@ public class UserService {
 
 		}
 
+		public void getUserBankCardList(com.suboat.contrib.rpc.base.ArgQuery query,
+				org.apache.thrift.async.AsyncMethodCallback<ResultUserBankCard> resultHandler)
+				throws org.apache.thrift.TException {
+			checkReady();
+			getUserBankCardList_call method_call = new getUserBankCardList_call(query, resultHandler, this,
+					___protocolFactory, ___transport);
+			this.___currentMethod = method_call;
+			___manager.call(method_call);
+		}
+
+		public static class getUserBankCardList_call
+				extends org.apache.thrift.async.TAsyncMethodCall<ResultUserBankCard> {
+
+			private com.suboat.contrib.rpc.base.ArgQuery query;
+
+			public getUserBankCardList_call(com.suboat.contrib.rpc.base.ArgQuery query,
+					org.apache.thrift.async.AsyncMethodCallback<ResultUserBankCard> resultHandler,
+					org.apache.thrift.async.TAsyncClient client,
+					org.apache.thrift.protocol.TProtocolFactory protocolFactory,
+					org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+				super(client, protocolFactory, transport, resultHandler, false);
+				this.query = query;
+			}
+
+			public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+				prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getUserBankCardList",
+						org.apache.thrift.protocol.TMessageType.CALL, 0));
+				getUserBankCardList_args args = new getUserBankCardList_args();
+				args.setQuery(query);
+				args.write(prot);
+				prot.writeMessageEnd();
+			}
+
+			public ResultUserBankCard getResult()
+					throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+				if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+					throw new java.lang.IllegalStateException("Method call not finished!");
+				}
+				org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(
+						getFrameBuffer().array());
+				org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+				return (new Client(prot)).recv_getUserBankCardList();
+			}
+
+		}
+
+		public void createUserBankCard(ArgUserBankCard form,
+				org.apache.thrift.async.AsyncMethodCallback<UserBankCard> resultHandler)
+				throws org.apache.thrift.TException {
+			checkReady();
+			createUserBankCard_call method_call = new createUserBankCard_call(form, resultHandler, this,
+					___protocolFactory, ___transport);
+			this.___currentMethod = method_call;
+			___manager.call(method_call);
+		}
+
+		public static class createUserBankCard_call extends org.apache.thrift.async.TAsyncMethodCall<UserBankCard> {
+
+			private ArgUserBankCard form;
+
+			public createUserBankCard_call(ArgUserBankCard form,
+					org.apache.thrift.async.AsyncMethodCallback<UserBankCard> resultHandler,
+					org.apache.thrift.async.TAsyncClient client,
+					org.apache.thrift.protocol.TProtocolFactory protocolFactory,
+					org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+				super(client, protocolFactory, transport, resultHandler, false);
+				this.form = form;
+			}
+
+			public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+				prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("createUserBankCard",
+						org.apache.thrift.protocol.TMessageType.CALL, 0));
+				createUserBankCard_args args = new createUserBankCard_args();
+				args.setForm(form);
+				args.write(prot);
+				prot.writeMessageEnd();
+			}
+
+			public UserBankCard getResult() throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+				if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+					throw new java.lang.IllegalStateException("Method call not finished!");
+				}
+				org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(
+						getFrameBuffer().array());
+				org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+				return (new Client(prot)).recv_createUserBankCard();
+			}
+
+		}
+
+		public void setUserBankCard(ArgUserBankCard form,
+				org.apache.thrift.async.AsyncMethodCallback<UserBankCard> resultHandler)
+				throws org.apache.thrift.TException {
+			checkReady();
+			setUserBankCard_call method_call = new setUserBankCard_call(form, resultHandler, this, ___protocolFactory,
+					___transport);
+			this.___currentMethod = method_call;
+			___manager.call(method_call);
+		}
+
+		public static class setUserBankCard_call extends org.apache.thrift.async.TAsyncMethodCall<UserBankCard> {
+
+			private ArgUserBankCard form;
+
+			public setUserBankCard_call(ArgUserBankCard form,
+					org.apache.thrift.async.AsyncMethodCallback<UserBankCard> resultHandler,
+					org.apache.thrift.async.TAsyncClient client,
+					org.apache.thrift.protocol.TProtocolFactory protocolFactory,
+					org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+				super(client, protocolFactory, transport, resultHandler, false);
+				this.form = form;
+			}
+
+			public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+				prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("setUserBankCard",
+						org.apache.thrift.protocol.TMessageType.CALL, 0));
+				setUserBankCard_args args = new setUserBankCard_args();
+				args.setForm(form);
+				args.write(prot);
+				prot.writeMessageEnd();
+			}
+
+			public UserBankCard getResult() throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+				if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+					throw new java.lang.IllegalStateException("Method call not finished!");
+				}
+				org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(
+						getFrameBuffer().array());
+				org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+				return (new Client(prot)).recv_setUserBankCard();
+			}
+
+		}
+
+		public void delUserBankCard(ArgUserBankCard form,
+				org.apache.thrift.async.AsyncMethodCallback<UserBankCard> resultHandler)
+				throws org.apache.thrift.TException {
+			checkReady();
+			delUserBankCard_call method_call = new delUserBankCard_call(form, resultHandler, this, ___protocolFactory,
+					___transport);
+			this.___currentMethod = method_call;
+			___manager.call(method_call);
+		}
+
+		public static class delUserBankCard_call extends org.apache.thrift.async.TAsyncMethodCall<UserBankCard> {
+
+			private ArgUserBankCard form;
+
+			public delUserBankCard_call(ArgUserBankCard form,
+					org.apache.thrift.async.AsyncMethodCallback<UserBankCard> resultHandler,
+					org.apache.thrift.async.TAsyncClient client,
+					org.apache.thrift.protocol.TProtocolFactory protocolFactory,
+					org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+				super(client, protocolFactory, transport, resultHandler, false);
+				this.form = form;
+			}
+
+			public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+				prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("delUserBankCard",
+						org.apache.thrift.protocol.TMessageType.CALL, 0));
+				delUserBankCard_args args = new delUserBankCard_args();
+				args.setForm(form);
+				args.write(prot);
+				prot.writeMessageEnd();
+			}
+
+			public UserBankCard getResult() throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+				if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+					throw new java.lang.IllegalStateException("Method call not finished!");
+				}
+				org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(
+						getFrameBuffer().array());
+				org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+				return (new Client(prot)).recv_delUserBankCard();
+			}
+
+		}
+
 		public void getUserExt(com.suboat.contrib.rpc.base.ArgQuery query,
 				org.apache.thrift.async.AsyncMethodCallback<ResultUserExt> resultHandler)
 				throws org.apache.thrift.TException {
@@ -2913,52 +3195,6 @@ public class UserService {
 						getFrameBuffer().array());
 				org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
 				return (new Client(prot)).recv_getUserExtPub();
-			}
-
-		}
-
-		public void getUserBankCardList(com.suboat.contrib.rpc.base.ArgQuery query,
-				org.apache.thrift.async.AsyncMethodCallback<ResultUserBankCard> resultHandler)
-				throws org.apache.thrift.TException {
-			checkReady();
-			getUserBankCardList_call method_call = new getUserBankCardList_call(query, resultHandler, this,
-					___protocolFactory, ___transport);
-			this.___currentMethod = method_call;
-			___manager.call(method_call);
-		}
-
-		public static class getUserBankCardList_call
-				extends org.apache.thrift.async.TAsyncMethodCall<ResultUserBankCard> {
-
-			private com.suboat.contrib.rpc.base.ArgQuery query;
-
-			public getUserBankCardList_call(com.suboat.contrib.rpc.base.ArgQuery query,
-					org.apache.thrift.async.AsyncMethodCallback<ResultUserBankCard> resultHandler,
-					org.apache.thrift.async.TAsyncClient client,
-					org.apache.thrift.protocol.TProtocolFactory protocolFactory,
-					org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
-				super(client, protocolFactory, transport, resultHandler, false);
-				this.query = query;
-			}
-
-			public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
-				prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getUserBankCardList",
-						org.apache.thrift.protocol.TMessageType.CALL, 0));
-				getUserBankCardList_args args = new getUserBankCardList_args();
-				args.setQuery(query);
-				args.write(prot);
-				prot.writeMessageEnd();
-			}
-
-			public ResultUserBankCard getResult()
-					throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
-				if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
-					throw new java.lang.IllegalStateException("Method call not finished!");
-				}
-				org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(
-						getFrameBuffer().array());
-				org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
-				return (new Client(prot)).recv_getUserBankCardList();
 			}
 
 		}
@@ -4386,9 +4622,12 @@ public class UserService {
 			processMap.put("setUserCreateTime", new setUserCreateTime());
 			processMap.put("setUserRolesAdd", new setUserRolesAdd());
 			processMap.put("setUserRolesDel", new setUserRolesDel());
+			processMap.put("getUserBankCardList", new getUserBankCardList());
+			processMap.put("createUserBankCard", new createUserBankCard());
+			processMap.put("setUserBankCard", new setUserBankCard());
+			processMap.put("delUserBankCard", new delUserBankCard());
 			processMap.put("getUserExt", new getUserExt());
 			processMap.put("getUserExtPub", new getUserExtPub());
-			processMap.put("getUserBankCardList", new getUserBankCardList());
 			processMap.put("getUserActionList", new getUserActionList());
 			processMap.put("getRBAC", new getRBAC());
 			processMap.put("setRBAC", new setRBAC());
@@ -5083,6 +5322,142 @@ public class UserService {
 
 		}
 
+		public static class getUserBankCardList<I extends Iface>
+				extends org.apache.thrift.ProcessFunction<I, getUserBankCardList_args> {
+
+			public getUserBankCardList() {
+				super("getUserBankCardList");
+			}
+
+			public getUserBankCardList_args getEmptyArgsInstance() {
+				return new getUserBankCardList_args();
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			@Override
+			protected boolean rethrowUnhandledExceptions() {
+				return false;
+			}
+
+			public getUserBankCardList_result getResult(I iface, getUserBankCardList_args args)
+					throws org.apache.thrift.TException {
+				getUserBankCardList_result result = new getUserBankCardList_result();
+				try {
+					result.success = iface.getUserBankCardList(args.query);
+				}
+				catch (com.suboat.contrib.rpc.base.Error err) {
+					result.err = err;
+				}
+				return result;
+			}
+
+		}
+
+		public static class createUserBankCard<I extends Iface>
+				extends org.apache.thrift.ProcessFunction<I, createUserBankCard_args> {
+
+			public createUserBankCard() {
+				super("createUserBankCard");
+			}
+
+			public createUserBankCard_args getEmptyArgsInstance() {
+				return new createUserBankCard_args();
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			@Override
+			protected boolean rethrowUnhandledExceptions() {
+				return false;
+			}
+
+			public createUserBankCard_result getResult(I iface, createUserBankCard_args args)
+					throws org.apache.thrift.TException {
+				createUserBankCard_result result = new createUserBankCard_result();
+				try {
+					result.success = iface.createUserBankCard(args.form);
+				}
+				catch (com.suboat.contrib.rpc.base.Error err) {
+					result.err = err;
+				}
+				return result;
+			}
+
+		}
+
+		public static class setUserBankCard<I extends Iface>
+				extends org.apache.thrift.ProcessFunction<I, setUserBankCard_args> {
+
+			public setUserBankCard() {
+				super("setUserBankCard");
+			}
+
+			public setUserBankCard_args getEmptyArgsInstance() {
+				return new setUserBankCard_args();
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			@Override
+			protected boolean rethrowUnhandledExceptions() {
+				return false;
+			}
+
+			public setUserBankCard_result getResult(I iface, setUserBankCard_args args)
+					throws org.apache.thrift.TException {
+				setUserBankCard_result result = new setUserBankCard_result();
+				try {
+					result.success = iface.setUserBankCard(args.form);
+				}
+				catch (com.suboat.contrib.rpc.base.Error err) {
+					result.err = err;
+				}
+				return result;
+			}
+
+		}
+
+		public static class delUserBankCard<I extends Iface>
+				extends org.apache.thrift.ProcessFunction<I, delUserBankCard_args> {
+
+			public delUserBankCard() {
+				super("delUserBankCard");
+			}
+
+			public delUserBankCard_args getEmptyArgsInstance() {
+				return new delUserBankCard_args();
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			@Override
+			protected boolean rethrowUnhandledExceptions() {
+				return false;
+			}
+
+			public delUserBankCard_result getResult(I iface, delUserBankCard_args args)
+					throws org.apache.thrift.TException {
+				delUserBankCard_result result = new delUserBankCard_result();
+				try {
+					result.success = iface.delUserBankCard(args.form);
+				}
+				catch (com.suboat.contrib.rpc.base.Error err) {
+					result.err = err;
+				}
+				return result;
+			}
+
+		}
+
 		public static class getUserExt<I extends Iface> extends org.apache.thrift.ProcessFunction<I, getUserExt_args> {
 
 			public getUserExt() {
@@ -5140,40 +5515,6 @@ public class UserService {
 				getUserExtPub_result result = new getUserExtPub_result();
 				try {
 					result.success = iface.getUserExtPub(args.query);
-				}
-				catch (com.suboat.contrib.rpc.base.Error err) {
-					result.err = err;
-				}
-				return result;
-			}
-
-		}
-
-		public static class getUserBankCardList<I extends Iface>
-				extends org.apache.thrift.ProcessFunction<I, getUserBankCardList_args> {
-
-			public getUserBankCardList() {
-				super("getUserBankCardList");
-			}
-
-			public getUserBankCardList_args getEmptyArgsInstance() {
-				return new getUserBankCardList_args();
-			}
-
-			protected boolean isOneway() {
-				return false;
-			}
-
-			@Override
-			protected boolean rethrowUnhandledExceptions() {
-				return false;
-			}
-
-			public getUserBankCardList_result getResult(I iface, getUserBankCardList_args args)
-					throws org.apache.thrift.TException {
-				getUserBankCardList_result result = new getUserBankCardList_result();
-				try {
-					result.success = iface.getUserBankCardList(args.query);
 				}
 				catch (com.suboat.contrib.rpc.base.Error err) {
 					result.err = err;
@@ -6227,9 +6568,12 @@ public class UserService {
 			processMap.put("setUserCreateTime", new setUserCreateTime());
 			processMap.put("setUserRolesAdd", new setUserRolesAdd());
 			processMap.put("setUserRolesDel", new setUserRolesDel());
+			processMap.put("getUserBankCardList", new getUserBankCardList());
+			processMap.put("createUserBankCard", new createUserBankCard());
+			processMap.put("setUserBankCard", new setUserBankCard());
+			processMap.put("delUserBankCard", new delUserBankCard());
 			processMap.put("getUserExt", new getUserExt());
 			processMap.put("getUserExtPub", new getUserExtPub());
-			processMap.put("getUserBankCardList", new getUserBankCardList());
 			processMap.put("getUserActionList", new getUserActionList());
 			processMap.put("getRBAC", new getRBAC());
 			processMap.put("setRBAC", new setRBAC());
@@ -7843,6 +8187,322 @@ public class UserService {
 
 		}
 
+		public static class getUserBankCardList<I extends AsyncIface>
+				extends org.apache.thrift.AsyncProcessFunction<I, getUserBankCardList_args, ResultUserBankCard> {
+
+			public getUserBankCardList() {
+				super("getUserBankCardList");
+			}
+
+			public getUserBankCardList_args getEmptyArgsInstance() {
+				return new getUserBankCardList_args();
+			}
+
+			public org.apache.thrift.async.AsyncMethodCallback<ResultUserBankCard> getResultHandler(
+					final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+				final org.apache.thrift.AsyncProcessFunction fcall = this;
+				return new org.apache.thrift.async.AsyncMethodCallback<ResultUserBankCard>() {
+					public void onComplete(ResultUserBankCard o) {
+						getUserBankCardList_result result = new getUserBankCardList_result();
+						result.success = o;
+						try {
+							fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY, seqid);
+						}
+						catch (org.apache.thrift.transport.TTransportException e) {
+							_LOGGER.error("TTransportException writing to internal frame buffer", e);
+							fb.close();
+						}
+						catch (java.lang.Exception e) {
+							_LOGGER.error("Exception writing to internal frame buffer", e);
+							onError(e);
+						}
+					}
+
+					public void onError(java.lang.Exception e) {
+						byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+						org.apache.thrift.TSerializable msg;
+						getUserBankCardList_result result = new getUserBankCardList_result();
+						if (e instanceof com.suboat.contrib.rpc.base.Error) {
+							result.err = (com.suboat.contrib.rpc.base.Error) e;
+							result.setErrIsSet(true);
+							msg = result;
+						}
+						else if (e instanceof org.apache.thrift.transport.TTransportException) {
+							_LOGGER.error("TTransportException inside handler", e);
+							fb.close();
+							return;
+						}
+						else if (e instanceof org.apache.thrift.TApplicationException) {
+							_LOGGER.error("TApplicationException inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = (org.apache.thrift.TApplicationException) e;
+						}
+						else {
+							_LOGGER.error("Exception inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = new org.apache.thrift.TApplicationException(
+									org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+						}
+						try {
+							fcall.sendResponse(fb, msg, msgType, seqid);
+						}
+						catch (java.lang.Exception ex) {
+							_LOGGER.error("Exception writing to internal frame buffer", ex);
+							fb.close();
+						}
+					}
+				};
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			public void start(I iface, getUserBankCardList_args args,
+					org.apache.thrift.async.AsyncMethodCallback<ResultUserBankCard> resultHandler)
+					throws org.apache.thrift.TException {
+				iface.getUserBankCardList(args.query, resultHandler);
+			}
+
+		}
+
+		public static class createUserBankCard<I extends AsyncIface>
+				extends org.apache.thrift.AsyncProcessFunction<I, createUserBankCard_args, UserBankCard> {
+
+			public createUserBankCard() {
+				super("createUserBankCard");
+			}
+
+			public createUserBankCard_args getEmptyArgsInstance() {
+				return new createUserBankCard_args();
+			}
+
+			public org.apache.thrift.async.AsyncMethodCallback<UserBankCard> getResultHandler(
+					final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+				final org.apache.thrift.AsyncProcessFunction fcall = this;
+				return new org.apache.thrift.async.AsyncMethodCallback<UserBankCard>() {
+					public void onComplete(UserBankCard o) {
+						createUserBankCard_result result = new createUserBankCard_result();
+						result.success = o;
+						try {
+							fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY, seqid);
+						}
+						catch (org.apache.thrift.transport.TTransportException e) {
+							_LOGGER.error("TTransportException writing to internal frame buffer", e);
+							fb.close();
+						}
+						catch (java.lang.Exception e) {
+							_LOGGER.error("Exception writing to internal frame buffer", e);
+							onError(e);
+						}
+					}
+
+					public void onError(java.lang.Exception e) {
+						byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+						org.apache.thrift.TSerializable msg;
+						createUserBankCard_result result = new createUserBankCard_result();
+						if (e instanceof com.suboat.contrib.rpc.base.Error) {
+							result.err = (com.suboat.contrib.rpc.base.Error) e;
+							result.setErrIsSet(true);
+							msg = result;
+						}
+						else if (e instanceof org.apache.thrift.transport.TTransportException) {
+							_LOGGER.error("TTransportException inside handler", e);
+							fb.close();
+							return;
+						}
+						else if (e instanceof org.apache.thrift.TApplicationException) {
+							_LOGGER.error("TApplicationException inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = (org.apache.thrift.TApplicationException) e;
+						}
+						else {
+							_LOGGER.error("Exception inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = new org.apache.thrift.TApplicationException(
+									org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+						}
+						try {
+							fcall.sendResponse(fb, msg, msgType, seqid);
+						}
+						catch (java.lang.Exception ex) {
+							_LOGGER.error("Exception writing to internal frame buffer", ex);
+							fb.close();
+						}
+					}
+				};
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			public void start(I iface, createUserBankCard_args args,
+					org.apache.thrift.async.AsyncMethodCallback<UserBankCard> resultHandler)
+					throws org.apache.thrift.TException {
+				iface.createUserBankCard(args.form, resultHandler);
+			}
+
+		}
+
+		public static class setUserBankCard<I extends AsyncIface>
+				extends org.apache.thrift.AsyncProcessFunction<I, setUserBankCard_args, UserBankCard> {
+
+			public setUserBankCard() {
+				super("setUserBankCard");
+			}
+
+			public setUserBankCard_args getEmptyArgsInstance() {
+				return new setUserBankCard_args();
+			}
+
+			public org.apache.thrift.async.AsyncMethodCallback<UserBankCard> getResultHandler(
+					final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+				final org.apache.thrift.AsyncProcessFunction fcall = this;
+				return new org.apache.thrift.async.AsyncMethodCallback<UserBankCard>() {
+					public void onComplete(UserBankCard o) {
+						setUserBankCard_result result = new setUserBankCard_result();
+						result.success = o;
+						try {
+							fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY, seqid);
+						}
+						catch (org.apache.thrift.transport.TTransportException e) {
+							_LOGGER.error("TTransportException writing to internal frame buffer", e);
+							fb.close();
+						}
+						catch (java.lang.Exception e) {
+							_LOGGER.error("Exception writing to internal frame buffer", e);
+							onError(e);
+						}
+					}
+
+					public void onError(java.lang.Exception e) {
+						byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+						org.apache.thrift.TSerializable msg;
+						setUserBankCard_result result = new setUserBankCard_result();
+						if (e instanceof com.suboat.contrib.rpc.base.Error) {
+							result.err = (com.suboat.contrib.rpc.base.Error) e;
+							result.setErrIsSet(true);
+							msg = result;
+						}
+						else if (e instanceof org.apache.thrift.transport.TTransportException) {
+							_LOGGER.error("TTransportException inside handler", e);
+							fb.close();
+							return;
+						}
+						else if (e instanceof org.apache.thrift.TApplicationException) {
+							_LOGGER.error("TApplicationException inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = (org.apache.thrift.TApplicationException) e;
+						}
+						else {
+							_LOGGER.error("Exception inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = new org.apache.thrift.TApplicationException(
+									org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+						}
+						try {
+							fcall.sendResponse(fb, msg, msgType, seqid);
+						}
+						catch (java.lang.Exception ex) {
+							_LOGGER.error("Exception writing to internal frame buffer", ex);
+							fb.close();
+						}
+					}
+				};
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			public void start(I iface, setUserBankCard_args args,
+					org.apache.thrift.async.AsyncMethodCallback<UserBankCard> resultHandler)
+					throws org.apache.thrift.TException {
+				iface.setUserBankCard(args.form, resultHandler);
+			}
+
+		}
+
+		public static class delUserBankCard<I extends AsyncIface>
+				extends org.apache.thrift.AsyncProcessFunction<I, delUserBankCard_args, UserBankCard> {
+
+			public delUserBankCard() {
+				super("delUserBankCard");
+			}
+
+			public delUserBankCard_args getEmptyArgsInstance() {
+				return new delUserBankCard_args();
+			}
+
+			public org.apache.thrift.async.AsyncMethodCallback<UserBankCard> getResultHandler(
+					final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+				final org.apache.thrift.AsyncProcessFunction fcall = this;
+				return new org.apache.thrift.async.AsyncMethodCallback<UserBankCard>() {
+					public void onComplete(UserBankCard o) {
+						delUserBankCard_result result = new delUserBankCard_result();
+						result.success = o;
+						try {
+							fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY, seqid);
+						}
+						catch (org.apache.thrift.transport.TTransportException e) {
+							_LOGGER.error("TTransportException writing to internal frame buffer", e);
+							fb.close();
+						}
+						catch (java.lang.Exception e) {
+							_LOGGER.error("Exception writing to internal frame buffer", e);
+							onError(e);
+						}
+					}
+
+					public void onError(java.lang.Exception e) {
+						byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+						org.apache.thrift.TSerializable msg;
+						delUserBankCard_result result = new delUserBankCard_result();
+						if (e instanceof com.suboat.contrib.rpc.base.Error) {
+							result.err = (com.suboat.contrib.rpc.base.Error) e;
+							result.setErrIsSet(true);
+							msg = result;
+						}
+						else if (e instanceof org.apache.thrift.transport.TTransportException) {
+							_LOGGER.error("TTransportException inside handler", e);
+							fb.close();
+							return;
+						}
+						else if (e instanceof org.apache.thrift.TApplicationException) {
+							_LOGGER.error("TApplicationException inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = (org.apache.thrift.TApplicationException) e;
+						}
+						else {
+							_LOGGER.error("Exception inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = new org.apache.thrift.TApplicationException(
+									org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+						}
+						try {
+							fcall.sendResponse(fb, msg, msgType, seqid);
+						}
+						catch (java.lang.Exception ex) {
+							_LOGGER.error("Exception writing to internal frame buffer", ex);
+							fb.close();
+						}
+					}
+				};
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			public void start(I iface, delUserBankCard_args args,
+					org.apache.thrift.async.AsyncMethodCallback<UserBankCard> resultHandler)
+					throws org.apache.thrift.TException {
+				iface.delUserBankCard(args.form, resultHandler);
+			}
+
+		}
+
 		public static class getUserExt<I extends AsyncIface>
 				extends org.apache.thrift.AsyncProcessFunction<I, getUserExt_args, ResultUserExt> {
 
@@ -7997,85 +8657,6 @@ public class UserService {
 					org.apache.thrift.async.AsyncMethodCallback<ResultUserExtPub> resultHandler)
 					throws org.apache.thrift.TException {
 				iface.getUserExtPub(args.query, resultHandler);
-			}
-
-		}
-
-		public static class getUserBankCardList<I extends AsyncIface>
-				extends org.apache.thrift.AsyncProcessFunction<I, getUserBankCardList_args, ResultUserBankCard> {
-
-			public getUserBankCardList() {
-				super("getUserBankCardList");
-			}
-
-			public getUserBankCardList_args getEmptyArgsInstance() {
-				return new getUserBankCardList_args();
-			}
-
-			public org.apache.thrift.async.AsyncMethodCallback<ResultUserBankCard> getResultHandler(
-					final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
-				final org.apache.thrift.AsyncProcessFunction fcall = this;
-				return new org.apache.thrift.async.AsyncMethodCallback<ResultUserBankCard>() {
-					public void onComplete(ResultUserBankCard o) {
-						getUserBankCardList_result result = new getUserBankCardList_result();
-						result.success = o;
-						try {
-							fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY, seqid);
-						}
-						catch (org.apache.thrift.transport.TTransportException e) {
-							_LOGGER.error("TTransportException writing to internal frame buffer", e);
-							fb.close();
-						}
-						catch (java.lang.Exception e) {
-							_LOGGER.error("Exception writing to internal frame buffer", e);
-							onError(e);
-						}
-					}
-
-					public void onError(java.lang.Exception e) {
-						byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
-						org.apache.thrift.TSerializable msg;
-						getUserBankCardList_result result = new getUserBankCardList_result();
-						if (e instanceof com.suboat.contrib.rpc.base.Error) {
-							result.err = (com.suboat.contrib.rpc.base.Error) e;
-							result.setErrIsSet(true);
-							msg = result;
-						}
-						else if (e instanceof org.apache.thrift.transport.TTransportException) {
-							_LOGGER.error("TTransportException inside handler", e);
-							fb.close();
-							return;
-						}
-						else if (e instanceof org.apache.thrift.TApplicationException) {
-							_LOGGER.error("TApplicationException inside handler", e);
-							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
-							msg = (org.apache.thrift.TApplicationException) e;
-						}
-						else {
-							_LOGGER.error("Exception inside handler", e);
-							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
-							msg = new org.apache.thrift.TApplicationException(
-									org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
-						}
-						try {
-							fcall.sendResponse(fb, msg, msgType, seqid);
-						}
-						catch (java.lang.Exception ex) {
-							_LOGGER.error("Exception writing to internal frame buffer", ex);
-							fb.close();
-						}
-					}
-				};
-			}
-
-			protected boolean isOneway() {
-				return false;
-			}
-
-			public void start(I iface, getUserBankCardList_args args,
-					org.apache.thrift.async.AsyncMethodCallback<ResultUserBankCard> resultHandler)
-					throws org.apache.thrift.TException {
-				iface.getUserBankCardList(args.query, resultHandler);
 			}
 
 		}
@@ -31783,6 +32364,3808 @@ public class UserService {
 
 	}
 
+	public static class getUserBankCardList_args
+			implements org.apache.thrift.TBase<getUserBankCardList_args, getUserBankCardList_args._Fields>,
+			java.io.Serializable, Cloneable, Comparable<getUserBankCardList_args> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"getUserBankCardList_args");
+
+		private static final org.apache.thrift.protocol.TField QUERY_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"query", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getUserBankCardList_argsStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getUserBankCardList_argsTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.ArgQuery query; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			QUERY((short) 1, "query");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 1: // QUERY
+					return QUERY;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.QUERY,
+					new org.apache.thrift.meta_data.FieldMetaData("query",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									com.suboat.contrib.rpc.base.ArgQuery.class)));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getUserBankCardList_args.class, metaDataMap);
+		}
+
+		public getUserBankCardList_args() {
+		}
+
+		public getUserBankCardList_args(com.suboat.contrib.rpc.base.ArgQuery query) {
+			this();
+			this.query = query;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public getUserBankCardList_args(getUserBankCardList_args other) {
+			if (other.isSetQuery()) {
+				this.query = new com.suboat.contrib.rpc.base.ArgQuery(other.query);
+			}
+		}
+
+		public getUserBankCardList_args deepCopy() {
+			return new getUserBankCardList_args(this);
+		}
+
+		@Override
+		public void clear() {
+			this.query = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public com.suboat.contrib.rpc.base.ArgQuery getQuery() {
+			return this.query;
+		}
+
+		public getUserBankCardList_args setQuery(
+				@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.ArgQuery query) {
+			this.query = query;
+			return this;
+		}
+
+		public void unsetQuery() {
+			this.query = null;
+		}
+
+		/**
+		 * Returns true if field query is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetQuery() {
+			return this.query != null;
+		}
+
+		public void setQueryIsSet(boolean value) {
+			if (!value) {
+				this.query = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case QUERY:
+				if (value == null) {
+					unsetQuery();
+				}
+				else {
+					setQuery((com.suboat.contrib.rpc.base.ArgQuery) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case QUERY:
+				return getQuery();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case QUERY:
+				return isSetQuery();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof getUserBankCardList_args)
+				return this.equals((getUserBankCardList_args) that);
+			return false;
+		}
+
+		public boolean equals(getUserBankCardList_args that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_query = true && this.isSetQuery();
+			boolean that_present_query = true && that.isSetQuery();
+			if (this_present_query || that_present_query) {
+				if (!(this_present_query && that_present_query))
+					return false;
+				if (!this.query.equals(that.query))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetQuery()) ? 131071 : 524287);
+			if (isSetQuery())
+				hashCode = hashCode * 8191 + query.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(getUserBankCardList_args other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetQuery()).compareTo(other.isSetQuery());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetQuery()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.query, other.query);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("getUserBankCardList_args(");
+			boolean first = true;
+
+			sb.append("query:");
+			if (this.query == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.query);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+			if (query != null) {
+				query.validate();
+			}
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class getUserBankCardList_argsStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getUserBankCardList_argsStandardScheme getScheme() {
+				return new getUserBankCardList_argsStandardScheme();
+			}
+
+		}
+
+		private static class getUserBankCardList_argsStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<getUserBankCardList_args> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, getUserBankCardList_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 1: // QUERY
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.query = new com.suboat.contrib.rpc.base.ArgQuery();
+							struct.query.read(iprot);
+							struct.setQueryIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, getUserBankCardList_args struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.query != null) {
+					oprot.writeFieldBegin(QUERY_FIELD_DESC);
+					struct.query.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class getUserBankCardList_argsTupleSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getUserBankCardList_argsTupleScheme getScheme() {
+				return new getUserBankCardList_argsTupleScheme();
+			}
+
+		}
+
+		private static class getUserBankCardList_argsTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<getUserBankCardList_args> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, getUserBankCardList_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetQuery()) {
+					optionals.set(0);
+				}
+				oprot.writeBitSet(optionals, 1);
+				if (struct.isSetQuery()) {
+					struct.query.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, getUserBankCardList_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(1);
+				if (incoming.get(0)) {
+					struct.query = new com.suboat.contrib.rpc.base.ArgQuery();
+					struct.query.read(iprot);
+					struct.setQueryIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
+	public static class getUserBankCardList_result
+			implements org.apache.thrift.TBase<getUserBankCardList_result, getUserBankCardList_result._Fields>,
+			java.io.Serializable, Cloneable, Comparable<getUserBankCardList_result> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"getUserBankCardList_result");
+
+		private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"success", org.apache.thrift.protocol.TType.STRUCT, (short) 0);
+
+		private static final org.apache.thrift.protocol.TField ERR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"err", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getUserBankCardList_resultStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getUserBankCardList_resultTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable ResultUserBankCard success; // required
+
+		public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			SUCCESS((short) 0, "success"), ERR((short) 1, "err");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 0: // SUCCESS
+					return SUCCESS;
+				case 1: // ERR
+					return ERR;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.SUCCESS,
+					new org.apache.thrift.meta_data.FieldMetaData("success",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									"ResultUserBankCard")));
+			tmpMap.put(_Fields.ERR,
+					new org.apache.thrift.meta_data.FieldMetaData("err",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									com.suboat.contrib.rpc.base.Error.class)));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getUserBankCardList_result.class,
+					metaDataMap);
+		}
+
+		public getUserBankCardList_result() {
+		}
+
+		public getUserBankCardList_result(ResultUserBankCard success, com.suboat.contrib.rpc.base.Error err) {
+			this();
+			this.success = success;
+			this.err = err;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public getUserBankCardList_result(getUserBankCardList_result other) {
+			if (other.isSetSuccess()) {
+				this.success = new ResultUserBankCard(other.success);
+			}
+			if (other.isSetErr()) {
+				this.err = new com.suboat.contrib.rpc.base.Error(other.err);
+			}
+		}
+
+		public getUserBankCardList_result deepCopy() {
+			return new getUserBankCardList_result(this);
+		}
+
+		@Override
+		public void clear() {
+			this.success = null;
+			this.err = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public ResultUserBankCard getSuccess() {
+			return this.success;
+		}
+
+		public getUserBankCardList_result setSuccess(
+				@org.apache.thrift.annotation.Nullable ResultUserBankCard success) {
+			this.success = success;
+			return this;
+		}
+
+		public void unsetSuccess() {
+			this.success = null;
+		}
+
+		/**
+		 * Returns true if field success is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetSuccess() {
+			return this.success != null;
+		}
+
+		public void setSuccessIsSet(boolean value) {
+			if (!value) {
+				this.success = null;
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public com.suboat.contrib.rpc.base.Error getErr() {
+			return this.err;
+		}
+
+		public getUserBankCardList_result setErr(
+				@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err) {
+			this.err = err;
+			return this;
+		}
+
+		public void unsetErr() {
+			this.err = null;
+		}
+
+		/**
+		 * Returns true if field err is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetErr() {
+			return this.err != null;
+		}
+
+		public void setErrIsSet(boolean value) {
+			if (!value) {
+				this.err = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case SUCCESS:
+				if (value == null) {
+					unsetSuccess();
+				}
+				else {
+					setSuccess((ResultUserBankCard) value);
+				}
+				break;
+
+			case ERR:
+				if (value == null) {
+					unsetErr();
+				}
+				else {
+					setErr((com.suboat.contrib.rpc.base.Error) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case SUCCESS:
+				return getSuccess();
+
+			case ERR:
+				return getErr();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case SUCCESS:
+				return isSetSuccess();
+			case ERR:
+				return isSetErr();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof getUserBankCardList_result)
+				return this.equals((getUserBankCardList_result) that);
+			return false;
+		}
+
+		public boolean equals(getUserBankCardList_result that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_success = true && this.isSetSuccess();
+			boolean that_present_success = true && that.isSetSuccess();
+			if (this_present_success || that_present_success) {
+				if (!(this_present_success && that_present_success))
+					return false;
+				if (!this.success.equals(that.success))
+					return false;
+			}
+
+			boolean this_present_err = true && this.isSetErr();
+			boolean that_present_err = true && that.isSetErr();
+			if (this_present_err || that_present_err) {
+				if (!(this_present_err && that_present_err))
+					return false;
+				if (!this.err.equals(that.err))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetSuccess()) ? 131071 : 524287);
+			if (isSetSuccess())
+				hashCode = hashCode * 8191 + success.hashCode();
+
+			hashCode = hashCode * 8191 + ((isSetErr()) ? 131071 : 524287);
+			if (isSetErr())
+				hashCode = hashCode * 8191 + err.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(getUserBankCardList_result other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetSuccess()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			lastComparison = java.lang.Boolean.valueOf(isSetErr()).compareTo(other.isSetErr());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetErr()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.err, other.err);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("getUserBankCardList_result(");
+			boolean first = true;
+
+			sb.append("success:");
+			if (this.success == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.success);
+			}
+			first = false;
+			if (!first)
+				sb.append(", ");
+			sb.append("err:");
+			if (this.err == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.err);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class getUserBankCardList_resultStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getUserBankCardList_resultStandardScheme getScheme() {
+				return new getUserBankCardList_resultStandardScheme();
+			}
+
+		}
+
+		private static class getUserBankCardList_resultStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<getUserBankCardList_result> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, getUserBankCardList_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 0: // SUCCESS
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.success = new ResultUserBankCard();
+							struct.success.read(iprot);
+							struct.setSuccessIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					case 1: // ERR
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.err = new com.suboat.contrib.rpc.base.Error();
+							struct.err.read(iprot);
+							struct.setErrIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, getUserBankCardList_result struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.success != null) {
+					oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+					struct.success.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				if (struct.err != null) {
+					oprot.writeFieldBegin(ERR_FIELD_DESC);
+					struct.err.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class getUserBankCardList_resultTupleSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getUserBankCardList_resultTupleScheme getScheme() {
+				return new getUserBankCardList_resultTupleScheme();
+			}
+
+		}
+
+		private static class getUserBankCardList_resultTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<getUserBankCardList_result> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, getUserBankCardList_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetSuccess()) {
+					optionals.set(0);
+				}
+				if (struct.isSetErr()) {
+					optionals.set(1);
+				}
+				oprot.writeBitSet(optionals, 2);
+				if (struct.isSetSuccess()) {
+					struct.success.write(oprot);
+				}
+				if (struct.isSetErr()) {
+					struct.err.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, getUserBankCardList_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(2);
+				if (incoming.get(0)) {
+					struct.success = new ResultUserBankCard();
+					struct.success.read(iprot);
+					struct.setSuccessIsSet(true);
+				}
+				if (incoming.get(1)) {
+					struct.err = new com.suboat.contrib.rpc.base.Error();
+					struct.err.read(iprot);
+					struct.setErrIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
+	public static class createUserBankCard_args
+			implements org.apache.thrift.TBase<createUserBankCard_args, createUserBankCard_args._Fields>,
+			java.io.Serializable, Cloneable, Comparable<createUserBankCard_args> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"createUserBankCard_args");
+
+		private static final org.apache.thrift.protocol.TField FORM_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"form", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new createUserBankCard_argsStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new createUserBankCard_argsTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable ArgUserBankCard form; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			FORM((short) 1, "form");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 1: // FORM
+					return FORM;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.FORM,
+					new org.apache.thrift.meta_data.FieldMetaData("form",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									"ArgUserBankCard")));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(createUserBankCard_args.class, metaDataMap);
+		}
+
+		public createUserBankCard_args() {
+		}
+
+		public createUserBankCard_args(ArgUserBankCard form) {
+			this();
+			this.form = form;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public createUserBankCard_args(createUserBankCard_args other) {
+			if (other.isSetForm()) {
+				this.form = new ArgUserBankCard(other.form);
+			}
+		}
+
+		public createUserBankCard_args deepCopy() {
+			return new createUserBankCard_args(this);
+		}
+
+		@Override
+		public void clear() {
+			this.form = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public ArgUserBankCard getForm() {
+			return this.form;
+		}
+
+		public createUserBankCard_args setForm(@org.apache.thrift.annotation.Nullable ArgUserBankCard form) {
+			this.form = form;
+			return this;
+		}
+
+		public void unsetForm() {
+			this.form = null;
+		}
+
+		/**
+		 * Returns true if field form is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetForm() {
+			return this.form != null;
+		}
+
+		public void setFormIsSet(boolean value) {
+			if (!value) {
+				this.form = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case FORM:
+				if (value == null) {
+					unsetForm();
+				}
+				else {
+					setForm((ArgUserBankCard) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case FORM:
+				return getForm();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case FORM:
+				return isSetForm();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof createUserBankCard_args)
+				return this.equals((createUserBankCard_args) that);
+			return false;
+		}
+
+		public boolean equals(createUserBankCard_args that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_form = true && this.isSetForm();
+			boolean that_present_form = true && that.isSetForm();
+			if (this_present_form || that_present_form) {
+				if (!(this_present_form && that_present_form))
+					return false;
+				if (!this.form.equals(that.form))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetForm()) ? 131071 : 524287);
+			if (isSetForm())
+				hashCode = hashCode * 8191 + form.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(createUserBankCard_args other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetForm()).compareTo(other.isSetForm());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetForm()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.form, other.form);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("createUserBankCard_args(");
+			boolean first = true;
+
+			sb.append("form:");
+			if (this.form == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.form);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class createUserBankCard_argsStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public createUserBankCard_argsStandardScheme getScheme() {
+				return new createUserBankCard_argsStandardScheme();
+			}
+
+		}
+
+		private static class createUserBankCard_argsStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<createUserBankCard_args> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, createUserBankCard_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 1: // FORM
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.form = new ArgUserBankCard();
+							struct.form.read(iprot);
+							struct.setFormIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, createUserBankCard_args struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.form != null) {
+					oprot.writeFieldBegin(FORM_FIELD_DESC);
+					struct.form.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class createUserBankCard_argsTupleSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public createUserBankCard_argsTupleScheme getScheme() {
+				return new createUserBankCard_argsTupleScheme();
+			}
+
+		}
+
+		private static class createUserBankCard_argsTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<createUserBankCard_args> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, createUserBankCard_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetForm()) {
+					optionals.set(0);
+				}
+				oprot.writeBitSet(optionals, 1);
+				if (struct.isSetForm()) {
+					struct.form.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, createUserBankCard_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(1);
+				if (incoming.get(0)) {
+					struct.form = new ArgUserBankCard();
+					struct.form.read(iprot);
+					struct.setFormIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
+	public static class createUserBankCard_result
+			implements org.apache.thrift.TBase<createUserBankCard_result, createUserBankCard_result._Fields>,
+			java.io.Serializable, Cloneable, Comparable<createUserBankCard_result> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"createUserBankCard_result");
+
+		private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"success", org.apache.thrift.protocol.TType.STRUCT, (short) 0);
+
+		private static final org.apache.thrift.protocol.TField ERR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"err", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new createUserBankCard_resultStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new createUserBankCard_resultTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable UserBankCard success; // required
+
+		public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			SUCCESS((short) 0, "success"), ERR((short) 1, "err");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 0: // SUCCESS
+					return SUCCESS;
+				case 1: // ERR
+					return ERR;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.SUCCESS,
+					new org.apache.thrift.meta_data.FieldMetaData("success",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									UserBankCard.class)));
+			tmpMap.put(_Fields.ERR,
+					new org.apache.thrift.meta_data.FieldMetaData("err",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									com.suboat.contrib.rpc.base.Error.class)));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(createUserBankCard_result.class,
+					metaDataMap);
+		}
+
+		public createUserBankCard_result() {
+		}
+
+		public createUserBankCard_result(UserBankCard success, com.suboat.contrib.rpc.base.Error err) {
+			this();
+			this.success = success;
+			this.err = err;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public createUserBankCard_result(createUserBankCard_result other) {
+			if (other.isSetSuccess()) {
+				this.success = new UserBankCard(other.success);
+			}
+			if (other.isSetErr()) {
+				this.err = new com.suboat.contrib.rpc.base.Error(other.err);
+			}
+		}
+
+		public createUserBankCard_result deepCopy() {
+			return new createUserBankCard_result(this);
+		}
+
+		@Override
+		public void clear() {
+			this.success = null;
+			this.err = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public UserBankCard getSuccess() {
+			return this.success;
+		}
+
+		public createUserBankCard_result setSuccess(@org.apache.thrift.annotation.Nullable UserBankCard success) {
+			this.success = success;
+			return this;
+		}
+
+		public void unsetSuccess() {
+			this.success = null;
+		}
+
+		/**
+		 * Returns true if field success is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetSuccess() {
+			return this.success != null;
+		}
+
+		public void setSuccessIsSet(boolean value) {
+			if (!value) {
+				this.success = null;
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public com.suboat.contrib.rpc.base.Error getErr() {
+			return this.err;
+		}
+
+		public createUserBankCard_result setErr(
+				@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err) {
+			this.err = err;
+			return this;
+		}
+
+		public void unsetErr() {
+			this.err = null;
+		}
+
+		/**
+		 * Returns true if field err is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetErr() {
+			return this.err != null;
+		}
+
+		public void setErrIsSet(boolean value) {
+			if (!value) {
+				this.err = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case SUCCESS:
+				if (value == null) {
+					unsetSuccess();
+				}
+				else {
+					setSuccess((UserBankCard) value);
+				}
+				break;
+
+			case ERR:
+				if (value == null) {
+					unsetErr();
+				}
+				else {
+					setErr((com.suboat.contrib.rpc.base.Error) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case SUCCESS:
+				return getSuccess();
+
+			case ERR:
+				return getErr();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case SUCCESS:
+				return isSetSuccess();
+			case ERR:
+				return isSetErr();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof createUserBankCard_result)
+				return this.equals((createUserBankCard_result) that);
+			return false;
+		}
+
+		public boolean equals(createUserBankCard_result that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_success = true && this.isSetSuccess();
+			boolean that_present_success = true && that.isSetSuccess();
+			if (this_present_success || that_present_success) {
+				if (!(this_present_success && that_present_success))
+					return false;
+				if (!this.success.equals(that.success))
+					return false;
+			}
+
+			boolean this_present_err = true && this.isSetErr();
+			boolean that_present_err = true && that.isSetErr();
+			if (this_present_err || that_present_err) {
+				if (!(this_present_err && that_present_err))
+					return false;
+				if (!this.err.equals(that.err))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetSuccess()) ? 131071 : 524287);
+			if (isSetSuccess())
+				hashCode = hashCode * 8191 + success.hashCode();
+
+			hashCode = hashCode * 8191 + ((isSetErr()) ? 131071 : 524287);
+			if (isSetErr())
+				hashCode = hashCode * 8191 + err.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(createUserBankCard_result other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetSuccess()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			lastComparison = java.lang.Boolean.valueOf(isSetErr()).compareTo(other.isSetErr());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetErr()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.err, other.err);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("createUserBankCard_result(");
+			boolean first = true;
+
+			sb.append("success:");
+			if (this.success == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.success);
+			}
+			first = false;
+			if (!first)
+				sb.append(", ");
+			sb.append("err:");
+			if (this.err == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.err);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+			if (success != null) {
+				success.validate();
+			}
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class createUserBankCard_resultStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public createUserBankCard_resultStandardScheme getScheme() {
+				return new createUserBankCard_resultStandardScheme();
+			}
+
+		}
+
+		private static class createUserBankCard_resultStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<createUserBankCard_result> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, createUserBankCard_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 0: // SUCCESS
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.success = new UserBankCard();
+							struct.success.read(iprot);
+							struct.setSuccessIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					case 1: // ERR
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.err = new com.suboat.contrib.rpc.base.Error();
+							struct.err.read(iprot);
+							struct.setErrIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, createUserBankCard_result struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.success != null) {
+					oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+					struct.success.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				if (struct.err != null) {
+					oprot.writeFieldBegin(ERR_FIELD_DESC);
+					struct.err.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class createUserBankCard_resultTupleSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public createUserBankCard_resultTupleScheme getScheme() {
+				return new createUserBankCard_resultTupleScheme();
+			}
+
+		}
+
+		private static class createUserBankCard_resultTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<createUserBankCard_result> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, createUserBankCard_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetSuccess()) {
+					optionals.set(0);
+				}
+				if (struct.isSetErr()) {
+					optionals.set(1);
+				}
+				oprot.writeBitSet(optionals, 2);
+				if (struct.isSetSuccess()) {
+					struct.success.write(oprot);
+				}
+				if (struct.isSetErr()) {
+					struct.err.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, createUserBankCard_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(2);
+				if (incoming.get(0)) {
+					struct.success = new UserBankCard();
+					struct.success.read(iprot);
+					struct.setSuccessIsSet(true);
+				}
+				if (incoming.get(1)) {
+					struct.err = new com.suboat.contrib.rpc.base.Error();
+					struct.err.read(iprot);
+					struct.setErrIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
+	public static class setUserBankCard_args
+			implements org.apache.thrift.TBase<setUserBankCard_args, setUserBankCard_args._Fields>,
+			java.io.Serializable, Cloneable, Comparable<setUserBankCard_args> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"setUserBankCard_args");
+
+		private static final org.apache.thrift.protocol.TField FORM_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"form", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new setUserBankCard_argsStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new setUserBankCard_argsTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable ArgUserBankCard form; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			FORM((short) 1, "form");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 1: // FORM
+					return FORM;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.FORM,
+					new org.apache.thrift.meta_data.FieldMetaData("form",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									"ArgUserBankCard")));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(setUserBankCard_args.class, metaDataMap);
+		}
+
+		public setUserBankCard_args() {
+		}
+
+		public setUserBankCard_args(ArgUserBankCard form) {
+			this();
+			this.form = form;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public setUserBankCard_args(setUserBankCard_args other) {
+			if (other.isSetForm()) {
+				this.form = new ArgUserBankCard(other.form);
+			}
+		}
+
+		public setUserBankCard_args deepCopy() {
+			return new setUserBankCard_args(this);
+		}
+
+		@Override
+		public void clear() {
+			this.form = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public ArgUserBankCard getForm() {
+			return this.form;
+		}
+
+		public setUserBankCard_args setForm(@org.apache.thrift.annotation.Nullable ArgUserBankCard form) {
+			this.form = form;
+			return this;
+		}
+
+		public void unsetForm() {
+			this.form = null;
+		}
+
+		/**
+		 * Returns true if field form is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetForm() {
+			return this.form != null;
+		}
+
+		public void setFormIsSet(boolean value) {
+			if (!value) {
+				this.form = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case FORM:
+				if (value == null) {
+					unsetForm();
+				}
+				else {
+					setForm((ArgUserBankCard) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case FORM:
+				return getForm();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case FORM:
+				return isSetForm();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof setUserBankCard_args)
+				return this.equals((setUserBankCard_args) that);
+			return false;
+		}
+
+		public boolean equals(setUserBankCard_args that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_form = true && this.isSetForm();
+			boolean that_present_form = true && that.isSetForm();
+			if (this_present_form || that_present_form) {
+				if (!(this_present_form && that_present_form))
+					return false;
+				if (!this.form.equals(that.form))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetForm()) ? 131071 : 524287);
+			if (isSetForm())
+				hashCode = hashCode * 8191 + form.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(setUserBankCard_args other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetForm()).compareTo(other.isSetForm());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetForm()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.form, other.form);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("setUserBankCard_args(");
+			boolean first = true;
+
+			sb.append("form:");
+			if (this.form == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.form);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class setUserBankCard_argsStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public setUserBankCard_argsStandardScheme getScheme() {
+				return new setUserBankCard_argsStandardScheme();
+			}
+
+		}
+
+		private static class setUserBankCard_argsStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<setUserBankCard_args> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, setUserBankCard_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 1: // FORM
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.form = new ArgUserBankCard();
+							struct.form.read(iprot);
+							struct.setFormIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, setUserBankCard_args struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.form != null) {
+					oprot.writeFieldBegin(FORM_FIELD_DESC);
+					struct.form.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class setUserBankCard_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+
+			public setUserBankCard_argsTupleScheme getScheme() {
+				return new setUserBankCard_argsTupleScheme();
+			}
+
+		}
+
+		private static class setUserBankCard_argsTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<setUserBankCard_args> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, setUserBankCard_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetForm()) {
+					optionals.set(0);
+				}
+				oprot.writeBitSet(optionals, 1);
+				if (struct.isSetForm()) {
+					struct.form.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, setUserBankCard_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(1);
+				if (incoming.get(0)) {
+					struct.form = new ArgUserBankCard();
+					struct.form.read(iprot);
+					struct.setFormIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
+	public static class setUserBankCard_result
+			implements org.apache.thrift.TBase<setUserBankCard_result, setUserBankCard_result._Fields>,
+			java.io.Serializable, Cloneable, Comparable<setUserBankCard_result> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"setUserBankCard_result");
+
+		private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"success", org.apache.thrift.protocol.TType.STRUCT, (short) 0);
+
+		private static final org.apache.thrift.protocol.TField ERR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"err", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new setUserBankCard_resultStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new setUserBankCard_resultTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable UserBankCard success; // required
+
+		public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			SUCCESS((short) 0, "success"), ERR((short) 1, "err");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 0: // SUCCESS
+					return SUCCESS;
+				case 1: // ERR
+					return ERR;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.SUCCESS,
+					new org.apache.thrift.meta_data.FieldMetaData("success",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									UserBankCard.class)));
+			tmpMap.put(_Fields.ERR,
+					new org.apache.thrift.meta_data.FieldMetaData("err",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									com.suboat.contrib.rpc.base.Error.class)));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(setUserBankCard_result.class, metaDataMap);
+		}
+
+		public setUserBankCard_result() {
+		}
+
+		public setUserBankCard_result(UserBankCard success, com.suboat.contrib.rpc.base.Error err) {
+			this();
+			this.success = success;
+			this.err = err;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public setUserBankCard_result(setUserBankCard_result other) {
+			if (other.isSetSuccess()) {
+				this.success = new UserBankCard(other.success);
+			}
+			if (other.isSetErr()) {
+				this.err = new com.suboat.contrib.rpc.base.Error(other.err);
+			}
+		}
+
+		public setUserBankCard_result deepCopy() {
+			return new setUserBankCard_result(this);
+		}
+
+		@Override
+		public void clear() {
+			this.success = null;
+			this.err = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public UserBankCard getSuccess() {
+			return this.success;
+		}
+
+		public setUserBankCard_result setSuccess(@org.apache.thrift.annotation.Nullable UserBankCard success) {
+			this.success = success;
+			return this;
+		}
+
+		public void unsetSuccess() {
+			this.success = null;
+		}
+
+		/**
+		 * Returns true if field success is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetSuccess() {
+			return this.success != null;
+		}
+
+		public void setSuccessIsSet(boolean value) {
+			if (!value) {
+				this.success = null;
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public com.suboat.contrib.rpc.base.Error getErr() {
+			return this.err;
+		}
+
+		public setUserBankCard_result setErr(
+				@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err) {
+			this.err = err;
+			return this;
+		}
+
+		public void unsetErr() {
+			this.err = null;
+		}
+
+		/**
+		 * Returns true if field err is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetErr() {
+			return this.err != null;
+		}
+
+		public void setErrIsSet(boolean value) {
+			if (!value) {
+				this.err = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case SUCCESS:
+				if (value == null) {
+					unsetSuccess();
+				}
+				else {
+					setSuccess((UserBankCard) value);
+				}
+				break;
+
+			case ERR:
+				if (value == null) {
+					unsetErr();
+				}
+				else {
+					setErr((com.suboat.contrib.rpc.base.Error) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case SUCCESS:
+				return getSuccess();
+
+			case ERR:
+				return getErr();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case SUCCESS:
+				return isSetSuccess();
+			case ERR:
+				return isSetErr();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof setUserBankCard_result)
+				return this.equals((setUserBankCard_result) that);
+			return false;
+		}
+
+		public boolean equals(setUserBankCard_result that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_success = true && this.isSetSuccess();
+			boolean that_present_success = true && that.isSetSuccess();
+			if (this_present_success || that_present_success) {
+				if (!(this_present_success && that_present_success))
+					return false;
+				if (!this.success.equals(that.success))
+					return false;
+			}
+
+			boolean this_present_err = true && this.isSetErr();
+			boolean that_present_err = true && that.isSetErr();
+			if (this_present_err || that_present_err) {
+				if (!(this_present_err && that_present_err))
+					return false;
+				if (!this.err.equals(that.err))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetSuccess()) ? 131071 : 524287);
+			if (isSetSuccess())
+				hashCode = hashCode * 8191 + success.hashCode();
+
+			hashCode = hashCode * 8191 + ((isSetErr()) ? 131071 : 524287);
+			if (isSetErr())
+				hashCode = hashCode * 8191 + err.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(setUserBankCard_result other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetSuccess()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			lastComparison = java.lang.Boolean.valueOf(isSetErr()).compareTo(other.isSetErr());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetErr()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.err, other.err);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("setUserBankCard_result(");
+			boolean first = true;
+
+			sb.append("success:");
+			if (this.success == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.success);
+			}
+			first = false;
+			if (!first)
+				sb.append(", ");
+			sb.append("err:");
+			if (this.err == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.err);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+			if (success != null) {
+				success.validate();
+			}
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class setUserBankCard_resultStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public setUserBankCard_resultStandardScheme getScheme() {
+				return new setUserBankCard_resultStandardScheme();
+			}
+
+		}
+
+		private static class setUserBankCard_resultStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<setUserBankCard_result> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, setUserBankCard_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 0: // SUCCESS
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.success = new UserBankCard();
+							struct.success.read(iprot);
+							struct.setSuccessIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					case 1: // ERR
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.err = new com.suboat.contrib.rpc.base.Error();
+							struct.err.read(iprot);
+							struct.setErrIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, setUserBankCard_result struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.success != null) {
+					oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+					struct.success.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				if (struct.err != null) {
+					oprot.writeFieldBegin(ERR_FIELD_DESC);
+					struct.err.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class setUserBankCard_resultTupleSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public setUserBankCard_resultTupleScheme getScheme() {
+				return new setUserBankCard_resultTupleScheme();
+			}
+
+		}
+
+		private static class setUserBankCard_resultTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<setUserBankCard_result> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, setUserBankCard_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetSuccess()) {
+					optionals.set(0);
+				}
+				if (struct.isSetErr()) {
+					optionals.set(1);
+				}
+				oprot.writeBitSet(optionals, 2);
+				if (struct.isSetSuccess()) {
+					struct.success.write(oprot);
+				}
+				if (struct.isSetErr()) {
+					struct.err.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, setUserBankCard_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(2);
+				if (incoming.get(0)) {
+					struct.success = new UserBankCard();
+					struct.success.read(iprot);
+					struct.setSuccessIsSet(true);
+				}
+				if (incoming.get(1)) {
+					struct.err = new com.suboat.contrib.rpc.base.Error();
+					struct.err.read(iprot);
+					struct.setErrIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
+	public static class delUserBankCard_args
+			implements org.apache.thrift.TBase<delUserBankCard_args, delUserBankCard_args._Fields>,
+			java.io.Serializable, Cloneable, Comparable<delUserBankCard_args> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"delUserBankCard_args");
+
+		private static final org.apache.thrift.protocol.TField FORM_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"form", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new delUserBankCard_argsStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new delUserBankCard_argsTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable ArgUserBankCard form; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			FORM((short) 1, "form");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 1: // FORM
+					return FORM;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.FORM,
+					new org.apache.thrift.meta_data.FieldMetaData("form",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									"ArgUserBankCard")));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(delUserBankCard_args.class, metaDataMap);
+		}
+
+		public delUserBankCard_args() {
+		}
+
+		public delUserBankCard_args(ArgUserBankCard form) {
+			this();
+			this.form = form;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public delUserBankCard_args(delUserBankCard_args other) {
+			if (other.isSetForm()) {
+				this.form = new ArgUserBankCard(other.form);
+			}
+		}
+
+		public delUserBankCard_args deepCopy() {
+			return new delUserBankCard_args(this);
+		}
+
+		@Override
+		public void clear() {
+			this.form = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public ArgUserBankCard getForm() {
+			return this.form;
+		}
+
+		public delUserBankCard_args setForm(@org.apache.thrift.annotation.Nullable ArgUserBankCard form) {
+			this.form = form;
+			return this;
+		}
+
+		public void unsetForm() {
+			this.form = null;
+		}
+
+		/**
+		 * Returns true if field form is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetForm() {
+			return this.form != null;
+		}
+
+		public void setFormIsSet(boolean value) {
+			if (!value) {
+				this.form = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case FORM:
+				if (value == null) {
+					unsetForm();
+				}
+				else {
+					setForm((ArgUserBankCard) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case FORM:
+				return getForm();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case FORM:
+				return isSetForm();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof delUserBankCard_args)
+				return this.equals((delUserBankCard_args) that);
+			return false;
+		}
+
+		public boolean equals(delUserBankCard_args that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_form = true && this.isSetForm();
+			boolean that_present_form = true && that.isSetForm();
+			if (this_present_form || that_present_form) {
+				if (!(this_present_form && that_present_form))
+					return false;
+				if (!this.form.equals(that.form))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetForm()) ? 131071 : 524287);
+			if (isSetForm())
+				hashCode = hashCode * 8191 + form.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(delUserBankCard_args other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetForm()).compareTo(other.isSetForm());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetForm()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.form, other.form);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("delUserBankCard_args(");
+			boolean first = true;
+
+			sb.append("form:");
+			if (this.form == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.form);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class delUserBankCard_argsStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public delUserBankCard_argsStandardScheme getScheme() {
+				return new delUserBankCard_argsStandardScheme();
+			}
+
+		}
+
+		private static class delUserBankCard_argsStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<delUserBankCard_args> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, delUserBankCard_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 1: // FORM
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.form = new ArgUserBankCard();
+							struct.form.read(iprot);
+							struct.setFormIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, delUserBankCard_args struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.form != null) {
+					oprot.writeFieldBegin(FORM_FIELD_DESC);
+					struct.form.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class delUserBankCard_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+
+			public delUserBankCard_argsTupleScheme getScheme() {
+				return new delUserBankCard_argsTupleScheme();
+			}
+
+		}
+
+		private static class delUserBankCard_argsTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<delUserBankCard_args> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, delUserBankCard_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetForm()) {
+					optionals.set(0);
+				}
+				oprot.writeBitSet(optionals, 1);
+				if (struct.isSetForm()) {
+					struct.form.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, delUserBankCard_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(1);
+				if (incoming.get(0)) {
+					struct.form = new ArgUserBankCard();
+					struct.form.read(iprot);
+					struct.setFormIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
+	public static class delUserBankCard_result
+			implements org.apache.thrift.TBase<delUserBankCard_result, delUserBankCard_result._Fields>,
+			java.io.Serializable, Cloneable, Comparable<delUserBankCard_result> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"delUserBankCard_result");
+
+		private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"success", org.apache.thrift.protocol.TType.STRUCT, (short) 0);
+
+		private static final org.apache.thrift.protocol.TField ERR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"err", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new delUserBankCard_resultStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new delUserBankCard_resultTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable UserBankCard success; // required
+
+		public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			SUCCESS((short) 0, "success"), ERR((short) 1, "err");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 0: // SUCCESS
+					return SUCCESS;
+				case 1: // ERR
+					return ERR;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.SUCCESS,
+					new org.apache.thrift.meta_data.FieldMetaData("success",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									UserBankCard.class)));
+			tmpMap.put(_Fields.ERR,
+					new org.apache.thrift.meta_data.FieldMetaData("err",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									com.suboat.contrib.rpc.base.Error.class)));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(delUserBankCard_result.class, metaDataMap);
+		}
+
+		public delUserBankCard_result() {
+		}
+
+		public delUserBankCard_result(UserBankCard success, com.suboat.contrib.rpc.base.Error err) {
+			this();
+			this.success = success;
+			this.err = err;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public delUserBankCard_result(delUserBankCard_result other) {
+			if (other.isSetSuccess()) {
+				this.success = new UserBankCard(other.success);
+			}
+			if (other.isSetErr()) {
+				this.err = new com.suboat.contrib.rpc.base.Error(other.err);
+			}
+		}
+
+		public delUserBankCard_result deepCopy() {
+			return new delUserBankCard_result(this);
+		}
+
+		@Override
+		public void clear() {
+			this.success = null;
+			this.err = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public UserBankCard getSuccess() {
+			return this.success;
+		}
+
+		public delUserBankCard_result setSuccess(@org.apache.thrift.annotation.Nullable UserBankCard success) {
+			this.success = success;
+			return this;
+		}
+
+		public void unsetSuccess() {
+			this.success = null;
+		}
+
+		/**
+		 * Returns true if field success is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetSuccess() {
+			return this.success != null;
+		}
+
+		public void setSuccessIsSet(boolean value) {
+			if (!value) {
+				this.success = null;
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public com.suboat.contrib.rpc.base.Error getErr() {
+			return this.err;
+		}
+
+		public delUserBankCard_result setErr(
+				@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err) {
+			this.err = err;
+			return this;
+		}
+
+		public void unsetErr() {
+			this.err = null;
+		}
+
+		/**
+		 * Returns true if field err is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetErr() {
+			return this.err != null;
+		}
+
+		public void setErrIsSet(boolean value) {
+			if (!value) {
+				this.err = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case SUCCESS:
+				if (value == null) {
+					unsetSuccess();
+				}
+				else {
+					setSuccess((UserBankCard) value);
+				}
+				break;
+
+			case ERR:
+				if (value == null) {
+					unsetErr();
+				}
+				else {
+					setErr((com.suboat.contrib.rpc.base.Error) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case SUCCESS:
+				return getSuccess();
+
+			case ERR:
+				return getErr();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case SUCCESS:
+				return isSetSuccess();
+			case ERR:
+				return isSetErr();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof delUserBankCard_result)
+				return this.equals((delUserBankCard_result) that);
+			return false;
+		}
+
+		public boolean equals(delUserBankCard_result that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_success = true && this.isSetSuccess();
+			boolean that_present_success = true && that.isSetSuccess();
+			if (this_present_success || that_present_success) {
+				if (!(this_present_success && that_present_success))
+					return false;
+				if (!this.success.equals(that.success))
+					return false;
+			}
+
+			boolean this_present_err = true && this.isSetErr();
+			boolean that_present_err = true && that.isSetErr();
+			if (this_present_err || that_present_err) {
+				if (!(this_present_err && that_present_err))
+					return false;
+				if (!this.err.equals(that.err))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetSuccess()) ? 131071 : 524287);
+			if (isSetSuccess())
+				hashCode = hashCode * 8191 + success.hashCode();
+
+			hashCode = hashCode * 8191 + ((isSetErr()) ? 131071 : 524287);
+			if (isSetErr())
+				hashCode = hashCode * 8191 + err.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(delUserBankCard_result other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetSuccess()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			lastComparison = java.lang.Boolean.valueOf(isSetErr()).compareTo(other.isSetErr());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetErr()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.err, other.err);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("delUserBankCard_result(");
+			boolean first = true;
+
+			sb.append("success:");
+			if (this.success == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.success);
+			}
+			first = false;
+			if (!first)
+				sb.append(", ");
+			sb.append("err:");
+			if (this.err == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.err);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+			if (success != null) {
+				success.validate();
+			}
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class delUserBankCard_resultStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public delUserBankCard_resultStandardScheme getScheme() {
+				return new delUserBankCard_resultStandardScheme();
+			}
+
+		}
+
+		private static class delUserBankCard_resultStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<delUserBankCard_result> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, delUserBankCard_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 0: // SUCCESS
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.success = new UserBankCard();
+							struct.success.read(iprot);
+							struct.setSuccessIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					case 1: // ERR
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.err = new com.suboat.contrib.rpc.base.Error();
+							struct.err.read(iprot);
+							struct.setErrIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, delUserBankCard_result struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.success != null) {
+					oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+					struct.success.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				if (struct.err != null) {
+					oprot.writeFieldBegin(ERR_FIELD_DESC);
+					struct.err.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class delUserBankCard_resultTupleSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public delUserBankCard_resultTupleScheme getScheme() {
+				return new delUserBankCard_resultTupleScheme();
+			}
+
+		}
+
+		private static class delUserBankCard_resultTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<delUserBankCard_result> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, delUserBankCard_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetSuccess()) {
+					optionals.set(0);
+				}
+				if (struct.isSetErr()) {
+					optionals.set(1);
+				}
+				oprot.writeBitSet(optionals, 2);
+				if (struct.isSetSuccess()) {
+					struct.success.write(oprot);
+				}
+				if (struct.isSetErr()) {
+					struct.err.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, delUserBankCard_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(2);
+				if (incoming.get(0)) {
+					struct.success = new UserBankCard();
+					struct.success.read(iprot);
+					struct.setSuccessIsSet(true);
+				}
+				if (incoming.get(1)) {
+					struct.err = new com.suboat.contrib.rpc.base.Error();
+					struct.err.read(iprot);
+					struct.setErrIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
 	public static class getUserExt_args implements org.apache.thrift.TBase<getUserExt_args, getUserExt_args._Fields>,
 			java.io.Serializable, Cloneable, Comparable<getUserExt_args> {
 
@@ -33655,959 +38038,6 @@ public class UserService {
 				java.util.BitSet incoming = iprot.readBitSet(2);
 				if (incoming.get(0)) {
 					struct.success = new ResultUserExtPub();
-					struct.success.read(iprot);
-					struct.setSuccessIsSet(true);
-				}
-				if (incoming.get(1)) {
-					struct.err = new com.suboat.contrib.rpc.base.Error();
-					struct.err.read(iprot);
-					struct.setErrIsSet(true);
-				}
-			}
-
-		}
-
-		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
-				org.apache.thrift.protocol.TProtocol proto) {
-			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
-					: TUPLE_SCHEME_FACTORY).getScheme();
-		}
-
-	}
-
-	public static class getUserBankCardList_args
-			implements org.apache.thrift.TBase<getUserBankCardList_args, getUserBankCardList_args._Fields>,
-			java.io.Serializable, Cloneable, Comparable<getUserBankCardList_args> {
-
-		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
-				"getUserBankCardList_args");
-
-		private static final org.apache.thrift.protocol.TField QUERY_FIELD_DESC = new org.apache.thrift.protocol.TField(
-				"query", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
-
-		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getUserBankCardList_argsStandardSchemeFactory();
-
-		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getUserBankCardList_argsTupleSchemeFactory();
-
-		public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.ArgQuery query; // required
-
-		/**
-		 * The set of fields this struct contains, along with convenience methods for
-		 * finding and manipulating them.
-		 */
-		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-
-			QUERY((short) 1, "query");
-
-			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
-
-			static {
-				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
-					byName.put(field.getFieldName(), field);
-				}
-			}
-
-			/**
-			 * Find the _Fields constant that matches fieldId, or null if its not found.
-			 */
-			@org.apache.thrift.annotation.Nullable
-			public static _Fields findByThriftId(int fieldId) {
-				switch (fieldId) {
-				case 1: // QUERY
-					return QUERY;
-				default:
-					return null;
-				}
-			}
-
-			/**
-			 * Find the _Fields constant that matches fieldId, throwing an exception if it
-			 * is not found.
-			 */
-			public static _Fields findByThriftIdOrThrow(int fieldId) {
-				_Fields fields = findByThriftId(fieldId);
-				if (fields == null)
-					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
-				return fields;
-			}
-
-			/**
-			 * Find the _Fields constant that matches name, or null if its not found.
-			 */
-			@org.apache.thrift.annotation.Nullable
-			public static _Fields findByName(java.lang.String name) {
-				return byName.get(name);
-			}
-
-			private final short _thriftId;
-
-			private final java.lang.String _fieldName;
-
-			_Fields(short thriftId, java.lang.String fieldName) {
-				_thriftId = thriftId;
-				_fieldName = fieldName;
-			}
-
-			public short getThriftFieldId() {
-				return _thriftId;
-			}
-
-			public java.lang.String getFieldName() {
-				return _fieldName;
-			}
-
-		}
-
-		// isset id assignments
-		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
-		static {
-			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
-					_Fields.class);
-			tmpMap.put(_Fields.QUERY,
-					new org.apache.thrift.meta_data.FieldMetaData("query",
-							org.apache.thrift.TFieldRequirementType.DEFAULT,
-							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
-									com.suboat.contrib.rpc.base.ArgQuery.class)));
-			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getUserBankCardList_args.class, metaDataMap);
-		}
-
-		public getUserBankCardList_args() {
-		}
-
-		public getUserBankCardList_args(com.suboat.contrib.rpc.base.ArgQuery query) {
-			this();
-			this.query = query;
-		}
-
-		/**
-		 * Performs a deep copy on <i>other</i>.
-		 */
-		public getUserBankCardList_args(getUserBankCardList_args other) {
-			if (other.isSetQuery()) {
-				this.query = new com.suboat.contrib.rpc.base.ArgQuery(other.query);
-			}
-		}
-
-		public getUserBankCardList_args deepCopy() {
-			return new getUserBankCardList_args(this);
-		}
-
-		@Override
-		public void clear() {
-			this.query = null;
-		}
-
-		@org.apache.thrift.annotation.Nullable
-		public com.suboat.contrib.rpc.base.ArgQuery getQuery() {
-			return this.query;
-		}
-
-		public getUserBankCardList_args setQuery(
-				@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.ArgQuery query) {
-			this.query = query;
-			return this;
-		}
-
-		public void unsetQuery() {
-			this.query = null;
-		}
-
-		/**
-		 * Returns true if field query is set (has been assigned a value) and false
-		 * otherwise
-		 */
-		public boolean isSetQuery() {
-			return this.query != null;
-		}
-
-		public void setQueryIsSet(boolean value) {
-			if (!value) {
-				this.query = null;
-			}
-		}
-
-		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
-			switch (field) {
-			case QUERY:
-				if (value == null) {
-					unsetQuery();
-				}
-				else {
-					setQuery((com.suboat.contrib.rpc.base.ArgQuery) value);
-				}
-				break;
-
-			}
-		}
-
-		@org.apache.thrift.annotation.Nullable
-		public java.lang.Object getFieldValue(_Fields field) {
-			switch (field) {
-			case QUERY:
-				return getQuery();
-
-			}
-			throw new java.lang.IllegalStateException();
-		}
-
-		/**
-		 * Returns true if field corresponding to fieldID is set (has been assigned a
-		 * value) and false otherwise
-		 */
-		public boolean isSet(_Fields field) {
-			if (field == null) {
-				throw new java.lang.IllegalArgumentException();
-			}
-
-			switch (field) {
-			case QUERY:
-				return isSetQuery();
-			}
-			throw new java.lang.IllegalStateException();
-		}
-
-		@Override
-		public boolean equals(java.lang.Object that) {
-			if (that == null)
-				return false;
-			if (that instanceof getUserBankCardList_args)
-				return this.equals((getUserBankCardList_args) that);
-			return false;
-		}
-
-		public boolean equals(getUserBankCardList_args that) {
-			if (that == null)
-				return false;
-			if (this == that)
-				return true;
-
-			boolean this_present_query = true && this.isSetQuery();
-			boolean that_present_query = true && that.isSetQuery();
-			if (this_present_query || that_present_query) {
-				if (!(this_present_query && that_present_query))
-					return false;
-				if (!this.query.equals(that.query))
-					return false;
-			}
-
-			return true;
-		}
-
-		@Override
-		public int hashCode() {
-			int hashCode = 1;
-
-			hashCode = hashCode * 8191 + ((isSetQuery()) ? 131071 : 524287);
-			if (isSetQuery())
-				hashCode = hashCode * 8191 + query.hashCode();
-
-			return hashCode;
-		}
-
-		@Override
-		public int compareTo(getUserBankCardList_args other) {
-			if (!getClass().equals(other.getClass())) {
-				return getClass().getName().compareTo(other.getClass().getName());
-			}
-
-			int lastComparison = 0;
-
-			lastComparison = java.lang.Boolean.valueOf(isSetQuery()).compareTo(other.isSetQuery());
-			if (lastComparison != 0) {
-				return lastComparison;
-			}
-			if (isSetQuery()) {
-				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.query, other.query);
-				if (lastComparison != 0) {
-					return lastComparison;
-				}
-			}
-			return 0;
-		}
-
-		@org.apache.thrift.annotation.Nullable
-		public _Fields fieldForId(int fieldId) {
-			return _Fields.findByThriftId(fieldId);
-		}
-
-		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-			scheme(iprot).read(iprot, this);
-		}
-
-		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-			scheme(oprot).write(oprot, this);
-		}
-
-		@Override
-		public java.lang.String toString() {
-			java.lang.StringBuilder sb = new java.lang.StringBuilder("getUserBankCardList_args(");
-			boolean first = true;
-
-			sb.append("query:");
-			if (this.query == null) {
-				sb.append("null");
-			}
-			else {
-				sb.append(this.query);
-			}
-			first = false;
-			sb.append(")");
-			return sb.toString();
-		}
-
-		public void validate() throws org.apache.thrift.TException {
-			// check for required fields
-			// check for sub-struct validity
-			if (query != null) {
-				query.validate();
-			}
-		}
-
-		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
-			try {
-				write(new org.apache.thrift.protocol.TCompactProtocol(
-						new org.apache.thrift.transport.TIOStreamTransport(out)));
-			}
-			catch (org.apache.thrift.TException te) {
-				throw new java.io.IOException(te);
-			}
-		}
-
-		private void readObject(java.io.ObjectInputStream in)
-				throws java.io.IOException, java.lang.ClassNotFoundException {
-			try {
-				read(new org.apache.thrift.protocol.TCompactProtocol(
-						new org.apache.thrift.transport.TIOStreamTransport(in)));
-			}
-			catch (org.apache.thrift.TException te) {
-				throw new java.io.IOException(te);
-			}
-		}
-
-		private static class getUserBankCardList_argsStandardSchemeFactory
-				implements org.apache.thrift.scheme.SchemeFactory {
-
-			public getUserBankCardList_argsStandardScheme getScheme() {
-				return new getUserBankCardList_argsStandardScheme();
-			}
-
-		}
-
-		private static class getUserBankCardList_argsStandardScheme
-				extends org.apache.thrift.scheme.StandardScheme<getUserBankCardList_args> {
-
-			public void read(org.apache.thrift.protocol.TProtocol iprot, getUserBankCardList_args struct)
-					throws org.apache.thrift.TException {
-				org.apache.thrift.protocol.TField schemeField;
-				iprot.readStructBegin();
-				while (true) {
-					schemeField = iprot.readFieldBegin();
-					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
-						break;
-					}
-					switch (schemeField.id) {
-					case 1: // QUERY
-						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-							struct.query = new com.suboat.contrib.rpc.base.ArgQuery();
-							struct.query.read(iprot);
-							struct.setQueryIsSet(true);
-						}
-						else {
-							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-						}
-						break;
-					default:
-						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-					}
-					iprot.readFieldEnd();
-				}
-				iprot.readStructEnd();
-
-				// check for required fields of primitive type, which can't be checked in
-				// the validate method
-				struct.validate();
-			}
-
-			public void write(org.apache.thrift.protocol.TProtocol oprot, getUserBankCardList_args struct)
-					throws org.apache.thrift.TException {
-				struct.validate();
-
-				oprot.writeStructBegin(STRUCT_DESC);
-				if (struct.query != null) {
-					oprot.writeFieldBegin(QUERY_FIELD_DESC);
-					struct.query.write(oprot);
-					oprot.writeFieldEnd();
-				}
-				oprot.writeFieldStop();
-				oprot.writeStructEnd();
-			}
-
-		}
-
-		private static class getUserBankCardList_argsTupleSchemeFactory
-				implements org.apache.thrift.scheme.SchemeFactory {
-
-			public getUserBankCardList_argsTupleScheme getScheme() {
-				return new getUserBankCardList_argsTupleScheme();
-			}
-
-		}
-
-		private static class getUserBankCardList_argsTupleScheme
-				extends org.apache.thrift.scheme.TupleScheme<getUserBankCardList_args> {
-
-			@Override
-			public void write(org.apache.thrift.protocol.TProtocol prot, getUserBankCardList_args struct)
-					throws org.apache.thrift.TException {
-				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-				java.util.BitSet optionals = new java.util.BitSet();
-				if (struct.isSetQuery()) {
-					optionals.set(0);
-				}
-				oprot.writeBitSet(optionals, 1);
-				if (struct.isSetQuery()) {
-					struct.query.write(oprot);
-				}
-			}
-
-			@Override
-			public void read(org.apache.thrift.protocol.TProtocol prot, getUserBankCardList_args struct)
-					throws org.apache.thrift.TException {
-				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-				java.util.BitSet incoming = iprot.readBitSet(1);
-				if (incoming.get(0)) {
-					struct.query = new com.suboat.contrib.rpc.base.ArgQuery();
-					struct.query.read(iprot);
-					struct.setQueryIsSet(true);
-				}
-			}
-
-		}
-
-		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
-				org.apache.thrift.protocol.TProtocol proto) {
-			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
-					: TUPLE_SCHEME_FACTORY).getScheme();
-		}
-
-	}
-
-	public static class getUserBankCardList_result
-			implements org.apache.thrift.TBase<getUserBankCardList_result, getUserBankCardList_result._Fields>,
-			java.io.Serializable, Cloneable, Comparable<getUserBankCardList_result> {
-
-		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
-				"getUserBankCardList_result");
-
-		private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField(
-				"success", org.apache.thrift.protocol.TType.STRUCT, (short) 0);
-
-		private static final org.apache.thrift.protocol.TField ERR_FIELD_DESC = new org.apache.thrift.protocol.TField(
-				"err", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
-
-		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getUserBankCardList_resultStandardSchemeFactory();
-
-		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getUserBankCardList_resultTupleSchemeFactory();
-
-		public @org.apache.thrift.annotation.Nullable ResultUserBankCard success; // required
-
-		public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err; // required
-
-		/**
-		 * The set of fields this struct contains, along with convenience methods for
-		 * finding and manipulating them.
-		 */
-		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-
-			SUCCESS((short) 0, "success"), ERR((short) 1, "err");
-
-			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
-
-			static {
-				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
-					byName.put(field.getFieldName(), field);
-				}
-			}
-
-			/**
-			 * Find the _Fields constant that matches fieldId, or null if its not found.
-			 */
-			@org.apache.thrift.annotation.Nullable
-			public static _Fields findByThriftId(int fieldId) {
-				switch (fieldId) {
-				case 0: // SUCCESS
-					return SUCCESS;
-				case 1: // ERR
-					return ERR;
-				default:
-					return null;
-				}
-			}
-
-			/**
-			 * Find the _Fields constant that matches fieldId, throwing an exception if it
-			 * is not found.
-			 */
-			public static _Fields findByThriftIdOrThrow(int fieldId) {
-				_Fields fields = findByThriftId(fieldId);
-				if (fields == null)
-					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
-				return fields;
-			}
-
-			/**
-			 * Find the _Fields constant that matches name, or null if its not found.
-			 */
-			@org.apache.thrift.annotation.Nullable
-			public static _Fields findByName(java.lang.String name) {
-				return byName.get(name);
-			}
-
-			private final short _thriftId;
-
-			private final java.lang.String _fieldName;
-
-			_Fields(short thriftId, java.lang.String fieldName) {
-				_thriftId = thriftId;
-				_fieldName = fieldName;
-			}
-
-			public short getThriftFieldId() {
-				return _thriftId;
-			}
-
-			public java.lang.String getFieldName() {
-				return _fieldName;
-			}
-
-		}
-
-		// isset id assignments
-		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
-		static {
-			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
-					_Fields.class);
-			tmpMap.put(_Fields.SUCCESS,
-					new org.apache.thrift.meta_data.FieldMetaData("success",
-							org.apache.thrift.TFieldRequirementType.DEFAULT,
-							new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
-									"ResultUserBankCard")));
-			tmpMap.put(_Fields.ERR,
-					new org.apache.thrift.meta_data.FieldMetaData("err",
-							org.apache.thrift.TFieldRequirementType.DEFAULT,
-							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
-									com.suboat.contrib.rpc.base.Error.class)));
-			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getUserBankCardList_result.class,
-					metaDataMap);
-		}
-
-		public getUserBankCardList_result() {
-		}
-
-		public getUserBankCardList_result(ResultUserBankCard success, com.suboat.contrib.rpc.base.Error err) {
-			this();
-			this.success = success;
-			this.err = err;
-		}
-
-		/**
-		 * Performs a deep copy on <i>other</i>.
-		 */
-		public getUserBankCardList_result(getUserBankCardList_result other) {
-			if (other.isSetSuccess()) {
-				this.success = new ResultUserBankCard(other.success);
-			}
-			if (other.isSetErr()) {
-				this.err = new com.suboat.contrib.rpc.base.Error(other.err);
-			}
-		}
-
-		public getUserBankCardList_result deepCopy() {
-			return new getUserBankCardList_result(this);
-		}
-
-		@Override
-		public void clear() {
-			this.success = null;
-			this.err = null;
-		}
-
-		@org.apache.thrift.annotation.Nullable
-		public ResultUserBankCard getSuccess() {
-			return this.success;
-		}
-
-		public getUserBankCardList_result setSuccess(
-				@org.apache.thrift.annotation.Nullable ResultUserBankCard success) {
-			this.success = success;
-			return this;
-		}
-
-		public void unsetSuccess() {
-			this.success = null;
-		}
-
-		/**
-		 * Returns true if field success is set (has been assigned a value) and false
-		 * otherwise
-		 */
-		public boolean isSetSuccess() {
-			return this.success != null;
-		}
-
-		public void setSuccessIsSet(boolean value) {
-			if (!value) {
-				this.success = null;
-			}
-		}
-
-		@org.apache.thrift.annotation.Nullable
-		public com.suboat.contrib.rpc.base.Error getErr() {
-			return this.err;
-		}
-
-		public getUserBankCardList_result setErr(
-				@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err) {
-			this.err = err;
-			return this;
-		}
-
-		public void unsetErr() {
-			this.err = null;
-		}
-
-		/**
-		 * Returns true if field err is set (has been assigned a value) and false
-		 * otherwise
-		 */
-		public boolean isSetErr() {
-			return this.err != null;
-		}
-
-		public void setErrIsSet(boolean value) {
-			if (!value) {
-				this.err = null;
-			}
-		}
-
-		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
-			switch (field) {
-			case SUCCESS:
-				if (value == null) {
-					unsetSuccess();
-				}
-				else {
-					setSuccess((ResultUserBankCard) value);
-				}
-				break;
-
-			case ERR:
-				if (value == null) {
-					unsetErr();
-				}
-				else {
-					setErr((com.suboat.contrib.rpc.base.Error) value);
-				}
-				break;
-
-			}
-		}
-
-		@org.apache.thrift.annotation.Nullable
-		public java.lang.Object getFieldValue(_Fields field) {
-			switch (field) {
-			case SUCCESS:
-				return getSuccess();
-
-			case ERR:
-				return getErr();
-
-			}
-			throw new java.lang.IllegalStateException();
-		}
-
-		/**
-		 * Returns true if field corresponding to fieldID is set (has been assigned a
-		 * value) and false otherwise
-		 */
-		public boolean isSet(_Fields field) {
-			if (field == null) {
-				throw new java.lang.IllegalArgumentException();
-			}
-
-			switch (field) {
-			case SUCCESS:
-				return isSetSuccess();
-			case ERR:
-				return isSetErr();
-			}
-			throw new java.lang.IllegalStateException();
-		}
-
-		@Override
-		public boolean equals(java.lang.Object that) {
-			if (that == null)
-				return false;
-			if (that instanceof getUserBankCardList_result)
-				return this.equals((getUserBankCardList_result) that);
-			return false;
-		}
-
-		public boolean equals(getUserBankCardList_result that) {
-			if (that == null)
-				return false;
-			if (this == that)
-				return true;
-
-			boolean this_present_success = true && this.isSetSuccess();
-			boolean that_present_success = true && that.isSetSuccess();
-			if (this_present_success || that_present_success) {
-				if (!(this_present_success && that_present_success))
-					return false;
-				if (!this.success.equals(that.success))
-					return false;
-			}
-
-			boolean this_present_err = true && this.isSetErr();
-			boolean that_present_err = true && that.isSetErr();
-			if (this_present_err || that_present_err) {
-				if (!(this_present_err && that_present_err))
-					return false;
-				if (!this.err.equals(that.err))
-					return false;
-			}
-
-			return true;
-		}
-
-		@Override
-		public int hashCode() {
-			int hashCode = 1;
-
-			hashCode = hashCode * 8191 + ((isSetSuccess()) ? 131071 : 524287);
-			if (isSetSuccess())
-				hashCode = hashCode * 8191 + success.hashCode();
-
-			hashCode = hashCode * 8191 + ((isSetErr()) ? 131071 : 524287);
-			if (isSetErr())
-				hashCode = hashCode * 8191 + err.hashCode();
-
-			return hashCode;
-		}
-
-		@Override
-		public int compareTo(getUserBankCardList_result other) {
-			if (!getClass().equals(other.getClass())) {
-				return getClass().getName().compareTo(other.getClass().getName());
-			}
-
-			int lastComparison = 0;
-
-			lastComparison = java.lang.Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
-			if (lastComparison != 0) {
-				return lastComparison;
-			}
-			if (isSetSuccess()) {
-				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
-				if (lastComparison != 0) {
-					return lastComparison;
-				}
-			}
-			lastComparison = java.lang.Boolean.valueOf(isSetErr()).compareTo(other.isSetErr());
-			if (lastComparison != 0) {
-				return lastComparison;
-			}
-			if (isSetErr()) {
-				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.err, other.err);
-				if (lastComparison != 0) {
-					return lastComparison;
-				}
-			}
-			return 0;
-		}
-
-		@org.apache.thrift.annotation.Nullable
-		public _Fields fieldForId(int fieldId) {
-			return _Fields.findByThriftId(fieldId);
-		}
-
-		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-			scheme(iprot).read(iprot, this);
-		}
-
-		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-			scheme(oprot).write(oprot, this);
-		}
-
-		@Override
-		public java.lang.String toString() {
-			java.lang.StringBuilder sb = new java.lang.StringBuilder("getUserBankCardList_result(");
-			boolean first = true;
-
-			sb.append("success:");
-			if (this.success == null) {
-				sb.append("null");
-			}
-			else {
-				sb.append(this.success);
-			}
-			first = false;
-			if (!first)
-				sb.append(", ");
-			sb.append("err:");
-			if (this.err == null) {
-				sb.append("null");
-			}
-			else {
-				sb.append(this.err);
-			}
-			first = false;
-			sb.append(")");
-			return sb.toString();
-		}
-
-		public void validate() throws org.apache.thrift.TException {
-			// check for required fields
-			// check for sub-struct validity
-		}
-
-		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
-			try {
-				write(new org.apache.thrift.protocol.TCompactProtocol(
-						new org.apache.thrift.transport.TIOStreamTransport(out)));
-			}
-			catch (org.apache.thrift.TException te) {
-				throw new java.io.IOException(te);
-			}
-		}
-
-		private void readObject(java.io.ObjectInputStream in)
-				throws java.io.IOException, java.lang.ClassNotFoundException {
-			try {
-				read(new org.apache.thrift.protocol.TCompactProtocol(
-						new org.apache.thrift.transport.TIOStreamTransport(in)));
-			}
-			catch (org.apache.thrift.TException te) {
-				throw new java.io.IOException(te);
-			}
-		}
-
-		private static class getUserBankCardList_resultStandardSchemeFactory
-				implements org.apache.thrift.scheme.SchemeFactory {
-
-			public getUserBankCardList_resultStandardScheme getScheme() {
-				return new getUserBankCardList_resultStandardScheme();
-			}
-
-		}
-
-		private static class getUserBankCardList_resultStandardScheme
-				extends org.apache.thrift.scheme.StandardScheme<getUserBankCardList_result> {
-
-			public void read(org.apache.thrift.protocol.TProtocol iprot, getUserBankCardList_result struct)
-					throws org.apache.thrift.TException {
-				org.apache.thrift.protocol.TField schemeField;
-				iprot.readStructBegin();
-				while (true) {
-					schemeField = iprot.readFieldBegin();
-					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
-						break;
-					}
-					switch (schemeField.id) {
-					case 0: // SUCCESS
-						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-							struct.success = new ResultUserBankCard();
-							struct.success.read(iprot);
-							struct.setSuccessIsSet(true);
-						}
-						else {
-							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-						}
-						break;
-					case 1: // ERR
-						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-							struct.err = new com.suboat.contrib.rpc.base.Error();
-							struct.err.read(iprot);
-							struct.setErrIsSet(true);
-						}
-						else {
-							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-						}
-						break;
-					default:
-						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
-					}
-					iprot.readFieldEnd();
-				}
-				iprot.readStructEnd();
-
-				// check for required fields of primitive type, which can't be checked in
-				// the validate method
-				struct.validate();
-			}
-
-			public void write(org.apache.thrift.protocol.TProtocol oprot, getUserBankCardList_result struct)
-					throws org.apache.thrift.TException {
-				struct.validate();
-
-				oprot.writeStructBegin(STRUCT_DESC);
-				if (struct.success != null) {
-					oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
-					struct.success.write(oprot);
-					oprot.writeFieldEnd();
-				}
-				if (struct.err != null) {
-					oprot.writeFieldBegin(ERR_FIELD_DESC);
-					struct.err.write(oprot);
-					oprot.writeFieldEnd();
-				}
-				oprot.writeFieldStop();
-				oprot.writeStructEnd();
-			}
-
-		}
-
-		private static class getUserBankCardList_resultTupleSchemeFactory
-				implements org.apache.thrift.scheme.SchemeFactory {
-
-			public getUserBankCardList_resultTupleScheme getScheme() {
-				return new getUserBankCardList_resultTupleScheme();
-			}
-
-		}
-
-		private static class getUserBankCardList_resultTupleScheme
-				extends org.apache.thrift.scheme.TupleScheme<getUserBankCardList_result> {
-
-			@Override
-			public void write(org.apache.thrift.protocol.TProtocol prot, getUserBankCardList_result struct)
-					throws org.apache.thrift.TException {
-				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-				java.util.BitSet optionals = new java.util.BitSet();
-				if (struct.isSetSuccess()) {
-					optionals.set(0);
-				}
-				if (struct.isSetErr()) {
-					optionals.set(1);
-				}
-				oprot.writeBitSet(optionals, 2);
-				if (struct.isSetSuccess()) {
-					struct.success.write(oprot);
-				}
-				if (struct.isSetErr()) {
-					struct.err.write(oprot);
-				}
-			}
-
-			@Override
-			public void read(org.apache.thrift.protocol.TProtocol prot, getUserBankCardList_result struct)
-					throws org.apache.thrift.TException {
-				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-				java.util.BitSet incoming = iprot.readBitSet(2);
-				if (incoming.get(0)) {
-					struct.success = new ResultUserBankCard();
 					struct.success.read(iprot);
 					struct.setSuccessIsSet(true);
 				}
