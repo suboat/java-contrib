@@ -446,14 +446,14 @@ public class ResultCategory implements org.apache.thrift.TBase<ResultCategory, R
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list198 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<Category>(_list198.size);
+							org.apache.thrift.protocol.TList _list208 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<Category>(_list208.size);
 							@org.apache.thrift.annotation.Nullable
-							Category _elem199;
-							for (int _i200 = 0; _i200 < _list198.size; ++_i200) {
-								_elem199 = new Category();
-								_elem199.read(iprot);
-								struct.data.add(_elem199);
+							Category _elem209;
+							for (int _i210 = 0; _i210 < _list208.size; ++_i210) {
+								_elem209 = new Category();
+								_elem209.read(iprot);
+								struct.data.add(_elem209);
 							}
 							iprot.readListEnd();
 						}
@@ -495,8 +495,8 @@ public class ResultCategory implements org.apache.thrift.TBase<ResultCategory, R
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (Category _iter201 : struct.data) {
-						_iter201.write(oprot);
+					for (Category _iter211 : struct.data) {
+						_iter211.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -538,8 +538,8 @@ public class ResultCategory implements org.apache.thrift.TBase<ResultCategory, R
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (Category _iter202 : struct.data) {
-						_iter202.write(oprot);
+					for (Category _iter212 : struct.data) {
+						_iter212.write(oprot);
 					}
 				}
 			}
@@ -555,15 +555,15 @@ public class ResultCategory implements org.apache.thrift.TBase<ResultCategory, R
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list203 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list213 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<Category>(_list203.size);
+					struct.data = new java.util.ArrayList<Category>(_list213.size);
 					@org.apache.thrift.annotation.Nullable
-					Category _elem204;
-					for (int _i205 = 0; _i205 < _list203.size; ++_i205) {
-						_elem204 = new Category();
-						_elem204.read(iprot);
-						struct.data.add(_elem204);
+					Category _elem214;
+					for (int _i215 = 0; _i215 < _list213.size; ++_i215) {
+						_elem214 = new Category();
+						_elem214.read(iprot);
+						struct.data.add(_elem214);
 					}
 				}
 				struct.setDataIsSet(true);

@@ -446,14 +446,14 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list206 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<Label>(_list206.size);
+							org.apache.thrift.protocol.TList _list216 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<Label>(_list216.size);
 							@org.apache.thrift.annotation.Nullable
-							Label _elem207;
-							for (int _i208 = 0; _i208 < _list206.size; ++_i208) {
-								_elem207 = new Label();
-								_elem207.read(iprot);
-								struct.data.add(_elem207);
+							Label _elem217;
+							for (int _i218 = 0; _i218 < _list216.size; ++_i218) {
+								_elem217 = new Label();
+								_elem217.read(iprot);
+								struct.data.add(_elem217);
 							}
 							iprot.readListEnd();
 						}
@@ -495,8 +495,8 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (Label _iter209 : struct.data) {
-						_iter209.write(oprot);
+					for (Label _iter219 : struct.data) {
+						_iter219.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -538,8 +538,8 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (Label _iter210 : struct.data) {
-						_iter210.write(oprot);
+					for (Label _iter220 : struct.data) {
+						_iter220.write(oprot);
 					}
 				}
 			}
@@ -555,15 +555,15 @@ public class ResultLabel implements org.apache.thrift.TBase<ResultLabel, ResultL
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list211 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list221 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<Label>(_list211.size);
+					struct.data = new java.util.ArrayList<Label>(_list221.size);
 					@org.apache.thrift.annotation.Nullable
-					Label _elem212;
-					for (int _i213 = 0; _i213 < _list211.size; ++_i213) {
-						_elem212 = new Label();
-						_elem212.read(iprot);
-						struct.data.add(_elem212);
+					Label _elem222;
+					for (int _i223 = 0; _i223 < _list221.size; ++_i223) {
+						_elem222 = new Label();
+						_elem222.read(iprot);
+						struct.data.add(_elem222);
 					}
 				}
 				struct.setDataIsSet(true);

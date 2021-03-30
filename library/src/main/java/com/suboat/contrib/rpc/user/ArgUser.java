@@ -55,11 +55,20 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 	private static final org.apache.thrift.protocol.TField BIND_CODE_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"bindCode", org.apache.thrift.protocol.TType.STRING, (short) 13);
 
+	private static final org.apache.thrift.protocol.TField IS_ABSTRACT_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"isAbstract", org.apache.thrift.protocol.TType.BOOL, (short) 16);
+
 	private static final org.apache.thrift.protocol.TField ROLES_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"roles", org.apache.thrift.protocol.TType.LIST, (short) 14);
 
 	private static final org.apache.thrift.protocol.TField AREAS_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"areas", org.apache.thrift.protocol.TType.LIST, (short) 15);
+
+	private static final org.apache.thrift.protocol.TField IS_DEL_ROLES_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"isDelRoles", org.apache.thrift.protocol.TType.BOOL, (short) 17);
+
+	private static final org.apache.thrift.protocol.TField IS_DEL_AREAS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"isDelAreas", org.apache.thrift.protocol.TType.BOOL, (short) 18);
 
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ArgUserStandardSchemeFactory();
 
@@ -91,9 +100,15 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String bindCode; // optional
 
+	public boolean isAbstract; // optional
+
 	public @org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> roles; // optional
 
 	public @org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> areas; // optional
+
+	public boolean isDelRoles; // optional
+
+	public boolean isDelAreas; // optional
 
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
@@ -106,7 +121,9 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 						"bindKey"), BIND_VAL((short) 8, "bindVal"), LOC_NUM((short) 9,
 								"locNum"), VERIFY_PHONE((short) 10, "verifyPhone"), VERIFY_EMAIL((short) 11,
 										"verifyEmail"), SOURCE((short) 12, "source"), BIND_CODE((short) 13,
-												"bindCode"), ROLES((short) 14, "roles"), AREAS((short) 15, "areas");
+												"bindCode"), IS_ABSTRACT((short) 16, "isAbstract"), ROLES((short) 14,
+														"roles"), AREAS((short) 15, "areas"), IS_DEL_ROLES((short) 17,
+																"isDelRoles"), IS_DEL_AREAS((short) 18, "isDelAreas");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -148,10 +165,16 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 				return SOURCE;
 			case 13: // BIND_CODE
 				return BIND_CODE;
+			case 16: // IS_ABSTRACT
+				return IS_ABSTRACT;
 			case 14: // ROLES
 				return ROLES;
 			case 15: // AREAS
 				return AREAS;
+			case 17: // IS_DEL_ROLES
+				return IS_DEL_ROLES;
+			case 18: // IS_DEL_AREAS
+				return IS_DEL_AREAS;
 			default:
 				return null;
 			}
@@ -196,9 +219,18 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 	}
 
 	// isset id assignments
+	private static final int __ISABSTRACT_ISSET_ID = 0;
+
+	private static final int __ISDELROLES_ISSET_ID = 1;
+
+	private static final int __ISDELAREAS_ISSET_ID = 2;
+
+	private byte __isset_bitfield = 0;
+
 	private static final _Fields optionals[] = { _Fields.USERNAME, _Fields.PHONE, _Fields.EMAIL, _Fields.UNIQUE,
 			_Fields.BIND_APP, _Fields.BIND_KEY, _Fields.BIND_VAL, _Fields.LOC_NUM, _Fields.VERIFY_PHONE,
-			_Fields.VERIFY_EMAIL, _Fields.SOURCE, _Fields.BIND_CODE, _Fields.ROLES, _Fields.AREAS };
+			_Fields.VERIFY_EMAIL, _Fields.SOURCE, _Fields.BIND_CODE, _Fields.IS_ABSTRACT, _Fields.ROLES, _Fields.AREAS,
+			_Fields.IS_DEL_ROLES, _Fields.IS_DEL_AREAS };
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
@@ -253,6 +285,10 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 				new org.apache.thrift.meta_data.FieldMetaData("bindCode",
 						org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.IS_ABSTRACT,
+				new org.apache.thrift.meta_data.FieldMetaData("isAbstract",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
 		tmpMap.put(_Fields.ROLES, new org.apache.thrift.meta_data.FieldMetaData("roles",
 				org.apache.thrift.TFieldRequirementType.OPTIONAL,
 				new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
@@ -261,6 +297,14 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 				org.apache.thrift.TFieldRequirementType.OPTIONAL,
 				new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING))));
+		tmpMap.put(_Fields.IS_DEL_ROLES,
+				new org.apache.thrift.meta_data.FieldMetaData("isDelRoles",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
+		tmpMap.put(_Fields.IS_DEL_AREAS,
+				new org.apache.thrift.meta_data.FieldMetaData("isDelAreas",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ArgUser.class, metaDataMap);
 	}
@@ -277,6 +321,7 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 	 * Performs a deep copy on <i>other</i>.
 	 */
 	public ArgUser(ArgUser other) {
+		__isset_bitfield = other.__isset_bitfield;
 		if (other.isSetUid()) {
 			this.uid = other.uid;
 		}
@@ -316,6 +361,7 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 		if (other.isSetBindCode()) {
 			this.bindCode = other.bindCode;
 		}
+		this.isAbstract = other.isAbstract;
 		if (other.isSetRoles()) {
 			java.util.List<java.lang.String> __this__roles = new java.util.ArrayList<java.lang.String>(other.roles);
 			this.roles = __this__roles;
@@ -324,6 +370,8 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			java.util.List<java.lang.String> __this__areas = new java.util.ArrayList<java.lang.String>(other.areas);
 			this.areas = __this__areas;
 		}
+		this.isDelRoles = other.isDelRoles;
+		this.isDelAreas = other.isDelAreas;
 	}
 
 	public ArgUser deepCopy() {
@@ -345,8 +393,14 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 		this.verifyEmail = null;
 		this.source = null;
 		this.bindCode = null;
+		setIsAbstractIsSet(false);
+		this.isAbstract = false;
 		this.roles = null;
 		this.areas = null;
+		setIsDelRolesIsSet(false);
+		this.isDelRoles = false;
+		setIsDelAreasIsSet(false);
+		this.isDelAreas = false;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -707,6 +761,32 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 		}
 	}
 
+	public boolean isIsAbstract() {
+		return this.isAbstract;
+	}
+
+	public ArgUser setIsAbstract(boolean isAbstract) {
+		this.isAbstract = isAbstract;
+		setIsAbstractIsSet(true);
+		return this;
+	}
+
+	public void unsetIsAbstract() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __ISABSTRACT_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field isAbstract is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetIsAbstract() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __ISABSTRACT_ISSET_ID);
+	}
+
+	public void setIsAbstractIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __ISABSTRACT_ISSET_ID, value);
+	}
+
 	public int getRolesSize() {
 		return (this.roles == null) ? 0 : this.roles.size();
 	}
@@ -791,6 +871,58 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 		if (!value) {
 			this.areas = null;
 		}
+	}
+
+	public boolean isIsDelRoles() {
+		return this.isDelRoles;
+	}
+
+	public ArgUser setIsDelRoles(boolean isDelRoles) {
+		this.isDelRoles = isDelRoles;
+		setIsDelRolesIsSet(true);
+		return this;
+	}
+
+	public void unsetIsDelRoles() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __ISDELROLES_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field isDelRoles is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetIsDelRoles() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __ISDELROLES_ISSET_ID);
+	}
+
+	public void setIsDelRolesIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __ISDELROLES_ISSET_ID, value);
+	}
+
+	public boolean isIsDelAreas() {
+		return this.isDelAreas;
+	}
+
+	public ArgUser setIsDelAreas(boolean isDelAreas) {
+		this.isDelAreas = isDelAreas;
+		setIsDelAreasIsSet(true);
+		return this;
+	}
+
+	public void unsetIsDelAreas() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __ISDELAREAS_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field isDelAreas is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetIsDelAreas() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __ISDELAREAS_ISSET_ID);
+	}
+
+	public void setIsDelAreasIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __ISDELAREAS_ISSET_ID, value);
 	}
 
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
@@ -912,6 +1044,15 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			}
 			break;
 
+		case IS_ABSTRACT:
+			if (value == null) {
+				unsetIsAbstract();
+			}
+			else {
+				setIsAbstract((java.lang.Boolean) value);
+			}
+			break;
+
 		case ROLES:
 			if (value == null) {
 				unsetRoles();
@@ -927,6 +1068,24 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			}
 			else {
 				setAreas((java.util.List<java.lang.String>) value);
+			}
+			break;
+
+		case IS_DEL_ROLES:
+			if (value == null) {
+				unsetIsDelRoles();
+			}
+			else {
+				setIsDelRoles((java.lang.Boolean) value);
+			}
+			break;
+
+		case IS_DEL_AREAS:
+			if (value == null) {
+				unsetIsDelAreas();
+			}
+			else {
+				setIsDelAreas((java.lang.Boolean) value);
 			}
 			break;
 
@@ -975,11 +1134,20 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 		case BIND_CODE:
 			return getBindCode();
 
+		case IS_ABSTRACT:
+			return isIsAbstract();
+
 		case ROLES:
 			return getRoles();
 
 		case AREAS:
 			return getAreas();
+
+		case IS_DEL_ROLES:
+			return isIsDelRoles();
+
+		case IS_DEL_AREAS:
+			return isIsDelAreas();
 
 		}
 		throw new java.lang.IllegalStateException();
@@ -1021,10 +1189,16 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			return isSetSource();
 		case BIND_CODE:
 			return isSetBindCode();
+		case IS_ABSTRACT:
+			return isSetIsAbstract();
 		case ROLES:
 			return isSetRoles();
 		case AREAS:
 			return isSetAreas();
+		case IS_DEL_ROLES:
+			return isSetIsDelRoles();
+		case IS_DEL_AREAS:
+			return isSetIsDelAreas();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -1161,6 +1335,15 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 				return false;
 		}
 
+		boolean this_present_isAbstract = true && this.isSetIsAbstract();
+		boolean that_present_isAbstract = true && that.isSetIsAbstract();
+		if (this_present_isAbstract || that_present_isAbstract) {
+			if (!(this_present_isAbstract && that_present_isAbstract))
+				return false;
+			if (this.isAbstract != that.isAbstract)
+				return false;
+		}
+
 		boolean this_present_roles = true && this.isSetRoles();
 		boolean that_present_roles = true && that.isSetRoles();
 		if (this_present_roles || that_present_roles) {
@@ -1176,6 +1359,24 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			if (!(this_present_areas && that_present_areas))
 				return false;
 			if (!this.areas.equals(that.areas))
+				return false;
+		}
+
+		boolean this_present_isDelRoles = true && this.isSetIsDelRoles();
+		boolean that_present_isDelRoles = true && that.isSetIsDelRoles();
+		if (this_present_isDelRoles || that_present_isDelRoles) {
+			if (!(this_present_isDelRoles && that_present_isDelRoles))
+				return false;
+			if (this.isDelRoles != that.isDelRoles)
+				return false;
+		}
+
+		boolean this_present_isDelAreas = true && this.isSetIsDelAreas();
+		boolean that_present_isDelAreas = true && that.isSetIsDelAreas();
+		if (this_present_isDelAreas || that_present_isDelAreas) {
+			if (!(this_present_isDelAreas && that_present_isDelAreas))
+				return false;
+			if (this.isDelAreas != that.isDelAreas)
 				return false;
 		}
 
@@ -1238,6 +1439,10 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 		if (isSetBindCode())
 			hashCode = hashCode * 8191 + bindCode.hashCode();
 
+		hashCode = hashCode * 8191 + ((isSetIsAbstract()) ? 131071 : 524287);
+		if (isSetIsAbstract())
+			hashCode = hashCode * 8191 + ((isAbstract) ? 131071 : 524287);
+
 		hashCode = hashCode * 8191 + ((isSetRoles()) ? 131071 : 524287);
 		if (isSetRoles())
 			hashCode = hashCode * 8191 + roles.hashCode();
@@ -1245,6 +1450,14 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 		hashCode = hashCode * 8191 + ((isSetAreas()) ? 131071 : 524287);
 		if (isSetAreas())
 			hashCode = hashCode * 8191 + areas.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetIsDelRoles()) ? 131071 : 524287);
+		if (isSetIsDelRoles())
+			hashCode = hashCode * 8191 + ((isDelRoles) ? 131071 : 524287);
+
+		hashCode = hashCode * 8191 + ((isSetIsDelAreas()) ? 131071 : 524287);
+		if (isSetIsDelAreas())
+			hashCode = hashCode * 8191 + ((isDelAreas) ? 131071 : 524287);
 
 		return hashCode;
 	}
@@ -1387,6 +1600,16 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetIsAbstract()).compareTo(other.isSetIsAbstract());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetIsAbstract()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.isAbstract, other.isAbstract);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetRoles()).compareTo(other.isSetRoles());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -1403,6 +1626,26 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 		}
 		if (isSetAreas()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.areas, other.areas);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetIsDelRoles()).compareTo(other.isSetIsDelRoles());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetIsDelRoles()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.isDelRoles, other.isDelRoles);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetIsDelAreas()).compareTo(other.isSetIsDelAreas());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetIsDelAreas()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.isDelAreas, other.isDelAreas);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -1580,6 +1823,13 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			}
 			first = false;
 		}
+		if (isSetIsAbstract()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("isAbstract:");
+			sb.append(this.isAbstract);
+			first = false;
+		}
 		if (isSetRoles()) {
 			if (!first)
 				sb.append(", ");
@@ -1604,6 +1854,20 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			}
 			first = false;
 		}
+		if (isSetIsDelRoles()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("isDelRoles:");
+			sb.append(this.isDelRoles);
+			first = false;
+		}
+		if (isSetIsDelAreas()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("isDelAreas:");
+			sb.append(this.isDelAreas);
+			first = false;
+		}
 		sb.append(")");
 		return sb.toString();
 	}
@@ -1625,6 +1889,9 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 
 	private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
 		try {
+			// it doesn't seem like you should have to do this, but java serialization is
+			// wacky, and doesn't call the default constructor.
+			__isset_bitfield = 0;
 			read(new org.apache.thrift.protocol.TCompactProtocol(
 					new org.apache.thrift.transport.TIOStreamTransport(in)));
 		}
@@ -1770,6 +2037,15 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 16: // IS_ABSTRACT
+					if (schemeField.type == org.apache.thrift.protocol.TType.BOOL) {
+						struct.isAbstract = iprot.readBool();
+						struct.setIsAbstractIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 14: // ROLES
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
@@ -1803,6 +2079,24 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 							iprot.readListEnd();
 						}
 						struct.setAreasIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 17: // IS_DEL_ROLES
+					if (schemeField.type == org.apache.thrift.protocol.TType.BOOL) {
+						struct.isDelRoles = iprot.readBool();
+						struct.setIsDelRolesIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 18: // IS_DEL_AREAS
+					if (schemeField.type == org.apache.thrift.protocol.TType.BOOL) {
+						struct.isDelAreas = iprot.readBool();
+						struct.setIsDelAreasIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -1942,6 +2236,21 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 					oprot.writeFieldEnd();
 				}
 			}
+			if (struct.isSetIsAbstract()) {
+				oprot.writeFieldBegin(IS_ABSTRACT_FIELD_DESC);
+				oprot.writeBool(struct.isAbstract);
+				oprot.writeFieldEnd();
+			}
+			if (struct.isSetIsDelRoles()) {
+				oprot.writeFieldBegin(IS_DEL_ROLES_FIELD_DESC);
+				oprot.writeBool(struct.isDelRoles);
+				oprot.writeFieldEnd();
+			}
+			if (struct.isSetIsDelAreas()) {
+				oprot.writeFieldBegin(IS_DEL_AREAS_FIELD_DESC);
+				oprot.writeBool(struct.isDelAreas);
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -2002,13 +2311,22 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			if (struct.isSetBindCode()) {
 				optionals.set(12);
 			}
-			if (struct.isSetRoles()) {
+			if (struct.isSetIsAbstract()) {
 				optionals.set(13);
 			}
-			if (struct.isSetAreas()) {
+			if (struct.isSetRoles()) {
 				optionals.set(14);
 			}
-			oprot.writeBitSet(optionals, 15);
+			if (struct.isSetAreas()) {
+				optionals.set(15);
+			}
+			if (struct.isSetIsDelRoles()) {
+				optionals.set(16);
+			}
+			if (struct.isSetIsDelAreas()) {
+				optionals.set(17);
+			}
+			oprot.writeBitSet(optionals, 18);
 			if (struct.isSetUid()) {
 				oprot.writeString(struct.uid);
 			}
@@ -2048,6 +2366,9 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 			if (struct.isSetBindCode()) {
 				oprot.writeString(struct.bindCode);
 			}
+			if (struct.isSetIsAbstract()) {
+				oprot.writeBool(struct.isAbstract);
+			}
 			if (struct.isSetRoles()) {
 				{
 					oprot.writeI32(struct.roles.size());
@@ -2064,13 +2385,19 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 					}
 				}
 			}
+			if (struct.isSetIsDelRoles()) {
+				oprot.writeBool(struct.isDelRoles);
+			}
+			if (struct.isSetIsDelAreas()) {
+				oprot.writeBool(struct.isDelAreas);
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, ArgUser struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(15);
+			java.util.BitSet incoming = iprot.readBitSet(18);
 			if (incoming.get(0)) {
 				struct.uid = iprot.readString();
 				struct.setUidIsSet(true);
@@ -2124,6 +2451,10 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 				struct.setBindCodeIsSet(true);
 			}
 			if (incoming.get(13)) {
+				struct.isAbstract = iprot.readBool();
+				struct.setIsAbstractIsSet(true);
+			}
+			if (incoming.get(14)) {
 				{
 					org.apache.thrift.protocol.TList _list120 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
@@ -2137,7 +2468,7 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 				}
 				struct.setRolesIsSet(true);
 			}
-			if (incoming.get(14)) {
+			if (incoming.get(15)) {
 				{
 					org.apache.thrift.protocol.TList _list123 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
@@ -2150,6 +2481,14 @@ public class ArgUser implements org.apache.thrift.TBase<ArgUser, ArgUser._Fields
 					}
 				}
 				struct.setAreasIsSet(true);
+			}
+			if (incoming.get(16)) {
+				struct.isDelRoles = iprot.readBool();
+				struct.setIsDelRolesIsSet(true);
+			}
+			if (incoming.get(17)) {
+				struct.isDelAreas = iprot.readBool();
+				struct.setIsDelAreasIsSet(true);
 			}
 		}
 

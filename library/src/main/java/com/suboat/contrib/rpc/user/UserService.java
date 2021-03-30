@@ -119,15 +119,21 @@ public class UserService {
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
 		/**
-		 * ----- 拓展信息------ getUserExt 传入argQuery参数,取用户安全拓展表 getUserExtPub
-		 * 传入argQuery参数,取用户普通拓展表 getUserBankCardList 传入argQuery参数,取银行卡列表 getUserActionList
-		 * 传入argQuery参数,取操作历史列表
+		 * ----- 拓展信息------ getUserExt 传入argQuery参数,取用户安全拓展表 setUserExt 更新用户安全拓展参数
+		 * getUserExtPub 传入argQuery参数,取用户普通拓展表 setUserExtPub 更新用户普通拓展参数
+		 * getUserBankCardList 传入argQuery参数,取银行卡列表 getUserActionList 传入argQuery参数,取操作历史列表
 		 * @param query
 		 */
 		public ResultUserExt getUserExt(com.suboat.contrib.rpc.base.ArgQuery query)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
+		public UserExt setUserExt(ArgUserExt form)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
+
 		public ResultUserExtPub getUserExtPub(com.suboat.contrib.rpc.base.ArgQuery query)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
+
+		public UserExtPub setUserExtPub(ArgUserExtPub form)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
 		public ResultUserAction getUserActionList(com.suboat.contrib.rpc.base.ArgQuery query)
@@ -340,8 +346,15 @@ public class UserService {
 				org.apache.thrift.async.AsyncMethodCallback<ResultUserExt> resultHandler)
 				throws org.apache.thrift.TException;
 
+		public void setUserExt(ArgUserExt form, org.apache.thrift.async.AsyncMethodCallback<UserExt> resultHandler)
+				throws org.apache.thrift.TException;
+
 		public void getUserExtPub(com.suboat.contrib.rpc.base.ArgQuery query,
 				org.apache.thrift.async.AsyncMethodCallback<ResultUserExtPub> resultHandler)
+				throws org.apache.thrift.TException;
+
+		public void setUserExtPub(ArgUserExtPub form,
+				org.apache.thrift.async.AsyncMethodCallback<UserExtPub> resultHandler)
 				throws org.apache.thrift.TException;
 
 		public void getUserActionList(com.suboat.contrib.rpc.base.ArgQuery query,
@@ -1147,6 +1160,31 @@ public class UserService {
 					"getUserExt failed: unknown result");
 		}
 
+		public UserExt setUserExt(ArgUserExt form)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			send_setUserExt(form);
+			return recv_setUserExt();
+		}
+
+		public void send_setUserExt(ArgUserExt form) throws org.apache.thrift.TException {
+			setUserExt_args args = new setUserExt_args();
+			args.setForm(form);
+			sendBase("setUserExt", args);
+		}
+
+		public UserExt recv_setUserExt() throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			setUserExt_result result = new setUserExt_result();
+			receiveBase(result, "setUserExt");
+			if (result.isSetSuccess()) {
+				return result.success;
+			}
+			if (result.err != null) {
+				throw result.err;
+			}
+			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
+					"setUserExt failed: unknown result");
+		}
+
 		public ResultUserExtPub getUserExtPub(com.suboat.contrib.rpc.base.ArgQuery query)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
 			send_getUserExtPub(query);
@@ -1171,6 +1209,31 @@ public class UserService {
 			}
 			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
 					"getUserExtPub failed: unknown result");
+		}
+
+		public UserExtPub setUserExtPub(ArgUserExtPub form)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			send_setUserExtPub(form);
+			return recv_setUserExtPub();
+		}
+
+		public void send_setUserExtPub(ArgUserExtPub form) throws org.apache.thrift.TException {
+			setUserExtPub_args args = new setUserExtPub_args();
+			args.setForm(form);
+			sendBase("setUserExtPub", args);
+		}
+
+		public UserExtPub recv_setUserExtPub() throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			setUserExtPub_result result = new setUserExtPub_result();
+			receiveBase(result, "setUserExtPub");
+			if (result.isSetSuccess()) {
+				return result.success;
+			}
+			if (result.err != null) {
+				throw result.err;
+			}
+			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
+					"setUserExtPub failed: unknown result");
 		}
 
 		public ResultUserAction getUserActionList(com.suboat.contrib.rpc.base.ArgQuery query)
@@ -3155,6 +3218,48 @@ public class UserService {
 
 		}
 
+		public void setUserExt(ArgUserExt form, org.apache.thrift.async.AsyncMethodCallback<UserExt> resultHandler)
+				throws org.apache.thrift.TException {
+			checkReady();
+			setUserExt_call method_call = new setUserExt_call(form, resultHandler, this, ___protocolFactory,
+					___transport);
+			this.___currentMethod = method_call;
+			___manager.call(method_call);
+		}
+
+		public static class setUserExt_call extends org.apache.thrift.async.TAsyncMethodCall<UserExt> {
+
+			private ArgUserExt form;
+
+			public setUserExt_call(ArgUserExt form, org.apache.thrift.async.AsyncMethodCallback<UserExt> resultHandler,
+					org.apache.thrift.async.TAsyncClient client,
+					org.apache.thrift.protocol.TProtocolFactory protocolFactory,
+					org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+				super(client, protocolFactory, transport, resultHandler, false);
+				this.form = form;
+			}
+
+			public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+				prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("setUserExt",
+						org.apache.thrift.protocol.TMessageType.CALL, 0));
+				setUserExt_args args = new setUserExt_args();
+				args.setForm(form);
+				args.write(prot);
+				prot.writeMessageEnd();
+			}
+
+			public UserExt getResult() throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+				if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+					throw new java.lang.IllegalStateException("Method call not finished!");
+				}
+				org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(
+						getFrameBuffer().array());
+				org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+				return (new Client(prot)).recv_setUserExt();
+			}
+
+		}
+
 		public void getUserExtPub(com.suboat.contrib.rpc.base.ArgQuery query,
 				org.apache.thrift.async.AsyncMethodCallback<ResultUserExtPub> resultHandler)
 				throws org.apache.thrift.TException {
@@ -3195,6 +3300,50 @@ public class UserService {
 						getFrameBuffer().array());
 				org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
 				return (new Client(prot)).recv_getUserExtPub();
+			}
+
+		}
+
+		public void setUserExtPub(ArgUserExtPub form,
+				org.apache.thrift.async.AsyncMethodCallback<UserExtPub> resultHandler)
+				throws org.apache.thrift.TException {
+			checkReady();
+			setUserExtPub_call method_call = new setUserExtPub_call(form, resultHandler, this, ___protocolFactory,
+					___transport);
+			this.___currentMethod = method_call;
+			___manager.call(method_call);
+		}
+
+		public static class setUserExtPub_call extends org.apache.thrift.async.TAsyncMethodCall<UserExtPub> {
+
+			private ArgUserExtPub form;
+
+			public setUserExtPub_call(ArgUserExtPub form,
+					org.apache.thrift.async.AsyncMethodCallback<UserExtPub> resultHandler,
+					org.apache.thrift.async.TAsyncClient client,
+					org.apache.thrift.protocol.TProtocolFactory protocolFactory,
+					org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+				super(client, protocolFactory, transport, resultHandler, false);
+				this.form = form;
+			}
+
+			public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+				prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("setUserExtPub",
+						org.apache.thrift.protocol.TMessageType.CALL, 0));
+				setUserExtPub_args args = new setUserExtPub_args();
+				args.setForm(form);
+				args.write(prot);
+				prot.writeMessageEnd();
+			}
+
+			public UserExtPub getResult() throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+				if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+					throw new java.lang.IllegalStateException("Method call not finished!");
+				}
+				org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(
+						getFrameBuffer().array());
+				org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+				return (new Client(prot)).recv_setUserExtPub();
 			}
 
 		}
@@ -4627,7 +4776,9 @@ public class UserService {
 			processMap.put("setUserBankCard", new setUserBankCard());
 			processMap.put("delUserBankCard", new delUserBankCard());
 			processMap.put("getUserExt", new getUserExt());
+			processMap.put("setUserExt", new setUserExt());
 			processMap.put("getUserExtPub", new getUserExtPub());
+			processMap.put("setUserExtPub", new setUserExtPub());
 			processMap.put("getUserActionList", new getUserActionList());
 			processMap.put("getRBAC", new getRBAC());
 			processMap.put("setRBAC", new setRBAC());
@@ -5490,6 +5641,38 @@ public class UserService {
 
 		}
 
+		public static class setUserExt<I extends Iface> extends org.apache.thrift.ProcessFunction<I, setUserExt_args> {
+
+			public setUserExt() {
+				super("setUserExt");
+			}
+
+			public setUserExt_args getEmptyArgsInstance() {
+				return new setUserExt_args();
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			@Override
+			protected boolean rethrowUnhandledExceptions() {
+				return false;
+			}
+
+			public setUserExt_result getResult(I iface, setUserExt_args args) throws org.apache.thrift.TException {
+				setUserExt_result result = new setUserExt_result();
+				try {
+					result.success = iface.setUserExt(args.form);
+				}
+				catch (com.suboat.contrib.rpc.base.Error err) {
+					result.err = err;
+				}
+				return result;
+			}
+
+		}
+
 		public static class getUserExtPub<I extends Iface>
 				extends org.apache.thrift.ProcessFunction<I, getUserExtPub_args> {
 
@@ -5515,6 +5698,40 @@ public class UserService {
 				getUserExtPub_result result = new getUserExtPub_result();
 				try {
 					result.success = iface.getUserExtPub(args.query);
+				}
+				catch (com.suboat.contrib.rpc.base.Error err) {
+					result.err = err;
+				}
+				return result;
+			}
+
+		}
+
+		public static class setUserExtPub<I extends Iface>
+				extends org.apache.thrift.ProcessFunction<I, setUserExtPub_args> {
+
+			public setUserExtPub() {
+				super("setUserExtPub");
+			}
+
+			public setUserExtPub_args getEmptyArgsInstance() {
+				return new setUserExtPub_args();
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			@Override
+			protected boolean rethrowUnhandledExceptions() {
+				return false;
+			}
+
+			public setUserExtPub_result getResult(I iface, setUserExtPub_args args)
+					throws org.apache.thrift.TException {
+				setUserExtPub_result result = new setUserExtPub_result();
+				try {
+					result.success = iface.setUserExtPub(args.form);
 				}
 				catch (com.suboat.contrib.rpc.base.Error err) {
 					result.err = err;
@@ -6573,7 +6790,9 @@ public class UserService {
 			processMap.put("setUserBankCard", new setUserBankCard());
 			processMap.put("delUserBankCard", new delUserBankCard());
 			processMap.put("getUserExt", new getUserExt());
+			processMap.put("setUserExt", new setUserExt());
 			processMap.put("getUserExtPub", new getUserExtPub());
+			processMap.put("setUserExtPub", new setUserExtPub());
 			processMap.put("getUserActionList", new getUserActionList());
 			processMap.put("getRBAC", new getRBAC());
 			processMap.put("setRBAC", new setRBAC());
@@ -8582,6 +8801,85 @@ public class UserService {
 
 		}
 
+		public static class setUserExt<I extends AsyncIface>
+				extends org.apache.thrift.AsyncProcessFunction<I, setUserExt_args, UserExt> {
+
+			public setUserExt() {
+				super("setUserExt");
+			}
+
+			public setUserExt_args getEmptyArgsInstance() {
+				return new setUserExt_args();
+			}
+
+			public org.apache.thrift.async.AsyncMethodCallback<UserExt> getResultHandler(
+					final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+				final org.apache.thrift.AsyncProcessFunction fcall = this;
+				return new org.apache.thrift.async.AsyncMethodCallback<UserExt>() {
+					public void onComplete(UserExt o) {
+						setUserExt_result result = new setUserExt_result();
+						result.success = o;
+						try {
+							fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY, seqid);
+						}
+						catch (org.apache.thrift.transport.TTransportException e) {
+							_LOGGER.error("TTransportException writing to internal frame buffer", e);
+							fb.close();
+						}
+						catch (java.lang.Exception e) {
+							_LOGGER.error("Exception writing to internal frame buffer", e);
+							onError(e);
+						}
+					}
+
+					public void onError(java.lang.Exception e) {
+						byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+						org.apache.thrift.TSerializable msg;
+						setUserExt_result result = new setUserExt_result();
+						if (e instanceof com.suboat.contrib.rpc.base.Error) {
+							result.err = (com.suboat.contrib.rpc.base.Error) e;
+							result.setErrIsSet(true);
+							msg = result;
+						}
+						else if (e instanceof org.apache.thrift.transport.TTransportException) {
+							_LOGGER.error("TTransportException inside handler", e);
+							fb.close();
+							return;
+						}
+						else if (e instanceof org.apache.thrift.TApplicationException) {
+							_LOGGER.error("TApplicationException inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = (org.apache.thrift.TApplicationException) e;
+						}
+						else {
+							_LOGGER.error("Exception inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = new org.apache.thrift.TApplicationException(
+									org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+						}
+						try {
+							fcall.sendResponse(fb, msg, msgType, seqid);
+						}
+						catch (java.lang.Exception ex) {
+							_LOGGER.error("Exception writing to internal frame buffer", ex);
+							fb.close();
+						}
+					}
+				};
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			public void start(I iface, setUserExt_args args,
+					org.apache.thrift.async.AsyncMethodCallback<UserExt> resultHandler)
+					throws org.apache.thrift.TException {
+				iface.setUserExt(args.form, resultHandler);
+			}
+
+		}
+
 		public static class getUserExtPub<I extends AsyncIface>
 				extends org.apache.thrift.AsyncProcessFunction<I, getUserExtPub_args, ResultUserExtPub> {
 
@@ -8657,6 +8955,85 @@ public class UserService {
 					org.apache.thrift.async.AsyncMethodCallback<ResultUserExtPub> resultHandler)
 					throws org.apache.thrift.TException {
 				iface.getUserExtPub(args.query, resultHandler);
+			}
+
+		}
+
+		public static class setUserExtPub<I extends AsyncIface>
+				extends org.apache.thrift.AsyncProcessFunction<I, setUserExtPub_args, UserExtPub> {
+
+			public setUserExtPub() {
+				super("setUserExtPub");
+			}
+
+			public setUserExtPub_args getEmptyArgsInstance() {
+				return new setUserExtPub_args();
+			}
+
+			public org.apache.thrift.async.AsyncMethodCallback<UserExtPub> getResultHandler(
+					final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+				final org.apache.thrift.AsyncProcessFunction fcall = this;
+				return new org.apache.thrift.async.AsyncMethodCallback<UserExtPub>() {
+					public void onComplete(UserExtPub o) {
+						setUserExtPub_result result = new setUserExtPub_result();
+						result.success = o;
+						try {
+							fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY, seqid);
+						}
+						catch (org.apache.thrift.transport.TTransportException e) {
+							_LOGGER.error("TTransportException writing to internal frame buffer", e);
+							fb.close();
+						}
+						catch (java.lang.Exception e) {
+							_LOGGER.error("Exception writing to internal frame buffer", e);
+							onError(e);
+						}
+					}
+
+					public void onError(java.lang.Exception e) {
+						byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+						org.apache.thrift.TSerializable msg;
+						setUserExtPub_result result = new setUserExtPub_result();
+						if (e instanceof com.suboat.contrib.rpc.base.Error) {
+							result.err = (com.suboat.contrib.rpc.base.Error) e;
+							result.setErrIsSet(true);
+							msg = result;
+						}
+						else if (e instanceof org.apache.thrift.transport.TTransportException) {
+							_LOGGER.error("TTransportException inside handler", e);
+							fb.close();
+							return;
+						}
+						else if (e instanceof org.apache.thrift.TApplicationException) {
+							_LOGGER.error("TApplicationException inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = (org.apache.thrift.TApplicationException) e;
+						}
+						else {
+							_LOGGER.error("Exception inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = new org.apache.thrift.TApplicationException(
+									org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+						}
+						try {
+							fcall.sendResponse(fb, msg, msgType, seqid);
+						}
+						catch (java.lang.Exception ex) {
+							_LOGGER.error("Exception writing to internal frame buffer", ex);
+							fb.close();
+						}
+					}
+				};
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			public void start(I iface, setUserExtPub_args args,
+					org.apache.thrift.async.AsyncMethodCallback<UserExtPub> resultHandler)
+					throws org.apache.thrift.TException {
+				iface.setUserExtPub(args.form, resultHandler);
 			}
 
 		}
@@ -37110,6 +37487,949 @@ public class UserService {
 
 	}
 
+	public static class setUserExt_args implements org.apache.thrift.TBase<setUserExt_args, setUserExt_args._Fields>,
+			java.io.Serializable, Cloneable, Comparable<setUserExt_args> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"setUserExt_args");
+
+		private static final org.apache.thrift.protocol.TField FORM_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"form", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new setUserExt_argsStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new setUserExt_argsTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable ArgUserExt form; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			FORM((short) 1, "form");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 1: // FORM
+					return FORM;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.FORM,
+					new org.apache.thrift.meta_data.FieldMetaData("form",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									"ArgUserExt")));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(setUserExt_args.class, metaDataMap);
+		}
+
+		public setUserExt_args() {
+		}
+
+		public setUserExt_args(ArgUserExt form) {
+			this();
+			this.form = form;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public setUserExt_args(setUserExt_args other) {
+			if (other.isSetForm()) {
+				this.form = new ArgUserExt(other.form);
+			}
+		}
+
+		public setUserExt_args deepCopy() {
+			return new setUserExt_args(this);
+		}
+
+		@Override
+		public void clear() {
+			this.form = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public ArgUserExt getForm() {
+			return this.form;
+		}
+
+		public setUserExt_args setForm(@org.apache.thrift.annotation.Nullable ArgUserExt form) {
+			this.form = form;
+			return this;
+		}
+
+		public void unsetForm() {
+			this.form = null;
+		}
+
+		/**
+		 * Returns true if field form is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetForm() {
+			return this.form != null;
+		}
+
+		public void setFormIsSet(boolean value) {
+			if (!value) {
+				this.form = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case FORM:
+				if (value == null) {
+					unsetForm();
+				}
+				else {
+					setForm((ArgUserExt) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case FORM:
+				return getForm();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case FORM:
+				return isSetForm();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof setUserExt_args)
+				return this.equals((setUserExt_args) that);
+			return false;
+		}
+
+		public boolean equals(setUserExt_args that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_form = true && this.isSetForm();
+			boolean that_present_form = true && that.isSetForm();
+			if (this_present_form || that_present_form) {
+				if (!(this_present_form && that_present_form))
+					return false;
+				if (!this.form.equals(that.form))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetForm()) ? 131071 : 524287);
+			if (isSetForm())
+				hashCode = hashCode * 8191 + form.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(setUserExt_args other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetForm()).compareTo(other.isSetForm());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetForm()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.form, other.form);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("setUserExt_args(");
+			boolean first = true;
+
+			sb.append("form:");
+			if (this.form == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.form);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class setUserExt_argsStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+
+			public setUserExt_argsStandardScheme getScheme() {
+				return new setUserExt_argsStandardScheme();
+			}
+
+		}
+
+		private static class setUserExt_argsStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<setUserExt_args> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, setUserExt_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 1: // FORM
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.form = new ArgUserExt();
+							struct.form.read(iprot);
+							struct.setFormIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, setUserExt_args struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.form != null) {
+					oprot.writeFieldBegin(FORM_FIELD_DESC);
+					struct.form.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class setUserExt_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+
+			public setUserExt_argsTupleScheme getScheme() {
+				return new setUserExt_argsTupleScheme();
+			}
+
+		}
+
+		private static class setUserExt_argsTupleScheme extends org.apache.thrift.scheme.TupleScheme<setUserExt_args> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, setUserExt_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetForm()) {
+					optionals.set(0);
+				}
+				oprot.writeBitSet(optionals, 1);
+				if (struct.isSetForm()) {
+					struct.form.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, setUserExt_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(1);
+				if (incoming.get(0)) {
+					struct.form = new ArgUserExt();
+					struct.form.read(iprot);
+					struct.setFormIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
+	public static class setUserExt_result
+			implements org.apache.thrift.TBase<setUserExt_result, setUserExt_result._Fields>, java.io.Serializable,
+			Cloneable, Comparable<setUserExt_result> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"setUserExt_result");
+
+		private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"success", org.apache.thrift.protocol.TType.STRUCT, (short) 0);
+
+		private static final org.apache.thrift.protocol.TField ERR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"err", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new setUserExt_resultStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new setUserExt_resultTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable UserExt success; // required
+
+		public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			SUCCESS((short) 0, "success"), ERR((short) 1, "err");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 0: // SUCCESS
+					return SUCCESS;
+				case 1: // ERR
+					return ERR;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.SUCCESS,
+					new org.apache.thrift.meta_data.FieldMetaData("success",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									UserExt.class)));
+			tmpMap.put(_Fields.ERR,
+					new org.apache.thrift.meta_data.FieldMetaData("err",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									com.suboat.contrib.rpc.base.Error.class)));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(setUserExt_result.class, metaDataMap);
+		}
+
+		public setUserExt_result() {
+		}
+
+		public setUserExt_result(UserExt success, com.suboat.contrib.rpc.base.Error err) {
+			this();
+			this.success = success;
+			this.err = err;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public setUserExt_result(setUserExt_result other) {
+			if (other.isSetSuccess()) {
+				this.success = new UserExt(other.success);
+			}
+			if (other.isSetErr()) {
+				this.err = new com.suboat.contrib.rpc.base.Error(other.err);
+			}
+		}
+
+		public setUserExt_result deepCopy() {
+			return new setUserExt_result(this);
+		}
+
+		@Override
+		public void clear() {
+			this.success = null;
+			this.err = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public UserExt getSuccess() {
+			return this.success;
+		}
+
+		public setUserExt_result setSuccess(@org.apache.thrift.annotation.Nullable UserExt success) {
+			this.success = success;
+			return this;
+		}
+
+		public void unsetSuccess() {
+			this.success = null;
+		}
+
+		/**
+		 * Returns true if field success is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetSuccess() {
+			return this.success != null;
+		}
+
+		public void setSuccessIsSet(boolean value) {
+			if (!value) {
+				this.success = null;
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public com.suboat.contrib.rpc.base.Error getErr() {
+			return this.err;
+		}
+
+		public setUserExt_result setErr(@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err) {
+			this.err = err;
+			return this;
+		}
+
+		public void unsetErr() {
+			this.err = null;
+		}
+
+		/**
+		 * Returns true if field err is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetErr() {
+			return this.err != null;
+		}
+
+		public void setErrIsSet(boolean value) {
+			if (!value) {
+				this.err = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case SUCCESS:
+				if (value == null) {
+					unsetSuccess();
+				}
+				else {
+					setSuccess((UserExt) value);
+				}
+				break;
+
+			case ERR:
+				if (value == null) {
+					unsetErr();
+				}
+				else {
+					setErr((com.suboat.contrib.rpc.base.Error) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case SUCCESS:
+				return getSuccess();
+
+			case ERR:
+				return getErr();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case SUCCESS:
+				return isSetSuccess();
+			case ERR:
+				return isSetErr();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof setUserExt_result)
+				return this.equals((setUserExt_result) that);
+			return false;
+		}
+
+		public boolean equals(setUserExt_result that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_success = true && this.isSetSuccess();
+			boolean that_present_success = true && that.isSetSuccess();
+			if (this_present_success || that_present_success) {
+				if (!(this_present_success && that_present_success))
+					return false;
+				if (!this.success.equals(that.success))
+					return false;
+			}
+
+			boolean this_present_err = true && this.isSetErr();
+			boolean that_present_err = true && that.isSetErr();
+			if (this_present_err || that_present_err) {
+				if (!(this_present_err && that_present_err))
+					return false;
+				if (!this.err.equals(that.err))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetSuccess()) ? 131071 : 524287);
+			if (isSetSuccess())
+				hashCode = hashCode * 8191 + success.hashCode();
+
+			hashCode = hashCode * 8191 + ((isSetErr()) ? 131071 : 524287);
+			if (isSetErr())
+				hashCode = hashCode * 8191 + err.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(setUserExt_result other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetSuccess()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			lastComparison = java.lang.Boolean.valueOf(isSetErr()).compareTo(other.isSetErr());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetErr()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.err, other.err);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("setUserExt_result(");
+			boolean first = true;
+
+			sb.append("success:");
+			if (this.success == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.success);
+			}
+			first = false;
+			if (!first)
+				sb.append(", ");
+			sb.append("err:");
+			if (this.err == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.err);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+			if (success != null) {
+				success.validate();
+			}
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class setUserExt_resultStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+
+			public setUserExt_resultStandardScheme getScheme() {
+				return new setUserExt_resultStandardScheme();
+			}
+
+		}
+
+		private static class setUserExt_resultStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<setUserExt_result> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, setUserExt_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 0: // SUCCESS
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.success = new UserExt();
+							struct.success.read(iprot);
+							struct.setSuccessIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					case 1: // ERR
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.err = new com.suboat.contrib.rpc.base.Error();
+							struct.err.read(iprot);
+							struct.setErrIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, setUserExt_result struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.success != null) {
+					oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+					struct.success.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				if (struct.err != null) {
+					oprot.writeFieldBegin(ERR_FIELD_DESC);
+					struct.err.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class setUserExt_resultTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+
+			public setUserExt_resultTupleScheme getScheme() {
+				return new setUserExt_resultTupleScheme();
+			}
+
+		}
+
+		private static class setUserExt_resultTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<setUserExt_result> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, setUserExt_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetSuccess()) {
+					optionals.set(0);
+				}
+				if (struct.isSetErr()) {
+					optionals.set(1);
+				}
+				oprot.writeBitSet(optionals, 2);
+				if (struct.isSetSuccess()) {
+					struct.success.write(oprot);
+				}
+				if (struct.isSetErr()) {
+					struct.err.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, setUserExt_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(2);
+				if (incoming.get(0)) {
+					struct.success = new UserExt();
+					struct.success.read(iprot);
+					struct.setSuccessIsSet(true);
+				}
+				if (incoming.get(1)) {
+					struct.err = new com.suboat.contrib.rpc.base.Error();
+					struct.err.read(iprot);
+					struct.setErrIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
 	public static class getUserExtPub_args
 			implements org.apache.thrift.TBase<getUserExtPub_args, getUserExtPub_args._Fields>, java.io.Serializable,
 			Cloneable, Comparable<getUserExtPub_args> {
@@ -38038,6 +39358,953 @@ public class UserService {
 				java.util.BitSet incoming = iprot.readBitSet(2);
 				if (incoming.get(0)) {
 					struct.success = new ResultUserExtPub();
+					struct.success.read(iprot);
+					struct.setSuccessIsSet(true);
+				}
+				if (incoming.get(1)) {
+					struct.err = new com.suboat.contrib.rpc.base.Error();
+					struct.err.read(iprot);
+					struct.setErrIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
+	public static class setUserExtPub_args
+			implements org.apache.thrift.TBase<setUserExtPub_args, setUserExtPub_args._Fields>, java.io.Serializable,
+			Cloneable, Comparable<setUserExtPub_args> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"setUserExtPub_args");
+
+		private static final org.apache.thrift.protocol.TField FORM_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"form", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new setUserExtPub_argsStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new setUserExtPub_argsTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable ArgUserExtPub form; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			FORM((short) 1, "form");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 1: // FORM
+					return FORM;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.FORM,
+					new org.apache.thrift.meta_data.FieldMetaData("form",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									"ArgUserExtPub")));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(setUserExtPub_args.class, metaDataMap);
+		}
+
+		public setUserExtPub_args() {
+		}
+
+		public setUserExtPub_args(ArgUserExtPub form) {
+			this();
+			this.form = form;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public setUserExtPub_args(setUserExtPub_args other) {
+			if (other.isSetForm()) {
+				this.form = new ArgUserExtPub(other.form);
+			}
+		}
+
+		public setUserExtPub_args deepCopy() {
+			return new setUserExtPub_args(this);
+		}
+
+		@Override
+		public void clear() {
+			this.form = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public ArgUserExtPub getForm() {
+			return this.form;
+		}
+
+		public setUserExtPub_args setForm(@org.apache.thrift.annotation.Nullable ArgUserExtPub form) {
+			this.form = form;
+			return this;
+		}
+
+		public void unsetForm() {
+			this.form = null;
+		}
+
+		/**
+		 * Returns true if field form is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetForm() {
+			return this.form != null;
+		}
+
+		public void setFormIsSet(boolean value) {
+			if (!value) {
+				this.form = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case FORM:
+				if (value == null) {
+					unsetForm();
+				}
+				else {
+					setForm((ArgUserExtPub) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case FORM:
+				return getForm();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case FORM:
+				return isSetForm();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof setUserExtPub_args)
+				return this.equals((setUserExtPub_args) that);
+			return false;
+		}
+
+		public boolean equals(setUserExtPub_args that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_form = true && this.isSetForm();
+			boolean that_present_form = true && that.isSetForm();
+			if (this_present_form || that_present_form) {
+				if (!(this_present_form && that_present_form))
+					return false;
+				if (!this.form.equals(that.form))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetForm()) ? 131071 : 524287);
+			if (isSetForm())
+				hashCode = hashCode * 8191 + form.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(setUserExtPub_args other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetForm()).compareTo(other.isSetForm());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetForm()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.form, other.form);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("setUserExtPub_args(");
+			boolean first = true;
+
+			sb.append("form:");
+			if (this.form == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.form);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class setUserExtPub_argsStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+
+			public setUserExtPub_argsStandardScheme getScheme() {
+				return new setUserExtPub_argsStandardScheme();
+			}
+
+		}
+
+		private static class setUserExtPub_argsStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<setUserExtPub_args> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, setUserExtPub_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 1: // FORM
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.form = new ArgUserExtPub();
+							struct.form.read(iprot);
+							struct.setFormIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, setUserExtPub_args struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.form != null) {
+					oprot.writeFieldBegin(FORM_FIELD_DESC);
+					struct.form.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class setUserExtPub_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+
+			public setUserExtPub_argsTupleScheme getScheme() {
+				return new setUserExtPub_argsTupleScheme();
+			}
+
+		}
+
+		private static class setUserExtPub_argsTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<setUserExtPub_args> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, setUserExtPub_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetForm()) {
+					optionals.set(0);
+				}
+				oprot.writeBitSet(optionals, 1);
+				if (struct.isSetForm()) {
+					struct.form.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, setUserExtPub_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(1);
+				if (incoming.get(0)) {
+					struct.form = new ArgUserExtPub();
+					struct.form.read(iprot);
+					struct.setFormIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
+	public static class setUserExtPub_result
+			implements org.apache.thrift.TBase<setUserExtPub_result, setUserExtPub_result._Fields>,
+			java.io.Serializable, Cloneable, Comparable<setUserExtPub_result> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"setUserExtPub_result");
+
+		private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"success", org.apache.thrift.protocol.TType.STRUCT, (short) 0);
+
+		private static final org.apache.thrift.protocol.TField ERR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"err", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new setUserExtPub_resultStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new setUserExtPub_resultTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable UserExtPub success; // required
+
+		public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			SUCCESS((short) 0, "success"), ERR((short) 1, "err");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 0: // SUCCESS
+					return SUCCESS;
+				case 1: // ERR
+					return ERR;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.SUCCESS,
+					new org.apache.thrift.meta_data.FieldMetaData("success",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									UserExtPub.class)));
+			tmpMap.put(_Fields.ERR,
+					new org.apache.thrift.meta_data.FieldMetaData("err",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									com.suboat.contrib.rpc.base.Error.class)));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(setUserExtPub_result.class, metaDataMap);
+		}
+
+		public setUserExtPub_result() {
+		}
+
+		public setUserExtPub_result(UserExtPub success, com.suboat.contrib.rpc.base.Error err) {
+			this();
+			this.success = success;
+			this.err = err;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public setUserExtPub_result(setUserExtPub_result other) {
+			if (other.isSetSuccess()) {
+				this.success = new UserExtPub(other.success);
+			}
+			if (other.isSetErr()) {
+				this.err = new com.suboat.contrib.rpc.base.Error(other.err);
+			}
+		}
+
+		public setUserExtPub_result deepCopy() {
+			return new setUserExtPub_result(this);
+		}
+
+		@Override
+		public void clear() {
+			this.success = null;
+			this.err = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public UserExtPub getSuccess() {
+			return this.success;
+		}
+
+		public setUserExtPub_result setSuccess(@org.apache.thrift.annotation.Nullable UserExtPub success) {
+			this.success = success;
+			return this;
+		}
+
+		public void unsetSuccess() {
+			this.success = null;
+		}
+
+		/**
+		 * Returns true if field success is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetSuccess() {
+			return this.success != null;
+		}
+
+		public void setSuccessIsSet(boolean value) {
+			if (!value) {
+				this.success = null;
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public com.suboat.contrib.rpc.base.Error getErr() {
+			return this.err;
+		}
+
+		public setUserExtPub_result setErr(
+				@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err) {
+			this.err = err;
+			return this;
+		}
+
+		public void unsetErr() {
+			this.err = null;
+		}
+
+		/**
+		 * Returns true if field err is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetErr() {
+			return this.err != null;
+		}
+
+		public void setErrIsSet(boolean value) {
+			if (!value) {
+				this.err = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case SUCCESS:
+				if (value == null) {
+					unsetSuccess();
+				}
+				else {
+					setSuccess((UserExtPub) value);
+				}
+				break;
+
+			case ERR:
+				if (value == null) {
+					unsetErr();
+				}
+				else {
+					setErr((com.suboat.contrib.rpc.base.Error) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case SUCCESS:
+				return getSuccess();
+
+			case ERR:
+				return getErr();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case SUCCESS:
+				return isSetSuccess();
+			case ERR:
+				return isSetErr();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof setUserExtPub_result)
+				return this.equals((setUserExtPub_result) that);
+			return false;
+		}
+
+		public boolean equals(setUserExtPub_result that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_success = true && this.isSetSuccess();
+			boolean that_present_success = true && that.isSetSuccess();
+			if (this_present_success || that_present_success) {
+				if (!(this_present_success && that_present_success))
+					return false;
+				if (!this.success.equals(that.success))
+					return false;
+			}
+
+			boolean this_present_err = true && this.isSetErr();
+			boolean that_present_err = true && that.isSetErr();
+			if (this_present_err || that_present_err) {
+				if (!(this_present_err && that_present_err))
+					return false;
+				if (!this.err.equals(that.err))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetSuccess()) ? 131071 : 524287);
+			if (isSetSuccess())
+				hashCode = hashCode * 8191 + success.hashCode();
+
+			hashCode = hashCode * 8191 + ((isSetErr()) ? 131071 : 524287);
+			if (isSetErr())
+				hashCode = hashCode * 8191 + err.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(setUserExtPub_result other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetSuccess()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			lastComparison = java.lang.Boolean.valueOf(isSetErr()).compareTo(other.isSetErr());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetErr()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.err, other.err);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("setUserExtPub_result(");
+			boolean first = true;
+
+			sb.append("success:");
+			if (this.success == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.success);
+			}
+			first = false;
+			if (!first)
+				sb.append(", ");
+			sb.append("err:");
+			if (this.err == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.err);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+			if (success != null) {
+				success.validate();
+			}
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class setUserExtPub_resultStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public setUserExtPub_resultStandardScheme getScheme() {
+				return new setUserExtPub_resultStandardScheme();
+			}
+
+		}
+
+		private static class setUserExtPub_resultStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<setUserExtPub_result> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, setUserExtPub_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 0: // SUCCESS
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.success = new UserExtPub();
+							struct.success.read(iprot);
+							struct.setSuccessIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					case 1: // ERR
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.err = new com.suboat.contrib.rpc.base.Error();
+							struct.err.read(iprot);
+							struct.setErrIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, setUserExtPub_result struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.success != null) {
+					oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+					struct.success.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				if (struct.err != null) {
+					oprot.writeFieldBegin(ERR_FIELD_DESC);
+					struct.err.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class setUserExtPub_resultTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+
+			public setUserExtPub_resultTupleScheme getScheme() {
+				return new setUserExtPub_resultTupleScheme();
+			}
+
+		}
+
+		private static class setUserExtPub_resultTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<setUserExtPub_result> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, setUserExtPub_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetSuccess()) {
+					optionals.set(0);
+				}
+				if (struct.isSetErr()) {
+					optionals.set(1);
+				}
+				oprot.writeBitSet(optionals, 2);
+				if (struct.isSetSuccess()) {
+					struct.success.write(oprot);
+				}
+				if (struct.isSetErr()) {
+					struct.err.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, setUserExtPub_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(2);
+				if (incoming.get(0)) {
+					struct.success = new UserExtPub();
 					struct.success.read(iprot);
 					struct.setSuccessIsSet(true);
 				}

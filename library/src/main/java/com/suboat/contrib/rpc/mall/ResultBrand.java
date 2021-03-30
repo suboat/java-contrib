@@ -446,14 +446,14 @@ public class ResultBrand implements org.apache.thrift.TBase<ResultBrand, ResultB
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list214 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<Brand>(_list214.size);
+							org.apache.thrift.protocol.TList _list224 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<Brand>(_list224.size);
 							@org.apache.thrift.annotation.Nullable
-							Brand _elem215;
-							for (int _i216 = 0; _i216 < _list214.size; ++_i216) {
-								_elem215 = new Brand();
-								_elem215.read(iprot);
-								struct.data.add(_elem215);
+							Brand _elem225;
+							for (int _i226 = 0; _i226 < _list224.size; ++_i226) {
+								_elem225 = new Brand();
+								_elem225.read(iprot);
+								struct.data.add(_elem225);
 							}
 							iprot.readListEnd();
 						}
@@ -495,8 +495,8 @@ public class ResultBrand implements org.apache.thrift.TBase<ResultBrand, ResultB
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (Brand _iter217 : struct.data) {
-						_iter217.write(oprot);
+					for (Brand _iter227 : struct.data) {
+						_iter227.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -538,8 +538,8 @@ public class ResultBrand implements org.apache.thrift.TBase<ResultBrand, ResultB
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (Brand _iter218 : struct.data) {
-						_iter218.write(oprot);
+					for (Brand _iter228 : struct.data) {
+						_iter228.write(oprot);
 					}
 				}
 			}
@@ -555,15 +555,15 @@ public class ResultBrand implements org.apache.thrift.TBase<ResultBrand, ResultB
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list219 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list229 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<Brand>(_list219.size);
+					struct.data = new java.util.ArrayList<Brand>(_list229.size);
 					@org.apache.thrift.annotation.Nullable
-					Brand _elem220;
-					for (int _i221 = 0; _i221 < _list219.size; ++_i221) {
-						_elem220 = new Brand();
-						_elem220.read(iprot);
-						struct.data.add(_elem220);
+					Brand _elem230;
+					for (int _i231 = 0; _i231 < _list229.size; ++_i231) {
+						_elem230 = new Brand();
+						_elem230.read(iprot);
+						struct.data.add(_elem230);
 					}
 				}
 				struct.setDataIsSet(true);

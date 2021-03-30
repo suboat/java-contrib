@@ -130,6 +130,9 @@ public class Order
 	private static final org.apache.thrift.protocol.TField PAID_MAP_ALL_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"paidMapAll", org.apache.thrift.protocol.TType.MAP, (short) 56);
 
+	private static final org.apache.thrift.protocol.TField REBATE_MAP_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"rebateMap", org.apache.thrift.protocol.TType.MAP, (short) 64);
+
 	private static final org.apache.thrift.protocol.TField TRANSPORT_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"transport", org.apache.thrift.protocol.TType.I32, (short) 59);
 
@@ -284,6 +287,8 @@ public class Order
 
 	public @org.apache.thrift.annotation.Nullable java.util.Map<java.lang.String, java.lang.Double> paidMapAll; // required
 
+	public @org.apache.thrift.annotation.Nullable java.util.Map<java.lang.String, java.lang.Double> rebateMap; // required
+
 	public int transport; // required
 
 	public double transFeeOne; // required
@@ -386,55 +391,57 @@ public class Order
 																																																										(short) 55,
 																																																										"paidMapThis"), PAID_MAP_ALL(
 																																																												(short) 56,
-																																																												"paidMapAll"), TRANSPORT(
-																																																														(short) 59,
-																																																														"transport"), TRANS_FEE_ONE(
-																																																																(short) 36,
-																																																																"transFeeOne"), TRANS_FEE_THIS(
-																																																																		(short) 37,
-																																																																		"transFeeThis"), TRANS_FEE_ALL(
-																																																																				(short) 38,
-																																																																				"transFeeAll"), DELIVERY_CODE(
-																																																																						(short) 60,
-																																																																						"deliveryCode"), DELIVERY_COMPANY(
-																																																																								(short) 61,
-																																																																								"deliveryCompany"), PRICE_WORK_ONE(
-																																																																										(short) 39,
-																																																																										"priceWorkOne"), PRICE_WORK_THIS(
-																																																																												(short) 40,
-																																																																												"priceWorkThis"), PRICE_WORK_ALL(
-																																																																														(short) 41,
-																																																																														"priceWorkAll"), PRICE_COST_THIS(
-																																																																																(short) 49,
-																																																																																"priceCostThis"), PRICE_COST_ALL(
-																																																																																		(short) 50,
-																																																																																		"priceCostAll"), COUPON_PAY_THIS(
-																																																																																				(short) 42,
-																																																																																				"couponPayThis"), COUPON_PAY_ALL(
-																																																																																						(short) 43,
-																																																																																						"couponPayAll"), COUPON_CASH_THIS(
-																																																																																								(short) 44,
-																																																																																								"couponCashThis"), COUPON_CASH_ALL(
-																																																																																										(short) 45,
-																																																																																										"couponCashAll"), COUPON_DIS_THIS(
-																																																																																												(short) 46,
-																																																																																												"couponDisThis"), COUPON_DIS_ALL(
-																																																																																														(short) 47,
-																																																																																														"couponDisAll"), NOTE(
-																																																																																																(short) 48,
-																																																																																																"note"), NOTE_SELL(
-																																																																																																		(short) 62,
-																																																																																																		"noteSell"), ADDRESS(
-																																																																																																				(short) 52,
-																																																																																																				"address"), COUPON_ARR(
-																																																																																																						(short) 53,
-																																																																																																						"couponArr"), GOOD_SHOT(
-																																																																																																								(short) 57,
-																																																																																																								"goodShot"), GOODS_SHOT(
-																																																																																																										(short) 58,
-																																																																																																										"goodsShot"), INVOICE(
-																																																																																																												(short) 63,
-																																																																																																												"invoice");
+																																																												"paidMapAll"), REBATE_MAP(
+																																																														(short) 64,
+																																																														"rebateMap"), TRANSPORT(
+																																																																(short) 59,
+																																																																"transport"), TRANS_FEE_ONE(
+																																																																		(short) 36,
+																																																																		"transFeeOne"), TRANS_FEE_THIS(
+																																																																				(short) 37,
+																																																																				"transFeeThis"), TRANS_FEE_ALL(
+																																																																						(short) 38,
+																																																																						"transFeeAll"), DELIVERY_CODE(
+																																																																								(short) 60,
+																																																																								"deliveryCode"), DELIVERY_COMPANY(
+																																																																										(short) 61,
+																																																																										"deliveryCompany"), PRICE_WORK_ONE(
+																																																																												(short) 39,
+																																																																												"priceWorkOne"), PRICE_WORK_THIS(
+																																																																														(short) 40,
+																																																																														"priceWorkThis"), PRICE_WORK_ALL(
+																																																																																(short) 41,
+																																																																																"priceWorkAll"), PRICE_COST_THIS(
+																																																																																		(short) 49,
+																																																																																		"priceCostThis"), PRICE_COST_ALL(
+																																																																																				(short) 50,
+																																																																																				"priceCostAll"), COUPON_PAY_THIS(
+																																																																																						(short) 42,
+																																																																																						"couponPayThis"), COUPON_PAY_ALL(
+																																																																																								(short) 43,
+																																																																																								"couponPayAll"), COUPON_CASH_THIS(
+																																																																																										(short) 44,
+																																																																																										"couponCashThis"), COUPON_CASH_ALL(
+																																																																																												(short) 45,
+																																																																																												"couponCashAll"), COUPON_DIS_THIS(
+																																																																																														(short) 46,
+																																																																																														"couponDisThis"), COUPON_DIS_ALL(
+																																																																																																(short) 47,
+																																																																																																"couponDisAll"), NOTE(
+																																																																																																		(short) 48,
+																																																																																																		"note"), NOTE_SELL(
+																																																																																																				(short) 62,
+																																																																																																				"noteSell"), ADDRESS(
+																																																																																																						(short) 52,
+																																																																																																						"address"), COUPON_ARR(
+																																																																																																								(short) 53,
+																																																																																																								"couponArr"), GOOD_SHOT(
+																																																																																																										(short) 57,
+																																																																																																										"goodShot"), GOODS_SHOT(
+																																																																																																												(short) 58,
+																																																																																																												"goodsShot"), INVOICE(
+																																																																																																														(short) 63,
+																																																																																																														"invoice");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -528,6 +535,8 @@ public class Order
 				return PAID_MAP_THIS;
 			case 56: // PAID_MAP_ALL
 				return PAID_MAP_ALL;
+			case 64: // REBATE_MAP
+				return REBATE_MAP;
 			case 59: // TRANSPORT
 				return TRANSPORT;
 			case 36: // TRANS_FEE_ONE
@@ -831,6 +840,11 @@ public class Order
 				new org.apache.thrift.meta_data.MapMetaData(org.apache.thrift.protocol.TType.MAP,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING),
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE))));
+		tmpMap.put(_Fields.REBATE_MAP, new org.apache.thrift.meta_data.FieldMetaData("rebateMap",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.MapMetaData(org.apache.thrift.protocol.TType.MAP,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING),
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE))));
 		tmpMap.put(_Fields.TRANSPORT,
 				new org.apache.thrift.meta_data.FieldMetaData("transport",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
@@ -950,7 +964,8 @@ public class Order
 			java.util.Map<java.lang.String, java.lang.Double> unpaidMapAll,
 			java.util.Map<java.lang.String, java.lang.Double> paidMapOne,
 			java.util.Map<java.lang.String, java.lang.Double> paidMapThis,
-			java.util.Map<java.lang.String, java.lang.Double> paidMapAll, int transport, double transFeeOne,
+			java.util.Map<java.lang.String, java.lang.Double> paidMapAll,
+			java.util.Map<java.lang.String, java.lang.Double> rebateMap, int transport, double transFeeOne,
 			double transFeeThis, double transFeeAll, java.lang.String deliveryCode, java.lang.String deliveryCompany,
 			double priceWorkOne, double priceWorkThis, double priceWorkAll, double priceCostThis, double priceCostAll,
 			double couponPayThis, double couponPayAll, double couponCashThis, double couponCashAll,
@@ -1011,6 +1026,7 @@ public class Order
 		this.paidMapOne = paidMapOne;
 		this.paidMapThis = paidMapThis;
 		this.paidMapAll = paidMapAll;
+		this.rebateMap = rebateMap;
 		this.transport = transport;
 		setTransportIsSet(true);
 		this.transFeeOne = transFeeOne;
@@ -1162,6 +1178,11 @@ public class Order
 					other.paidMapAll);
 			this.paidMapAll = __this__paidMapAll;
 		}
+		if (other.isSetRebateMap()) {
+			java.util.Map<java.lang.String, java.lang.Double> __this__rebateMap = new java.util.HashMap<java.lang.String, java.lang.Double>(
+					other.rebateMap);
+			this.rebateMap = __this__rebateMap;
+		}
 		this.transport = other.transport;
 		this.transFeeOne = other.transFeeOne;
 		this.transFeeThis = other.transFeeThis;
@@ -1269,6 +1290,7 @@ public class Order
 		this.paidMapOne = null;
 		this.paidMapThis = null;
 		this.paidMapAll = null;
+		this.rebateMap = null;
 		setTransportIsSet(false);
 		this.transport = 0;
 		setTransFeeOneIsSet(false);
@@ -2460,6 +2482,46 @@ public class Order
 		}
 	}
 
+	public int getRebateMapSize() {
+		return (this.rebateMap == null) ? 0 : this.rebateMap.size();
+	}
+
+	public void putToRebateMap(java.lang.String key, double val) {
+		if (this.rebateMap == null) {
+			this.rebateMap = new java.util.HashMap<java.lang.String, java.lang.Double>();
+		}
+		this.rebateMap.put(key, val);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.Map<java.lang.String, java.lang.Double> getRebateMap() {
+		return this.rebateMap;
+	}
+
+	public Order setRebateMap(
+			@org.apache.thrift.annotation.Nullable java.util.Map<java.lang.String, java.lang.Double> rebateMap) {
+		this.rebateMap = rebateMap;
+		return this;
+	}
+
+	public void unsetRebateMap() {
+		this.rebateMap = null;
+	}
+
+	/**
+	 * Returns true if field rebateMap is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetRebateMap() {
+		return this.rebateMap != null;
+	}
+
+	public void setRebateMapIsSet(boolean value) {
+		if (!value) {
+			this.rebateMap = null;
+		}
+	}
+
 	public int getTransport() {
 		return this.transport;
 	}
@@ -3470,6 +3532,15 @@ public class Order
 			}
 			break;
 
+		case REBATE_MAP:
+			if (value == null) {
+				unsetRebateMap();
+			}
+			else {
+				setRebateMap((java.util.Map<java.lang.String, java.lang.Double>) value);
+			}
+			break;
+
 		case TRANSPORT:
 			if (value == null) {
 				unsetTransport();
@@ -3809,6 +3880,9 @@ public class Order
 		case PAID_MAP_ALL:
 			return getPaidMapAll();
 
+		case REBATE_MAP:
+			return getRebateMap();
+
 		case TRANSPORT:
 			return getTransport();
 
@@ -3973,6 +4047,8 @@ public class Order
 			return isSetPaidMapThis();
 		case PAID_MAP_ALL:
 			return isSetPaidMapAll();
+		case REBATE_MAP:
+			return isSetRebateMap();
 		case TRANSPORT:
 			return isSetTransport();
 		case TRANS_FEE_ONE:
@@ -4391,6 +4467,15 @@ public class Order
 				return false;
 		}
 
+		boolean this_present_rebateMap = true && this.isSetRebateMap();
+		boolean that_present_rebateMap = true && that.isSetRebateMap();
+		if (this_present_rebateMap || that_present_rebateMap) {
+			if (!(this_present_rebateMap && that_present_rebateMap))
+				return false;
+			if (!this.rebateMap.equals(that.rebateMap))
+				return false;
+		}
+
 		boolean this_present_transport = true;
 		boolean that_present_transport = true;
 		if (this_present_transport || that_present_transport) {
@@ -4741,6 +4826,10 @@ public class Order
 		hashCode = hashCode * 8191 + ((isSetPaidMapAll()) ? 131071 : 524287);
 		if (isSetPaidMapAll())
 			hashCode = hashCode * 8191 + paidMapAll.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetRebateMap()) ? 131071 : 524287);
+		if (isSetRebateMap())
+			hashCode = hashCode * 8191 + rebateMap.hashCode();
 
 		hashCode = hashCode * 8191 + transport;
 
@@ -5205,6 +5294,16 @@ public class Order
 		}
 		if (isSetPaidMapAll()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.paidMapAll, other.paidMapAll);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetRebateMap()).compareTo(other.isSetRebateMap());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetRebateMap()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.rebateMap, other.rebateMap);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -5786,6 +5885,16 @@ public class Order
 		}
 		else {
 			sb.append(this.paidMapAll);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("rebateMap:");
+		if (this.rebateMap == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.rebateMap);
 		}
 		first = false;
 		if (!first)
@@ -6459,6 +6568,28 @@ public class Order
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 64: // REBATE_MAP
+					if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
+						{
+							org.apache.thrift.protocol.TMap _map118 = iprot.readMapBegin();
+							struct.rebateMap = new java.util.HashMap<java.lang.String, java.lang.Double>(
+									2 * _map118.size);
+							@org.apache.thrift.annotation.Nullable
+							java.lang.String _key119;
+							double _val120;
+							for (int _i121 = 0; _i121 < _map118.size; ++_i121) {
+								_key119 = iprot.readString();
+								_val120 = iprot.readDouble();
+								struct.rebateMap.put(_key119, _val120);
+							}
+							iprot.readMapEnd();
+						}
+						struct.setRebateMapIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 59: // TRANSPORT
 					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
 						struct.transport = iprot.readI32();
@@ -6642,14 +6773,14 @@ public class Order
 				case 53: // COUPON_ARR
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list118 = iprot.readListBegin();
-							struct.couponArr = new java.util.ArrayList<CouponFlow>(_list118.size);
+							org.apache.thrift.protocol.TList _list122 = iprot.readListBegin();
+							struct.couponArr = new java.util.ArrayList<CouponFlow>(_list122.size);
 							@org.apache.thrift.annotation.Nullable
-							CouponFlow _elem119;
-							for (int _i120 = 0; _i120 < _list118.size; ++_i120) {
-								_elem119 = new CouponFlow();
-								_elem119.read(iprot);
-								struct.couponArr.add(_elem119);
+							CouponFlow _elem123;
+							for (int _i124 = 0; _i124 < _list122.size; ++_i124) {
+								_elem123 = new CouponFlow();
+								_elem123.read(iprot);
+								struct.couponArr.add(_elem123);
 							}
 							iprot.readListEnd();
 						}
@@ -6831,10 +6962,10 @@ public class Order
 				{
 					oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
 							org.apache.thrift.protocol.TType.DOUBLE, struct.payMapOne.size()));
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter121 : struct.payMapOne
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter125 : struct.payMapOne
 							.entrySet()) {
-						oprot.writeString(_iter121.getKey());
-						oprot.writeDouble(_iter121.getValue());
+						oprot.writeString(_iter125.getKey());
+						oprot.writeDouble(_iter125.getValue());
 					}
 					oprot.writeMapEnd();
 				}
@@ -6845,10 +6976,10 @@ public class Order
 				{
 					oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
 							org.apache.thrift.protocol.TType.DOUBLE, struct.payMapThis.size()));
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter122 : struct.payMapThis
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter126 : struct.payMapThis
 							.entrySet()) {
-						oprot.writeString(_iter122.getKey());
-						oprot.writeDouble(_iter122.getValue());
+						oprot.writeString(_iter126.getKey());
+						oprot.writeDouble(_iter126.getValue());
 					}
 					oprot.writeMapEnd();
 				}
@@ -6859,10 +6990,10 @@ public class Order
 				{
 					oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
 							org.apache.thrift.protocol.TType.DOUBLE, struct.payMapAll.size()));
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter123 : struct.payMapAll
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter127 : struct.payMapAll
 							.entrySet()) {
-						oprot.writeString(_iter123.getKey());
-						oprot.writeDouble(_iter123.getValue());
+						oprot.writeString(_iter127.getKey());
+						oprot.writeDouble(_iter127.getValue());
 					}
 					oprot.writeMapEnd();
 				}
@@ -6873,10 +7004,10 @@ public class Order
 				{
 					oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
 							org.apache.thrift.protocol.TType.DOUBLE, struct.unpaidMapThis.size()));
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter124 : struct.unpaidMapThis
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter128 : struct.unpaidMapThis
 							.entrySet()) {
-						oprot.writeString(_iter124.getKey());
-						oprot.writeDouble(_iter124.getValue());
+						oprot.writeString(_iter128.getKey());
+						oprot.writeDouble(_iter128.getValue());
 					}
 					oprot.writeMapEnd();
 				}
@@ -6887,10 +7018,10 @@ public class Order
 				{
 					oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
 							org.apache.thrift.protocol.TType.DOUBLE, struct.unpaidMapAll.size()));
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter125 : struct.unpaidMapAll
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter129 : struct.unpaidMapAll
 							.entrySet()) {
-						oprot.writeString(_iter125.getKey());
-						oprot.writeDouble(_iter125.getValue());
+						oprot.writeString(_iter129.getKey());
+						oprot.writeDouble(_iter129.getValue());
 					}
 					oprot.writeMapEnd();
 				}
@@ -6958,8 +7089,8 @@ public class Order
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.couponArr.size()));
-					for (CouponFlow _iter126 : struct.couponArr) {
-						_iter126.write(oprot);
+					for (CouponFlow _iter130 : struct.couponArr) {
+						_iter130.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -6970,10 +7101,10 @@ public class Order
 				{
 					oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
 							org.apache.thrift.protocol.TType.DOUBLE, struct.paidMapOne.size()));
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter127 : struct.paidMapOne
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter131 : struct.paidMapOne
 							.entrySet()) {
-						oprot.writeString(_iter127.getKey());
-						oprot.writeDouble(_iter127.getValue());
+						oprot.writeString(_iter131.getKey());
+						oprot.writeDouble(_iter131.getValue());
 					}
 					oprot.writeMapEnd();
 				}
@@ -6984,10 +7115,10 @@ public class Order
 				{
 					oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
 							org.apache.thrift.protocol.TType.DOUBLE, struct.paidMapThis.size()));
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter128 : struct.paidMapThis
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter132 : struct.paidMapThis
 							.entrySet()) {
-						oprot.writeString(_iter128.getKey());
-						oprot.writeDouble(_iter128.getValue());
+						oprot.writeString(_iter132.getKey());
+						oprot.writeDouble(_iter132.getValue());
 					}
 					oprot.writeMapEnd();
 				}
@@ -6998,10 +7129,10 @@ public class Order
 				{
 					oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
 							org.apache.thrift.protocol.TType.DOUBLE, struct.paidMapAll.size()));
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter129 : struct.paidMapAll
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter133 : struct.paidMapAll
 							.entrySet()) {
-						oprot.writeString(_iter129.getKey());
-						oprot.writeDouble(_iter129.getValue());
+						oprot.writeString(_iter133.getKey());
+						oprot.writeDouble(_iter133.getValue());
 					}
 					oprot.writeMapEnd();
 				}
@@ -7038,6 +7169,20 @@ public class Order
 			if (struct.invoice != null) {
 				oprot.writeFieldBegin(INVOICE_FIELD_DESC);
 				struct.invoice.write(oprot);
+				oprot.writeFieldEnd();
+			}
+			if (struct.rebateMap != null) {
+				oprot.writeFieldBegin(REBATE_MAP_FIELD_DESC);
+				{
+					oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
+							org.apache.thrift.protocol.TType.DOUBLE, struct.rebateMap.size()));
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter134 : struct.rebateMap
+							.entrySet()) {
+						oprot.writeString(_iter134.getKey());
+						oprot.writeDouble(_iter134.getValue());
+					}
+					oprot.writeMapEnd();
+				}
 				oprot.writeFieldEnd();
 			}
 			oprot.writeFieldStop();
@@ -7177,79 +7322,82 @@ public class Order
 			if (struct.isSetPaidMapAll()) {
 				optionals.set(38);
 			}
-			if (struct.isSetTransport()) {
+			if (struct.isSetRebateMap()) {
 				optionals.set(39);
 			}
-			if (struct.isSetTransFeeOne()) {
+			if (struct.isSetTransport()) {
 				optionals.set(40);
 			}
-			if (struct.isSetTransFeeThis()) {
+			if (struct.isSetTransFeeOne()) {
 				optionals.set(41);
 			}
-			if (struct.isSetTransFeeAll()) {
+			if (struct.isSetTransFeeThis()) {
 				optionals.set(42);
 			}
-			if (struct.isSetDeliveryCode()) {
+			if (struct.isSetTransFeeAll()) {
 				optionals.set(43);
 			}
-			if (struct.isSetDeliveryCompany()) {
+			if (struct.isSetDeliveryCode()) {
 				optionals.set(44);
 			}
-			if (struct.isSetPriceWorkOne()) {
+			if (struct.isSetDeliveryCompany()) {
 				optionals.set(45);
 			}
-			if (struct.isSetPriceWorkThis()) {
+			if (struct.isSetPriceWorkOne()) {
 				optionals.set(46);
 			}
-			if (struct.isSetPriceWorkAll()) {
+			if (struct.isSetPriceWorkThis()) {
 				optionals.set(47);
 			}
-			if (struct.isSetPriceCostThis()) {
+			if (struct.isSetPriceWorkAll()) {
 				optionals.set(48);
 			}
-			if (struct.isSetPriceCostAll()) {
+			if (struct.isSetPriceCostThis()) {
 				optionals.set(49);
 			}
-			if (struct.isSetCouponPayThis()) {
+			if (struct.isSetPriceCostAll()) {
 				optionals.set(50);
 			}
-			if (struct.isSetCouponPayAll()) {
+			if (struct.isSetCouponPayThis()) {
 				optionals.set(51);
 			}
-			if (struct.isSetCouponCashThis()) {
+			if (struct.isSetCouponPayAll()) {
 				optionals.set(52);
 			}
-			if (struct.isSetCouponCashAll()) {
+			if (struct.isSetCouponCashThis()) {
 				optionals.set(53);
 			}
-			if (struct.isSetCouponDisThis()) {
+			if (struct.isSetCouponCashAll()) {
 				optionals.set(54);
 			}
-			if (struct.isSetCouponDisAll()) {
+			if (struct.isSetCouponDisThis()) {
 				optionals.set(55);
 			}
-			if (struct.isSetNote()) {
+			if (struct.isSetCouponDisAll()) {
 				optionals.set(56);
 			}
-			if (struct.isSetNoteSell()) {
+			if (struct.isSetNote()) {
 				optionals.set(57);
 			}
-			if (struct.isSetAddress()) {
+			if (struct.isSetNoteSell()) {
 				optionals.set(58);
 			}
-			if (struct.isSetCouponArr()) {
+			if (struct.isSetAddress()) {
 				optionals.set(59);
 			}
-			if (struct.isSetGoodShot()) {
+			if (struct.isSetCouponArr()) {
 				optionals.set(60);
 			}
-			if (struct.isSetGoodsShot()) {
+			if (struct.isSetGoodShot()) {
 				optionals.set(61);
 			}
-			if (struct.isSetInvoice()) {
+			if (struct.isSetGoodsShot()) {
 				optionals.set(62);
 			}
-			oprot.writeBitSet(optionals, 63);
+			if (struct.isSetInvoice()) {
+				optionals.set(63);
+			}
+			oprot.writeBitSet(optionals, 64);
 			if (struct.isSetOid()) {
 				oprot.writeString(struct.oid);
 			}
@@ -7346,80 +7494,90 @@ public class Order
 			if (struct.isSetPayMapOne()) {
 				{
 					oprot.writeI32(struct.payMapOne.size());
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter130 : struct.payMapOne
-							.entrySet()) {
-						oprot.writeString(_iter130.getKey());
-						oprot.writeDouble(_iter130.getValue());
-					}
-				}
-			}
-			if (struct.isSetPayMapThis()) {
-				{
-					oprot.writeI32(struct.payMapThis.size());
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter131 : struct.payMapThis
-							.entrySet()) {
-						oprot.writeString(_iter131.getKey());
-						oprot.writeDouble(_iter131.getValue());
-					}
-				}
-			}
-			if (struct.isSetPayMapAll()) {
-				{
-					oprot.writeI32(struct.payMapAll.size());
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter132 : struct.payMapAll
-							.entrySet()) {
-						oprot.writeString(_iter132.getKey());
-						oprot.writeDouble(_iter132.getValue());
-					}
-				}
-			}
-			if (struct.isSetUnpaidMapThis()) {
-				{
-					oprot.writeI32(struct.unpaidMapThis.size());
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter133 : struct.unpaidMapThis
-							.entrySet()) {
-						oprot.writeString(_iter133.getKey());
-						oprot.writeDouble(_iter133.getValue());
-					}
-				}
-			}
-			if (struct.isSetUnpaidMapAll()) {
-				{
-					oprot.writeI32(struct.unpaidMapAll.size());
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter134 : struct.unpaidMapAll
-							.entrySet()) {
-						oprot.writeString(_iter134.getKey());
-						oprot.writeDouble(_iter134.getValue());
-					}
-				}
-			}
-			if (struct.isSetPaidMapOne()) {
-				{
-					oprot.writeI32(struct.paidMapOne.size());
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter135 : struct.paidMapOne
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter135 : struct.payMapOne
 							.entrySet()) {
 						oprot.writeString(_iter135.getKey());
 						oprot.writeDouble(_iter135.getValue());
 					}
 				}
 			}
-			if (struct.isSetPaidMapThis()) {
+			if (struct.isSetPayMapThis()) {
 				{
-					oprot.writeI32(struct.paidMapThis.size());
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter136 : struct.paidMapThis
+					oprot.writeI32(struct.payMapThis.size());
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter136 : struct.payMapThis
 							.entrySet()) {
 						oprot.writeString(_iter136.getKey());
 						oprot.writeDouble(_iter136.getValue());
 					}
 				}
 			}
-			if (struct.isSetPaidMapAll()) {
+			if (struct.isSetPayMapAll()) {
 				{
-					oprot.writeI32(struct.paidMapAll.size());
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter137 : struct.paidMapAll
+					oprot.writeI32(struct.payMapAll.size());
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter137 : struct.payMapAll
 							.entrySet()) {
 						oprot.writeString(_iter137.getKey());
 						oprot.writeDouble(_iter137.getValue());
+					}
+				}
+			}
+			if (struct.isSetUnpaidMapThis()) {
+				{
+					oprot.writeI32(struct.unpaidMapThis.size());
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter138 : struct.unpaidMapThis
+							.entrySet()) {
+						oprot.writeString(_iter138.getKey());
+						oprot.writeDouble(_iter138.getValue());
+					}
+				}
+			}
+			if (struct.isSetUnpaidMapAll()) {
+				{
+					oprot.writeI32(struct.unpaidMapAll.size());
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter139 : struct.unpaidMapAll
+							.entrySet()) {
+						oprot.writeString(_iter139.getKey());
+						oprot.writeDouble(_iter139.getValue());
+					}
+				}
+			}
+			if (struct.isSetPaidMapOne()) {
+				{
+					oprot.writeI32(struct.paidMapOne.size());
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter140 : struct.paidMapOne
+							.entrySet()) {
+						oprot.writeString(_iter140.getKey());
+						oprot.writeDouble(_iter140.getValue());
+					}
+				}
+			}
+			if (struct.isSetPaidMapThis()) {
+				{
+					oprot.writeI32(struct.paidMapThis.size());
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter141 : struct.paidMapThis
+							.entrySet()) {
+						oprot.writeString(_iter141.getKey());
+						oprot.writeDouble(_iter141.getValue());
+					}
+				}
+			}
+			if (struct.isSetPaidMapAll()) {
+				{
+					oprot.writeI32(struct.paidMapAll.size());
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter142 : struct.paidMapAll
+							.entrySet()) {
+						oprot.writeString(_iter142.getKey());
+						oprot.writeDouble(_iter142.getValue());
+					}
+				}
+			}
+			if (struct.isSetRebateMap()) {
+				{
+					oprot.writeI32(struct.rebateMap.size());
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter143 : struct.rebateMap
+							.entrySet()) {
+						oprot.writeString(_iter143.getKey());
+						oprot.writeDouble(_iter143.getValue());
 					}
 				}
 			}
@@ -7486,8 +7644,8 @@ public class Order
 			if (struct.isSetCouponArr()) {
 				{
 					oprot.writeI32(struct.couponArr.size());
-					for (CouponFlow _iter138 : struct.couponArr) {
-						_iter138.write(oprot);
+					for (CouponFlow _iter144 : struct.couponArr) {
+						_iter144.write(oprot);
 					}
 				}
 			}
@@ -7505,7 +7663,7 @@ public class Order
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, Order struct) throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(63);
+			java.util.BitSet incoming = iprot.readBitSet(64);
 			if (incoming.get(0)) {
 				struct.oid = iprot.readString();
 				struct.setOidIsSet(true);
@@ -7632,244 +7790,261 @@ public class Order
 			}
 			if (incoming.get(31)) {
 				{
-					org.apache.thrift.protocol.TMap _map139 = new org.apache.thrift.protocol.TMap(
+					org.apache.thrift.protocol.TMap _map145 = new org.apache.thrift.protocol.TMap(
 							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.DOUBLE,
 							iprot.readI32());
-					struct.payMapOne = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map139.size);
+					struct.payMapOne = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map145.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _key140;
-					double _val141;
-					for (int _i142 = 0; _i142 < _map139.size; ++_i142) {
-						_key140 = iprot.readString();
-						_val141 = iprot.readDouble();
-						struct.payMapOne.put(_key140, _val141);
+					java.lang.String _key146;
+					double _val147;
+					for (int _i148 = 0; _i148 < _map145.size; ++_i148) {
+						_key146 = iprot.readString();
+						_val147 = iprot.readDouble();
+						struct.payMapOne.put(_key146, _val147);
 					}
 				}
 				struct.setPayMapOneIsSet(true);
 			}
 			if (incoming.get(32)) {
 				{
-					org.apache.thrift.protocol.TMap _map143 = new org.apache.thrift.protocol.TMap(
+					org.apache.thrift.protocol.TMap _map149 = new org.apache.thrift.protocol.TMap(
 							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.DOUBLE,
 							iprot.readI32());
-					struct.payMapThis = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map143.size);
+					struct.payMapThis = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map149.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _key144;
-					double _val145;
-					for (int _i146 = 0; _i146 < _map143.size; ++_i146) {
-						_key144 = iprot.readString();
-						_val145 = iprot.readDouble();
-						struct.payMapThis.put(_key144, _val145);
+					java.lang.String _key150;
+					double _val151;
+					for (int _i152 = 0; _i152 < _map149.size; ++_i152) {
+						_key150 = iprot.readString();
+						_val151 = iprot.readDouble();
+						struct.payMapThis.put(_key150, _val151);
 					}
 				}
 				struct.setPayMapThisIsSet(true);
 			}
 			if (incoming.get(33)) {
 				{
-					org.apache.thrift.protocol.TMap _map147 = new org.apache.thrift.protocol.TMap(
+					org.apache.thrift.protocol.TMap _map153 = new org.apache.thrift.protocol.TMap(
 							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.DOUBLE,
 							iprot.readI32());
-					struct.payMapAll = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map147.size);
+					struct.payMapAll = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map153.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _key148;
-					double _val149;
-					for (int _i150 = 0; _i150 < _map147.size; ++_i150) {
-						_key148 = iprot.readString();
-						_val149 = iprot.readDouble();
-						struct.payMapAll.put(_key148, _val149);
+					java.lang.String _key154;
+					double _val155;
+					for (int _i156 = 0; _i156 < _map153.size; ++_i156) {
+						_key154 = iprot.readString();
+						_val155 = iprot.readDouble();
+						struct.payMapAll.put(_key154, _val155);
 					}
 				}
 				struct.setPayMapAllIsSet(true);
 			}
 			if (incoming.get(34)) {
 				{
-					org.apache.thrift.protocol.TMap _map151 = new org.apache.thrift.protocol.TMap(
+					org.apache.thrift.protocol.TMap _map157 = new org.apache.thrift.protocol.TMap(
 							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.DOUBLE,
 							iprot.readI32());
-					struct.unpaidMapThis = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map151.size);
+					struct.unpaidMapThis = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map157.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _key152;
-					double _val153;
-					for (int _i154 = 0; _i154 < _map151.size; ++_i154) {
-						_key152 = iprot.readString();
-						_val153 = iprot.readDouble();
-						struct.unpaidMapThis.put(_key152, _val153);
+					java.lang.String _key158;
+					double _val159;
+					for (int _i160 = 0; _i160 < _map157.size; ++_i160) {
+						_key158 = iprot.readString();
+						_val159 = iprot.readDouble();
+						struct.unpaidMapThis.put(_key158, _val159);
 					}
 				}
 				struct.setUnpaidMapThisIsSet(true);
 			}
 			if (incoming.get(35)) {
 				{
-					org.apache.thrift.protocol.TMap _map155 = new org.apache.thrift.protocol.TMap(
+					org.apache.thrift.protocol.TMap _map161 = new org.apache.thrift.protocol.TMap(
 							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.DOUBLE,
 							iprot.readI32());
-					struct.unpaidMapAll = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map155.size);
+					struct.unpaidMapAll = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map161.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _key156;
-					double _val157;
-					for (int _i158 = 0; _i158 < _map155.size; ++_i158) {
-						_key156 = iprot.readString();
-						_val157 = iprot.readDouble();
-						struct.unpaidMapAll.put(_key156, _val157);
+					java.lang.String _key162;
+					double _val163;
+					for (int _i164 = 0; _i164 < _map161.size; ++_i164) {
+						_key162 = iprot.readString();
+						_val163 = iprot.readDouble();
+						struct.unpaidMapAll.put(_key162, _val163);
 					}
 				}
 				struct.setUnpaidMapAllIsSet(true);
 			}
 			if (incoming.get(36)) {
 				{
-					org.apache.thrift.protocol.TMap _map159 = new org.apache.thrift.protocol.TMap(
+					org.apache.thrift.protocol.TMap _map165 = new org.apache.thrift.protocol.TMap(
 							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.DOUBLE,
 							iprot.readI32());
-					struct.paidMapOne = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map159.size);
+					struct.paidMapOne = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map165.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _key160;
-					double _val161;
-					for (int _i162 = 0; _i162 < _map159.size; ++_i162) {
-						_key160 = iprot.readString();
-						_val161 = iprot.readDouble();
-						struct.paidMapOne.put(_key160, _val161);
+					java.lang.String _key166;
+					double _val167;
+					for (int _i168 = 0; _i168 < _map165.size; ++_i168) {
+						_key166 = iprot.readString();
+						_val167 = iprot.readDouble();
+						struct.paidMapOne.put(_key166, _val167);
 					}
 				}
 				struct.setPaidMapOneIsSet(true);
 			}
 			if (incoming.get(37)) {
 				{
-					org.apache.thrift.protocol.TMap _map163 = new org.apache.thrift.protocol.TMap(
+					org.apache.thrift.protocol.TMap _map169 = new org.apache.thrift.protocol.TMap(
 							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.DOUBLE,
 							iprot.readI32());
-					struct.paidMapThis = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map163.size);
+					struct.paidMapThis = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map169.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _key164;
-					double _val165;
-					for (int _i166 = 0; _i166 < _map163.size; ++_i166) {
-						_key164 = iprot.readString();
-						_val165 = iprot.readDouble();
-						struct.paidMapThis.put(_key164, _val165);
+					java.lang.String _key170;
+					double _val171;
+					for (int _i172 = 0; _i172 < _map169.size; ++_i172) {
+						_key170 = iprot.readString();
+						_val171 = iprot.readDouble();
+						struct.paidMapThis.put(_key170, _val171);
 					}
 				}
 				struct.setPaidMapThisIsSet(true);
 			}
 			if (incoming.get(38)) {
 				{
-					org.apache.thrift.protocol.TMap _map167 = new org.apache.thrift.protocol.TMap(
+					org.apache.thrift.protocol.TMap _map173 = new org.apache.thrift.protocol.TMap(
 							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.DOUBLE,
 							iprot.readI32());
-					struct.paidMapAll = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map167.size);
+					struct.paidMapAll = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map173.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _key168;
-					double _val169;
-					for (int _i170 = 0; _i170 < _map167.size; ++_i170) {
-						_key168 = iprot.readString();
-						_val169 = iprot.readDouble();
-						struct.paidMapAll.put(_key168, _val169);
+					java.lang.String _key174;
+					double _val175;
+					for (int _i176 = 0; _i176 < _map173.size; ++_i176) {
+						_key174 = iprot.readString();
+						_val175 = iprot.readDouble();
+						struct.paidMapAll.put(_key174, _val175);
 					}
 				}
 				struct.setPaidMapAllIsSet(true);
 			}
 			if (incoming.get(39)) {
+				{
+					org.apache.thrift.protocol.TMap _map177 = new org.apache.thrift.protocol.TMap(
+							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.DOUBLE,
+							iprot.readI32());
+					struct.rebateMap = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map177.size);
+					@org.apache.thrift.annotation.Nullable
+					java.lang.String _key178;
+					double _val179;
+					for (int _i180 = 0; _i180 < _map177.size; ++_i180) {
+						_key178 = iprot.readString();
+						_val179 = iprot.readDouble();
+						struct.rebateMap.put(_key178, _val179);
+					}
+				}
+				struct.setRebateMapIsSet(true);
+			}
+			if (incoming.get(40)) {
 				struct.transport = iprot.readI32();
 				struct.setTransportIsSet(true);
 			}
-			if (incoming.get(40)) {
+			if (incoming.get(41)) {
 				struct.transFeeOne = iprot.readDouble();
 				struct.setTransFeeOneIsSet(true);
 			}
-			if (incoming.get(41)) {
+			if (incoming.get(42)) {
 				struct.transFeeThis = iprot.readDouble();
 				struct.setTransFeeThisIsSet(true);
 			}
-			if (incoming.get(42)) {
+			if (incoming.get(43)) {
 				struct.transFeeAll = iprot.readDouble();
 				struct.setTransFeeAllIsSet(true);
 			}
-			if (incoming.get(43)) {
+			if (incoming.get(44)) {
 				struct.deliveryCode = iprot.readString();
 				struct.setDeliveryCodeIsSet(true);
 			}
-			if (incoming.get(44)) {
+			if (incoming.get(45)) {
 				struct.deliveryCompany = iprot.readString();
 				struct.setDeliveryCompanyIsSet(true);
 			}
-			if (incoming.get(45)) {
+			if (incoming.get(46)) {
 				struct.priceWorkOne = iprot.readDouble();
 				struct.setPriceWorkOneIsSet(true);
 			}
-			if (incoming.get(46)) {
+			if (incoming.get(47)) {
 				struct.priceWorkThis = iprot.readDouble();
 				struct.setPriceWorkThisIsSet(true);
 			}
-			if (incoming.get(47)) {
+			if (incoming.get(48)) {
 				struct.priceWorkAll = iprot.readDouble();
 				struct.setPriceWorkAllIsSet(true);
 			}
-			if (incoming.get(48)) {
+			if (incoming.get(49)) {
 				struct.priceCostThis = iprot.readDouble();
 				struct.setPriceCostThisIsSet(true);
 			}
-			if (incoming.get(49)) {
+			if (incoming.get(50)) {
 				struct.priceCostAll = iprot.readDouble();
 				struct.setPriceCostAllIsSet(true);
 			}
-			if (incoming.get(50)) {
+			if (incoming.get(51)) {
 				struct.couponPayThis = iprot.readDouble();
 				struct.setCouponPayThisIsSet(true);
 			}
-			if (incoming.get(51)) {
+			if (incoming.get(52)) {
 				struct.couponPayAll = iprot.readDouble();
 				struct.setCouponPayAllIsSet(true);
 			}
-			if (incoming.get(52)) {
+			if (incoming.get(53)) {
 				struct.couponCashThis = iprot.readDouble();
 				struct.setCouponCashThisIsSet(true);
 			}
-			if (incoming.get(53)) {
+			if (incoming.get(54)) {
 				struct.couponCashAll = iprot.readDouble();
 				struct.setCouponCashAllIsSet(true);
 			}
-			if (incoming.get(54)) {
+			if (incoming.get(55)) {
 				struct.couponDisThis = iprot.readDouble();
 				struct.setCouponDisThisIsSet(true);
 			}
-			if (incoming.get(55)) {
+			if (incoming.get(56)) {
 				struct.couponDisAll = iprot.readDouble();
 				struct.setCouponDisAllIsSet(true);
 			}
-			if (incoming.get(56)) {
+			if (incoming.get(57)) {
 				struct.note = iprot.readString();
 				struct.setNoteIsSet(true);
 			}
-			if (incoming.get(57)) {
+			if (incoming.get(58)) {
 				struct.noteSell = iprot.readString();
 				struct.setNoteSellIsSet(true);
 			}
-			if (incoming.get(58)) {
+			if (incoming.get(59)) {
 				struct.address = iprot.readString();
 				struct.setAddressIsSet(true);
 			}
-			if (incoming.get(59)) {
+			if (incoming.get(60)) {
 				{
-					org.apache.thrift.protocol.TList _list171 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list181 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.couponArr = new java.util.ArrayList<CouponFlow>(_list171.size);
+					struct.couponArr = new java.util.ArrayList<CouponFlow>(_list181.size);
 					@org.apache.thrift.annotation.Nullable
-					CouponFlow _elem172;
-					for (int _i173 = 0; _i173 < _list171.size; ++_i173) {
-						_elem172 = new CouponFlow();
-						_elem172.read(iprot);
-						struct.couponArr.add(_elem172);
+					CouponFlow _elem182;
+					for (int _i183 = 0; _i183 < _list181.size; ++_i183) {
+						_elem182 = new CouponFlow();
+						_elem182.read(iprot);
+						struct.couponArr.add(_elem182);
 					}
 				}
 				struct.setCouponArrIsSet(true);
 			}
-			if (incoming.get(60)) {
+			if (incoming.get(61)) {
 				struct.goodShot = iprot.readString();
 				struct.setGoodShotIsSet(true);
 			}
-			if (incoming.get(61)) {
+			if (incoming.get(62)) {
 				struct.goodsShot = iprot.readString();
 				struct.setGoodsShotIsSet(true);
 			}
-			if (incoming.get(62)) {
+			if (incoming.get(63)) {
 				struct.invoice = new OrderInvoice();
 				struct.invoice.read(iprot);
 				struct.setInvoiceIsSet(true);

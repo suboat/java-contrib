@@ -75,6 +75,9 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 	private static final org.apache.thrift.protocol.TField TX_ID_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"txId", org.apache.thrift.protocol.TType.STRING, (short) 19);
 
+	private static final org.apache.thrift.protocol.TField EXPIRE_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"expireTime", org.apache.thrift.protocol.TType.STRING, (short) 20);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ArgWalletFlowStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ArgWalletFlowTupleSchemeFactory();
@@ -117,6 +120,8 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String txId; // optional
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String expireTime; // optional
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
@@ -126,11 +131,11 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 		IS_FREEZE((short) 1, "isFreeze"), IS_INCOME((short) 2, "isIncome"), UID((short) 3, "uid"), WALLET((short) 4,
 				"wallet"), ACTION((short) 5, "action"), AMOUNT((short) 6, "amount"), FEE((short) 7, "fee"), COMMENT_TAG(
 						(short) 8, "commentTag"), COMMENT_JSON((short) 9, "commentJson"), TRIGGER((short) 10,
-								"trigger"), REL_UID((short) 11, "relUid"), AMOUNT_INT((short) 12,
-										"amountInt"), FEE_INT((short) 13, "feeInt"), TASK_ID((short) 14,
-												"taskId"), PROJECT((short) 15, "project"), REL_ACC((short) 16,
-														"relAcc"), IS_FOLD((short) 17, "isFold"), ACCESSION((short) 18,
-																"accession"), TX_ID((short) 19, "txId");
+								"trigger"), REL_UID((short) 11, "relUid"), AMOUNT_INT((short) 12, "amountInt"), FEE_INT(
+										(short) 13, "feeInt"), TASK_ID((short) 14, "taskId"), PROJECT((short) 15,
+												"project"), REL_ACC((short) 16, "relAcc"), IS_FOLD((short) 17,
+														"isFold"), ACCESSION((short) 18, "accession"), TX_ID((short) 19,
+																"txId"), EXPIRE_TIME((short) 20, "expireTime");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -184,6 +189,8 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 				return ACCESSION;
 			case 19: // TX_ID
 				return TX_ID;
+			case 20: // EXPIRE_TIME
+				return EXPIRE_TIME;
 			default:
 				return null;
 			}
@@ -246,7 +253,7 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 
 	private static final _Fields optionals[] = { _Fields.FEE, _Fields.COMMENT_TAG, _Fields.COMMENT_JSON,
 			_Fields.TRIGGER, _Fields.REL_UID, _Fields.AMOUNT_INT, _Fields.FEE_INT, _Fields.TASK_ID, _Fields.PROJECT,
-			_Fields.REL_ACC, _Fields.IS_FOLD, _Fields.ACCESSION, _Fields.TX_ID };
+			_Fields.REL_ACC, _Fields.IS_FOLD, _Fields.ACCESSION, _Fields.TX_ID, _Fields.EXPIRE_TIME };
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
@@ -322,6 +329,9 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 		tmpMap.put(_Fields.TX_ID,
 				new org.apache.thrift.meta_data.FieldMetaData("txId", org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.EXPIRE_TIME, new org.apache.thrift.meta_data.FieldMetaData("expireTime",
+				org.apache.thrift.TFieldRequirementType.OPTIONAL,
+				new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING, "Time")));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ArgWalletFlow.class, metaDataMap);
 	}
@@ -391,6 +401,9 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 		if (other.isSetTxId()) {
 			this.txId = other.txId;
 		}
+		if (other.isSetExpireTime()) {
+			this.expireTime = other.expireTime;
+		}
 	}
 
 	public ArgWalletFlow deepCopy() {
@@ -425,6 +438,7 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 		this.isFold = false;
 		this.accession = null;
 		this.txId = null;
+		this.expireTime = null;
 	}
 
 	public boolean isIsFreeze() {
@@ -934,6 +948,34 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 		}
 	}
 
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getExpireTime() {
+		return this.expireTime;
+	}
+
+	public ArgWalletFlow setExpireTime(@org.apache.thrift.annotation.Nullable java.lang.String expireTime) {
+		this.expireTime = expireTime;
+		return this;
+	}
+
+	public void unsetExpireTime() {
+		this.expireTime = null;
+	}
+
+	/**
+	 * Returns true if field expireTime is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetExpireTime() {
+		return this.expireTime != null;
+	}
+
+	public void setExpireTimeIsSet(boolean value) {
+		if (!value) {
+			this.expireTime = null;
+		}
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case IS_FREEZE:
@@ -1107,6 +1149,15 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 			}
 			break;
 
+		case EXPIRE_TIME:
+			if (value == null) {
+				unsetExpireTime();
+			}
+			else {
+				setExpireTime((java.lang.String) value);
+			}
+			break;
+
 		}
 	}
 
@@ -1170,6 +1221,9 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 		case TX_ID:
 			return getTxId();
 
+		case EXPIRE_TIME:
+			return getExpireTime();
+
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -1222,6 +1276,8 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 			return isSetAccession();
 		case TX_ID:
 			return isSetTxId();
+		case EXPIRE_TIME:
+			return isSetExpireTime();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -1412,6 +1468,15 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 				return false;
 		}
 
+		boolean this_present_expireTime = true && this.isSetExpireTime();
+		boolean that_present_expireTime = true && that.isSetExpireTime();
+		if (this_present_expireTime || that_present_expireTime) {
+			if (!(this_present_expireTime && that_present_expireTime))
+				return false;
+			if (!this.expireTime.equals(that.expireTime))
+				return false;
+		}
+
 		return true;
 	}
 
@@ -1488,6 +1553,10 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 		hashCode = hashCode * 8191 + ((isSetTxId()) ? 131071 : 524287);
 		if (isSetTxId())
 			hashCode = hashCode * 8191 + txId.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetExpireTime()) ? 131071 : 524287);
+		if (isSetExpireTime())
+			hashCode = hashCode * 8191 + expireTime.hashCode();
 
 		return hashCode;
 	}
@@ -1690,6 +1759,16 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetExpireTime()).compareTo(other.isSetExpireTime());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetExpireTime()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.expireTime, other.expireTime);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		return 0;
 	}
 
@@ -1887,6 +1966,18 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 			}
 			else {
 				sb.append(this.txId);
+			}
+			first = false;
+		}
+		if (isSetExpireTime()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("expireTime:");
+			if (this.expireTime == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.expireTime);
 			}
 			first = false;
 		}
@@ -2113,6 +2204,15 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 20: // EXPIRE_TIME
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.expireTime = iprot.readString();
+						struct.setExpireTimeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -2237,6 +2337,13 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 					oprot.writeFieldEnd();
 				}
 			}
+			if (struct.expireTime != null) {
+				if (struct.isSetExpireTime()) {
+					oprot.writeFieldBegin(EXPIRE_TIME_FIELD_DESC);
+					oprot.writeString(struct.expireTime);
+					oprot.writeFieldEnd();
+				}
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -2315,7 +2422,10 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 			if (struct.isSetTxId()) {
 				optionals.set(18);
 			}
-			oprot.writeBitSet(optionals, 19);
+			if (struct.isSetExpireTime()) {
+				optionals.set(19);
+			}
+			oprot.writeBitSet(optionals, 20);
 			if (struct.isSetIsFreeze()) {
 				oprot.writeBool(struct.isFreeze);
 			}
@@ -2373,13 +2483,16 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 			if (struct.isSetTxId()) {
 				oprot.writeString(struct.txId);
 			}
+			if (struct.isSetExpireTime()) {
+				oprot.writeString(struct.expireTime);
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, ArgWalletFlow struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(19);
+			java.util.BitSet incoming = iprot.readBitSet(20);
 			if (incoming.get(0)) {
 				struct.isFreeze = iprot.readBool();
 				struct.setIsFreezeIsSet(true);
@@ -2455,6 +2568,10 @@ public class ArgWalletFlow implements org.apache.thrift.TBase<ArgWalletFlow, Arg
 			if (incoming.get(18)) {
 				struct.txId = iprot.readString();
 				struct.setTxIdIsSet(true);
+			}
+			if (incoming.get(19)) {
+				struct.expireTime = iprot.readString();
+				struct.setExpireTimeIsSet(true);
 			}
 		}
 

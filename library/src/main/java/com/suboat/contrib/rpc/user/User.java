@@ -28,6 +28,9 @@ public class User
 	private static final org.apache.thrift.protocol.TField IS_DELETE_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"isDelete", org.apache.thrift.protocol.TType.BOOL, (short) 4);
 
+	private static final org.apache.thrift.protocol.TField IS_ABSTRACT_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"isAbstract", org.apache.thrift.protocol.TType.BOOL, (short) 26);
+
 	private static final org.apache.thrift.protocol.TField CREATE_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"createTime", org.apache.thrift.protocol.TType.STRING, (short) 5);
 
@@ -82,6 +85,9 @@ public class User
 	private static final org.apache.thrift.protocol.TField LANG_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"lang", org.apache.thrift.protocol.TType.STRING, (short) 22);
 
+	private static final org.apache.thrift.protocol.TField LEVEL_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"level", org.apache.thrift.protocol.TType.I32, (short) 25);
+
 	private static final org.apache.thrift.protocol.TField NUM_USERNAME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"numUsername", org.apache.thrift.protocol.TType.I32, (short) 23);
 
@@ -99,6 +105,8 @@ public class User
 	public boolean isActive; // required
 
 	public boolean isDelete; // required
+
+	public boolean isAbstract; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String createTime; // required
 
@@ -136,6 +144,8 @@ public class User
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String lang; // required
 
+	public int level; // required
+
 	public int numUsername; // required
 
 	public int numUnique; // required
@@ -147,22 +157,26 @@ public class User
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
 		UID((short) 1, "uid"), IS_STAFF((short) 2, "isStaff"), IS_ACTIVE((short) 3, "isActive"), IS_DELETE((short) 4,
-				"isDelete"), CREATE_TIME((short) 5, "createTime"), UPDATE_TIME((short) 6, "updateTime"), STATUS(
-						(short) 7,
-						"status"), NUM_AUTH((short) 8, "numAuth"), USERNAME((short) 9, "username"), EMAIL((short) 10,
-								"email"), LOC_NUM((short) 11, "locNum"), PHONE((short) 12, "phone"), UNIQUE((short) 13,
-										"unique"), SALT((short) 14, "salt"), SOURCE((short) 15, "source"), STATUS_EMAIL(
-												(short) 16,
-												"statusEmail"), STATUS_PHONE((short) 17, "statusPhone"), STATUS_PSW(
-														(short) 18, "statusPsw"), STATUS_QUEST((short) 19,
-																"statusQuest"), STATUS_CARD((short) 20,
-																		"statusCard"), IS_TWO_FACTOR((short) 21,
-																				"isTwoFactor"), LANG((short) 22,
-																						"lang"), NUM_USERNAME(
-																								(short) 23,
-																								"numUsername"), NUM_UNIQUE(
-																										(short) 24,
-																										"numUnique");
+				"isDelete"), IS_ABSTRACT((short) 26, "isAbstract"), CREATE_TIME((short) 5, "createTime"), UPDATE_TIME(
+						(short) 6,
+						"updateTime"), STATUS((short) 7, "status"), NUM_AUTH((short) 8, "numAuth"), USERNAME((short) 9,
+								"username"), EMAIL((short) 10, "email"), LOC_NUM((short) 11, "locNum"), PHONE(
+										(short) 12,
+										"phone"), UNIQUE((short) 13, "unique"), SALT((short) 14, "salt"), SOURCE(
+												(short) 15,
+												"source"), STATUS_EMAIL((short) 16, "statusEmail"), STATUS_PHONE(
+														(short) 17, "statusPhone"), STATUS_PSW((short) 18,
+																"statusPsw"), STATUS_QUEST((short) 19,
+																		"statusQuest"), STATUS_CARD((short) 20,
+																				"statusCard"), IS_TWO_FACTOR((short) 21,
+																						"isTwoFactor"), LANG((short) 22,
+																								"lang"), LEVEL(
+																										(short) 25,
+																										"level"), NUM_USERNAME(
+																												(short) 23,
+																												"numUsername"), NUM_UNIQUE(
+																														(short) 24,
+																														"numUnique");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -186,6 +200,8 @@ public class User
 				return IS_ACTIVE;
 			case 4: // IS_DELETE
 				return IS_DELETE;
+			case 26: // IS_ABSTRACT
+				return IS_ABSTRACT;
 			case 5: // CREATE_TIME
 				return CREATE_TIME;
 			case 6: // UPDATE_TIME
@@ -222,6 +238,8 @@ public class User
 				return IS_TWO_FACTOR;
 			case 22: // LANG
 				return LANG;
+			case 25: // LEVEL
+				return LEVEL;
 			case 23: // NUM_USERNAME
 				return NUM_USERNAME;
 			case 24: // NUM_UNIQUE
@@ -276,25 +294,29 @@ public class User
 
 	private static final int __ISDELETE_ISSET_ID = 2;
 
-	private static final int __STATUS_ISSET_ID = 3;
+	private static final int __ISABSTRACT_ISSET_ID = 3;
 
-	private static final int __NUMAUTH_ISSET_ID = 4;
+	private static final int __STATUS_ISSET_ID = 4;
 
-	private static final int __STATUSEMAIL_ISSET_ID = 5;
+	private static final int __NUMAUTH_ISSET_ID = 5;
 
-	private static final int __STATUSPHONE_ISSET_ID = 6;
+	private static final int __STATUSEMAIL_ISSET_ID = 6;
 
-	private static final int __STATUSPSW_ISSET_ID = 7;
+	private static final int __STATUSPHONE_ISSET_ID = 7;
 
-	private static final int __STATUSQUEST_ISSET_ID = 8;
+	private static final int __STATUSPSW_ISSET_ID = 8;
 
-	private static final int __STATUSCARD_ISSET_ID = 9;
+	private static final int __STATUSQUEST_ISSET_ID = 9;
 
-	private static final int __ISTWOFACTOR_ISSET_ID = 10;
+	private static final int __STATUSCARD_ISSET_ID = 10;
 
-	private static final int __NUMUSERNAME_ISSET_ID = 11;
+	private static final int __ISTWOFACTOR_ISSET_ID = 11;
 
-	private static final int __NUMUNIQUE_ISSET_ID = 12;
+	private static final int __LEVEL_ISSET_ID = 12;
+
+	private static final int __NUMUSERNAME_ISSET_ID = 13;
+
+	private static final int __NUMUNIQUE_ISSET_ID = 14;
 
 	private short __isset_bitfield = 0;
 
@@ -315,6 +337,10 @@ public class User
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
 		tmpMap.put(_Fields.IS_DELETE,
 				new org.apache.thrift.meta_data.FieldMetaData("isDelete",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
+		tmpMap.put(_Fields.IS_ABSTRACT,
+				new org.apache.thrift.meta_data.FieldMetaData("isAbstract",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
 		tmpMap.put(_Fields.CREATE_TIME, new org.apache.thrift.meta_data.FieldMetaData("createTime",
@@ -379,6 +405,9 @@ public class User
 		tmpMap.put(_Fields.LANG,
 				new org.apache.thrift.meta_data.FieldMetaData("lang", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.LEVEL,
+				new org.apache.thrift.meta_data.FieldMetaData("level", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
 		tmpMap.put(_Fields.NUM_USERNAME,
 				new org.apache.thrift.meta_data.FieldMetaData("numUsername",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
@@ -394,11 +423,12 @@ public class User
 	public User() {
 	}
 
-	public User(java.lang.String uid, boolean isStaff, boolean isActive, boolean isDelete, java.lang.String createTime,
-			java.lang.String updateTime, int status, int numAuth, java.lang.String username, java.lang.String email,
-			java.lang.String locNum, java.lang.String phone, java.lang.String unique, java.lang.String salt,
-			java.lang.String source, int statusEmail, int statusPhone, int statusPsw, int statusQuest, int statusCard,
-			boolean isTwoFactor, java.lang.String lang, int numUsername, int numUnique) {
+	public User(java.lang.String uid, boolean isStaff, boolean isActive, boolean isDelete, boolean isAbstract,
+			java.lang.String createTime, java.lang.String updateTime, int status, int numAuth,
+			java.lang.String username, java.lang.String email, java.lang.String locNum, java.lang.String phone,
+			java.lang.String unique, java.lang.String salt, java.lang.String source, int statusEmail, int statusPhone,
+			int statusPsw, int statusQuest, int statusCard, boolean isTwoFactor, java.lang.String lang, int level,
+			int numUsername, int numUnique) {
 		this();
 		this.uid = uid;
 		this.isStaff = isStaff;
@@ -407,6 +437,8 @@ public class User
 		setIsActiveIsSet(true);
 		this.isDelete = isDelete;
 		setIsDeleteIsSet(true);
+		this.isAbstract = isAbstract;
+		setIsAbstractIsSet(true);
 		this.createTime = createTime;
 		this.updateTime = updateTime;
 		this.status = status;
@@ -433,6 +465,8 @@ public class User
 		this.isTwoFactor = isTwoFactor;
 		setIsTwoFactorIsSet(true);
 		this.lang = lang;
+		this.level = level;
+		setLevelIsSet(true);
 		this.numUsername = numUsername;
 		setNumUsernameIsSet(true);
 		this.numUnique = numUnique;
@@ -450,6 +484,7 @@ public class User
 		this.isStaff = other.isStaff;
 		this.isActive = other.isActive;
 		this.isDelete = other.isDelete;
+		this.isAbstract = other.isAbstract;
 		if (other.isSetCreateTime()) {
 			this.createTime = other.createTime;
 		}
@@ -488,6 +523,7 @@ public class User
 		if (other.isSetLang()) {
 			this.lang = other.lang;
 		}
+		this.level = other.level;
 		this.numUsername = other.numUsername;
 		this.numUnique = other.numUnique;
 	}
@@ -505,6 +541,8 @@ public class User
 		this.isActive = false;
 		setIsDeleteIsSet(false);
 		this.isDelete = false;
+		setIsAbstractIsSet(false);
+		this.isAbstract = false;
 		this.createTime = null;
 		this.updateTime = null;
 		setStatusIsSet(false);
@@ -531,6 +569,8 @@ public class User
 		setIsTwoFactorIsSet(false);
 		this.isTwoFactor = false;
 		this.lang = null;
+		setLevelIsSet(false);
+		this.level = 0;
 		setNumUsernameIsSet(false);
 		this.numUsername = 0;
 		setNumUniqueIsSet(false);
@@ -640,6 +680,32 @@ public class User
 
 	public void setIsDeleteIsSet(boolean value) {
 		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __ISDELETE_ISSET_ID, value);
+	}
+
+	public boolean isIsAbstract() {
+		return this.isAbstract;
+	}
+
+	public User setIsAbstract(boolean isAbstract) {
+		this.isAbstract = isAbstract;
+		setIsAbstractIsSet(true);
+		return this;
+	}
+
+	public void unsetIsAbstract() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __ISABSTRACT_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field isAbstract is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetIsAbstract() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __ISABSTRACT_ISSET_ID);
+	}
+
+	public void setIsAbstractIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __ISABSTRACT_ISSET_ID, value);
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -1122,6 +1188,31 @@ public class User
 		}
 	}
 
+	public int getLevel() {
+		return this.level;
+	}
+
+	public User setLevel(int level) {
+		this.level = level;
+		setLevelIsSet(true);
+		return this;
+	}
+
+	public void unsetLevel() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __LEVEL_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field level is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetLevel() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __LEVEL_ISSET_ID);
+	}
+
+	public void setLevelIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __LEVEL_ISSET_ID, value);
+	}
+
 	public int getNumUsername() {
 		return this.numUsername;
 	}
@@ -1209,6 +1300,15 @@ public class User
 			}
 			else {
 				setIsDelete((java.lang.Boolean) value);
+			}
+			break;
+
+		case IS_ABSTRACT:
+			if (value == null) {
+				unsetIsAbstract();
+			}
+			else {
+				setIsAbstract((java.lang.Boolean) value);
 			}
 			break;
 
@@ -1374,6 +1474,15 @@ public class User
 			}
 			break;
 
+		case LEVEL:
+			if (value == null) {
+				unsetLevel();
+			}
+			else {
+				setLevel((java.lang.Integer) value);
+			}
+			break;
+
 		case NUM_USERNAME:
 			if (value == null) {
 				unsetNumUsername();
@@ -1409,6 +1518,9 @@ public class User
 
 		case IS_DELETE:
 			return isIsDelete();
+
+		case IS_ABSTRACT:
+			return isIsAbstract();
 
 		case CREATE_TIME:
 			return getCreateTime();
@@ -1464,6 +1576,9 @@ public class User
 		case LANG:
 			return getLang();
 
+		case LEVEL:
+			return getLevel();
+
 		case NUM_USERNAME:
 			return getNumUsername();
 
@@ -1492,6 +1607,8 @@ public class User
 			return isSetIsActive();
 		case IS_DELETE:
 			return isSetIsDelete();
+		case IS_ABSTRACT:
+			return isSetIsAbstract();
 		case CREATE_TIME:
 			return isSetCreateTime();
 		case UPDATE_TIME:
@@ -1528,6 +1645,8 @@ public class User
 			return isSetIsTwoFactor();
 		case LANG:
 			return isSetLang();
+		case LEVEL:
+			return isSetLevel();
 		case NUM_USERNAME:
 			return isSetNumUsername();
 		case NUM_UNIQUE:
@@ -1584,6 +1703,15 @@ public class User
 			if (!(this_present_isDelete && that_present_isDelete))
 				return false;
 			if (this.isDelete != that.isDelete)
+				return false;
+		}
+
+		boolean this_present_isAbstract = true;
+		boolean that_present_isAbstract = true;
+		if (this_present_isAbstract || that_present_isAbstract) {
+			if (!(this_present_isAbstract && that_present_isAbstract))
+				return false;
+			if (this.isAbstract != that.isAbstract)
 				return false;
 		}
 
@@ -1749,6 +1877,15 @@ public class User
 				return false;
 		}
 
+		boolean this_present_level = true;
+		boolean that_present_level = true;
+		if (this_present_level || that_present_level) {
+			if (!(this_present_level && that_present_level))
+				return false;
+			if (this.level != that.level)
+				return false;
+		}
+
 		boolean this_present_numUsername = true;
 		boolean that_present_numUsername = true;
 		if (this_present_numUsername || that_present_numUsername) {
@@ -1783,6 +1920,8 @@ public class User
 		hashCode = hashCode * 8191 + ((isActive) ? 131071 : 524287);
 
 		hashCode = hashCode * 8191 + ((isDelete) ? 131071 : 524287);
+
+		hashCode = hashCode * 8191 + ((isAbstract) ? 131071 : 524287);
 
 		hashCode = hashCode * 8191 + ((isSetCreateTime()) ? 131071 : 524287);
 		if (isSetCreateTime())
@@ -1840,6 +1979,8 @@ public class User
 		if (isSetLang())
 			hashCode = hashCode * 8191 + lang.hashCode();
 
+		hashCode = hashCode * 8191 + level;
+
 		hashCode = hashCode * 8191 + numUsername;
 
 		hashCode = hashCode * 8191 + numUnique;
@@ -1891,6 +2032,16 @@ public class User
 		}
 		if (isSetIsDelete()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.isDelete, other.isDelete);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetIsAbstract()).compareTo(other.isSetIsAbstract());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetIsAbstract()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.isAbstract, other.isAbstract);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -2075,6 +2226,16 @@ public class User
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetLevel()).compareTo(other.isSetLevel());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetLevel()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.level, other.level);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetNumUsername()).compareTo(other.isSetNumUsername());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -2138,6 +2299,11 @@ public class User
 			sb.append(", ");
 		sb.append("isDelete:");
 		sb.append(this.isDelete);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("isAbstract:");
+		sb.append(this.isAbstract);
 		first = false;
 		if (!first)
 			sb.append(", ");
@@ -2281,6 +2447,11 @@ public class User
 		first = false;
 		if (!first)
 			sb.append(", ");
+		sb.append("level:");
+		sb.append(this.level);
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("numUsername:");
 		sb.append(this.numUsername);
 		first = false;
@@ -2371,6 +2542,15 @@ public class User
 					if (schemeField.type == org.apache.thrift.protocol.TType.BOOL) {
 						struct.isDelete = iprot.readBool();
 						struct.setIsDeleteIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 26: // IS_ABSTRACT
+					if (schemeField.type == org.apache.thrift.protocol.TType.BOOL) {
+						struct.isAbstract = iprot.readBool();
+						struct.setIsAbstractIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -2538,6 +2718,15 @@ public class User
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 25: // LEVEL
+					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+						struct.level = iprot.readI32();
+						struct.setLevelIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 23: // NUM_USERNAME
 					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
 						struct.numUsername = iprot.readI32();
@@ -2666,6 +2855,12 @@ public class User
 			oprot.writeFieldBegin(NUM_UNIQUE_FIELD_DESC);
 			oprot.writeI32(struct.numUnique);
 			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(LEVEL_FIELD_DESC);
+			oprot.writeI32(struct.level);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(IS_ABSTRACT_FIELD_DESC);
+			oprot.writeBool(struct.isAbstract);
+			oprot.writeFieldEnd();
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -2698,67 +2893,73 @@ public class User
 			if (struct.isSetIsDelete()) {
 				optionals.set(3);
 			}
-			if (struct.isSetCreateTime()) {
+			if (struct.isSetIsAbstract()) {
 				optionals.set(4);
 			}
-			if (struct.isSetUpdateTime()) {
+			if (struct.isSetCreateTime()) {
 				optionals.set(5);
 			}
-			if (struct.isSetStatus()) {
+			if (struct.isSetUpdateTime()) {
 				optionals.set(6);
 			}
-			if (struct.isSetNumAuth()) {
+			if (struct.isSetStatus()) {
 				optionals.set(7);
 			}
-			if (struct.isSetUsername()) {
+			if (struct.isSetNumAuth()) {
 				optionals.set(8);
 			}
-			if (struct.isSetEmail()) {
+			if (struct.isSetUsername()) {
 				optionals.set(9);
 			}
-			if (struct.isSetLocNum()) {
+			if (struct.isSetEmail()) {
 				optionals.set(10);
 			}
-			if (struct.isSetPhone()) {
+			if (struct.isSetLocNum()) {
 				optionals.set(11);
 			}
-			if (struct.isSetUnique()) {
+			if (struct.isSetPhone()) {
 				optionals.set(12);
 			}
-			if (struct.isSetSalt()) {
+			if (struct.isSetUnique()) {
 				optionals.set(13);
 			}
-			if (struct.isSetSource()) {
+			if (struct.isSetSalt()) {
 				optionals.set(14);
 			}
-			if (struct.isSetStatusEmail()) {
+			if (struct.isSetSource()) {
 				optionals.set(15);
 			}
-			if (struct.isSetStatusPhone()) {
+			if (struct.isSetStatusEmail()) {
 				optionals.set(16);
 			}
-			if (struct.isSetStatusPsw()) {
+			if (struct.isSetStatusPhone()) {
 				optionals.set(17);
 			}
-			if (struct.isSetStatusQuest()) {
+			if (struct.isSetStatusPsw()) {
 				optionals.set(18);
 			}
-			if (struct.isSetStatusCard()) {
+			if (struct.isSetStatusQuest()) {
 				optionals.set(19);
 			}
-			if (struct.isSetIsTwoFactor()) {
+			if (struct.isSetStatusCard()) {
 				optionals.set(20);
 			}
-			if (struct.isSetLang()) {
+			if (struct.isSetIsTwoFactor()) {
 				optionals.set(21);
 			}
-			if (struct.isSetNumUsername()) {
+			if (struct.isSetLang()) {
 				optionals.set(22);
 			}
-			if (struct.isSetNumUnique()) {
+			if (struct.isSetLevel()) {
 				optionals.set(23);
 			}
-			oprot.writeBitSet(optionals, 24);
+			if (struct.isSetNumUsername()) {
+				optionals.set(24);
+			}
+			if (struct.isSetNumUnique()) {
+				optionals.set(25);
+			}
+			oprot.writeBitSet(optionals, 26);
 			if (struct.isSetUid()) {
 				oprot.writeString(struct.uid);
 			}
@@ -2770,6 +2971,9 @@ public class User
 			}
 			if (struct.isSetIsDelete()) {
 				oprot.writeBool(struct.isDelete);
+			}
+			if (struct.isSetIsAbstract()) {
+				oprot.writeBool(struct.isAbstract);
 			}
 			if (struct.isSetCreateTime()) {
 				oprot.writeString(struct.createTime);
@@ -2825,6 +3029,9 @@ public class User
 			if (struct.isSetLang()) {
 				oprot.writeString(struct.lang);
 			}
+			if (struct.isSetLevel()) {
+				oprot.writeI32(struct.level);
+			}
 			if (struct.isSetNumUsername()) {
 				oprot.writeI32(struct.numUsername);
 			}
@@ -2836,7 +3043,7 @@ public class User
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, User struct) throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(24);
+			java.util.BitSet incoming = iprot.readBitSet(26);
 			if (incoming.get(0)) {
 				struct.uid = iprot.readString();
 				struct.setUidIsSet(true);
@@ -2854,82 +3061,90 @@ public class User
 				struct.setIsDeleteIsSet(true);
 			}
 			if (incoming.get(4)) {
+				struct.isAbstract = iprot.readBool();
+				struct.setIsAbstractIsSet(true);
+			}
+			if (incoming.get(5)) {
 				struct.createTime = iprot.readString();
 				struct.setCreateTimeIsSet(true);
 			}
-			if (incoming.get(5)) {
+			if (incoming.get(6)) {
 				struct.updateTime = iprot.readString();
 				struct.setUpdateTimeIsSet(true);
 			}
-			if (incoming.get(6)) {
+			if (incoming.get(7)) {
 				struct.status = iprot.readI32();
 				struct.setStatusIsSet(true);
 			}
-			if (incoming.get(7)) {
+			if (incoming.get(8)) {
 				struct.numAuth = iprot.readI32();
 				struct.setNumAuthIsSet(true);
 			}
-			if (incoming.get(8)) {
+			if (incoming.get(9)) {
 				struct.username = iprot.readString();
 				struct.setUsernameIsSet(true);
 			}
-			if (incoming.get(9)) {
+			if (incoming.get(10)) {
 				struct.email = iprot.readString();
 				struct.setEmailIsSet(true);
 			}
-			if (incoming.get(10)) {
+			if (incoming.get(11)) {
 				struct.locNum = iprot.readString();
 				struct.setLocNumIsSet(true);
 			}
-			if (incoming.get(11)) {
+			if (incoming.get(12)) {
 				struct.phone = iprot.readString();
 				struct.setPhoneIsSet(true);
 			}
-			if (incoming.get(12)) {
+			if (incoming.get(13)) {
 				struct.unique = iprot.readString();
 				struct.setUniqueIsSet(true);
 			}
-			if (incoming.get(13)) {
+			if (incoming.get(14)) {
 				struct.salt = iprot.readString();
 				struct.setSaltIsSet(true);
 			}
-			if (incoming.get(14)) {
+			if (incoming.get(15)) {
 				struct.source = iprot.readString();
 				struct.setSourceIsSet(true);
 			}
-			if (incoming.get(15)) {
+			if (incoming.get(16)) {
 				struct.statusEmail = iprot.readI32();
 				struct.setStatusEmailIsSet(true);
 			}
-			if (incoming.get(16)) {
+			if (incoming.get(17)) {
 				struct.statusPhone = iprot.readI32();
 				struct.setStatusPhoneIsSet(true);
 			}
-			if (incoming.get(17)) {
+			if (incoming.get(18)) {
 				struct.statusPsw = iprot.readI32();
 				struct.setStatusPswIsSet(true);
 			}
-			if (incoming.get(18)) {
+			if (incoming.get(19)) {
 				struct.statusQuest = iprot.readI32();
 				struct.setStatusQuestIsSet(true);
 			}
-			if (incoming.get(19)) {
+			if (incoming.get(20)) {
 				struct.statusCard = iprot.readI32();
 				struct.setStatusCardIsSet(true);
 			}
-			if (incoming.get(20)) {
+			if (incoming.get(21)) {
 				struct.isTwoFactor = iprot.readBool();
 				struct.setIsTwoFactorIsSet(true);
 			}
-			if (incoming.get(21)) {
+			if (incoming.get(22)) {
 				struct.lang = iprot.readString();
 				struct.setLangIsSet(true);
 			}
-			if (incoming.get(22)) {
+			if (incoming.get(23)) {
+				struct.level = iprot.readI32();
+				struct.setLevelIsSet(true);
+			}
+			if (incoming.get(24)) {
 				struct.numUsername = iprot.readI32();
 				struct.setNumUsernameIsSet(true);
 			}
-			if (incoming.get(23)) {
+			if (incoming.get(25)) {
 				struct.numUnique = iprot.readI32();
 				struct.setNumUniqueIsSet(true);
 			}

@@ -65,6 +65,9 @@ public class WalletService {
 		public WalletFlow getWalletFlow(java.lang.String acc)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
+		public WalletExpire getWalletExpire(ArgWalletExpire form)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
+
 		public ResultWallet getWalletList(com.suboat.contrib.rpc.base.ArgQuery query)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
@@ -75,6 +78,9 @@ public class WalletService {
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
 		public ResultWalletflowFuture getWalletFlowFuture(com.suboat.contrib.rpc.base.ArgQuery query)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
+
+		public ResultWalletExpire getWalletExpireList(com.suboat.contrib.rpc.base.ArgQuery query)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
 		public WalletFlow execWalletFlow(ArgWalletFlow form)
@@ -90,6 +96,9 @@ public class WalletService {
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
 		public java.util.List<WalletFlowFuture> cancelWalletFlowFuture(java.util.List<java.lang.String> accList)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
+
+		public java.util.List<WalletExpire> getWalletExpireArray(ArgWalletExpire form)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException;
 
 	}
@@ -124,6 +133,10 @@ public class WalletService {
 				org.apache.thrift.async.AsyncMethodCallback<WalletFlow> resultHandler)
 				throws org.apache.thrift.TException;
 
+		public void getWalletExpire(ArgWalletExpire form,
+				org.apache.thrift.async.AsyncMethodCallback<WalletExpire> resultHandler)
+				throws org.apache.thrift.TException;
+
 		public void getWalletList(com.suboat.contrib.rpc.base.ArgQuery query,
 				org.apache.thrift.async.AsyncMethodCallback<ResultWallet> resultHandler)
 				throws org.apache.thrift.TException;
@@ -138,6 +151,10 @@ public class WalletService {
 
 		public void getWalletFlowFuture(com.suboat.contrib.rpc.base.ArgQuery query,
 				org.apache.thrift.async.AsyncMethodCallback<ResultWalletflowFuture> resultHandler)
+				throws org.apache.thrift.TException;
+
+		public void getWalletExpireList(com.suboat.contrib.rpc.base.ArgQuery query,
+				org.apache.thrift.async.AsyncMethodCallback<ResultWalletExpire> resultHandler)
 				throws org.apache.thrift.TException;
 
 		public void execWalletFlow(ArgWalletFlow form,
@@ -158,6 +175,10 @@ public class WalletService {
 
 		public void cancelWalletFlowFuture(java.util.List<java.lang.String> accList,
 				org.apache.thrift.async.AsyncMethodCallback<java.util.List<WalletFlowFuture>> resultHandler)
+				throws org.apache.thrift.TException;
+
+		public void getWalletExpireArray(ArgWalletExpire form,
+				org.apache.thrift.async.AsyncMethodCallback<java.util.List<WalletExpire>> resultHandler)
 				throws org.apache.thrift.TException;
 
 	}
@@ -393,6 +414,32 @@ public class WalletService {
 					"getWalletFlow failed: unknown result");
 		}
 
+		public WalletExpire getWalletExpire(ArgWalletExpire form)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			send_getWalletExpire(form);
+			return recv_getWalletExpire();
+		}
+
+		public void send_getWalletExpire(ArgWalletExpire form) throws org.apache.thrift.TException {
+			getWalletExpire_args args = new getWalletExpire_args();
+			args.setForm(form);
+			sendBase("getWalletExpire", args);
+		}
+
+		public WalletExpire recv_getWalletExpire()
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			getWalletExpire_result result = new getWalletExpire_result();
+			receiveBase(result, "getWalletExpire");
+			if (result.isSetSuccess()) {
+				return result.success;
+			}
+			if (result.err != null) {
+				throw result.err;
+			}
+			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
+					"getWalletExpire failed: unknown result");
+		}
+
 		public ResultWallet getWalletList(com.suboat.contrib.rpc.base.ArgQuery query)
 				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
 			send_getWalletList(query);
@@ -499,6 +546,33 @@ public class WalletService {
 			}
 			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
 					"getWalletFlowFuture failed: unknown result");
+		}
+
+		public ResultWalletExpire getWalletExpireList(com.suboat.contrib.rpc.base.ArgQuery query)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			send_getWalletExpireList(query);
+			return recv_getWalletExpireList();
+		}
+
+		public void send_getWalletExpireList(com.suboat.contrib.rpc.base.ArgQuery query)
+				throws org.apache.thrift.TException {
+			getWalletExpireList_args args = new getWalletExpireList_args();
+			args.setQuery(query);
+			sendBase("getWalletExpireList", args);
+		}
+
+		public ResultWalletExpire recv_getWalletExpireList()
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			getWalletExpireList_result result = new getWalletExpireList_result();
+			receiveBase(result, "getWalletExpireList");
+			if (result.isSetSuccess()) {
+				return result.success;
+			}
+			if (result.err != null) {
+				throw result.err;
+			}
+			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
+					"getWalletExpireList failed: unknown result");
 		}
 
 		public WalletFlow execWalletFlow(ArgWalletFlow form)
@@ -630,6 +704,32 @@ public class WalletService {
 			}
 			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
 					"cancelWalletFlowFuture failed: unknown result");
+		}
+
+		public java.util.List<WalletExpire> getWalletExpireArray(ArgWalletExpire form)
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			send_getWalletExpireArray(form);
+			return recv_getWalletExpireArray();
+		}
+
+		public void send_getWalletExpireArray(ArgWalletExpire form) throws org.apache.thrift.TException {
+			getWalletExpireArray_args args = new getWalletExpireArray_args();
+			args.setForm(form);
+			sendBase("getWalletExpireArray", args);
+		}
+
+		public java.util.List<WalletExpire> recv_getWalletExpireArray()
+				throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+			getWalletExpireArray_result result = new getWalletExpireArray_result();
+			receiveBase(result, "getWalletExpireArray");
+			if (result.isSetSuccess()) {
+				return result.success;
+			}
+			if (result.err != null) {
+				throw result.err;
+			}
+			throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT,
+					"getWalletExpireArray failed: unknown result");
 		}
 
 	}
@@ -1017,6 +1117,50 @@ public class WalletService {
 
 		}
 
+		public void getWalletExpire(ArgWalletExpire form,
+				org.apache.thrift.async.AsyncMethodCallback<WalletExpire> resultHandler)
+				throws org.apache.thrift.TException {
+			checkReady();
+			getWalletExpire_call method_call = new getWalletExpire_call(form, resultHandler, this, ___protocolFactory,
+					___transport);
+			this.___currentMethod = method_call;
+			___manager.call(method_call);
+		}
+
+		public static class getWalletExpire_call extends org.apache.thrift.async.TAsyncMethodCall<WalletExpire> {
+
+			private ArgWalletExpire form;
+
+			public getWalletExpire_call(ArgWalletExpire form,
+					org.apache.thrift.async.AsyncMethodCallback<WalletExpire> resultHandler,
+					org.apache.thrift.async.TAsyncClient client,
+					org.apache.thrift.protocol.TProtocolFactory protocolFactory,
+					org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+				super(client, protocolFactory, transport, resultHandler, false);
+				this.form = form;
+			}
+
+			public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+				prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getWalletExpire",
+						org.apache.thrift.protocol.TMessageType.CALL, 0));
+				getWalletExpire_args args = new getWalletExpire_args();
+				args.setForm(form);
+				args.write(prot);
+				prot.writeMessageEnd();
+			}
+
+			public WalletExpire getResult() throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+				if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+					throw new java.lang.IllegalStateException("Method call not finished!");
+				}
+				org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(
+						getFrameBuffer().array());
+				org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+				return (new Client(prot)).recv_getWalletExpire();
+			}
+
+		}
+
 		public void getWalletList(com.suboat.contrib.rpc.base.ArgQuery query,
 				org.apache.thrift.async.AsyncMethodCallback<ResultWallet> resultHandler)
 				throws org.apache.thrift.TException {
@@ -1195,6 +1339,52 @@ public class WalletService {
 						getFrameBuffer().array());
 				org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
 				return (new Client(prot)).recv_getWalletFlowFuture();
+			}
+
+		}
+
+		public void getWalletExpireList(com.suboat.contrib.rpc.base.ArgQuery query,
+				org.apache.thrift.async.AsyncMethodCallback<ResultWalletExpire> resultHandler)
+				throws org.apache.thrift.TException {
+			checkReady();
+			getWalletExpireList_call method_call = new getWalletExpireList_call(query, resultHandler, this,
+					___protocolFactory, ___transport);
+			this.___currentMethod = method_call;
+			___manager.call(method_call);
+		}
+
+		public static class getWalletExpireList_call
+				extends org.apache.thrift.async.TAsyncMethodCall<ResultWalletExpire> {
+
+			private com.suboat.contrib.rpc.base.ArgQuery query;
+
+			public getWalletExpireList_call(com.suboat.contrib.rpc.base.ArgQuery query,
+					org.apache.thrift.async.AsyncMethodCallback<ResultWalletExpire> resultHandler,
+					org.apache.thrift.async.TAsyncClient client,
+					org.apache.thrift.protocol.TProtocolFactory protocolFactory,
+					org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+				super(client, protocolFactory, transport, resultHandler, false);
+				this.query = query;
+			}
+
+			public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+				prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getWalletExpireList",
+						org.apache.thrift.protocol.TMessageType.CALL, 0));
+				getWalletExpireList_args args = new getWalletExpireList_args();
+				args.setQuery(query);
+				args.write(prot);
+				prot.writeMessageEnd();
+			}
+
+			public ResultWalletExpire getResult()
+					throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+				if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+					throw new java.lang.IllegalStateException("Method call not finished!");
+				}
+				org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(
+						getFrameBuffer().array());
+				org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+				return (new Client(prot)).recv_getWalletExpireList();
 			}
 
 		}
@@ -1426,6 +1616,52 @@ public class WalletService {
 
 		}
 
+		public void getWalletExpireArray(ArgWalletExpire form,
+				org.apache.thrift.async.AsyncMethodCallback<java.util.List<WalletExpire>> resultHandler)
+				throws org.apache.thrift.TException {
+			checkReady();
+			getWalletExpireArray_call method_call = new getWalletExpireArray_call(form, resultHandler, this,
+					___protocolFactory, ___transport);
+			this.___currentMethod = method_call;
+			___manager.call(method_call);
+		}
+
+		public static class getWalletExpireArray_call
+				extends org.apache.thrift.async.TAsyncMethodCall<java.util.List<WalletExpire>> {
+
+			private ArgWalletExpire form;
+
+			public getWalletExpireArray_call(ArgWalletExpire form,
+					org.apache.thrift.async.AsyncMethodCallback<java.util.List<WalletExpire>> resultHandler,
+					org.apache.thrift.async.TAsyncClient client,
+					org.apache.thrift.protocol.TProtocolFactory protocolFactory,
+					org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+				super(client, protocolFactory, transport, resultHandler, false);
+				this.form = form;
+			}
+
+			public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+				prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getWalletExpireArray",
+						org.apache.thrift.protocol.TMessageType.CALL, 0));
+				getWalletExpireArray_args args = new getWalletExpireArray_args();
+				args.setForm(form);
+				args.write(prot);
+				prot.writeMessageEnd();
+			}
+
+			public java.util.List<WalletExpire> getResult()
+					throws com.suboat.contrib.rpc.base.Error, org.apache.thrift.TException {
+				if (getState() != org.apache.thrift.async.TAsyncMethodCall.State.RESPONSE_READ) {
+					throw new java.lang.IllegalStateException("Method call not finished!");
+				}
+				org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(
+						getFrameBuffer().array());
+				org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+				return (new Client(prot)).recv_getWalletExpireArray();
+			}
+
+		}
+
 	}
 
 	public static class Processor<I extends Iface> extends com.suboat.contrib.rpc.base.BaseService.Processor<I>
@@ -1453,15 +1689,18 @@ public class WalletService {
 			processMap.put("getWallet", new getWallet());
 			processMap.put("getWalletEnsure", new getWalletEnsure());
 			processMap.put("getWalletFlow", new getWalletFlow());
+			processMap.put("getWalletExpire", new getWalletExpire());
 			processMap.put("getWalletList", new getWalletList());
 			processMap.put("getWalletFlowList", new getWalletFlowList());
 			processMap.put("getWalletFlowByUid", new getWalletFlowByUid());
 			processMap.put("getWalletFlowFuture", new getWalletFlowFuture());
+			processMap.put("getWalletExpireList", new getWalletExpireList());
 			processMap.put("execWalletFlow", new execWalletFlow());
 			processMap.put("execWalletFlowUnfreeze", new execWalletFlowUnfreeze());
 			processMap.put("execTransferInternal", new execTransferInternal());
 			processMap.put("createWalletFlowFuture", new createWalletFlowFuture());
 			processMap.put("cancelWalletFlowFuture", new cancelWalletFlowFuture());
+			processMap.put("getWalletExpireArray", new getWalletExpireArray());
 			return processMap;
 		}
 
@@ -1732,6 +1971,40 @@ public class WalletService {
 
 		}
 
+		public static class getWalletExpire<I extends Iface>
+				extends org.apache.thrift.ProcessFunction<I, getWalletExpire_args> {
+
+			public getWalletExpire() {
+				super("getWalletExpire");
+			}
+
+			public getWalletExpire_args getEmptyArgsInstance() {
+				return new getWalletExpire_args();
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			@Override
+			protected boolean rethrowUnhandledExceptions() {
+				return false;
+			}
+
+			public getWalletExpire_result getResult(I iface, getWalletExpire_args args)
+					throws org.apache.thrift.TException {
+				getWalletExpire_result result = new getWalletExpire_result();
+				try {
+					result.success = iface.getWalletExpire(args.form);
+				}
+				catch (com.suboat.contrib.rpc.base.Error err) {
+					result.err = err;
+				}
+				return result;
+			}
+
+		}
+
 		public static class getWalletList<I extends Iface>
 				extends org.apache.thrift.ProcessFunction<I, getWalletList_args> {
 
@@ -1859,6 +2132,40 @@ public class WalletService {
 				getWalletFlowFuture_result result = new getWalletFlowFuture_result();
 				try {
 					result.success = iface.getWalletFlowFuture(args.query);
+				}
+				catch (com.suboat.contrib.rpc.base.Error err) {
+					result.err = err;
+				}
+				return result;
+			}
+
+		}
+
+		public static class getWalletExpireList<I extends Iface>
+				extends org.apache.thrift.ProcessFunction<I, getWalletExpireList_args> {
+
+			public getWalletExpireList() {
+				super("getWalletExpireList");
+			}
+
+			public getWalletExpireList_args getEmptyArgsInstance() {
+				return new getWalletExpireList_args();
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			@Override
+			protected boolean rethrowUnhandledExceptions() {
+				return false;
+			}
+
+			public getWalletExpireList_result getResult(I iface, getWalletExpireList_args args)
+					throws org.apache.thrift.TException {
+				getWalletExpireList_result result = new getWalletExpireList_result();
+				try {
+					result.success = iface.getWalletExpireList(args.query);
 				}
 				catch (com.suboat.contrib.rpc.base.Error err) {
 					result.err = err;
@@ -2038,6 +2345,40 @@ public class WalletService {
 
 		}
 
+		public static class getWalletExpireArray<I extends Iface>
+				extends org.apache.thrift.ProcessFunction<I, getWalletExpireArray_args> {
+
+			public getWalletExpireArray() {
+				super("getWalletExpireArray");
+			}
+
+			public getWalletExpireArray_args getEmptyArgsInstance() {
+				return new getWalletExpireArray_args();
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			@Override
+			protected boolean rethrowUnhandledExceptions() {
+				return false;
+			}
+
+			public getWalletExpireArray_result getResult(I iface, getWalletExpireArray_args args)
+					throws org.apache.thrift.TException {
+				getWalletExpireArray_result result = new getWalletExpireArray_result();
+				try {
+					result.success = iface.getWalletExpireArray(args.form);
+				}
+				catch (com.suboat.contrib.rpc.base.Error err) {
+					result.err = err;
+				}
+				return result;
+			}
+
+		}
+
 	}
 
 	public static class AsyncProcessor<I extends AsyncIface>
@@ -2066,15 +2407,18 @@ public class WalletService {
 			processMap.put("getWallet", new getWallet());
 			processMap.put("getWalletEnsure", new getWalletEnsure());
 			processMap.put("getWalletFlow", new getWalletFlow());
+			processMap.put("getWalletExpire", new getWalletExpire());
 			processMap.put("getWalletList", new getWalletList());
 			processMap.put("getWalletFlowList", new getWalletFlowList());
 			processMap.put("getWalletFlowByUid", new getWalletFlowByUid());
 			processMap.put("getWalletFlowFuture", new getWalletFlowFuture());
+			processMap.put("getWalletExpireList", new getWalletExpireList());
 			processMap.put("execWalletFlow", new execWalletFlow());
 			processMap.put("execWalletFlowUnfreeze", new execWalletFlowUnfreeze());
 			processMap.put("execTransferInternal", new execTransferInternal());
 			processMap.put("createWalletFlowFuture", new createWalletFlowFuture());
 			processMap.put("cancelWalletFlowFuture", new cancelWalletFlowFuture());
+			processMap.put("getWalletExpireArray", new getWalletExpireArray());
 			return processMap;
 		}
 
@@ -2710,6 +3054,85 @@ public class WalletService {
 
 		}
 
+		public static class getWalletExpire<I extends AsyncIface>
+				extends org.apache.thrift.AsyncProcessFunction<I, getWalletExpire_args, WalletExpire> {
+
+			public getWalletExpire() {
+				super("getWalletExpire");
+			}
+
+			public getWalletExpire_args getEmptyArgsInstance() {
+				return new getWalletExpire_args();
+			}
+
+			public org.apache.thrift.async.AsyncMethodCallback<WalletExpire> getResultHandler(
+					final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+				final org.apache.thrift.AsyncProcessFunction fcall = this;
+				return new org.apache.thrift.async.AsyncMethodCallback<WalletExpire>() {
+					public void onComplete(WalletExpire o) {
+						getWalletExpire_result result = new getWalletExpire_result();
+						result.success = o;
+						try {
+							fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY, seqid);
+						}
+						catch (org.apache.thrift.transport.TTransportException e) {
+							_LOGGER.error("TTransportException writing to internal frame buffer", e);
+							fb.close();
+						}
+						catch (java.lang.Exception e) {
+							_LOGGER.error("Exception writing to internal frame buffer", e);
+							onError(e);
+						}
+					}
+
+					public void onError(java.lang.Exception e) {
+						byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+						org.apache.thrift.TSerializable msg;
+						getWalletExpire_result result = new getWalletExpire_result();
+						if (e instanceof com.suboat.contrib.rpc.base.Error) {
+							result.err = (com.suboat.contrib.rpc.base.Error) e;
+							result.setErrIsSet(true);
+							msg = result;
+						}
+						else if (e instanceof org.apache.thrift.transport.TTransportException) {
+							_LOGGER.error("TTransportException inside handler", e);
+							fb.close();
+							return;
+						}
+						else if (e instanceof org.apache.thrift.TApplicationException) {
+							_LOGGER.error("TApplicationException inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = (org.apache.thrift.TApplicationException) e;
+						}
+						else {
+							_LOGGER.error("Exception inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = new org.apache.thrift.TApplicationException(
+									org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+						}
+						try {
+							fcall.sendResponse(fb, msg, msgType, seqid);
+						}
+						catch (java.lang.Exception ex) {
+							_LOGGER.error("Exception writing to internal frame buffer", ex);
+							fb.close();
+						}
+					}
+				};
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			public void start(I iface, getWalletExpire_args args,
+					org.apache.thrift.async.AsyncMethodCallback<WalletExpire> resultHandler)
+					throws org.apache.thrift.TException {
+				iface.getWalletExpire(args.form, resultHandler);
+			}
+
+		}
+
 		public static class getWalletList<I extends AsyncIface>
 				extends org.apache.thrift.AsyncProcessFunction<I, getWalletList_args, ResultWallet> {
 
@@ -3022,6 +3445,85 @@ public class WalletService {
 					org.apache.thrift.async.AsyncMethodCallback<ResultWalletflowFuture> resultHandler)
 					throws org.apache.thrift.TException {
 				iface.getWalletFlowFuture(args.query, resultHandler);
+			}
+
+		}
+
+		public static class getWalletExpireList<I extends AsyncIface>
+				extends org.apache.thrift.AsyncProcessFunction<I, getWalletExpireList_args, ResultWalletExpire> {
+
+			public getWalletExpireList() {
+				super("getWalletExpireList");
+			}
+
+			public getWalletExpireList_args getEmptyArgsInstance() {
+				return new getWalletExpireList_args();
+			}
+
+			public org.apache.thrift.async.AsyncMethodCallback<ResultWalletExpire> getResultHandler(
+					final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+				final org.apache.thrift.AsyncProcessFunction fcall = this;
+				return new org.apache.thrift.async.AsyncMethodCallback<ResultWalletExpire>() {
+					public void onComplete(ResultWalletExpire o) {
+						getWalletExpireList_result result = new getWalletExpireList_result();
+						result.success = o;
+						try {
+							fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY, seqid);
+						}
+						catch (org.apache.thrift.transport.TTransportException e) {
+							_LOGGER.error("TTransportException writing to internal frame buffer", e);
+							fb.close();
+						}
+						catch (java.lang.Exception e) {
+							_LOGGER.error("Exception writing to internal frame buffer", e);
+							onError(e);
+						}
+					}
+
+					public void onError(java.lang.Exception e) {
+						byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+						org.apache.thrift.TSerializable msg;
+						getWalletExpireList_result result = new getWalletExpireList_result();
+						if (e instanceof com.suboat.contrib.rpc.base.Error) {
+							result.err = (com.suboat.contrib.rpc.base.Error) e;
+							result.setErrIsSet(true);
+							msg = result;
+						}
+						else if (e instanceof org.apache.thrift.transport.TTransportException) {
+							_LOGGER.error("TTransportException inside handler", e);
+							fb.close();
+							return;
+						}
+						else if (e instanceof org.apache.thrift.TApplicationException) {
+							_LOGGER.error("TApplicationException inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = (org.apache.thrift.TApplicationException) e;
+						}
+						else {
+							_LOGGER.error("Exception inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = new org.apache.thrift.TApplicationException(
+									org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+						}
+						try {
+							fcall.sendResponse(fb, msg, msgType, seqid);
+						}
+						catch (java.lang.Exception ex) {
+							_LOGGER.error("Exception writing to internal frame buffer", ex);
+							fb.close();
+						}
+					}
+				};
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			public void start(I iface, getWalletExpireList_args args,
+					org.apache.thrift.async.AsyncMethodCallback<ResultWalletExpire> resultHandler)
+					throws org.apache.thrift.TException {
+				iface.getWalletExpireList(args.query, resultHandler);
 			}
 
 		}
@@ -3417,6 +3919,85 @@ public class WalletService {
 					org.apache.thrift.async.AsyncMethodCallback<java.util.List<WalletFlowFuture>> resultHandler)
 					throws org.apache.thrift.TException {
 				iface.cancelWalletFlowFuture(args.accList, resultHandler);
+			}
+
+		}
+
+		public static class getWalletExpireArray<I extends AsyncIface> extends
+				org.apache.thrift.AsyncProcessFunction<I, getWalletExpireArray_args, java.util.List<WalletExpire>> {
+
+			public getWalletExpireArray() {
+				super("getWalletExpireArray");
+			}
+
+			public getWalletExpireArray_args getEmptyArgsInstance() {
+				return new getWalletExpireArray_args();
+			}
+
+			public org.apache.thrift.async.AsyncMethodCallback<java.util.List<WalletExpire>> getResultHandler(
+					final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+				final org.apache.thrift.AsyncProcessFunction fcall = this;
+				return new org.apache.thrift.async.AsyncMethodCallback<java.util.List<WalletExpire>>() {
+					public void onComplete(java.util.List<WalletExpire> o) {
+						getWalletExpireArray_result result = new getWalletExpireArray_result();
+						result.success = o;
+						try {
+							fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY, seqid);
+						}
+						catch (org.apache.thrift.transport.TTransportException e) {
+							_LOGGER.error("TTransportException writing to internal frame buffer", e);
+							fb.close();
+						}
+						catch (java.lang.Exception e) {
+							_LOGGER.error("Exception writing to internal frame buffer", e);
+							onError(e);
+						}
+					}
+
+					public void onError(java.lang.Exception e) {
+						byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+						org.apache.thrift.TSerializable msg;
+						getWalletExpireArray_result result = new getWalletExpireArray_result();
+						if (e instanceof com.suboat.contrib.rpc.base.Error) {
+							result.err = (com.suboat.contrib.rpc.base.Error) e;
+							result.setErrIsSet(true);
+							msg = result;
+						}
+						else if (e instanceof org.apache.thrift.transport.TTransportException) {
+							_LOGGER.error("TTransportException inside handler", e);
+							fb.close();
+							return;
+						}
+						else if (e instanceof org.apache.thrift.TApplicationException) {
+							_LOGGER.error("TApplicationException inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = (org.apache.thrift.TApplicationException) e;
+						}
+						else {
+							_LOGGER.error("Exception inside handler", e);
+							msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+							msg = new org.apache.thrift.TApplicationException(
+									org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+						}
+						try {
+							fcall.sendResponse(fb, msg, msgType, seqid);
+						}
+						catch (java.lang.Exception ex) {
+							_LOGGER.error("Exception writing to internal frame buffer", ex);
+							fb.close();
+						}
+					}
+				};
+			}
+
+			protected boolean isOneway() {
+				return false;
+			}
+
+			public void start(I iface, getWalletExpireArray_args args,
+					org.apache.thrift.async.AsyncMethodCallback<java.util.List<WalletExpire>> resultHandler)
+					throws org.apache.thrift.TException {
+				iface.getWalletExpireArray(args.form, resultHandler);
 			}
 
 		}
@@ -4159,14 +4740,14 @@ public class WalletService {
 					case 0: // SUCCESS
 						if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 							{
-								org.apache.thrift.protocol.TList _list32 = iprot.readListBegin();
-								struct.success = new java.util.ArrayList<WalletCategory>(_list32.size);
+								org.apache.thrift.protocol.TList _list40 = iprot.readListBegin();
+								struct.success = new java.util.ArrayList<WalletCategory>(_list40.size);
 								@org.apache.thrift.annotation.Nullable
-								WalletCategory _elem33;
-								for (int _i34 = 0; _i34 < _list32.size; ++_i34) {
-									_elem33 = new WalletCategory();
-									_elem33.read(iprot);
-									struct.success.add(_elem33);
+								WalletCategory _elem41;
+								for (int _i42 = 0; _i42 < _list40.size; ++_i42) {
+									_elem41 = new WalletCategory();
+									_elem41.read(iprot);
+									struct.success.add(_elem41);
 								}
 								iprot.readListEnd();
 							}
@@ -4208,8 +4789,8 @@ public class WalletService {
 					{
 						oprot.writeListBegin(new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
-						for (WalletCategory _iter35 : struct.success) {
-							_iter35.write(oprot);
+						for (WalletCategory _iter43 : struct.success) {
+							_iter43.write(oprot);
 						}
 						oprot.writeListEnd();
 					}
@@ -4253,8 +4834,8 @@ public class WalletService {
 				if (struct.isSetSuccess()) {
 					{
 						oprot.writeI32(struct.success.size());
-						for (WalletCategory _iter36 : struct.success) {
-							_iter36.write(oprot);
+						for (WalletCategory _iter44 : struct.success) {
+							_iter44.write(oprot);
 						}
 					}
 				}
@@ -4270,15 +4851,15 @@ public class WalletService {
 				java.util.BitSet incoming = iprot.readBitSet(2);
 				if (incoming.get(0)) {
 					{
-						org.apache.thrift.protocol.TList _list37 = new org.apache.thrift.protocol.TList(
+						org.apache.thrift.protocol.TList _list45 = new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-						struct.success = new java.util.ArrayList<WalletCategory>(_list37.size);
+						struct.success = new java.util.ArrayList<WalletCategory>(_list45.size);
 						@org.apache.thrift.annotation.Nullable
-						WalletCategory _elem38;
-						for (int _i39 = 0; _i39 < _list37.size; ++_i39) {
-							_elem38 = new WalletCategory();
-							_elem38.read(iprot);
-							struct.success.add(_elem38);
+						WalletCategory _elem46;
+						for (int _i47 = 0; _i47 < _list45.size; ++_i47) {
+							_elem46 = new WalletCategory();
+							_elem46.read(iprot);
+							struct.success.add(_elem46);
 						}
 					}
 					struct.setSuccessIsSet(true);
@@ -4750,13 +5331,13 @@ public class WalletService {
 					case 2: // CATEGORY
 						if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 							{
-								org.apache.thrift.protocol.TList _list40 = iprot.readListBegin();
-								struct.category = new java.util.ArrayList<java.lang.String>(_list40.size);
+								org.apache.thrift.protocol.TList _list48 = iprot.readListBegin();
+								struct.category = new java.util.ArrayList<java.lang.String>(_list48.size);
 								@org.apache.thrift.annotation.Nullable
-								java.lang.String _elem41;
-								for (int _i42 = 0; _i42 < _list40.size; ++_i42) {
-									_elem41 = iprot.readString();
-									struct.category.add(_elem41);
+								java.lang.String _elem49;
+								for (int _i50 = 0; _i50 < _list48.size; ++_i50) {
+									_elem49 = iprot.readString();
+									struct.category.add(_elem49);
 								}
 								iprot.readListEnd();
 							}
@@ -4793,8 +5374,8 @@ public class WalletService {
 					{
 						oprot.writeListBegin(new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRING, struct.category.size()));
-						for (java.lang.String _iter43 : struct.category) {
-							oprot.writeString(_iter43);
+						for (java.lang.String _iter51 : struct.category) {
+							oprot.writeString(_iter51);
 						}
 						oprot.writeListEnd();
 					}
@@ -4835,8 +5416,8 @@ public class WalletService {
 				if (struct.isSetCategory()) {
 					{
 						oprot.writeI32(struct.category.size());
-						for (java.lang.String _iter44 : struct.category) {
-							oprot.writeString(_iter44);
+						for (java.lang.String _iter52 : struct.category) {
+							oprot.writeString(_iter52);
 						}
 					}
 				}
@@ -4853,14 +5434,14 @@ public class WalletService {
 				}
 				if (incoming.get(1)) {
 					{
-						org.apache.thrift.protocol.TList _list45 = new org.apache.thrift.protocol.TList(
+						org.apache.thrift.protocol.TList _list53 = new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-						struct.category = new java.util.ArrayList<java.lang.String>(_list45.size);
+						struct.category = new java.util.ArrayList<java.lang.String>(_list53.size);
 						@org.apache.thrift.annotation.Nullable
-						java.lang.String _elem46;
-						for (int _i47 = 0; _i47 < _list45.size; ++_i47) {
-							_elem46 = iprot.readString();
-							struct.category.add(_elem46);
+						java.lang.String _elem54;
+						for (int _i55 = 0; _i55 < _list53.size; ++_i55) {
+							_elem54 = iprot.readString();
+							struct.category.add(_elem54);
 						}
 					}
 					struct.setCategoryIsSet(true);
@@ -5321,14 +5902,14 @@ public class WalletService {
 					case 0: // SUCCESS
 						if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 							{
-								org.apache.thrift.protocol.TList _list48 = iprot.readListBegin();
-								struct.success = new java.util.ArrayList<Wallet>(_list48.size);
+								org.apache.thrift.protocol.TList _list56 = iprot.readListBegin();
+								struct.success = new java.util.ArrayList<Wallet>(_list56.size);
 								@org.apache.thrift.annotation.Nullable
-								Wallet _elem49;
-								for (int _i50 = 0; _i50 < _list48.size; ++_i50) {
-									_elem49 = new Wallet();
-									_elem49.read(iprot);
-									struct.success.add(_elem49);
+								Wallet _elem57;
+								for (int _i58 = 0; _i58 < _list56.size; ++_i58) {
+									_elem57 = new Wallet();
+									_elem57.read(iprot);
+									struct.success.add(_elem57);
 								}
 								iprot.readListEnd();
 							}
@@ -5370,8 +5951,8 @@ public class WalletService {
 					{
 						oprot.writeListBegin(new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
-						for (Wallet _iter51 : struct.success) {
-							_iter51.write(oprot);
+						for (Wallet _iter59 : struct.success) {
+							_iter59.write(oprot);
 						}
 						oprot.writeListEnd();
 					}
@@ -5414,8 +5995,8 @@ public class WalletService {
 				if (struct.isSetSuccess()) {
 					{
 						oprot.writeI32(struct.success.size());
-						for (Wallet _iter52 : struct.success) {
-							_iter52.write(oprot);
+						for (Wallet _iter60 : struct.success) {
+							_iter60.write(oprot);
 						}
 					}
 				}
@@ -5431,15 +6012,15 @@ public class WalletService {
 				java.util.BitSet incoming = iprot.readBitSet(2);
 				if (incoming.get(0)) {
 					{
-						org.apache.thrift.protocol.TList _list53 = new org.apache.thrift.protocol.TList(
+						org.apache.thrift.protocol.TList _list61 = new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-						struct.success = new java.util.ArrayList<Wallet>(_list53.size);
+						struct.success = new java.util.ArrayList<Wallet>(_list61.size);
 						@org.apache.thrift.annotation.Nullable
-						Wallet _elem54;
-						for (int _i55 = 0; _i55 < _list53.size; ++_i55) {
-							_elem54 = new Wallet();
-							_elem54.read(iprot);
-							struct.success.add(_elem54);
+						Wallet _elem62;
+						for (int _i63 = 0; _i63 < _list61.size; ++_i63) {
+							_elem62 = new Wallet();
+							_elem62.read(iprot);
+							struct.success.add(_elem62);
 						}
 					}
 					struct.setSuccessIsSet(true);
@@ -11356,6 +11937,958 @@ public class WalletService {
 
 	}
 
+	public static class getWalletExpire_args
+			implements org.apache.thrift.TBase<getWalletExpire_args, getWalletExpire_args._Fields>,
+			java.io.Serializable, Cloneable, Comparable<getWalletExpire_args> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"getWalletExpire_args");
+
+		private static final org.apache.thrift.protocol.TField FORM_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"form", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getWalletExpire_argsStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getWalletExpire_argsTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable ArgWalletExpire form; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			FORM((short) 1, "form");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 1: // FORM
+					return FORM;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.FORM,
+					new org.apache.thrift.meta_data.FieldMetaData("form",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									ArgWalletExpire.class)));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getWalletExpire_args.class, metaDataMap);
+		}
+
+		public getWalletExpire_args() {
+		}
+
+		public getWalletExpire_args(ArgWalletExpire form) {
+			this();
+			this.form = form;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public getWalletExpire_args(getWalletExpire_args other) {
+			if (other.isSetForm()) {
+				this.form = new ArgWalletExpire(other.form);
+			}
+		}
+
+		public getWalletExpire_args deepCopy() {
+			return new getWalletExpire_args(this);
+		}
+
+		@Override
+		public void clear() {
+			this.form = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public ArgWalletExpire getForm() {
+			return this.form;
+		}
+
+		public getWalletExpire_args setForm(@org.apache.thrift.annotation.Nullable ArgWalletExpire form) {
+			this.form = form;
+			return this;
+		}
+
+		public void unsetForm() {
+			this.form = null;
+		}
+
+		/**
+		 * Returns true if field form is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetForm() {
+			return this.form != null;
+		}
+
+		public void setFormIsSet(boolean value) {
+			if (!value) {
+				this.form = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case FORM:
+				if (value == null) {
+					unsetForm();
+				}
+				else {
+					setForm((ArgWalletExpire) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case FORM:
+				return getForm();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case FORM:
+				return isSetForm();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof getWalletExpire_args)
+				return this.equals((getWalletExpire_args) that);
+			return false;
+		}
+
+		public boolean equals(getWalletExpire_args that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_form = true && this.isSetForm();
+			boolean that_present_form = true && that.isSetForm();
+			if (this_present_form || that_present_form) {
+				if (!(this_present_form && that_present_form))
+					return false;
+				if (!this.form.equals(that.form))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetForm()) ? 131071 : 524287);
+			if (isSetForm())
+				hashCode = hashCode * 8191 + form.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(getWalletExpire_args other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetForm()).compareTo(other.isSetForm());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetForm()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.form, other.form);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("getWalletExpire_args(");
+			boolean first = true;
+
+			sb.append("form:");
+			if (this.form == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.form);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+			if (form != null) {
+				form.validate();
+			}
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class getWalletExpire_argsStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getWalletExpire_argsStandardScheme getScheme() {
+				return new getWalletExpire_argsStandardScheme();
+			}
+
+		}
+
+		private static class getWalletExpire_argsStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<getWalletExpire_args> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, getWalletExpire_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 1: // FORM
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.form = new ArgWalletExpire();
+							struct.form.read(iprot);
+							struct.setFormIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, getWalletExpire_args struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.form != null) {
+					oprot.writeFieldBegin(FORM_FIELD_DESC);
+					struct.form.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class getWalletExpire_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getWalletExpire_argsTupleScheme getScheme() {
+				return new getWalletExpire_argsTupleScheme();
+			}
+
+		}
+
+		private static class getWalletExpire_argsTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<getWalletExpire_args> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, getWalletExpire_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetForm()) {
+					optionals.set(0);
+				}
+				oprot.writeBitSet(optionals, 1);
+				if (struct.isSetForm()) {
+					struct.form.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, getWalletExpire_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(1);
+				if (incoming.get(0)) {
+					struct.form = new ArgWalletExpire();
+					struct.form.read(iprot);
+					struct.setFormIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
+	public static class getWalletExpire_result
+			implements org.apache.thrift.TBase<getWalletExpire_result, getWalletExpire_result._Fields>,
+			java.io.Serializable, Cloneable, Comparable<getWalletExpire_result> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"getWalletExpire_result");
+
+		private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"success", org.apache.thrift.protocol.TType.STRUCT, (short) 0);
+
+		private static final org.apache.thrift.protocol.TField ERR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"err", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getWalletExpire_resultStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getWalletExpire_resultTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable WalletExpire success; // required
+
+		public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			SUCCESS((short) 0, "success"), ERR((short) 1, "err");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 0: // SUCCESS
+					return SUCCESS;
+				case 1: // ERR
+					return ERR;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.SUCCESS,
+					new org.apache.thrift.meta_data.FieldMetaData("success",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									WalletExpire.class)));
+			tmpMap.put(_Fields.ERR,
+					new org.apache.thrift.meta_data.FieldMetaData("err",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									com.suboat.contrib.rpc.base.Error.class)));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getWalletExpire_result.class, metaDataMap);
+		}
+
+		public getWalletExpire_result() {
+		}
+
+		public getWalletExpire_result(WalletExpire success, com.suboat.contrib.rpc.base.Error err) {
+			this();
+			this.success = success;
+			this.err = err;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public getWalletExpire_result(getWalletExpire_result other) {
+			if (other.isSetSuccess()) {
+				this.success = new WalletExpire(other.success);
+			}
+			if (other.isSetErr()) {
+				this.err = new com.suboat.contrib.rpc.base.Error(other.err);
+			}
+		}
+
+		public getWalletExpire_result deepCopy() {
+			return new getWalletExpire_result(this);
+		}
+
+		@Override
+		public void clear() {
+			this.success = null;
+			this.err = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public WalletExpire getSuccess() {
+			return this.success;
+		}
+
+		public getWalletExpire_result setSuccess(@org.apache.thrift.annotation.Nullable WalletExpire success) {
+			this.success = success;
+			return this;
+		}
+
+		public void unsetSuccess() {
+			this.success = null;
+		}
+
+		/**
+		 * Returns true if field success is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetSuccess() {
+			return this.success != null;
+		}
+
+		public void setSuccessIsSet(boolean value) {
+			if (!value) {
+				this.success = null;
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public com.suboat.contrib.rpc.base.Error getErr() {
+			return this.err;
+		}
+
+		public getWalletExpire_result setErr(
+				@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err) {
+			this.err = err;
+			return this;
+		}
+
+		public void unsetErr() {
+			this.err = null;
+		}
+
+		/**
+		 * Returns true if field err is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetErr() {
+			return this.err != null;
+		}
+
+		public void setErrIsSet(boolean value) {
+			if (!value) {
+				this.err = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case SUCCESS:
+				if (value == null) {
+					unsetSuccess();
+				}
+				else {
+					setSuccess((WalletExpire) value);
+				}
+				break;
+
+			case ERR:
+				if (value == null) {
+					unsetErr();
+				}
+				else {
+					setErr((com.suboat.contrib.rpc.base.Error) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case SUCCESS:
+				return getSuccess();
+
+			case ERR:
+				return getErr();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case SUCCESS:
+				return isSetSuccess();
+			case ERR:
+				return isSetErr();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof getWalletExpire_result)
+				return this.equals((getWalletExpire_result) that);
+			return false;
+		}
+
+		public boolean equals(getWalletExpire_result that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_success = true && this.isSetSuccess();
+			boolean that_present_success = true && that.isSetSuccess();
+			if (this_present_success || that_present_success) {
+				if (!(this_present_success && that_present_success))
+					return false;
+				if (!this.success.equals(that.success))
+					return false;
+			}
+
+			boolean this_present_err = true && this.isSetErr();
+			boolean that_present_err = true && that.isSetErr();
+			if (this_present_err || that_present_err) {
+				if (!(this_present_err && that_present_err))
+					return false;
+				if (!this.err.equals(that.err))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetSuccess()) ? 131071 : 524287);
+			if (isSetSuccess())
+				hashCode = hashCode * 8191 + success.hashCode();
+
+			hashCode = hashCode * 8191 + ((isSetErr()) ? 131071 : 524287);
+			if (isSetErr())
+				hashCode = hashCode * 8191 + err.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(getWalletExpire_result other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetSuccess()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			lastComparison = java.lang.Boolean.valueOf(isSetErr()).compareTo(other.isSetErr());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetErr()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.err, other.err);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("getWalletExpire_result(");
+			boolean first = true;
+
+			sb.append("success:");
+			if (this.success == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.success);
+			}
+			first = false;
+			if (!first)
+				sb.append(", ");
+			sb.append("err:");
+			if (this.err == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.err);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+			if (success != null) {
+				success.validate();
+			}
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class getWalletExpire_resultStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getWalletExpire_resultStandardScheme getScheme() {
+				return new getWalletExpire_resultStandardScheme();
+			}
+
+		}
+
+		private static class getWalletExpire_resultStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<getWalletExpire_result> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, getWalletExpire_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 0: // SUCCESS
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.success = new WalletExpire();
+							struct.success.read(iprot);
+							struct.setSuccessIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					case 1: // ERR
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.err = new com.suboat.contrib.rpc.base.Error();
+							struct.err.read(iprot);
+							struct.setErrIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, getWalletExpire_result struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.success != null) {
+					oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+					struct.success.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				if (struct.err != null) {
+					oprot.writeFieldBegin(ERR_FIELD_DESC);
+					struct.err.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class getWalletExpire_resultTupleSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getWalletExpire_resultTupleScheme getScheme() {
+				return new getWalletExpire_resultTupleScheme();
+			}
+
+		}
+
+		private static class getWalletExpire_resultTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<getWalletExpire_result> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, getWalletExpire_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetSuccess()) {
+					optionals.set(0);
+				}
+				if (struct.isSetErr()) {
+					optionals.set(1);
+				}
+				oprot.writeBitSet(optionals, 2);
+				if (struct.isSetSuccess()) {
+					struct.success.write(oprot);
+				}
+				if (struct.isSetErr()) {
+					struct.err.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, getWalletExpire_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(2);
+				if (incoming.get(0)) {
+					struct.success = new WalletExpire();
+					struct.success.read(iprot);
+					struct.setSuccessIsSet(true);
+				}
+				if (incoming.get(1)) {
+					struct.err = new com.suboat.contrib.rpc.base.Error();
+					struct.err.read(iprot);
+					struct.setErrIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
 	public static class getWalletList_args
 			implements org.apache.thrift.TBase<getWalletList_args, getWalletList_args._Fields>, java.io.Serializable,
 			Cloneable, Comparable<getWalletList_args> {
@@ -15286,6 +16819,962 @@ public class WalletService {
 
 	}
 
+	public static class getWalletExpireList_args
+			implements org.apache.thrift.TBase<getWalletExpireList_args, getWalletExpireList_args._Fields>,
+			java.io.Serializable, Cloneable, Comparable<getWalletExpireList_args> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"getWalletExpireList_args");
+
+		private static final org.apache.thrift.protocol.TField QUERY_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"query", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getWalletExpireList_argsStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getWalletExpireList_argsTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.ArgQuery query; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			QUERY((short) 1, "query");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 1: // QUERY
+					return QUERY;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.QUERY,
+					new org.apache.thrift.meta_data.FieldMetaData("query",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									com.suboat.contrib.rpc.base.ArgQuery.class)));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getWalletExpireList_args.class, metaDataMap);
+		}
+
+		public getWalletExpireList_args() {
+		}
+
+		public getWalletExpireList_args(com.suboat.contrib.rpc.base.ArgQuery query) {
+			this();
+			this.query = query;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public getWalletExpireList_args(getWalletExpireList_args other) {
+			if (other.isSetQuery()) {
+				this.query = new com.suboat.contrib.rpc.base.ArgQuery(other.query);
+			}
+		}
+
+		public getWalletExpireList_args deepCopy() {
+			return new getWalletExpireList_args(this);
+		}
+
+		@Override
+		public void clear() {
+			this.query = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public com.suboat.contrib.rpc.base.ArgQuery getQuery() {
+			return this.query;
+		}
+
+		public getWalletExpireList_args setQuery(
+				@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.ArgQuery query) {
+			this.query = query;
+			return this;
+		}
+
+		public void unsetQuery() {
+			this.query = null;
+		}
+
+		/**
+		 * Returns true if field query is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetQuery() {
+			return this.query != null;
+		}
+
+		public void setQueryIsSet(boolean value) {
+			if (!value) {
+				this.query = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case QUERY:
+				if (value == null) {
+					unsetQuery();
+				}
+				else {
+					setQuery((com.suboat.contrib.rpc.base.ArgQuery) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case QUERY:
+				return getQuery();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case QUERY:
+				return isSetQuery();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof getWalletExpireList_args)
+				return this.equals((getWalletExpireList_args) that);
+			return false;
+		}
+
+		public boolean equals(getWalletExpireList_args that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_query = true && this.isSetQuery();
+			boolean that_present_query = true && that.isSetQuery();
+			if (this_present_query || that_present_query) {
+				if (!(this_present_query && that_present_query))
+					return false;
+				if (!this.query.equals(that.query))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetQuery()) ? 131071 : 524287);
+			if (isSetQuery())
+				hashCode = hashCode * 8191 + query.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(getWalletExpireList_args other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetQuery()).compareTo(other.isSetQuery());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetQuery()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.query, other.query);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("getWalletExpireList_args(");
+			boolean first = true;
+
+			sb.append("query:");
+			if (this.query == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.query);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+			if (query != null) {
+				query.validate();
+			}
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class getWalletExpireList_argsStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getWalletExpireList_argsStandardScheme getScheme() {
+				return new getWalletExpireList_argsStandardScheme();
+			}
+
+		}
+
+		private static class getWalletExpireList_argsStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<getWalletExpireList_args> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, getWalletExpireList_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 1: // QUERY
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.query = new com.suboat.contrib.rpc.base.ArgQuery();
+							struct.query.read(iprot);
+							struct.setQueryIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, getWalletExpireList_args struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.query != null) {
+					oprot.writeFieldBegin(QUERY_FIELD_DESC);
+					struct.query.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class getWalletExpireList_argsTupleSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getWalletExpireList_argsTupleScheme getScheme() {
+				return new getWalletExpireList_argsTupleScheme();
+			}
+
+		}
+
+		private static class getWalletExpireList_argsTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<getWalletExpireList_args> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, getWalletExpireList_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetQuery()) {
+					optionals.set(0);
+				}
+				oprot.writeBitSet(optionals, 1);
+				if (struct.isSetQuery()) {
+					struct.query.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, getWalletExpireList_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(1);
+				if (incoming.get(0)) {
+					struct.query = new com.suboat.contrib.rpc.base.ArgQuery();
+					struct.query.read(iprot);
+					struct.setQueryIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
+	public static class getWalletExpireList_result
+			implements org.apache.thrift.TBase<getWalletExpireList_result, getWalletExpireList_result._Fields>,
+			java.io.Serializable, Cloneable, Comparable<getWalletExpireList_result> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"getWalletExpireList_result");
+
+		private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"success", org.apache.thrift.protocol.TType.STRUCT, (short) 0);
+
+		private static final org.apache.thrift.protocol.TField ERR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"err", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getWalletExpireList_resultStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getWalletExpireList_resultTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable ResultWalletExpire success; // required
+
+		public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			SUCCESS((short) 0, "success"), ERR((short) 1, "err");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 0: // SUCCESS
+					return SUCCESS;
+				case 1: // ERR
+					return ERR;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.SUCCESS,
+					new org.apache.thrift.meta_data.FieldMetaData("success",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									ResultWalletExpire.class)));
+			tmpMap.put(_Fields.ERR,
+					new org.apache.thrift.meta_data.FieldMetaData("err",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									com.suboat.contrib.rpc.base.Error.class)));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getWalletExpireList_result.class,
+					metaDataMap);
+		}
+
+		public getWalletExpireList_result() {
+		}
+
+		public getWalletExpireList_result(ResultWalletExpire success, com.suboat.contrib.rpc.base.Error err) {
+			this();
+			this.success = success;
+			this.err = err;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public getWalletExpireList_result(getWalletExpireList_result other) {
+			if (other.isSetSuccess()) {
+				this.success = new ResultWalletExpire(other.success);
+			}
+			if (other.isSetErr()) {
+				this.err = new com.suboat.contrib.rpc.base.Error(other.err);
+			}
+		}
+
+		public getWalletExpireList_result deepCopy() {
+			return new getWalletExpireList_result(this);
+		}
+
+		@Override
+		public void clear() {
+			this.success = null;
+			this.err = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public ResultWalletExpire getSuccess() {
+			return this.success;
+		}
+
+		public getWalletExpireList_result setSuccess(
+				@org.apache.thrift.annotation.Nullable ResultWalletExpire success) {
+			this.success = success;
+			return this;
+		}
+
+		public void unsetSuccess() {
+			this.success = null;
+		}
+
+		/**
+		 * Returns true if field success is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetSuccess() {
+			return this.success != null;
+		}
+
+		public void setSuccessIsSet(boolean value) {
+			if (!value) {
+				this.success = null;
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public com.suboat.contrib.rpc.base.Error getErr() {
+			return this.err;
+		}
+
+		public getWalletExpireList_result setErr(
+				@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err) {
+			this.err = err;
+			return this;
+		}
+
+		public void unsetErr() {
+			this.err = null;
+		}
+
+		/**
+		 * Returns true if field err is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetErr() {
+			return this.err != null;
+		}
+
+		public void setErrIsSet(boolean value) {
+			if (!value) {
+				this.err = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case SUCCESS:
+				if (value == null) {
+					unsetSuccess();
+				}
+				else {
+					setSuccess((ResultWalletExpire) value);
+				}
+				break;
+
+			case ERR:
+				if (value == null) {
+					unsetErr();
+				}
+				else {
+					setErr((com.suboat.contrib.rpc.base.Error) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case SUCCESS:
+				return getSuccess();
+
+			case ERR:
+				return getErr();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case SUCCESS:
+				return isSetSuccess();
+			case ERR:
+				return isSetErr();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof getWalletExpireList_result)
+				return this.equals((getWalletExpireList_result) that);
+			return false;
+		}
+
+		public boolean equals(getWalletExpireList_result that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_success = true && this.isSetSuccess();
+			boolean that_present_success = true && that.isSetSuccess();
+			if (this_present_success || that_present_success) {
+				if (!(this_present_success && that_present_success))
+					return false;
+				if (!this.success.equals(that.success))
+					return false;
+			}
+
+			boolean this_present_err = true && this.isSetErr();
+			boolean that_present_err = true && that.isSetErr();
+			if (this_present_err || that_present_err) {
+				if (!(this_present_err && that_present_err))
+					return false;
+				if (!this.err.equals(that.err))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetSuccess()) ? 131071 : 524287);
+			if (isSetSuccess())
+				hashCode = hashCode * 8191 + success.hashCode();
+
+			hashCode = hashCode * 8191 + ((isSetErr()) ? 131071 : 524287);
+			if (isSetErr())
+				hashCode = hashCode * 8191 + err.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(getWalletExpireList_result other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetSuccess()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			lastComparison = java.lang.Boolean.valueOf(isSetErr()).compareTo(other.isSetErr());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetErr()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.err, other.err);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("getWalletExpireList_result(");
+			boolean first = true;
+
+			sb.append("success:");
+			if (this.success == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.success);
+			}
+			first = false;
+			if (!first)
+				sb.append(", ");
+			sb.append("err:");
+			if (this.err == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.err);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+			if (success != null) {
+				success.validate();
+			}
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class getWalletExpireList_resultStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getWalletExpireList_resultStandardScheme getScheme() {
+				return new getWalletExpireList_resultStandardScheme();
+			}
+
+		}
+
+		private static class getWalletExpireList_resultStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<getWalletExpireList_result> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, getWalletExpireList_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 0: // SUCCESS
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.success = new ResultWalletExpire();
+							struct.success.read(iprot);
+							struct.setSuccessIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					case 1: // ERR
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.err = new com.suboat.contrib.rpc.base.Error();
+							struct.err.read(iprot);
+							struct.setErrIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, getWalletExpireList_result struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.success != null) {
+					oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+					struct.success.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				if (struct.err != null) {
+					oprot.writeFieldBegin(ERR_FIELD_DESC);
+					struct.err.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class getWalletExpireList_resultTupleSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getWalletExpireList_resultTupleScheme getScheme() {
+				return new getWalletExpireList_resultTupleScheme();
+			}
+
+		}
+
+		private static class getWalletExpireList_resultTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<getWalletExpireList_result> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, getWalletExpireList_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetSuccess()) {
+					optionals.set(0);
+				}
+				if (struct.isSetErr()) {
+					optionals.set(1);
+				}
+				oprot.writeBitSet(optionals, 2);
+				if (struct.isSetSuccess()) {
+					struct.success.write(oprot);
+				}
+				if (struct.isSetErr()) {
+					struct.err.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, getWalletExpireList_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(2);
+				if (incoming.get(0)) {
+					struct.success = new ResultWalletExpire();
+					struct.success.read(iprot);
+					struct.setSuccessIsSet(true);
+				}
+				if (incoming.get(1)) {
+					struct.err = new com.suboat.contrib.rpc.base.Error();
+					struct.err.read(iprot);
+					struct.setErrIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
 	public static class execWalletFlow_args
 			implements org.apache.thrift.TBase<execWalletFlow_args, execWalletFlow_args._Fields>, java.io.Serializable,
 			Cloneable, Comparable<execWalletFlow_args> {
@@ -16591,14 +19080,14 @@ public class WalletService {
 					case 1: // FORM_LIST
 						if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 							{
-								org.apache.thrift.protocol.TList _list56 = iprot.readListBegin();
-								struct.formList = new java.util.ArrayList<ArgUnfreeze>(_list56.size);
+								org.apache.thrift.protocol.TList _list64 = iprot.readListBegin();
+								struct.formList = new java.util.ArrayList<ArgUnfreeze>(_list64.size);
 								@org.apache.thrift.annotation.Nullable
-								ArgUnfreeze _elem57;
-								for (int _i58 = 0; _i58 < _list56.size; ++_i58) {
-									_elem57 = new ArgUnfreeze();
-									_elem57.read(iprot);
-									struct.formList.add(_elem57);
+								ArgUnfreeze _elem65;
+								for (int _i66 = 0; _i66 < _list64.size; ++_i66) {
+									_elem65 = new ArgUnfreeze();
+									_elem65.read(iprot);
+									struct.formList.add(_elem65);
 								}
 								iprot.readListEnd();
 							}
@@ -16630,8 +19119,8 @@ public class WalletService {
 					{
 						oprot.writeListBegin(new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRUCT, struct.formList.size()));
-						for (ArgUnfreeze _iter59 : struct.formList) {
-							_iter59.write(oprot);
+						for (ArgUnfreeze _iter67 : struct.formList) {
+							_iter67.write(oprot);
 						}
 						oprot.writeListEnd();
 					}
@@ -16667,8 +19156,8 @@ public class WalletService {
 				if (struct.isSetFormList()) {
 					{
 						oprot.writeI32(struct.formList.size());
-						for (ArgUnfreeze _iter60 : struct.formList) {
-							_iter60.write(oprot);
+						for (ArgUnfreeze _iter68 : struct.formList) {
+							_iter68.write(oprot);
 						}
 					}
 				}
@@ -16681,15 +19170,15 @@ public class WalletService {
 				java.util.BitSet incoming = iprot.readBitSet(1);
 				if (incoming.get(0)) {
 					{
-						org.apache.thrift.protocol.TList _list61 = new org.apache.thrift.protocol.TList(
+						org.apache.thrift.protocol.TList _list69 = new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-						struct.formList = new java.util.ArrayList<ArgUnfreeze>(_list61.size);
+						struct.formList = new java.util.ArrayList<ArgUnfreeze>(_list69.size);
 						@org.apache.thrift.annotation.Nullable
-						ArgUnfreeze _elem62;
-						for (int _i63 = 0; _i63 < _list61.size; ++_i63) {
-							_elem62 = new ArgUnfreeze();
-							_elem62.read(iprot);
-							struct.formList.add(_elem62);
+						ArgUnfreeze _elem70;
+						for (int _i71 = 0; _i71 < _list69.size; ++_i71) {
+							_elem70 = new ArgUnfreeze();
+							_elem70.read(iprot);
+							struct.formList.add(_elem70);
 						}
 					}
 					struct.setFormListIsSet(true);
@@ -17153,14 +19642,14 @@ public class WalletService {
 					case 0: // SUCCESS
 						if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 							{
-								org.apache.thrift.protocol.TList _list64 = iprot.readListBegin();
-								struct.success = new java.util.ArrayList<WalletFlow>(_list64.size);
+								org.apache.thrift.protocol.TList _list72 = iprot.readListBegin();
+								struct.success = new java.util.ArrayList<WalletFlow>(_list72.size);
 								@org.apache.thrift.annotation.Nullable
-								WalletFlow _elem65;
-								for (int _i66 = 0; _i66 < _list64.size; ++_i66) {
-									_elem65 = new WalletFlow();
-									_elem65.read(iprot);
-									struct.success.add(_elem65);
+								WalletFlow _elem73;
+								for (int _i74 = 0; _i74 < _list72.size; ++_i74) {
+									_elem73 = new WalletFlow();
+									_elem73.read(iprot);
+									struct.success.add(_elem73);
 								}
 								iprot.readListEnd();
 							}
@@ -17202,8 +19691,8 @@ public class WalletService {
 					{
 						oprot.writeListBegin(new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
-						for (WalletFlow _iter67 : struct.success) {
-							_iter67.write(oprot);
+						for (WalletFlow _iter75 : struct.success) {
+							_iter75.write(oprot);
 						}
 						oprot.writeListEnd();
 					}
@@ -17247,8 +19736,8 @@ public class WalletService {
 				if (struct.isSetSuccess()) {
 					{
 						oprot.writeI32(struct.success.size());
-						for (WalletFlow _iter68 : struct.success) {
-							_iter68.write(oprot);
+						for (WalletFlow _iter76 : struct.success) {
+							_iter76.write(oprot);
 						}
 					}
 				}
@@ -17264,15 +19753,15 @@ public class WalletService {
 				java.util.BitSet incoming = iprot.readBitSet(2);
 				if (incoming.get(0)) {
 					{
-						org.apache.thrift.protocol.TList _list69 = new org.apache.thrift.protocol.TList(
+						org.apache.thrift.protocol.TList _list77 = new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-						struct.success = new java.util.ArrayList<WalletFlow>(_list69.size);
+						struct.success = new java.util.ArrayList<WalletFlow>(_list77.size);
 						@org.apache.thrift.annotation.Nullable
-						WalletFlow _elem70;
-						for (int _i71 = 0; _i71 < _list69.size; ++_i71) {
-							_elem70 = new WalletFlow();
-							_elem70.read(iprot);
-							struct.success.add(_elem70);
+						WalletFlow _elem78;
+						for (int _i79 = 0; _i79 < _list77.size; ++_i79) {
+							_elem78 = new WalletFlow();
+							_elem78.read(iprot);
+							struct.success.add(_elem78);
 						}
 					}
 					struct.setSuccessIsSet(true);
@@ -18158,14 +20647,14 @@ public class WalletService {
 					case 0: // SUCCESS
 						if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 							{
-								org.apache.thrift.protocol.TList _list72 = iprot.readListBegin();
-								struct.success = new java.util.ArrayList<WalletFlow>(_list72.size);
+								org.apache.thrift.protocol.TList _list80 = iprot.readListBegin();
+								struct.success = new java.util.ArrayList<WalletFlow>(_list80.size);
 								@org.apache.thrift.annotation.Nullable
-								WalletFlow _elem73;
-								for (int _i74 = 0; _i74 < _list72.size; ++_i74) {
-									_elem73 = new WalletFlow();
-									_elem73.read(iprot);
-									struct.success.add(_elem73);
+								WalletFlow _elem81;
+								for (int _i82 = 0; _i82 < _list80.size; ++_i82) {
+									_elem81 = new WalletFlow();
+									_elem81.read(iprot);
+									struct.success.add(_elem81);
 								}
 								iprot.readListEnd();
 							}
@@ -18207,8 +20696,8 @@ public class WalletService {
 					{
 						oprot.writeListBegin(new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
-						for (WalletFlow _iter75 : struct.success) {
-							_iter75.write(oprot);
+						for (WalletFlow _iter83 : struct.success) {
+							_iter83.write(oprot);
 						}
 						oprot.writeListEnd();
 					}
@@ -18252,8 +20741,8 @@ public class WalletService {
 				if (struct.isSetSuccess()) {
 					{
 						oprot.writeI32(struct.success.size());
-						for (WalletFlow _iter76 : struct.success) {
-							_iter76.write(oprot);
+						for (WalletFlow _iter84 : struct.success) {
+							_iter84.write(oprot);
 						}
 					}
 				}
@@ -18269,15 +20758,15 @@ public class WalletService {
 				java.util.BitSet incoming = iprot.readBitSet(2);
 				if (incoming.get(0)) {
 					{
-						org.apache.thrift.protocol.TList _list77 = new org.apache.thrift.protocol.TList(
+						org.apache.thrift.protocol.TList _list85 = new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-						struct.success = new java.util.ArrayList<WalletFlow>(_list77.size);
+						struct.success = new java.util.ArrayList<WalletFlow>(_list85.size);
 						@org.apache.thrift.annotation.Nullable
-						WalletFlow _elem78;
-						for (int _i79 = 0; _i79 < _list77.size; ++_i79) {
-							_elem78 = new WalletFlow();
-							_elem78.read(iprot);
-							struct.success.add(_elem78);
+						WalletFlow _elem86;
+						for (int _i87 = 0; _i87 < _list85.size; ++_i87) {
+							_elem86 = new WalletFlow();
+							_elem86.read(iprot);
+							struct.success.add(_elem86);
 						}
 					}
 					struct.setSuccessIsSet(true);
@@ -19607,13 +22096,13 @@ public class WalletService {
 					case 1: // ACC_LIST
 						if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 							{
-								org.apache.thrift.protocol.TList _list80 = iprot.readListBegin();
-								struct.accList = new java.util.ArrayList<java.lang.String>(_list80.size);
+								org.apache.thrift.protocol.TList _list88 = iprot.readListBegin();
+								struct.accList = new java.util.ArrayList<java.lang.String>(_list88.size);
 								@org.apache.thrift.annotation.Nullable
-								java.lang.String _elem81;
-								for (int _i82 = 0; _i82 < _list80.size; ++_i82) {
-									_elem81 = iprot.readString();
-									struct.accList.add(_elem81);
+								java.lang.String _elem89;
+								for (int _i90 = 0; _i90 < _list88.size; ++_i90) {
+									_elem89 = iprot.readString();
+									struct.accList.add(_elem89);
 								}
 								iprot.readListEnd();
 							}
@@ -19645,8 +22134,8 @@ public class WalletService {
 					{
 						oprot.writeListBegin(new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRING, struct.accList.size()));
-						for (java.lang.String _iter83 : struct.accList) {
-							oprot.writeString(_iter83);
+						for (java.lang.String _iter91 : struct.accList) {
+							oprot.writeString(_iter91);
 						}
 						oprot.writeListEnd();
 					}
@@ -19682,8 +22171,8 @@ public class WalletService {
 				if (struct.isSetAccList()) {
 					{
 						oprot.writeI32(struct.accList.size());
-						for (java.lang.String _iter84 : struct.accList) {
-							oprot.writeString(_iter84);
+						for (java.lang.String _iter92 : struct.accList) {
+							oprot.writeString(_iter92);
 						}
 					}
 				}
@@ -19696,14 +22185,14 @@ public class WalletService {
 				java.util.BitSet incoming = iprot.readBitSet(1);
 				if (incoming.get(0)) {
 					{
-						org.apache.thrift.protocol.TList _list85 = new org.apache.thrift.protocol.TList(
+						org.apache.thrift.protocol.TList _list93 = new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-						struct.accList = new java.util.ArrayList<java.lang.String>(_list85.size);
+						struct.accList = new java.util.ArrayList<java.lang.String>(_list93.size);
 						@org.apache.thrift.annotation.Nullable
-						java.lang.String _elem86;
-						for (int _i87 = 0; _i87 < _list85.size; ++_i87) {
-							_elem86 = iprot.readString();
-							struct.accList.add(_elem86);
+						java.lang.String _elem94;
+						for (int _i95 = 0; _i95 < _list93.size; ++_i95) {
+							_elem94 = iprot.readString();
+							struct.accList.add(_elem94);
 						}
 					}
 					struct.setAccListIsSet(true);
@@ -20168,14 +22657,14 @@ public class WalletService {
 					case 0: // SUCCESS
 						if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 							{
-								org.apache.thrift.protocol.TList _list88 = iprot.readListBegin();
-								struct.success = new java.util.ArrayList<WalletFlowFuture>(_list88.size);
+								org.apache.thrift.protocol.TList _list96 = iprot.readListBegin();
+								struct.success = new java.util.ArrayList<WalletFlowFuture>(_list96.size);
 								@org.apache.thrift.annotation.Nullable
-								WalletFlowFuture _elem89;
-								for (int _i90 = 0; _i90 < _list88.size; ++_i90) {
-									_elem89 = new WalletFlowFuture();
-									_elem89.read(iprot);
-									struct.success.add(_elem89);
+								WalletFlowFuture _elem97;
+								for (int _i98 = 0; _i98 < _list96.size; ++_i98) {
+									_elem97 = new WalletFlowFuture();
+									_elem97.read(iprot);
+									struct.success.add(_elem97);
 								}
 								iprot.readListEnd();
 							}
@@ -20217,8 +22706,8 @@ public class WalletService {
 					{
 						oprot.writeListBegin(new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
-						for (WalletFlowFuture _iter91 : struct.success) {
-							_iter91.write(oprot);
+						for (WalletFlowFuture _iter99 : struct.success) {
+							_iter99.write(oprot);
 						}
 						oprot.writeListEnd();
 					}
@@ -20262,8 +22751,8 @@ public class WalletService {
 				if (struct.isSetSuccess()) {
 					{
 						oprot.writeI32(struct.success.size());
-						for (WalletFlowFuture _iter92 : struct.success) {
-							_iter92.write(oprot);
+						for (WalletFlowFuture _iter100 : struct.success) {
+							_iter100.write(oprot);
 						}
 					}
 				}
@@ -20279,15 +22768,1022 @@ public class WalletService {
 				java.util.BitSet incoming = iprot.readBitSet(2);
 				if (incoming.get(0)) {
 					{
-						org.apache.thrift.protocol.TList _list93 = new org.apache.thrift.protocol.TList(
+						org.apache.thrift.protocol.TList _list101 = new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-						struct.success = new java.util.ArrayList<WalletFlowFuture>(_list93.size);
+						struct.success = new java.util.ArrayList<WalletFlowFuture>(_list101.size);
 						@org.apache.thrift.annotation.Nullable
-						WalletFlowFuture _elem94;
-						for (int _i95 = 0; _i95 < _list93.size; ++_i95) {
-							_elem94 = new WalletFlowFuture();
-							_elem94.read(iprot);
-							struct.success.add(_elem94);
+						WalletFlowFuture _elem102;
+						for (int _i103 = 0; _i103 < _list101.size; ++_i103) {
+							_elem102 = new WalletFlowFuture();
+							_elem102.read(iprot);
+							struct.success.add(_elem102);
+						}
+					}
+					struct.setSuccessIsSet(true);
+				}
+				if (incoming.get(1)) {
+					struct.err = new com.suboat.contrib.rpc.base.Error();
+					struct.err.read(iprot);
+					struct.setErrIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
+	public static class getWalletExpireArray_args
+			implements org.apache.thrift.TBase<getWalletExpireArray_args, getWalletExpireArray_args._Fields>,
+			java.io.Serializable, Cloneable, Comparable<getWalletExpireArray_args> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"getWalletExpireArray_args");
+
+		private static final org.apache.thrift.protocol.TField FORM_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"form", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getWalletExpireArray_argsStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getWalletExpireArray_argsTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable ArgWalletExpire form; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			FORM((short) 1, "form");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 1: // FORM
+					return FORM;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.FORM,
+					new org.apache.thrift.meta_data.FieldMetaData("form",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									ArgWalletExpire.class)));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getWalletExpireArray_args.class,
+					metaDataMap);
+		}
+
+		public getWalletExpireArray_args() {
+		}
+
+		public getWalletExpireArray_args(ArgWalletExpire form) {
+			this();
+			this.form = form;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public getWalletExpireArray_args(getWalletExpireArray_args other) {
+			if (other.isSetForm()) {
+				this.form = new ArgWalletExpire(other.form);
+			}
+		}
+
+		public getWalletExpireArray_args deepCopy() {
+			return new getWalletExpireArray_args(this);
+		}
+
+		@Override
+		public void clear() {
+			this.form = null;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public ArgWalletExpire getForm() {
+			return this.form;
+		}
+
+		public getWalletExpireArray_args setForm(@org.apache.thrift.annotation.Nullable ArgWalletExpire form) {
+			this.form = form;
+			return this;
+		}
+
+		public void unsetForm() {
+			this.form = null;
+		}
+
+		/**
+		 * Returns true if field form is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetForm() {
+			return this.form != null;
+		}
+
+		public void setFormIsSet(boolean value) {
+			if (!value) {
+				this.form = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case FORM:
+				if (value == null) {
+					unsetForm();
+				}
+				else {
+					setForm((ArgWalletExpire) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case FORM:
+				return getForm();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case FORM:
+				return isSetForm();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof getWalletExpireArray_args)
+				return this.equals((getWalletExpireArray_args) that);
+			return false;
+		}
+
+		public boolean equals(getWalletExpireArray_args that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_form = true && this.isSetForm();
+			boolean that_present_form = true && that.isSetForm();
+			if (this_present_form || that_present_form) {
+				if (!(this_present_form && that_present_form))
+					return false;
+				if (!this.form.equals(that.form))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetForm()) ? 131071 : 524287);
+			if (isSetForm())
+				hashCode = hashCode * 8191 + form.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(getWalletExpireArray_args other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetForm()).compareTo(other.isSetForm());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetForm()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.form, other.form);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("getWalletExpireArray_args(");
+			boolean first = true;
+
+			sb.append("form:");
+			if (this.form == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.form);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+			if (form != null) {
+				form.validate();
+			}
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class getWalletExpireArray_argsStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getWalletExpireArray_argsStandardScheme getScheme() {
+				return new getWalletExpireArray_argsStandardScheme();
+			}
+
+		}
+
+		private static class getWalletExpireArray_argsStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<getWalletExpireArray_args> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, getWalletExpireArray_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 1: // FORM
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.form = new ArgWalletExpire();
+							struct.form.read(iprot);
+							struct.setFormIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, getWalletExpireArray_args struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.form != null) {
+					oprot.writeFieldBegin(FORM_FIELD_DESC);
+					struct.form.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class getWalletExpireArray_argsTupleSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getWalletExpireArray_argsTupleScheme getScheme() {
+				return new getWalletExpireArray_argsTupleScheme();
+			}
+
+		}
+
+		private static class getWalletExpireArray_argsTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<getWalletExpireArray_args> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, getWalletExpireArray_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetForm()) {
+					optionals.set(0);
+				}
+				oprot.writeBitSet(optionals, 1);
+				if (struct.isSetForm()) {
+					struct.form.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, getWalletExpireArray_args struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(1);
+				if (incoming.get(0)) {
+					struct.form = new ArgWalletExpire();
+					struct.form.read(iprot);
+					struct.setFormIsSet(true);
+				}
+			}
+
+		}
+
+		private static <S extends org.apache.thrift.scheme.IScheme> S scheme(
+				org.apache.thrift.protocol.TProtocol proto) {
+			return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY
+					: TUPLE_SCHEME_FACTORY).getScheme();
+		}
+
+	}
+
+	public static class getWalletExpireArray_result
+			implements org.apache.thrift.TBase<getWalletExpireArray_result, getWalletExpireArray_result._Fields>,
+			java.io.Serializable, Cloneable, Comparable<getWalletExpireArray_result> {
+
+		private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
+				"getWalletExpireArray_result");
+
+		private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"success", org.apache.thrift.protocol.TType.LIST, (short) 0);
+
+		private static final org.apache.thrift.protocol.TField ERR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+				"err", org.apache.thrift.protocol.TType.STRUCT, (short) 1);
+
+		private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getWalletExpireArray_resultStandardSchemeFactory();
+
+		private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getWalletExpireArray_resultTupleSchemeFactory();
+
+		public @org.apache.thrift.annotation.Nullable java.util.List<WalletExpire> success; // required
+
+		public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err; // required
+
+		/**
+		 * The set of fields this struct contains, along with convenience methods for
+		 * finding and manipulating them.
+		 */
+		public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+
+			SUCCESS((short) 0, "success"), ERR((short) 1, "err");
+
+			private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
+
+			static {
+				for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+					byName.put(field.getFieldName(), field);
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByThriftId(int fieldId) {
+				switch (fieldId) {
+				case 0: // SUCCESS
+					return SUCCESS;
+				case 1: // ERR
+					return ERR;
+				default:
+					return null;
+				}
+			}
+
+			/**
+			 * Find the _Fields constant that matches fieldId, throwing an exception if it
+			 * is not found.
+			 */
+			public static _Fields findByThriftIdOrThrow(int fieldId) {
+				_Fields fields = findByThriftId(fieldId);
+				if (fields == null)
+					throw new java.lang.IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+				return fields;
+			}
+
+			/**
+			 * Find the _Fields constant that matches name, or null if its not found.
+			 */
+			@org.apache.thrift.annotation.Nullable
+			public static _Fields findByName(java.lang.String name) {
+				return byName.get(name);
+			}
+
+			private final short _thriftId;
+
+			private final java.lang.String _fieldName;
+
+			_Fields(short thriftId, java.lang.String fieldName) {
+				_thriftId = thriftId;
+				_fieldName = fieldName;
+			}
+
+			public short getThriftFieldId() {
+				return _thriftId;
+			}
+
+			public java.lang.String getFieldName() {
+				return _fieldName;
+			}
+
+		}
+
+		// isset id assignments
+		public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+		static {
+			java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(
+					_Fields.class);
+			tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success",
+					org.apache.thrift.TFieldRequirementType.DEFAULT,
+					new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									WalletExpire.class))));
+			tmpMap.put(_Fields.ERR,
+					new org.apache.thrift.meta_data.FieldMetaData("err",
+							org.apache.thrift.TFieldRequirementType.DEFAULT,
+							new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
+									com.suboat.contrib.rpc.base.Error.class)));
+			metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+			org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getWalletExpireArray_result.class,
+					metaDataMap);
+		}
+
+		public getWalletExpireArray_result() {
+		}
+
+		public getWalletExpireArray_result(java.util.List<WalletExpire> success,
+				com.suboat.contrib.rpc.base.Error err) {
+			this();
+			this.success = success;
+			this.err = err;
+		}
+
+		/**
+		 * Performs a deep copy on <i>other</i>.
+		 */
+		public getWalletExpireArray_result(getWalletExpireArray_result other) {
+			if (other.isSetSuccess()) {
+				java.util.List<WalletExpire> __this__success = new java.util.ArrayList<WalletExpire>(
+						other.success.size());
+				for (WalletExpire other_element : other.success) {
+					__this__success.add(new WalletExpire(other_element));
+				}
+				this.success = __this__success;
+			}
+			if (other.isSetErr()) {
+				this.err = new com.suboat.contrib.rpc.base.Error(other.err);
+			}
+		}
+
+		public getWalletExpireArray_result deepCopy() {
+			return new getWalletExpireArray_result(this);
+		}
+
+		@Override
+		public void clear() {
+			this.success = null;
+			this.err = null;
+		}
+
+		public int getSuccessSize() {
+			return (this.success == null) ? 0 : this.success.size();
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.util.Iterator<WalletExpire> getSuccessIterator() {
+			return (this.success == null) ? null : this.success.iterator();
+		}
+
+		public void addToSuccess(WalletExpire elem) {
+			if (this.success == null) {
+				this.success = new java.util.ArrayList<WalletExpire>();
+			}
+			this.success.add(elem);
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.util.List<WalletExpire> getSuccess() {
+			return this.success;
+		}
+
+		public getWalletExpireArray_result setSuccess(
+				@org.apache.thrift.annotation.Nullable java.util.List<WalletExpire> success) {
+			this.success = success;
+			return this;
+		}
+
+		public void unsetSuccess() {
+			this.success = null;
+		}
+
+		/**
+		 * Returns true if field success is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetSuccess() {
+			return this.success != null;
+		}
+
+		public void setSuccessIsSet(boolean value) {
+			if (!value) {
+				this.success = null;
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public com.suboat.contrib.rpc.base.Error getErr() {
+			return this.err;
+		}
+
+		public getWalletExpireArray_result setErr(
+				@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.Error err) {
+			this.err = err;
+			return this;
+		}
+
+		public void unsetErr() {
+			this.err = null;
+		}
+
+		/**
+		 * Returns true if field err is set (has been assigned a value) and false
+		 * otherwise
+		 */
+		public boolean isSetErr() {
+			return this.err != null;
+		}
+
+		public void setErrIsSet(boolean value) {
+			if (!value) {
+				this.err = null;
+			}
+		}
+
+		public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
+			switch (field) {
+			case SUCCESS:
+				if (value == null) {
+					unsetSuccess();
+				}
+				else {
+					setSuccess((java.util.List<WalletExpire>) value);
+				}
+				break;
+
+			case ERR:
+				if (value == null) {
+					unsetErr();
+				}
+				else {
+					setErr((com.suboat.contrib.rpc.base.Error) value);
+				}
+				break;
+
+			}
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public java.lang.Object getFieldValue(_Fields field) {
+			switch (field) {
+			case SUCCESS:
+				return getSuccess();
+
+			case ERR:
+				return getErr();
+
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		/**
+		 * Returns true if field corresponding to fieldID is set (has been assigned a
+		 * value) and false otherwise
+		 */
+		public boolean isSet(_Fields field) {
+			if (field == null) {
+				throw new java.lang.IllegalArgumentException();
+			}
+
+			switch (field) {
+			case SUCCESS:
+				return isSetSuccess();
+			case ERR:
+				return isSetErr();
+			}
+			throw new java.lang.IllegalStateException();
+		}
+
+		@Override
+		public boolean equals(java.lang.Object that) {
+			if (that == null)
+				return false;
+			if (that instanceof getWalletExpireArray_result)
+				return this.equals((getWalletExpireArray_result) that);
+			return false;
+		}
+
+		public boolean equals(getWalletExpireArray_result that) {
+			if (that == null)
+				return false;
+			if (this == that)
+				return true;
+
+			boolean this_present_success = true && this.isSetSuccess();
+			boolean that_present_success = true && that.isSetSuccess();
+			if (this_present_success || that_present_success) {
+				if (!(this_present_success && that_present_success))
+					return false;
+				if (!this.success.equals(that.success))
+					return false;
+			}
+
+			boolean this_present_err = true && this.isSetErr();
+			boolean that_present_err = true && that.isSetErr();
+			if (this_present_err || that_present_err) {
+				if (!(this_present_err && that_present_err))
+					return false;
+				if (!this.err.equals(that.err))
+					return false;
+			}
+
+			return true;
+		}
+
+		@Override
+		public int hashCode() {
+			int hashCode = 1;
+
+			hashCode = hashCode * 8191 + ((isSetSuccess()) ? 131071 : 524287);
+			if (isSetSuccess())
+				hashCode = hashCode * 8191 + success.hashCode();
+
+			hashCode = hashCode * 8191 + ((isSetErr()) ? 131071 : 524287);
+			if (isSetErr())
+				hashCode = hashCode * 8191 + err.hashCode();
+
+			return hashCode;
+		}
+
+		@Override
+		public int compareTo(getWalletExpireArray_result other) {
+			if (!getClass().equals(other.getClass())) {
+				return getClass().getName().compareTo(other.getClass().getName());
+			}
+
+			int lastComparison = 0;
+
+			lastComparison = java.lang.Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetSuccess()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			lastComparison = java.lang.Boolean.valueOf(isSetErr()).compareTo(other.isSetErr());
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+			if (isSetErr()) {
+				lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.err, other.err);
+				if (lastComparison != 0) {
+					return lastComparison;
+				}
+			}
+			return 0;
+		}
+
+		@org.apache.thrift.annotation.Nullable
+		public _Fields fieldForId(int fieldId) {
+			return _Fields.findByThriftId(fieldId);
+		}
+
+		public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+			scheme(iprot).read(iprot, this);
+		}
+
+		public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+			scheme(oprot).write(oprot, this);
+		}
+
+		@Override
+		public java.lang.String toString() {
+			java.lang.StringBuilder sb = new java.lang.StringBuilder("getWalletExpireArray_result(");
+			boolean first = true;
+
+			sb.append("success:");
+			if (this.success == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.success);
+			}
+			first = false;
+			if (!first)
+				sb.append(", ");
+			sb.append("err:");
+			if (this.err == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.err);
+			}
+			first = false;
+			sb.append(")");
+			return sb.toString();
+		}
+
+		public void validate() throws org.apache.thrift.TException {
+			// check for required fields
+			// check for sub-struct validity
+		}
+
+		private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+			try {
+				write(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(out)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private void readObject(java.io.ObjectInputStream in)
+				throws java.io.IOException, java.lang.ClassNotFoundException {
+			try {
+				read(new org.apache.thrift.protocol.TCompactProtocol(
+						new org.apache.thrift.transport.TIOStreamTransport(in)));
+			}
+			catch (org.apache.thrift.TException te) {
+				throw new java.io.IOException(te);
+			}
+		}
+
+		private static class getWalletExpireArray_resultStandardSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getWalletExpireArray_resultStandardScheme getScheme() {
+				return new getWalletExpireArray_resultStandardScheme();
+			}
+
+		}
+
+		private static class getWalletExpireArray_resultStandardScheme
+				extends org.apache.thrift.scheme.StandardScheme<getWalletExpireArray_result> {
+
+			public void read(org.apache.thrift.protocol.TProtocol iprot, getWalletExpireArray_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TField schemeField;
+				iprot.readStructBegin();
+				while (true) {
+					schemeField = iprot.readFieldBegin();
+					if (schemeField.type == org.apache.thrift.protocol.TType.STOP) {
+						break;
+					}
+					switch (schemeField.id) {
+					case 0: // SUCCESS
+						if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+							{
+								org.apache.thrift.protocol.TList _list104 = iprot.readListBegin();
+								struct.success = new java.util.ArrayList<WalletExpire>(_list104.size);
+								@org.apache.thrift.annotation.Nullable
+								WalletExpire _elem105;
+								for (int _i106 = 0; _i106 < _list104.size; ++_i106) {
+									_elem105 = new WalletExpire();
+									_elem105.read(iprot);
+									struct.success.add(_elem105);
+								}
+								iprot.readListEnd();
+							}
+							struct.setSuccessIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					case 1: // ERR
+						if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+							struct.err = new com.suboat.contrib.rpc.base.Error();
+							struct.err.read(iprot);
+							struct.setErrIsSet(true);
+						}
+						else {
+							org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+						}
+						break;
+					default:
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					iprot.readFieldEnd();
+				}
+				iprot.readStructEnd();
+
+				// check for required fields of primitive type, which can't be checked in
+				// the validate method
+				struct.validate();
+			}
+
+			public void write(org.apache.thrift.protocol.TProtocol oprot, getWalletExpireArray_result struct)
+					throws org.apache.thrift.TException {
+				struct.validate();
+
+				oprot.writeStructBegin(STRUCT_DESC);
+				if (struct.success != null) {
+					oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+					{
+						oprot.writeListBegin(new org.apache.thrift.protocol.TList(
+								org.apache.thrift.protocol.TType.STRUCT, struct.success.size()));
+						for (WalletExpire _iter107 : struct.success) {
+							_iter107.write(oprot);
+						}
+						oprot.writeListEnd();
+					}
+					oprot.writeFieldEnd();
+				}
+				if (struct.err != null) {
+					oprot.writeFieldBegin(ERR_FIELD_DESC);
+					struct.err.write(oprot);
+					oprot.writeFieldEnd();
+				}
+				oprot.writeFieldStop();
+				oprot.writeStructEnd();
+			}
+
+		}
+
+		private static class getWalletExpireArray_resultTupleSchemeFactory
+				implements org.apache.thrift.scheme.SchemeFactory {
+
+			public getWalletExpireArray_resultTupleScheme getScheme() {
+				return new getWalletExpireArray_resultTupleScheme();
+			}
+
+		}
+
+		private static class getWalletExpireArray_resultTupleScheme
+				extends org.apache.thrift.scheme.TupleScheme<getWalletExpireArray_result> {
+
+			@Override
+			public void write(org.apache.thrift.protocol.TProtocol prot, getWalletExpireArray_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet optionals = new java.util.BitSet();
+				if (struct.isSetSuccess()) {
+					optionals.set(0);
+				}
+				if (struct.isSetErr()) {
+					optionals.set(1);
+				}
+				oprot.writeBitSet(optionals, 2);
+				if (struct.isSetSuccess()) {
+					{
+						oprot.writeI32(struct.success.size());
+						for (WalletExpire _iter108 : struct.success) {
+							_iter108.write(oprot);
+						}
+					}
+				}
+				if (struct.isSetErr()) {
+					struct.err.write(oprot);
+				}
+			}
+
+			@Override
+			public void read(org.apache.thrift.protocol.TProtocol prot, getWalletExpireArray_result struct)
+					throws org.apache.thrift.TException {
+				org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+				java.util.BitSet incoming = iprot.readBitSet(2);
+				if (incoming.get(0)) {
+					{
+						org.apache.thrift.protocol.TList _list109 = new org.apache.thrift.protocol.TList(
+								org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
+						struct.success = new java.util.ArrayList<WalletExpire>(_list109.size);
+						@org.apache.thrift.annotation.Nullable
+						WalletExpire _elem110;
+						for (int _i111 = 0; _i111 < _list109.size; ++_i111) {
+							_elem110 = new WalletExpire();
+							_elem110.read(iprot);
+							struct.success.add(_elem110);
 						}
 					}
 					struct.setSuccessIsSet(true);

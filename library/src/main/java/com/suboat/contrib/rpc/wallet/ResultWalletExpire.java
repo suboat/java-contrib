@@ -4,14 +4,17 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package com.suboat.contrib.rpc.mall;
+package com.suboat.contrib.rpc.wallet;
 
 @SuppressWarnings({ "cast", "rawtypes", "serial", "unchecked", "unused" })
-public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUser._Fields>, java.io.Serializable,
-		Cloneable, Comparable<ResultUser> {
+/**
+ * 接口返回: 钱包余额过期统计列表 应用场景: 拉取即将过期的钱包信息
+ */
+public class ResultWalletExpire implements org.apache.thrift.TBase<ResultWalletExpire, ResultWalletExpire._Fields>,
+		java.io.Serializable, Cloneable, Comparable<ResultWalletExpire> {
 
 	private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct(
-			"ResultUser");
+			"ResultWalletExpire");
 
 	private static final org.apache.thrift.protocol.TField DATA_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"data", org.apache.thrift.protocol.TType.LIST, (short) 1);
@@ -19,11 +22,11 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 	private static final org.apache.thrift.protocol.TField META_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"meta", org.apache.thrift.protocol.TType.STRUCT, (short) 2);
 
-	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ResultUserStandardSchemeFactory();
+	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ResultWalletExpireStandardSchemeFactory();
 
-	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ResultUserTupleSchemeFactory();
+	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ResultWalletExpireTupleSchemeFactory();
 
-	public @org.apache.thrift.annotation.Nullable java.util.List<User> data; // required
+	public @org.apache.thrift.annotation.Nullable java.util.List<WalletExpire> data; // required
 
 	public @org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.QueryMeta meta; // required
 
@@ -105,19 +108,19 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 				new org.apache.thrift.meta_data.FieldMetaData("data", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
 								new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
-										User.class))));
+										WalletExpire.class))));
 		tmpMap.put(_Fields.META,
 				new org.apache.thrift.meta_data.FieldMetaData("meta", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT,
 								com.suboat.contrib.rpc.base.QueryMeta.class)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
-		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ResultUser.class, metaDataMap);
+		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ResultWalletExpire.class, metaDataMap);
 	}
 
-	public ResultUser() {
+	public ResultWalletExpire() {
 	}
 
-	public ResultUser(java.util.List<User> data, com.suboat.contrib.rpc.base.QueryMeta meta) {
+	public ResultWalletExpire(java.util.List<WalletExpire> data, com.suboat.contrib.rpc.base.QueryMeta meta) {
 		this();
 		this.data = data;
 		this.meta = meta;
@@ -126,11 +129,11 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 	/**
 	 * Performs a deep copy on <i>other</i>.
 	 */
-	public ResultUser(ResultUser other) {
+	public ResultWalletExpire(ResultWalletExpire other) {
 		if (other.isSetData()) {
-			java.util.List<User> __this__data = new java.util.ArrayList<User>(other.data.size());
-			for (User other_element : other.data) {
-				__this__data.add(new User(other_element));
+			java.util.List<WalletExpire> __this__data = new java.util.ArrayList<WalletExpire>(other.data.size());
+			for (WalletExpire other_element : other.data) {
+				__this__data.add(new WalletExpire(other_element));
 			}
 			this.data = __this__data;
 		}
@@ -139,8 +142,8 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 		}
 	}
 
-	public ResultUser deepCopy() {
-		return new ResultUser(this);
+	public ResultWalletExpire deepCopy() {
+		return new ResultWalletExpire(this);
 	}
 
 	@Override
@@ -154,23 +157,23 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 	}
 
 	@org.apache.thrift.annotation.Nullable
-	public java.util.Iterator<User> getDataIterator() {
+	public java.util.Iterator<WalletExpire> getDataIterator() {
 		return (this.data == null) ? null : this.data.iterator();
 	}
 
-	public void addToData(User elem) {
+	public void addToData(WalletExpire elem) {
 		if (this.data == null) {
-			this.data = new java.util.ArrayList<User>();
+			this.data = new java.util.ArrayList<WalletExpire>();
 		}
 		this.data.add(elem);
 	}
 
 	@org.apache.thrift.annotation.Nullable
-	public java.util.List<User> getData() {
+	public java.util.List<WalletExpire> getData() {
 		return this.data;
 	}
 
-	public ResultUser setData(@org.apache.thrift.annotation.Nullable java.util.List<User> data) {
+	public ResultWalletExpire setData(@org.apache.thrift.annotation.Nullable java.util.List<WalletExpire> data) {
 		this.data = data;
 		return this;
 	}
@@ -197,7 +200,8 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 		return this.meta;
 	}
 
-	public ResultUser setMeta(@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.QueryMeta meta) {
+	public ResultWalletExpire setMeta(
+			@org.apache.thrift.annotation.Nullable com.suboat.contrib.rpc.base.QueryMeta meta) {
 		this.meta = meta;
 		return this;
 	}
@@ -226,7 +230,7 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 				unsetData();
 			}
 			else {
-				setData((java.util.List<User>) value);
+				setData((java.util.List<WalletExpire>) value);
 			}
 			break;
 
@@ -277,12 +281,12 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 	public boolean equals(java.lang.Object that) {
 		if (that == null)
 			return false;
-		if (that instanceof ResultUser)
-			return this.equals((ResultUser) that);
+		if (that instanceof ResultWalletExpire)
+			return this.equals((ResultWalletExpire) that);
 		return false;
 	}
 
-	public boolean equals(ResultUser that) {
+	public boolean equals(ResultWalletExpire that) {
 		if (that == null)
 			return false;
 		if (this == that)
@@ -325,7 +329,7 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 	}
 
 	@Override
-	public int compareTo(ResultUser other) {
+	public int compareTo(ResultWalletExpire other) {
 		if (!getClass().equals(other.getClass())) {
 			return getClass().getName().compareTo(other.getClass().getName());
 		}
@@ -370,7 +374,7 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 
 	@Override
 	public java.lang.String toString() {
-		java.lang.StringBuilder sb = new java.lang.StringBuilder("ResultUser(");
+		java.lang.StringBuilder sb = new java.lang.StringBuilder("ResultWalletExpire(");
 		boolean first = true;
 
 		sb.append("data:");
@@ -423,17 +427,18 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 		}
 	}
 
-	private static class ResultUserStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+	private static class ResultWalletExpireStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
 
-		public ResultUserStandardScheme getScheme() {
-			return new ResultUserStandardScheme();
+		public ResultWalletExpireStandardScheme getScheme() {
+			return new ResultWalletExpireStandardScheme();
 		}
 
 	}
 
-	private static class ResultUserStandardScheme extends org.apache.thrift.scheme.StandardScheme<ResultUser> {
+	private static class ResultWalletExpireStandardScheme
+			extends org.apache.thrift.scheme.StandardScheme<ResultWalletExpire> {
 
-		public void read(org.apache.thrift.protocol.TProtocol iprot, ResultUser struct)
+		public void read(org.apache.thrift.protocol.TProtocol iprot, ResultWalletExpire struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TField schemeField;
 			iprot.readStructBegin();
@@ -446,14 +451,14 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list184 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<User>(_list184.size);
+							org.apache.thrift.protocol.TList _list32 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<WalletExpire>(_list32.size);
 							@org.apache.thrift.annotation.Nullable
-							User _elem185;
-							for (int _i186 = 0; _i186 < _list184.size; ++_i186) {
-								_elem185 = new User();
-								_elem185.read(iprot);
-								struct.data.add(_elem185);
+							WalletExpire _elem33;
+							for (int _i34 = 0; _i34 < _list32.size; ++_i34) {
+								_elem33 = new WalletExpire();
+								_elem33.read(iprot);
+								struct.data.add(_elem33);
 							}
 							iprot.readListEnd();
 						}
@@ -485,7 +490,7 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 			struct.validate();
 		}
 
-		public void write(org.apache.thrift.protocol.TProtocol oprot, ResultUser struct)
+		public void write(org.apache.thrift.protocol.TProtocol oprot, ResultWalletExpire struct)
 				throws org.apache.thrift.TException {
 			struct.validate();
 
@@ -495,8 +500,8 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (User _iter187 : struct.data) {
-						_iter187.write(oprot);
+					for (WalletExpire _iter35 : struct.data) {
+						_iter35.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -513,18 +518,19 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 
 	}
 
-	private static class ResultUserTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+	private static class ResultWalletExpireTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
 
-		public ResultUserTupleScheme getScheme() {
-			return new ResultUserTupleScheme();
+		public ResultWalletExpireTupleScheme getScheme() {
+			return new ResultWalletExpireTupleScheme();
 		}
 
 	}
 
-	private static class ResultUserTupleScheme extends org.apache.thrift.scheme.TupleScheme<ResultUser> {
+	private static class ResultWalletExpireTupleScheme
+			extends org.apache.thrift.scheme.TupleScheme<ResultWalletExpire> {
 
 		@Override
-		public void write(org.apache.thrift.protocol.TProtocol prot, ResultUser struct)
+		public void write(org.apache.thrift.protocol.TProtocol prot, ResultWalletExpire struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 			java.util.BitSet optionals = new java.util.BitSet();
@@ -538,8 +544,8 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (User _iter188 : struct.data) {
-						_iter188.write(oprot);
+					for (WalletExpire _iter36 : struct.data) {
+						_iter36.write(oprot);
 					}
 				}
 			}
@@ -549,21 +555,21 @@ public class ResultUser implements org.apache.thrift.TBase<ResultUser, ResultUse
 		}
 
 		@Override
-		public void read(org.apache.thrift.protocol.TProtocol prot, ResultUser struct)
+		public void read(org.apache.thrift.protocol.TProtocol prot, ResultWalletExpire struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list189 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list37 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<User>(_list189.size);
+					struct.data = new java.util.ArrayList<WalletExpire>(_list37.size);
 					@org.apache.thrift.annotation.Nullable
-					User _elem190;
-					for (int _i191 = 0; _i191 < _list189.size; ++_i191) {
-						_elem190 = new User();
-						_elem190.read(iprot);
-						struct.data.add(_elem190);
+					WalletExpire _elem38;
+					for (int _i39 = 0; _i39 < _list37.size; ++_i39) {
+						_elem38 = new WalletExpire();
+						_elem38.read(iprot);
+						struct.data.add(_elem38);
 					}
 				}
 				struct.setDataIsSet(true);

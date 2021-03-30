@@ -19,6 +19,9 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 	private static final org.apache.thrift.protocol.TField LANG_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"lang", org.apache.thrift.protocol.TType.STRING, (short) 1);
 
+	private static final org.apache.thrift.protocol.TField LEVEL_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"level", org.apache.thrift.protocol.TType.I32, (short) 35);
+
 	private static final org.apache.thrift.protocol.TField ICON_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"icon", org.apache.thrift.protocol.TType.STRING, (short) 5);
 
@@ -109,17 +112,37 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 	private static final org.apache.thrift.protocol.TField PARTY_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"party", org.apache.thrift.protocol.TType.STRING, (short) 32);
 
+	private static final org.apache.thrift.protocol.TField COMPANY_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"company", org.apache.thrift.protocol.TType.STRING, (short) 36);
+
+	private static final org.apache.thrift.protocol.TField COMPANY_ADDR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"companyAddr", org.apache.thrift.protocol.TType.STRING, (short) 38);
+
+	private static final org.apache.thrift.protocol.TField COMPANY_ID_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"companyID", org.apache.thrift.protocol.TType.STRING, (short) 39);
+
+	private static final org.apache.thrift.protocol.TField COMPANY_HASH_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"companyHash", org.apache.thrift.protocol.TType.STRING, (short) 40);
+
+	private static final org.apache.thrift.protocol.TField POSITION_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"position", org.apache.thrift.protocol.TType.STRING, (short) 37);
+
 	private static final org.apache.thrift.protocol.TField WX_ICON_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"wxIcon", org.apache.thrift.protocol.TType.STRING, (short) 21);
 
 	private static final org.apache.thrift.protocol.TField WX_NICKNAME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"wxNickname", org.apache.thrift.protocol.TType.STRING, (short) 22);
 
+	private static final org.apache.thrift.protocol.TField WX_CARD_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"wxCard", org.apache.thrift.protocol.TType.STRING, (short) 34);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ArgUserProfileStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ArgUserProfileTupleSchemeFactory();
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String lang; // optional
+
+	public int level; // optional
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String icon; // optional
 
@@ -181,9 +204,21 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String party; // optional
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String company; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String companyAddr; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String companyID; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String companyHash; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String position; // optional
+
 	public @org.apache.thrift.annotation.Nullable java.lang.String wxIcon; // optional
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String wxNickname; // optional
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String wxCard; // optional
 
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
@@ -191,36 +226,50 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 	 */
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
-		LANG((short) 1, "lang"), ICON((short) 5, "icon"), NAME((short) 2, "name"), PHONE((short) 4, "phone"), EMAIL(
-				(short) 3,
-				"email"), SOCIAL((short) 23, "social"), SEX((short) 6, "sex"), BIRTH((short) 7, "birth"), BIRTH_PLACE(
-						(short) 33,
-						"birthPlace"), HEIGHT((short) 24, "height"), WEIGHT((short) 25, "weight"), SIGN((short) 8,
-								"sign"), COUNTRY((short) 9, "country"), PROVINCE((short) 10, "province"), CITY(
-										(short) 11, "city"), DISTRICT((short) 12, "district"), ADDRESS((short) 13,
-												"address"), VIP_NAME((short) 26, "vipName"), VIP_PHONE((short) 27,
-														"vipPhone"), REAL_NAME((short) 14, "realName"), REAL_ICON(
-																(short) 28,
-																"realIcon"), CARD_ID((short) 15, "cardId"), PASSPORT(
-																		(short) 16, "passport"), DRIVER((short) 17,
-																				"driver"), BANK_NUMBER((short) 18,
-																						"bankNumber"), EDUCATION(
-																								(short) 29,
-																								"education"), GRADUATE(
-																										(short) 30,
-																										"graduate"), MAJOR(
-																												(short) 31,
-																												"major"), ETHNIC(
-																														(short) 19,
-																														"ethnic"), RELIGION(
-																																(short) 20,
-																																"religion"), PARTY(
-																																		(short) 32,
-																																		"party"), WX_ICON(
-																																				(short) 21,
-																																				"wxIcon"), WX_NICKNAME(
-																																						(short) 22,
-																																						"wxNickname");
+		LANG((short) 1, "lang"), LEVEL((short) 35, "level"), ICON((short) 5, "icon"), NAME((short) 2, "name"), PHONE(
+				(short) 4,
+				"phone"), EMAIL((short) 3, "email"), SOCIAL((short) 23, "social"), SEX((short) 6, "sex"), BIRTH(
+						(short) 7,
+						"birth"), BIRTH_PLACE((short) 33, "birthPlace"), HEIGHT((short) 24, "height"), WEIGHT(
+								(short) 25, "weight"), SIGN((short) 8, "sign"), COUNTRY((short) 9, "country"), PROVINCE(
+										(short) 10, "province"), CITY((short) 11, "city"), DISTRICT((short) 12,
+												"district"), ADDRESS((short) 13, "address"), VIP_NAME((short) 26,
+														"vipName"), VIP_PHONE((short) 27, "vipPhone"), REAL_NAME(
+																(short) 14,
+																"realName"), REAL_ICON((short) 28, "realIcon"), CARD_ID(
+																		(short) 15, "cardId"), PASSPORT((short) 16,
+																				"passport"), DRIVER((short) 17,
+																						"driver"), BANK_NUMBER(
+																								(short) 18,
+																								"bankNumber"), EDUCATION(
+																										(short) 29,
+																										"education"), GRADUATE(
+																												(short) 30,
+																												"graduate"), MAJOR(
+																														(short) 31,
+																														"major"), ETHNIC(
+																																(short) 19,
+																																"ethnic"), RELIGION(
+																																		(short) 20,
+																																		"religion"), PARTY(
+																																				(short) 32,
+																																				"party"), COMPANY(
+																																						(short) 36,
+																																						"company"), COMPANY_ADDR(
+																																								(short) 38,
+																																								"companyAddr"), COMPANY_ID(
+																																										(short) 39,
+																																										"companyID"), COMPANY_HASH(
+																																												(short) 40,
+																																												"companyHash"), POSITION(
+																																														(short) 37,
+																																														"position"), WX_ICON(
+																																																(short) 21,
+																																																"wxIcon"), WX_NICKNAME(
+																																																		(short) 22,
+																																																		"wxNickname"), WX_CARD(
+																																																				(short) 34,
+																																																				"wxCard");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -238,6 +287,8 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 			switch (fieldId) {
 			case 1: // LANG
 				return LANG;
+			case 35: // LEVEL
+				return LEVEL;
 			case 5: // ICON
 				return ICON;
 			case 2: // NAME
@@ -298,10 +349,22 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 				return RELIGION;
 			case 32: // PARTY
 				return PARTY;
+			case 36: // COMPANY
+				return COMPANY;
+			case 38: // COMPANY_ADDR
+				return COMPANY_ADDR;
+			case 39: // COMPANY_ID
+				return COMPANY_ID;
+			case 40: // COMPANY_HASH
+				return COMPANY_HASH;
+			case 37: // POSITION
+				return POSITION;
 			case 21: // WX_ICON
 				return WX_ICON;
 			case 22: // WX_NICKNAME
 				return WX_NICKNAME;
+			case 34: // WX_CARD
+				return WX_CARD;
 			default:
 				return null;
 			}
@@ -346,12 +409,17 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 	}
 
 	// isset id assignments
-	private static final _Fields optionals[] = { _Fields.LANG, _Fields.ICON, _Fields.NAME, _Fields.PHONE, _Fields.EMAIL,
-			_Fields.SOCIAL, _Fields.SEX, _Fields.BIRTH, _Fields.BIRTH_PLACE, _Fields.HEIGHT, _Fields.WEIGHT,
-			_Fields.SIGN, _Fields.COUNTRY, _Fields.PROVINCE, _Fields.CITY, _Fields.DISTRICT, _Fields.ADDRESS,
-			_Fields.VIP_NAME, _Fields.VIP_PHONE, _Fields.REAL_NAME, _Fields.REAL_ICON, _Fields.CARD_ID,
+	private static final int __LEVEL_ISSET_ID = 0;
+
+	private byte __isset_bitfield = 0;
+
+	private static final _Fields optionals[] = { _Fields.LANG, _Fields.LEVEL, _Fields.ICON, _Fields.NAME, _Fields.PHONE,
+			_Fields.EMAIL, _Fields.SOCIAL, _Fields.SEX, _Fields.BIRTH, _Fields.BIRTH_PLACE, _Fields.HEIGHT,
+			_Fields.WEIGHT, _Fields.SIGN, _Fields.COUNTRY, _Fields.PROVINCE, _Fields.CITY, _Fields.DISTRICT,
+			_Fields.ADDRESS, _Fields.VIP_NAME, _Fields.VIP_PHONE, _Fields.REAL_NAME, _Fields.REAL_ICON, _Fields.CARD_ID,
 			_Fields.PASSPORT, _Fields.DRIVER, _Fields.BANK_NUMBER, _Fields.EDUCATION, _Fields.GRADUATE, _Fields.MAJOR,
-			_Fields.ETHNIC, _Fields.RELIGION, _Fields.PARTY, _Fields.WX_ICON, _Fields.WX_NICKNAME };
+			_Fields.ETHNIC, _Fields.RELIGION, _Fields.PARTY, _Fields.COMPANY, _Fields.COMPANY_ADDR, _Fields.COMPANY_ID,
+			_Fields.COMPANY_HASH, _Fields.POSITION, _Fields.WX_ICON, _Fields.WX_NICKNAME, _Fields.WX_CARD };
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
@@ -360,6 +428,9 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		tmpMap.put(_Fields.LANG,
 				new org.apache.thrift.meta_data.FieldMetaData("lang", org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.LEVEL,
+				new org.apache.thrift.meta_data.FieldMetaData("level", org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
 		tmpMap.put(_Fields.ICON,
 				new org.apache.thrift.meta_data.FieldMetaData("icon", org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
@@ -470,12 +541,36 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		tmpMap.put(_Fields.PARTY,
 				new org.apache.thrift.meta_data.FieldMetaData("party", org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.COMPANY,
+				new org.apache.thrift.meta_data.FieldMetaData("company",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.COMPANY_ADDR,
+				new org.apache.thrift.meta_data.FieldMetaData("companyAddr",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.COMPANY_ID,
+				new org.apache.thrift.meta_data.FieldMetaData("companyID",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.COMPANY_HASH,
+				new org.apache.thrift.meta_data.FieldMetaData("companyHash",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.POSITION,
+				new org.apache.thrift.meta_data.FieldMetaData("position",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.WX_ICON,
 				new org.apache.thrift.meta_data.FieldMetaData("wxIcon",
 						org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.WX_NICKNAME,
 				new org.apache.thrift.meta_data.FieldMetaData("wxNickname",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.WX_CARD,
+				new org.apache.thrift.meta_data.FieldMetaData("wxCard",
 						org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
@@ -489,9 +584,11 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 	 * Performs a deep copy on <i>other</i>.
 	 */
 	public ArgUserProfile(ArgUserProfile other) {
+		__isset_bitfield = other.__isset_bitfield;
 		if (other.isSetLang()) {
 			this.lang = other.lang;
 		}
+		this.level = other.level;
 		if (other.isSetIcon()) {
 			this.icon = other.icon;
 		}
@@ -582,11 +679,29 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		if (other.isSetParty()) {
 			this.party = other.party;
 		}
+		if (other.isSetCompany()) {
+			this.company = other.company;
+		}
+		if (other.isSetCompanyAddr()) {
+			this.companyAddr = other.companyAddr;
+		}
+		if (other.isSetCompanyID()) {
+			this.companyID = other.companyID;
+		}
+		if (other.isSetCompanyHash()) {
+			this.companyHash = other.companyHash;
+		}
+		if (other.isSetPosition()) {
+			this.position = other.position;
+		}
 		if (other.isSetWxIcon()) {
 			this.wxIcon = other.wxIcon;
 		}
 		if (other.isSetWxNickname()) {
 			this.wxNickname = other.wxNickname;
+		}
+		if (other.isSetWxCard()) {
+			this.wxCard = other.wxCard;
 		}
 	}
 
@@ -597,6 +712,8 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 	@Override
 	public void clear() {
 		this.lang = null;
+		setLevelIsSet(false);
+		this.level = 0;
 		this.icon = null;
 		this.name = null;
 		this.phone = null;
@@ -627,8 +744,14 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		this.ethnic = null;
 		this.religion = null;
 		this.party = null;
+		this.company = null;
+		this.companyAddr = null;
+		this.companyID = null;
+		this.companyHash = null;
+		this.position = null;
 		this.wxIcon = null;
 		this.wxNickname = null;
+		this.wxCard = null;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -656,6 +779,31 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		if (!value) {
 			this.lang = null;
 		}
+	}
+
+	public int getLevel() {
+		return this.level;
+	}
+
+	public ArgUserProfile setLevel(int level) {
+		this.level = level;
+		setLevelIsSet(true);
+		return this;
+	}
+
+	public void unsetLevel() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __LEVEL_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field level is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetLevel() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __LEVEL_ISSET_ID);
+	}
+
+	public void setLevelIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __LEVEL_ISSET_ID, value);
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -1483,6 +1631,146 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 	}
 
 	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getCompany() {
+		return this.company;
+	}
+
+	public ArgUserProfile setCompany(@org.apache.thrift.annotation.Nullable java.lang.String company) {
+		this.company = company;
+		return this;
+	}
+
+	public void unsetCompany() {
+		this.company = null;
+	}
+
+	/**
+	 * Returns true if field company is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetCompany() {
+		return this.company != null;
+	}
+
+	public void setCompanyIsSet(boolean value) {
+		if (!value) {
+			this.company = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getCompanyAddr() {
+		return this.companyAddr;
+	}
+
+	public ArgUserProfile setCompanyAddr(@org.apache.thrift.annotation.Nullable java.lang.String companyAddr) {
+		this.companyAddr = companyAddr;
+		return this;
+	}
+
+	public void unsetCompanyAddr() {
+		this.companyAddr = null;
+	}
+
+	/**
+	 * Returns true if field companyAddr is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetCompanyAddr() {
+		return this.companyAddr != null;
+	}
+
+	public void setCompanyAddrIsSet(boolean value) {
+		if (!value) {
+			this.companyAddr = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getCompanyID() {
+		return this.companyID;
+	}
+
+	public ArgUserProfile setCompanyID(@org.apache.thrift.annotation.Nullable java.lang.String companyID) {
+		this.companyID = companyID;
+		return this;
+	}
+
+	public void unsetCompanyID() {
+		this.companyID = null;
+	}
+
+	/**
+	 * Returns true if field companyID is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetCompanyID() {
+		return this.companyID != null;
+	}
+
+	public void setCompanyIDIsSet(boolean value) {
+		if (!value) {
+			this.companyID = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getCompanyHash() {
+		return this.companyHash;
+	}
+
+	public ArgUserProfile setCompanyHash(@org.apache.thrift.annotation.Nullable java.lang.String companyHash) {
+		this.companyHash = companyHash;
+		return this;
+	}
+
+	public void unsetCompanyHash() {
+		this.companyHash = null;
+	}
+
+	/**
+	 * Returns true if field companyHash is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetCompanyHash() {
+		return this.companyHash != null;
+	}
+
+	public void setCompanyHashIsSet(boolean value) {
+		if (!value) {
+			this.companyHash = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getPosition() {
+		return this.position;
+	}
+
+	public ArgUserProfile setPosition(@org.apache.thrift.annotation.Nullable java.lang.String position) {
+		this.position = position;
+		return this;
+	}
+
+	public void unsetPosition() {
+		this.position = null;
+	}
+
+	/**
+	 * Returns true if field position is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetPosition() {
+		return this.position != null;
+	}
+
+	public void setPositionIsSet(boolean value) {
+		if (!value) {
+			this.position = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
 	public java.lang.String getWxIcon() {
 		return this.wxIcon;
 	}
@@ -1537,6 +1825,33 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		}
 	}
 
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getWxCard() {
+		return this.wxCard;
+	}
+
+	public ArgUserProfile setWxCard(@org.apache.thrift.annotation.Nullable java.lang.String wxCard) {
+		this.wxCard = wxCard;
+		return this;
+	}
+
+	public void unsetWxCard() {
+		this.wxCard = null;
+	}
+
+	/**
+	 * Returns true if field wxCard is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetWxCard() {
+		return this.wxCard != null;
+	}
+
+	public void setWxCardIsSet(boolean value) {
+		if (!value) {
+			this.wxCard = null;
+		}
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case LANG:
@@ -1545,6 +1860,15 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 			}
 			else {
 				setLang((java.lang.String) value);
+			}
+			break;
+
+		case LEVEL:
+			if (value == null) {
+				unsetLevel();
+			}
+			else {
+				setLevel((java.lang.Integer) value);
 			}
 			break;
 
@@ -1818,6 +2142,51 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 			}
 			break;
 
+		case COMPANY:
+			if (value == null) {
+				unsetCompany();
+			}
+			else {
+				setCompany((java.lang.String) value);
+			}
+			break;
+
+		case COMPANY_ADDR:
+			if (value == null) {
+				unsetCompanyAddr();
+			}
+			else {
+				setCompanyAddr((java.lang.String) value);
+			}
+			break;
+
+		case COMPANY_ID:
+			if (value == null) {
+				unsetCompanyID();
+			}
+			else {
+				setCompanyID((java.lang.String) value);
+			}
+			break;
+
+		case COMPANY_HASH:
+			if (value == null) {
+				unsetCompanyHash();
+			}
+			else {
+				setCompanyHash((java.lang.String) value);
+			}
+			break;
+
+		case POSITION:
+			if (value == null) {
+				unsetPosition();
+			}
+			else {
+				setPosition((java.lang.String) value);
+			}
+			break;
+
 		case WX_ICON:
 			if (value == null) {
 				unsetWxIcon();
@@ -1836,6 +2205,15 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 			}
 			break;
 
+		case WX_CARD:
+			if (value == null) {
+				unsetWxCard();
+			}
+			else {
+				setWxCard((java.lang.String) value);
+			}
+			break;
+
 		}
 	}
 
@@ -1844,6 +2222,9 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		switch (field) {
 		case LANG:
 			return getLang();
+
+		case LEVEL:
+			return getLevel();
 
 		case ICON:
 			return getIcon();
@@ -1935,11 +2316,29 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		case PARTY:
 			return getParty();
 
+		case COMPANY:
+			return getCompany();
+
+		case COMPANY_ADDR:
+			return getCompanyAddr();
+
+		case COMPANY_ID:
+			return getCompanyID();
+
+		case COMPANY_HASH:
+			return getCompanyHash();
+
+		case POSITION:
+			return getPosition();
+
 		case WX_ICON:
 			return getWxIcon();
 
 		case WX_NICKNAME:
 			return getWxNickname();
+
+		case WX_CARD:
+			return getWxCard();
 
 		}
 		throw new java.lang.IllegalStateException();
@@ -1957,6 +2356,8 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		switch (field) {
 		case LANG:
 			return isSetLang();
+		case LEVEL:
+			return isSetLevel();
 		case ICON:
 			return isSetIcon();
 		case NAME:
@@ -2017,10 +2418,22 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 			return isSetReligion();
 		case PARTY:
 			return isSetParty();
+		case COMPANY:
+			return isSetCompany();
+		case COMPANY_ADDR:
+			return isSetCompanyAddr();
+		case COMPANY_ID:
+			return isSetCompanyID();
+		case COMPANY_HASH:
+			return isSetCompanyHash();
+		case POSITION:
+			return isSetPosition();
 		case WX_ICON:
 			return isSetWxIcon();
 		case WX_NICKNAME:
 			return isSetWxNickname();
+		case WX_CARD:
+			return isSetWxCard();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -2046,6 +2459,15 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 			if (!(this_present_lang && that_present_lang))
 				return false;
 			if (!this.lang.equals(that.lang))
+				return false;
+		}
+
+		boolean this_present_level = true && this.isSetLevel();
+		boolean that_present_level = true && that.isSetLevel();
+		if (this_present_level || that_present_level) {
+			if (!(this_present_level && that_present_level))
+				return false;
+			if (this.level != that.level)
 				return false;
 		}
 
@@ -2319,6 +2741,51 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 				return false;
 		}
 
+		boolean this_present_company = true && this.isSetCompany();
+		boolean that_present_company = true && that.isSetCompany();
+		if (this_present_company || that_present_company) {
+			if (!(this_present_company && that_present_company))
+				return false;
+			if (!this.company.equals(that.company))
+				return false;
+		}
+
+		boolean this_present_companyAddr = true && this.isSetCompanyAddr();
+		boolean that_present_companyAddr = true && that.isSetCompanyAddr();
+		if (this_present_companyAddr || that_present_companyAddr) {
+			if (!(this_present_companyAddr && that_present_companyAddr))
+				return false;
+			if (!this.companyAddr.equals(that.companyAddr))
+				return false;
+		}
+
+		boolean this_present_companyID = true && this.isSetCompanyID();
+		boolean that_present_companyID = true && that.isSetCompanyID();
+		if (this_present_companyID || that_present_companyID) {
+			if (!(this_present_companyID && that_present_companyID))
+				return false;
+			if (!this.companyID.equals(that.companyID))
+				return false;
+		}
+
+		boolean this_present_companyHash = true && this.isSetCompanyHash();
+		boolean that_present_companyHash = true && that.isSetCompanyHash();
+		if (this_present_companyHash || that_present_companyHash) {
+			if (!(this_present_companyHash && that_present_companyHash))
+				return false;
+			if (!this.companyHash.equals(that.companyHash))
+				return false;
+		}
+
+		boolean this_present_position = true && this.isSetPosition();
+		boolean that_present_position = true && that.isSetPosition();
+		if (this_present_position || that_present_position) {
+			if (!(this_present_position && that_present_position))
+				return false;
+			if (!this.position.equals(that.position))
+				return false;
+		}
+
 		boolean this_present_wxIcon = true && this.isSetWxIcon();
 		boolean that_present_wxIcon = true && that.isSetWxIcon();
 		if (this_present_wxIcon || that_present_wxIcon) {
@@ -2337,6 +2804,15 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 				return false;
 		}
 
+		boolean this_present_wxCard = true && this.isSetWxCard();
+		boolean that_present_wxCard = true && that.isSetWxCard();
+		if (this_present_wxCard || that_present_wxCard) {
+			if (!(this_present_wxCard && that_present_wxCard))
+				return false;
+			if (!this.wxCard.equals(that.wxCard))
+				return false;
+		}
+
 		return true;
 	}
 
@@ -2347,6 +2823,10 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		hashCode = hashCode * 8191 + ((isSetLang()) ? 131071 : 524287);
 		if (isSetLang())
 			hashCode = hashCode * 8191 + lang.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetLevel()) ? 131071 : 524287);
+		if (isSetLevel())
+			hashCode = hashCode * 8191 + level;
 
 		hashCode = hashCode * 8191 + ((isSetIcon()) ? 131071 : 524287);
 		if (isSetIcon())
@@ -2468,6 +2948,26 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		if (isSetParty())
 			hashCode = hashCode * 8191 + party.hashCode();
 
+		hashCode = hashCode * 8191 + ((isSetCompany()) ? 131071 : 524287);
+		if (isSetCompany())
+			hashCode = hashCode * 8191 + company.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetCompanyAddr()) ? 131071 : 524287);
+		if (isSetCompanyAddr())
+			hashCode = hashCode * 8191 + companyAddr.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetCompanyID()) ? 131071 : 524287);
+		if (isSetCompanyID())
+			hashCode = hashCode * 8191 + companyID.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetCompanyHash()) ? 131071 : 524287);
+		if (isSetCompanyHash())
+			hashCode = hashCode * 8191 + companyHash.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetPosition()) ? 131071 : 524287);
+		if (isSetPosition())
+			hashCode = hashCode * 8191 + position.hashCode();
+
 		hashCode = hashCode * 8191 + ((isSetWxIcon()) ? 131071 : 524287);
 		if (isSetWxIcon())
 			hashCode = hashCode * 8191 + wxIcon.hashCode();
@@ -2475,6 +2975,10 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		hashCode = hashCode * 8191 + ((isSetWxNickname()) ? 131071 : 524287);
 		if (isSetWxNickname())
 			hashCode = hashCode * 8191 + wxNickname.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetWxCard()) ? 131071 : 524287);
+		if (isSetWxCard())
+			hashCode = hashCode * 8191 + wxCard.hashCode();
 
 		return hashCode;
 	}
@@ -2493,6 +2997,16 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		}
 		if (isSetLang()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.lang, other.lang);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetLevel()).compareTo(other.isSetLevel());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetLevel()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.level, other.level);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -2797,6 +3311,56 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetCompany()).compareTo(other.isSetCompany());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetCompany()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.company, other.company);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetCompanyAddr()).compareTo(other.isSetCompanyAddr());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetCompanyAddr()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.companyAddr, other.companyAddr);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetCompanyID()).compareTo(other.isSetCompanyID());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetCompanyID()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.companyID, other.companyID);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetCompanyHash()).compareTo(other.isSetCompanyHash());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetCompanyHash()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.companyHash, other.companyHash);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetPosition()).compareTo(other.isSetPosition());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetPosition()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.position, other.position);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetWxIcon()).compareTo(other.isSetWxIcon());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -2813,6 +3377,16 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		}
 		if (isSetWxNickname()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.wxNickname, other.wxNickname);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetWxCard()).compareTo(other.isSetWxCard());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetWxCard()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.wxCard, other.wxCard);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -2846,6 +3420,13 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 			else {
 				sb.append(this.lang);
 			}
+			first = false;
+		}
+		if (isSetLevel()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("level:");
+			sb.append(this.level);
 			first = false;
 		}
 		if (isSetIcon()) {
@@ -3208,6 +3789,66 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 			}
 			first = false;
 		}
+		if (isSetCompany()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("company:");
+			if (this.company == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.company);
+			}
+			first = false;
+		}
+		if (isSetCompanyAddr()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("companyAddr:");
+			if (this.companyAddr == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.companyAddr);
+			}
+			first = false;
+		}
+		if (isSetCompanyID()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("companyID:");
+			if (this.companyID == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.companyID);
+			}
+			first = false;
+		}
+		if (isSetCompanyHash()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("companyHash:");
+			if (this.companyHash == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.companyHash);
+			}
+			first = false;
+		}
+		if (isSetPosition()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("position:");
+			if (this.position == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.position);
+			}
+			first = false;
+		}
 		if (isSetWxIcon()) {
 			if (!first)
 				sb.append(", ");
@@ -3232,6 +3873,18 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 			}
 			first = false;
 		}
+		if (isSetWxCard()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("wxCard:");
+			if (this.wxCard == null) {
+				sb.append("null");
+			}
+			else {
+				sb.append(this.wxCard);
+			}
+			first = false;
+		}
 		sb.append(")");
 		return sb.toString();
 	}
@@ -3253,6 +3906,9 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 
 	private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, java.lang.ClassNotFoundException {
 		try {
+			// it doesn't seem like you should have to do this, but java serialization is
+			// wacky, and doesn't call the default constructor.
+			__isset_bitfield = 0;
 			read(new org.apache.thrift.protocol.TCompactProtocol(
 					new org.apache.thrift.transport.TIOStreamTransport(in)));
 		}
@@ -3285,6 +3941,15 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.lang = iprot.readString();
 						struct.setLangIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 35: // LEVEL
+					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+						struct.level = iprot.readI32();
+						struct.setLevelIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -3560,6 +4225,51 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 36: // COMPANY
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.company = iprot.readString();
+						struct.setCompanyIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 38: // COMPANY_ADDR
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.companyAddr = iprot.readString();
+						struct.setCompanyAddrIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 39: // COMPANY_ID
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.companyID = iprot.readString();
+						struct.setCompanyIDIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 40: // COMPANY_HASH
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.companyHash = iprot.readString();
+						struct.setCompanyHashIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 37: // POSITION
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.position = iprot.readString();
+						struct.setPositionIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 21: // WX_ICON
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.wxIcon = iprot.readString();
@@ -3573,6 +4283,15 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.wxNickname = iprot.readString();
 						struct.setWxNicknameIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 34: // WX_CARD
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.wxCard = iprot.readString();
+						struct.setWxCardIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -3826,6 +4545,53 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 					oprot.writeFieldEnd();
 				}
 			}
+			if (struct.wxCard != null) {
+				if (struct.isSetWxCard()) {
+					oprot.writeFieldBegin(WX_CARD_FIELD_DESC);
+					oprot.writeString(struct.wxCard);
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.isSetLevel()) {
+				oprot.writeFieldBegin(LEVEL_FIELD_DESC);
+				oprot.writeI32(struct.level);
+				oprot.writeFieldEnd();
+			}
+			if (struct.company != null) {
+				if (struct.isSetCompany()) {
+					oprot.writeFieldBegin(COMPANY_FIELD_DESC);
+					oprot.writeString(struct.company);
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.position != null) {
+				if (struct.isSetPosition()) {
+					oprot.writeFieldBegin(POSITION_FIELD_DESC);
+					oprot.writeString(struct.position);
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.companyAddr != null) {
+				if (struct.isSetCompanyAddr()) {
+					oprot.writeFieldBegin(COMPANY_ADDR_FIELD_DESC);
+					oprot.writeString(struct.companyAddr);
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.companyID != null) {
+				if (struct.isSetCompanyID()) {
+					oprot.writeFieldBegin(COMPANY_ID_FIELD_DESC);
+					oprot.writeString(struct.companyID);
+					oprot.writeFieldEnd();
+				}
+			}
+			if (struct.companyHash != null) {
+				if (struct.isSetCompanyHash()) {
+					oprot.writeFieldBegin(COMPANY_HASH_FIELD_DESC);
+					oprot.writeString(struct.companyHash);
+					oprot.writeFieldEnd();
+				}
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -3850,105 +4616,129 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 			if (struct.isSetLang()) {
 				optionals.set(0);
 			}
-			if (struct.isSetIcon()) {
+			if (struct.isSetLevel()) {
 				optionals.set(1);
 			}
-			if (struct.isSetName()) {
+			if (struct.isSetIcon()) {
 				optionals.set(2);
 			}
-			if (struct.isSetPhone()) {
+			if (struct.isSetName()) {
 				optionals.set(3);
 			}
-			if (struct.isSetEmail()) {
+			if (struct.isSetPhone()) {
 				optionals.set(4);
 			}
-			if (struct.isSetSocial()) {
+			if (struct.isSetEmail()) {
 				optionals.set(5);
 			}
-			if (struct.isSetSex()) {
+			if (struct.isSetSocial()) {
 				optionals.set(6);
 			}
-			if (struct.isSetBirth()) {
+			if (struct.isSetSex()) {
 				optionals.set(7);
 			}
-			if (struct.isSetBirthPlace()) {
+			if (struct.isSetBirth()) {
 				optionals.set(8);
 			}
-			if (struct.isSetHeight()) {
+			if (struct.isSetBirthPlace()) {
 				optionals.set(9);
 			}
-			if (struct.isSetWeight()) {
+			if (struct.isSetHeight()) {
 				optionals.set(10);
 			}
-			if (struct.isSetSign()) {
+			if (struct.isSetWeight()) {
 				optionals.set(11);
 			}
-			if (struct.isSetCountry()) {
+			if (struct.isSetSign()) {
 				optionals.set(12);
 			}
-			if (struct.isSetProvince()) {
+			if (struct.isSetCountry()) {
 				optionals.set(13);
 			}
-			if (struct.isSetCity()) {
+			if (struct.isSetProvince()) {
 				optionals.set(14);
 			}
-			if (struct.isSetDistrict()) {
+			if (struct.isSetCity()) {
 				optionals.set(15);
 			}
-			if (struct.isSetAddress()) {
+			if (struct.isSetDistrict()) {
 				optionals.set(16);
 			}
-			if (struct.isSetVipName()) {
+			if (struct.isSetAddress()) {
 				optionals.set(17);
 			}
-			if (struct.isSetVipPhone()) {
+			if (struct.isSetVipName()) {
 				optionals.set(18);
 			}
-			if (struct.isSetRealName()) {
+			if (struct.isSetVipPhone()) {
 				optionals.set(19);
 			}
-			if (struct.isSetRealIcon()) {
+			if (struct.isSetRealName()) {
 				optionals.set(20);
 			}
-			if (struct.isSetCardId()) {
+			if (struct.isSetRealIcon()) {
 				optionals.set(21);
 			}
-			if (struct.isSetPassport()) {
+			if (struct.isSetCardId()) {
 				optionals.set(22);
 			}
-			if (struct.isSetDriver()) {
+			if (struct.isSetPassport()) {
 				optionals.set(23);
 			}
-			if (struct.isSetBankNumber()) {
+			if (struct.isSetDriver()) {
 				optionals.set(24);
 			}
-			if (struct.isSetEducation()) {
+			if (struct.isSetBankNumber()) {
 				optionals.set(25);
 			}
-			if (struct.isSetGraduate()) {
+			if (struct.isSetEducation()) {
 				optionals.set(26);
 			}
-			if (struct.isSetMajor()) {
+			if (struct.isSetGraduate()) {
 				optionals.set(27);
 			}
-			if (struct.isSetEthnic()) {
+			if (struct.isSetMajor()) {
 				optionals.set(28);
 			}
-			if (struct.isSetReligion()) {
+			if (struct.isSetEthnic()) {
 				optionals.set(29);
 			}
-			if (struct.isSetParty()) {
+			if (struct.isSetReligion()) {
 				optionals.set(30);
 			}
-			if (struct.isSetWxIcon()) {
+			if (struct.isSetParty()) {
 				optionals.set(31);
 			}
-			if (struct.isSetWxNickname()) {
+			if (struct.isSetCompany()) {
 				optionals.set(32);
 			}
-			oprot.writeBitSet(optionals, 33);
+			if (struct.isSetCompanyAddr()) {
+				optionals.set(33);
+			}
+			if (struct.isSetCompanyID()) {
+				optionals.set(34);
+			}
+			if (struct.isSetCompanyHash()) {
+				optionals.set(35);
+			}
+			if (struct.isSetPosition()) {
+				optionals.set(36);
+			}
+			if (struct.isSetWxIcon()) {
+				optionals.set(37);
+			}
+			if (struct.isSetWxNickname()) {
+				optionals.set(38);
+			}
+			if (struct.isSetWxCard()) {
+				optionals.set(39);
+			}
+			oprot.writeBitSet(optionals, 40);
 			if (struct.isSetLang()) {
 				oprot.writeString(struct.lang);
+			}
+			if (struct.isSetLevel()) {
+				oprot.writeI32(struct.level);
 			}
 			if (struct.isSetIcon()) {
 				oprot.writeString(struct.icon);
@@ -4040,11 +4830,29 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 			if (struct.isSetParty()) {
 				oprot.writeString(struct.party);
 			}
+			if (struct.isSetCompany()) {
+				oprot.writeString(struct.company);
+			}
+			if (struct.isSetCompanyAddr()) {
+				oprot.writeString(struct.companyAddr);
+			}
+			if (struct.isSetCompanyID()) {
+				oprot.writeString(struct.companyID);
+			}
+			if (struct.isSetCompanyHash()) {
+				oprot.writeString(struct.companyHash);
+			}
+			if (struct.isSetPosition()) {
+				oprot.writeString(struct.position);
+			}
 			if (struct.isSetWxIcon()) {
 				oprot.writeString(struct.wxIcon);
 			}
 			if (struct.isSetWxNickname()) {
 				oprot.writeString(struct.wxNickname);
+			}
+			if (struct.isSetWxCard()) {
+				oprot.writeString(struct.wxCard);
 			}
 		}
 
@@ -4052,138 +4860,166 @@ public class ArgUserProfile implements org.apache.thrift.TBase<ArgUserProfile, A
 		public void read(org.apache.thrift.protocol.TProtocol prot, ArgUserProfile struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(33);
+			java.util.BitSet incoming = iprot.readBitSet(40);
 			if (incoming.get(0)) {
 				struct.lang = iprot.readString();
 				struct.setLangIsSet(true);
 			}
 			if (incoming.get(1)) {
+				struct.level = iprot.readI32();
+				struct.setLevelIsSet(true);
+			}
+			if (incoming.get(2)) {
 				struct.icon = iprot.readString();
 				struct.setIconIsSet(true);
 			}
-			if (incoming.get(2)) {
+			if (incoming.get(3)) {
 				struct.name = iprot.readString();
 				struct.setNameIsSet(true);
 			}
-			if (incoming.get(3)) {
+			if (incoming.get(4)) {
 				struct.phone = iprot.readString();
 				struct.setPhoneIsSet(true);
 			}
-			if (incoming.get(4)) {
+			if (incoming.get(5)) {
 				struct.email = iprot.readString();
 				struct.setEmailIsSet(true);
 			}
-			if (incoming.get(5)) {
+			if (incoming.get(6)) {
 				struct.social = iprot.readString();
 				struct.setSocialIsSet(true);
 			}
-			if (incoming.get(6)) {
+			if (incoming.get(7)) {
 				struct.sex = iprot.readString();
 				struct.setSexIsSet(true);
 			}
-			if (incoming.get(7)) {
+			if (incoming.get(8)) {
 				struct.birth = iprot.readString();
 				struct.setBirthIsSet(true);
 			}
-			if (incoming.get(8)) {
+			if (incoming.get(9)) {
 				struct.birthPlace = iprot.readString();
 				struct.setBirthPlaceIsSet(true);
 			}
-			if (incoming.get(9)) {
+			if (incoming.get(10)) {
 				struct.height = iprot.readString();
 				struct.setHeightIsSet(true);
 			}
-			if (incoming.get(10)) {
+			if (incoming.get(11)) {
 				struct.weight = iprot.readString();
 				struct.setWeightIsSet(true);
 			}
-			if (incoming.get(11)) {
+			if (incoming.get(12)) {
 				struct.sign = iprot.readString();
 				struct.setSignIsSet(true);
 			}
-			if (incoming.get(12)) {
+			if (incoming.get(13)) {
 				struct.country = iprot.readString();
 				struct.setCountryIsSet(true);
 			}
-			if (incoming.get(13)) {
+			if (incoming.get(14)) {
 				struct.province = iprot.readString();
 				struct.setProvinceIsSet(true);
 			}
-			if (incoming.get(14)) {
+			if (incoming.get(15)) {
 				struct.city = iprot.readString();
 				struct.setCityIsSet(true);
 			}
-			if (incoming.get(15)) {
+			if (incoming.get(16)) {
 				struct.district = iprot.readString();
 				struct.setDistrictIsSet(true);
 			}
-			if (incoming.get(16)) {
+			if (incoming.get(17)) {
 				struct.address = iprot.readString();
 				struct.setAddressIsSet(true);
 			}
-			if (incoming.get(17)) {
+			if (incoming.get(18)) {
 				struct.vipName = iprot.readString();
 				struct.setVipNameIsSet(true);
 			}
-			if (incoming.get(18)) {
+			if (incoming.get(19)) {
 				struct.vipPhone = iprot.readString();
 				struct.setVipPhoneIsSet(true);
 			}
-			if (incoming.get(19)) {
+			if (incoming.get(20)) {
 				struct.realName = iprot.readString();
 				struct.setRealNameIsSet(true);
 			}
-			if (incoming.get(20)) {
+			if (incoming.get(21)) {
 				struct.realIcon = iprot.readString();
 				struct.setRealIconIsSet(true);
 			}
-			if (incoming.get(21)) {
+			if (incoming.get(22)) {
 				struct.cardId = iprot.readString();
 				struct.setCardIdIsSet(true);
 			}
-			if (incoming.get(22)) {
+			if (incoming.get(23)) {
 				struct.passport = iprot.readString();
 				struct.setPassportIsSet(true);
 			}
-			if (incoming.get(23)) {
+			if (incoming.get(24)) {
 				struct.driver = iprot.readString();
 				struct.setDriverIsSet(true);
 			}
-			if (incoming.get(24)) {
+			if (incoming.get(25)) {
 				struct.bankNumber = iprot.readString();
 				struct.setBankNumberIsSet(true);
 			}
-			if (incoming.get(25)) {
+			if (incoming.get(26)) {
 				struct.education = iprot.readString();
 				struct.setEducationIsSet(true);
 			}
-			if (incoming.get(26)) {
+			if (incoming.get(27)) {
 				struct.graduate = iprot.readString();
 				struct.setGraduateIsSet(true);
 			}
-			if (incoming.get(27)) {
+			if (incoming.get(28)) {
 				struct.major = iprot.readString();
 				struct.setMajorIsSet(true);
 			}
-			if (incoming.get(28)) {
+			if (incoming.get(29)) {
 				struct.ethnic = iprot.readString();
 				struct.setEthnicIsSet(true);
 			}
-			if (incoming.get(29)) {
+			if (incoming.get(30)) {
 				struct.religion = iprot.readString();
 				struct.setReligionIsSet(true);
 			}
-			if (incoming.get(30)) {
+			if (incoming.get(31)) {
 				struct.party = iprot.readString();
 				struct.setPartyIsSet(true);
 			}
-			if (incoming.get(31)) {
+			if (incoming.get(32)) {
+				struct.company = iprot.readString();
+				struct.setCompanyIsSet(true);
+			}
+			if (incoming.get(33)) {
+				struct.companyAddr = iprot.readString();
+				struct.setCompanyAddrIsSet(true);
+			}
+			if (incoming.get(34)) {
+				struct.companyID = iprot.readString();
+				struct.setCompanyIDIsSet(true);
+			}
+			if (incoming.get(35)) {
+				struct.companyHash = iprot.readString();
+				struct.setCompanyHashIsSet(true);
+			}
+			if (incoming.get(36)) {
+				struct.position = iprot.readString();
+				struct.setPositionIsSet(true);
+			}
+			if (incoming.get(37)) {
 				struct.wxIcon = iprot.readString();
 				struct.setWxIconIsSet(true);
 			}
-			if (incoming.get(32)) {
+			if (incoming.get(38)) {
 				struct.wxNickname = iprot.readString();
 				struct.setWxNicknameIsSet(true);
+			}
+			if (incoming.get(39)) {
+				struct.wxCard = iprot.readString();
+				struct.setWxCardIsSet(true);
 			}
 		}
 

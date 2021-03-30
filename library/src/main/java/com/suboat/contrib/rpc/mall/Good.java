@@ -31,11 +31,20 @@ public class Good
 	private static final org.apache.thrift.protocol.TField LABEL_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"label", org.apache.thrift.protocol.TType.STRING, (short) 6);
 
+	private static final org.apache.thrift.protocol.TField KIND_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"kind", org.apache.thrift.protocol.TType.STRING, (short) 26);
+
 	private static final org.apache.thrift.protocol.TField CREATE_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"createTime", org.apache.thrift.protocol.TType.STRING, (short) 7);
 
 	private static final org.apache.thrift.protocol.TField UPDATE_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"updateTime", org.apache.thrift.protocol.TType.STRING, (short) 8);
+
+	private static final org.apache.thrift.protocol.TField APPLY_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"applyTime", org.apache.thrift.protocol.TType.STRING, (short) 27);
+
+	private static final org.apache.thrift.protocol.TField EXPIRE_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"expireTime", org.apache.thrift.protocol.TType.STRING, (short) 28);
 
 	private static final org.apache.thrift.protocol.TField IS_SAMPLE_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"isSample", org.apache.thrift.protocol.TType.BOOL, (short) 9);
@@ -56,10 +65,10 @@ public class Good
 			"descSku", org.apache.thrift.protocol.TType.STRING, (short) 14);
 
 	private static final org.apache.thrift.protocol.TField WEIGHT_FIELD_DESC = new org.apache.thrift.protocol.TField(
-			"weight", org.apache.thrift.protocol.TType.I32, (short) 15);
+			"weight", org.apache.thrift.protocol.TType.DOUBLE, (short) 15);
 
 	private static final org.apache.thrift.protocol.TField VOLUME_FIELD_DESC = new org.apache.thrift.protocol.TField(
-			"volume", org.apache.thrift.protocol.TType.I32, (short) 16);
+			"volume", org.apache.thrift.protocol.TType.DOUBLE, (short) 16);
 
 	private static final org.apache.thrift.protocol.TField LABELS_TXT_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"labelsTxt", org.apache.thrift.protocol.TType.LIST, (short) 24);
@@ -69,6 +78,12 @@ public class Good
 
 	private static final org.apache.thrift.protocol.TField STOCK_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"stock", org.apache.thrift.protocol.TType.I32, (short) 17);
+
+	private static final org.apache.thrift.protocol.TField STOCK_INIT_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"stockInit", org.apache.thrift.protocol.TType.I32, (short) 29);
+
+	private static final org.apache.thrift.protocol.TField STOCK_OVER_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"stockOver", org.apache.thrift.protocol.TType.I32, (short) 30);
 
 	private static final org.apache.thrift.protocol.TField PRICE_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"price", org.apache.thrift.protocol.TType.DOUBLE, (short) 18);
@@ -104,9 +119,15 @@ public class Good
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String label; // required
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String kind; // required
+
 	public @org.apache.thrift.annotation.Nullable java.lang.String createTime; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String updateTime; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String applyTime; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String expireTime; // required
 
 	public boolean isSample; // required
 
@@ -120,15 +141,19 @@ public class Good
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String descSku; // required
 
-	public int weight; // required
+	public double weight; // required
 
-	public int volume; // required
+	public double volume; // required
 
 	public @org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> labelsTxt; // required
 
 	public @org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> labelsTag; // required
 
 	public int stock; // required
+
+	public int stockInit; // required
+
+	public int stockOver; // required
 
 	public double price; // required
 
@@ -149,21 +174,31 @@ public class Good
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
 		GID((short) 1, "gid"), SID((short) 2, "sid"), MID((short) 3, "mid"), UID((short) 4, "uid"), SPU((short) 5,
-				"spu"), LABEL((short) 6, "label"), CREATE_TIME((short) 7, "createTime"), UPDATE_TIME((short) 8,
-						"updateTime"), IS_SAMPLE((short) 9, "isSample"), IS_ATTACH((short) 10, "isAttach"), STATUS(
-								(short) 11,
-								"status"), NAME_SKU((short) 12, "nameSku"), ICON_SKU((short) 13, "iconSku"), DESC_SKU(
-										(short) 14, "descSku"), WEIGHT((short) 15, "weight"), VOLUME((short) 16,
-												"volume"), LABELS_TXT((short) 24, "labelsTxt"), LABELS_TAG((short) 25,
-														"labelsTag"), STOCK((short) 17, "stock"), PRICE((short) 18,
-																"price"), PRICE_OLD((short) 19, "priceOld"), PRICE_COST(
-																		(short) 20,
-																		"priceCost"), PRICE_ADVICE_FROM((short) 22,
-																				"priceAdviceFrom"), PRICE_ADVICE_TO(
-																						(short) 23,
-																						"priceAdviceTo"), PAY_METHOD(
-																								(short) 21,
-																								"payMethod");
+				"spu"), LABEL((short) 6, "label"), KIND((short) 26, "kind"), CREATE_TIME((short) 7,
+						"createTime"), UPDATE_TIME((short) 8, "updateTime"), APPLY_TIME((short) 27,
+								"applyTime"), EXPIRE_TIME((short) 28, "expireTime"), IS_SAMPLE((short) 9,
+										"isSample"), IS_ATTACH((short) 10, "isAttach"), STATUS((short) 11,
+												"status"), NAME_SKU((short) 12, "nameSku"), ICON_SKU((short) 13,
+														"iconSku"), DESC_SKU((short) 14, "descSku"), WEIGHT((short) 15,
+																"weight"), VOLUME((short) 16, "volume"), LABELS_TXT(
+																		(short) 24, "labelsTxt"), LABELS_TAG((short) 25,
+																				"labelsTag"), STOCK((short) 17,
+																						"stock"), STOCK_INIT((short) 29,
+																								"stockInit"), STOCK_OVER(
+																										(short) 30,
+																										"stockOver"), PRICE(
+																												(short) 18,
+																												"price"), PRICE_OLD(
+																														(short) 19,
+																														"priceOld"), PRICE_COST(
+																																(short) 20,
+																																"priceCost"), PRICE_ADVICE_FROM(
+																																		(short) 22,
+																																		"priceAdviceFrom"), PRICE_ADVICE_TO(
+																																				(short) 23,
+																																				"priceAdviceTo"), PAY_METHOD(
+																																						(short) 21,
+																																						"payMethod");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -191,10 +226,16 @@ public class Good
 				return SPU;
 			case 6: // LABEL
 				return LABEL;
+			case 26: // KIND
+				return KIND;
 			case 7: // CREATE_TIME
 				return CREATE_TIME;
 			case 8: // UPDATE_TIME
 				return UPDATE_TIME;
+			case 27: // APPLY_TIME
+				return APPLY_TIME;
+			case 28: // EXPIRE_TIME
+				return EXPIRE_TIME;
 			case 9: // IS_SAMPLE
 				return IS_SAMPLE;
 			case 10: // IS_ATTACH
@@ -217,6 +258,10 @@ public class Good
 				return LABELS_TAG;
 			case 17: // STOCK
 				return STOCK;
+			case 29: // STOCK_INIT
+				return STOCK_INIT;
+			case 30: // STOCK_OVER
+				return STOCK_OVER;
 			case 18: // PRICE
 				return PRICE;
 			case 19: // PRICE_OLD
@@ -285,15 +330,19 @@ public class Good
 
 	private static final int __STOCK_ISSET_ID = 5;
 
-	private static final int __PRICE_ISSET_ID = 6;
+	private static final int __STOCKINIT_ISSET_ID = 6;
 
-	private static final int __PRICEOLD_ISSET_ID = 7;
+	private static final int __STOCKOVER_ISSET_ID = 7;
 
-	private static final int __PRICECOST_ISSET_ID = 8;
+	private static final int __PRICE_ISSET_ID = 8;
 
-	private static final int __PRICEADVICEFROM_ISSET_ID = 9;
+	private static final int __PRICEOLD_ISSET_ID = 9;
 
-	private static final int __PRICEADVICETO_ISSET_ID = 10;
+	private static final int __PRICECOST_ISSET_ID = 10;
+
+	private static final int __PRICEADVICEFROM_ISSET_ID = 11;
+
+	private static final int __PRICEADVICETO_ISSET_ID = 12;
 
 	private short __isset_bitfield = 0;
 
@@ -319,10 +368,19 @@ public class Good
 		tmpMap.put(_Fields.LABEL,
 				new org.apache.thrift.meta_data.FieldMetaData("label", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.KIND,
+				new org.apache.thrift.meta_data.FieldMetaData("kind", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.CREATE_TIME, new org.apache.thrift.meta_data.FieldMetaData("createTime",
 				org.apache.thrift.TFieldRequirementType.DEFAULT,
 				new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING, "Time")));
 		tmpMap.put(_Fields.UPDATE_TIME, new org.apache.thrift.meta_data.FieldMetaData("updateTime",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING, "Time")));
+		tmpMap.put(_Fields.APPLY_TIME, new org.apache.thrift.meta_data.FieldMetaData("applyTime",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING, "Time")));
+		tmpMap.put(_Fields.EXPIRE_TIME, new org.apache.thrift.meta_data.FieldMetaData("expireTime",
 				org.apache.thrift.TFieldRequirementType.DEFAULT,
 				new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING, "Time")));
 		tmpMap.put(_Fields.IS_SAMPLE,
@@ -350,10 +408,10 @@ public class Good
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.WEIGHT,
 				new org.apache.thrift.meta_data.FieldMetaData("weight", org.apache.thrift.TFieldRequirementType.DEFAULT,
-						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
 		tmpMap.put(_Fields.VOLUME,
 				new org.apache.thrift.meta_data.FieldMetaData("volume", org.apache.thrift.TFieldRequirementType.DEFAULT,
-						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
 		tmpMap.put(_Fields.LABELS_TXT, new org.apache.thrift.meta_data.FieldMetaData("labelsTxt",
 				org.apache.thrift.TFieldRequirementType.DEFAULT,
 				new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
@@ -364,6 +422,14 @@ public class Good
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING))));
 		tmpMap.put(_Fields.STOCK,
 				new org.apache.thrift.meta_data.FieldMetaData("stock", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.STOCK_INIT,
+				new org.apache.thrift.meta_data.FieldMetaData("stockInit",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.STOCK_OVER,
+				new org.apache.thrift.meta_data.FieldMetaData("stockOver",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
 		tmpMap.put(_Fields.PRICE,
 				new org.apache.thrift.meta_data.FieldMetaData("price", org.apache.thrift.TFieldRequirementType.DEFAULT,
@@ -401,11 +467,12 @@ public class Good
 	}
 
 	public Good(java.lang.String gid, java.lang.String sid, java.lang.String mid, java.lang.String uid,
-			java.lang.String spu, java.lang.String label, java.lang.String createTime, java.lang.String updateTime,
-			boolean isSample, boolean isAttach, int status, java.lang.String nameSku, java.lang.String iconSku,
-			java.lang.String descSku, int weight, int volume, java.util.List<java.lang.String> labelsTxt,
-			java.util.List<java.lang.String> labelsTag, int stock, double price, double priceOld, double priceCost,
-			double priceAdviceFrom, double priceAdviceTo,
+			java.lang.String spu, java.lang.String label, java.lang.String kind, java.lang.String createTime,
+			java.lang.String updateTime, java.lang.String applyTime, java.lang.String expireTime, boolean isSample,
+			boolean isAttach, int status, java.lang.String nameSku, java.lang.String iconSku, java.lang.String descSku,
+			double weight, double volume, java.util.List<java.lang.String> labelsTxt,
+			java.util.List<java.lang.String> labelsTag, int stock, int stockInit, int stockOver, double price,
+			double priceOld, double priceCost, double priceAdviceFrom, double priceAdviceTo,
 			java.util.List<java.util.Map<java.lang.String, java.lang.Double>> payMethod) {
 		this();
 		this.gid = gid;
@@ -414,8 +481,11 @@ public class Good
 		this.uid = uid;
 		this.spu = spu;
 		this.label = label;
+		this.kind = kind;
 		this.createTime = createTime;
 		this.updateTime = updateTime;
+		this.applyTime = applyTime;
+		this.expireTime = expireTime;
 		this.isSample = isSample;
 		setIsSampleIsSet(true);
 		this.isAttach = isAttach;
@@ -433,6 +503,10 @@ public class Good
 		this.labelsTag = labelsTag;
 		this.stock = stock;
 		setStockIsSet(true);
+		this.stockInit = stockInit;
+		setStockInitIsSet(true);
+		this.stockOver = stockOver;
+		setStockOverIsSet(true);
 		this.price = price;
 		setPriceIsSet(true);
 		this.priceOld = priceOld;
@@ -469,11 +543,20 @@ public class Good
 		if (other.isSetLabel()) {
 			this.label = other.label;
 		}
+		if (other.isSetKind()) {
+			this.kind = other.kind;
+		}
 		if (other.isSetCreateTime()) {
 			this.createTime = other.createTime;
 		}
 		if (other.isSetUpdateTime()) {
 			this.updateTime = other.updateTime;
+		}
+		if (other.isSetApplyTime()) {
+			this.applyTime = other.applyTime;
+		}
+		if (other.isSetExpireTime()) {
+			this.expireTime = other.expireTime;
 		}
 		this.isSample = other.isSample;
 		this.isAttach = other.isAttach;
@@ -500,6 +583,8 @@ public class Good
 			this.labelsTag = __this__labelsTag;
 		}
 		this.stock = other.stock;
+		this.stockInit = other.stockInit;
+		this.stockOver = other.stockOver;
 		this.price = other.price;
 		this.priceOld = other.priceOld;
 		this.priceCost = other.priceCost;
@@ -529,8 +614,11 @@ public class Good
 		this.uid = null;
 		this.spu = null;
 		this.label = null;
+		this.kind = null;
 		this.createTime = null;
 		this.updateTime = null;
+		this.applyTime = null;
+		this.expireTime = null;
 		setIsSampleIsSet(false);
 		this.isSample = false;
 		setIsAttachIsSet(false);
@@ -541,13 +629,17 @@ public class Good
 		this.iconSku = null;
 		this.descSku = null;
 		setWeightIsSet(false);
-		this.weight = 0;
+		this.weight = 0.0;
 		setVolumeIsSet(false);
-		this.volume = 0;
+		this.volume = 0.0;
 		this.labelsTxt = null;
 		this.labelsTag = null;
 		setStockIsSet(false);
 		this.stock = 0;
+		setStockInitIsSet(false);
+		this.stockInit = 0;
+		setStockOverIsSet(false);
+		this.stockOver = 0;
 		setPriceIsSet(false);
 		this.price = 0.0;
 		setPriceOldIsSet(false);
@@ -724,6 +816,33 @@ public class Good
 	}
 
 	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getKind() {
+		return this.kind;
+	}
+
+	public Good setKind(@org.apache.thrift.annotation.Nullable java.lang.String kind) {
+		this.kind = kind;
+		return this;
+	}
+
+	public void unsetKind() {
+		this.kind = null;
+	}
+
+	/**
+	 * Returns true if field kind is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetKind() {
+		return this.kind != null;
+	}
+
+	public void setKindIsSet(boolean value) {
+		if (!value) {
+			this.kind = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
 	public java.lang.String getCreateTime() {
 		return this.createTime;
 	}
@@ -776,6 +895,62 @@ public class Good
 	public void setUpdateTimeIsSet(boolean value) {
 		if (!value) {
 			this.updateTime = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getApplyTime() {
+		return this.applyTime;
+	}
+
+	public Good setApplyTime(@org.apache.thrift.annotation.Nullable java.lang.String applyTime) {
+		this.applyTime = applyTime;
+		return this;
+	}
+
+	public void unsetApplyTime() {
+		this.applyTime = null;
+	}
+
+	/**
+	 * Returns true if field applyTime is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetApplyTime() {
+		return this.applyTime != null;
+	}
+
+	public void setApplyTimeIsSet(boolean value) {
+		if (!value) {
+			this.applyTime = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getExpireTime() {
+		return this.expireTime;
+	}
+
+	public Good setExpireTime(@org.apache.thrift.annotation.Nullable java.lang.String expireTime) {
+		this.expireTime = expireTime;
+		return this;
+	}
+
+	public void unsetExpireTime() {
+		this.expireTime = null;
+	}
+
+	/**
+	 * Returns true if field expireTime is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetExpireTime() {
+		return this.expireTime != null;
+	}
+
+	public void setExpireTimeIsSet(boolean value) {
+		if (!value) {
+			this.expireTime = null;
 		}
 	}
 
@@ -940,11 +1115,11 @@ public class Good
 		}
 	}
 
-	public int getWeight() {
+	public double getWeight() {
 		return this.weight;
 	}
 
-	public Good setWeight(int weight) {
+	public Good setWeight(double weight) {
 		this.weight = weight;
 		setWeightIsSet(true);
 		return this;
@@ -965,11 +1140,11 @@ public class Good
 		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __WEIGHT_ISSET_ID, value);
 	}
 
-	public int getVolume() {
+	public double getVolume() {
 		return this.volume;
 	}
 
-	public Good setVolume(int volume) {
+	public Good setVolume(double volume) {
 		this.volume = volume;
 		setVolumeIsSet(true);
 		return this;
@@ -1101,6 +1276,58 @@ public class Good
 
 	public void setStockIsSet(boolean value) {
 		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __STOCK_ISSET_ID, value);
+	}
+
+	public int getStockInit() {
+		return this.stockInit;
+	}
+
+	public Good setStockInit(int stockInit) {
+		this.stockInit = stockInit;
+		setStockInitIsSet(true);
+		return this;
+	}
+
+	public void unsetStockInit() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __STOCKINIT_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field stockInit is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetStockInit() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __STOCKINIT_ISSET_ID);
+	}
+
+	public void setStockInitIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __STOCKINIT_ISSET_ID, value);
+	}
+
+	public int getStockOver() {
+		return this.stockOver;
+	}
+
+	public Good setStockOver(int stockOver) {
+		this.stockOver = stockOver;
+		setStockOverIsSet(true);
+		return this;
+	}
+
+	public void unsetStockOver() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __STOCKOVER_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field stockOver is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetStockOver() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __STOCKOVER_ISSET_ID);
+	}
+
+	public void setStockOverIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __STOCKOVER_ISSET_ID, value);
 	}
 
 	public double getPrice() {
@@ -1333,6 +1560,15 @@ public class Good
 			}
 			break;
 
+		case KIND:
+			if (value == null) {
+				unsetKind();
+			}
+			else {
+				setKind((java.lang.String) value);
+			}
+			break;
+
 		case CREATE_TIME:
 			if (value == null) {
 				unsetCreateTime();
@@ -1348,6 +1584,24 @@ public class Good
 			}
 			else {
 				setUpdateTime((java.lang.String) value);
+			}
+			break;
+
+		case APPLY_TIME:
+			if (value == null) {
+				unsetApplyTime();
+			}
+			else {
+				setApplyTime((java.lang.String) value);
+			}
+			break;
+
+		case EXPIRE_TIME:
+			if (value == null) {
+				unsetExpireTime();
+			}
+			else {
+				setExpireTime((java.lang.String) value);
 			}
 			break;
 
@@ -1410,7 +1664,7 @@ public class Good
 				unsetWeight();
 			}
 			else {
-				setWeight((java.lang.Integer) value);
+				setWeight((java.lang.Double) value);
 			}
 			break;
 
@@ -1419,7 +1673,7 @@ public class Good
 				unsetVolume();
 			}
 			else {
-				setVolume((java.lang.Integer) value);
+				setVolume((java.lang.Double) value);
 			}
 			break;
 
@@ -1447,6 +1701,24 @@ public class Good
 			}
 			else {
 				setStock((java.lang.Integer) value);
+			}
+			break;
+
+		case STOCK_INIT:
+			if (value == null) {
+				unsetStockInit();
+			}
+			else {
+				setStockInit((java.lang.Integer) value);
+			}
+			break;
+
+		case STOCK_OVER:
+			if (value == null) {
+				unsetStockOver();
+			}
+			else {
+				setStockOver((java.lang.Integer) value);
 			}
 			break;
 
@@ -1528,11 +1800,20 @@ public class Good
 		case LABEL:
 			return getLabel();
 
+		case KIND:
+			return getKind();
+
 		case CREATE_TIME:
 			return getCreateTime();
 
 		case UPDATE_TIME:
 			return getUpdateTime();
+
+		case APPLY_TIME:
+			return getApplyTime();
+
+		case EXPIRE_TIME:
+			return getExpireTime();
 
 		case IS_SAMPLE:
 			return isIsSample();
@@ -1566,6 +1847,12 @@ public class Good
 
 		case STOCK:
 			return getStock();
+
+		case STOCK_INIT:
+			return getStockInit();
+
+		case STOCK_OVER:
+			return getStockOver();
 
 		case PRICE:
 			return getPrice();
@@ -1611,10 +1898,16 @@ public class Good
 			return isSetSpu();
 		case LABEL:
 			return isSetLabel();
+		case KIND:
+			return isSetKind();
 		case CREATE_TIME:
 			return isSetCreateTime();
 		case UPDATE_TIME:
 			return isSetUpdateTime();
+		case APPLY_TIME:
+			return isSetApplyTime();
+		case EXPIRE_TIME:
+			return isSetExpireTime();
 		case IS_SAMPLE:
 			return isSetIsSample();
 		case IS_ATTACH:
@@ -1637,6 +1930,10 @@ public class Good
 			return isSetLabelsTag();
 		case STOCK:
 			return isSetStock();
+		case STOCK_INIT:
+			return isSetStockInit();
+		case STOCK_OVER:
+			return isSetStockOver();
 		case PRICE:
 			return isSetPrice();
 		case PRICE_OLD:
@@ -1722,6 +2019,15 @@ public class Good
 				return false;
 		}
 
+		boolean this_present_kind = true && this.isSetKind();
+		boolean that_present_kind = true && that.isSetKind();
+		if (this_present_kind || that_present_kind) {
+			if (!(this_present_kind && that_present_kind))
+				return false;
+			if (!this.kind.equals(that.kind))
+				return false;
+		}
+
 		boolean this_present_createTime = true && this.isSetCreateTime();
 		boolean that_present_createTime = true && that.isSetCreateTime();
 		if (this_present_createTime || that_present_createTime) {
@@ -1737,6 +2043,24 @@ public class Good
 			if (!(this_present_updateTime && that_present_updateTime))
 				return false;
 			if (!this.updateTime.equals(that.updateTime))
+				return false;
+		}
+
+		boolean this_present_applyTime = true && this.isSetApplyTime();
+		boolean that_present_applyTime = true && that.isSetApplyTime();
+		if (this_present_applyTime || that_present_applyTime) {
+			if (!(this_present_applyTime && that_present_applyTime))
+				return false;
+			if (!this.applyTime.equals(that.applyTime))
+				return false;
+		}
+
+		boolean this_present_expireTime = true && this.isSetExpireTime();
+		boolean that_present_expireTime = true && that.isSetExpireTime();
+		if (this_present_expireTime || that_present_expireTime) {
+			if (!(this_present_expireTime && that_present_expireTime))
+				return false;
+			if (!this.expireTime.equals(that.expireTime))
 				return false;
 		}
 
@@ -1839,6 +2163,24 @@ public class Good
 				return false;
 		}
 
+		boolean this_present_stockInit = true;
+		boolean that_present_stockInit = true;
+		if (this_present_stockInit || that_present_stockInit) {
+			if (!(this_present_stockInit && that_present_stockInit))
+				return false;
+			if (this.stockInit != that.stockInit)
+				return false;
+		}
+
+		boolean this_present_stockOver = true;
+		boolean that_present_stockOver = true;
+		if (this_present_stockOver || that_present_stockOver) {
+			if (!(this_present_stockOver && that_present_stockOver))
+				return false;
+			if (this.stockOver != that.stockOver)
+				return false;
+		}
+
 		boolean this_present_price = true;
 		boolean that_present_price = true;
 		if (this_present_price || that_present_price) {
@@ -1924,6 +2266,10 @@ public class Good
 		if (isSetLabel())
 			hashCode = hashCode * 8191 + label.hashCode();
 
+		hashCode = hashCode * 8191 + ((isSetKind()) ? 131071 : 524287);
+		if (isSetKind())
+			hashCode = hashCode * 8191 + kind.hashCode();
+
 		hashCode = hashCode * 8191 + ((isSetCreateTime()) ? 131071 : 524287);
 		if (isSetCreateTime())
 			hashCode = hashCode * 8191 + createTime.hashCode();
@@ -1931,6 +2277,14 @@ public class Good
 		hashCode = hashCode * 8191 + ((isSetUpdateTime()) ? 131071 : 524287);
 		if (isSetUpdateTime())
 			hashCode = hashCode * 8191 + updateTime.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetApplyTime()) ? 131071 : 524287);
+		if (isSetApplyTime())
+			hashCode = hashCode * 8191 + applyTime.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetExpireTime()) ? 131071 : 524287);
+		if (isSetExpireTime())
+			hashCode = hashCode * 8191 + expireTime.hashCode();
 
 		hashCode = hashCode * 8191 + ((isSample) ? 131071 : 524287);
 
@@ -1950,9 +2304,9 @@ public class Good
 		if (isSetDescSku())
 			hashCode = hashCode * 8191 + descSku.hashCode();
 
-		hashCode = hashCode * 8191 + weight;
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(weight);
 
-		hashCode = hashCode * 8191 + volume;
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(volume);
 
 		hashCode = hashCode * 8191 + ((isSetLabelsTxt()) ? 131071 : 524287);
 		if (isSetLabelsTxt())
@@ -1963,6 +2317,10 @@ public class Good
 			hashCode = hashCode * 8191 + labelsTag.hashCode();
 
 		hashCode = hashCode * 8191 + stock;
+
+		hashCode = hashCode * 8191 + stockInit;
+
+		hashCode = hashCode * 8191 + stockOver;
 
 		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(price);
 
@@ -2049,6 +2407,16 @@ public class Good
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetKind()).compareTo(other.isSetKind());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetKind()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.kind, other.kind);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetCreateTime()).compareTo(other.isSetCreateTime());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -2065,6 +2433,26 @@ public class Good
 		}
 		if (isSetUpdateTime()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.updateTime, other.updateTime);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetApplyTime()).compareTo(other.isSetApplyTime());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetApplyTime()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.applyTime, other.applyTime);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetExpireTime()).compareTo(other.isSetExpireTime());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetExpireTime()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.expireTime, other.expireTime);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -2175,6 +2563,26 @@ public class Good
 		}
 		if (isSetStock()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.stock, other.stock);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetStockInit()).compareTo(other.isSetStockInit());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetStockInit()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.stockInit, other.stockInit);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetStockOver()).compareTo(other.isSetStockOver());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetStockOver()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.stockOver, other.stockOver);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -2320,6 +2728,16 @@ public class Good
 		first = false;
 		if (!first)
 			sb.append(", ");
+		sb.append("kind:");
+		if (this.kind == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.kind);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("createTime:");
 		if (this.createTime == null) {
 			sb.append("null");
@@ -2336,6 +2754,26 @@ public class Good
 		}
 		else {
 			sb.append(this.updateTime);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("applyTime:");
+		if (this.applyTime == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.applyTime);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("expireTime:");
+		if (this.expireTime == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.expireTime);
 		}
 		first = false;
 		if (!first)
@@ -2417,6 +2855,16 @@ public class Good
 			sb.append(", ");
 		sb.append("stock:");
 		sb.append(this.stock);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("stockInit:");
+		sb.append(this.stockInit);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("stockOver:");
+		sb.append(this.stockOver);
 		first = false;
 		if (!first)
 			sb.append(", ");
@@ -2558,6 +3006,15 @@ public class Good
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 26: // KIND
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.kind = iprot.readString();
+						struct.setKindIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 7: // CREATE_TIME
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.createTime = iprot.readString();
@@ -2571,6 +3028,24 @@ public class Good
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.updateTime = iprot.readString();
 						struct.setUpdateTimeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 27: // APPLY_TIME
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.applyTime = iprot.readString();
+						struct.setApplyTimeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 28: // EXPIRE_TIME
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.expireTime = iprot.readString();
+						struct.setExpireTimeIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -2631,8 +3106,8 @@ public class Good
 					}
 					break;
 				case 15: // WEIGHT
-					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
-						struct.weight = iprot.readI32();
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.weight = iprot.readDouble();
 						struct.setWeightIsSet(true);
 					}
 					else {
@@ -2640,8 +3115,8 @@ public class Good
 					}
 					break;
 				case 16: // VOLUME
-					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
-						struct.volume = iprot.readI32();
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.volume = iprot.readDouble();
 						struct.setVolumeIsSet(true);
 					}
 					else {
@@ -2690,6 +3165,24 @@ public class Good
 					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
 						struct.stock = iprot.readI32();
 						struct.setStockIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 29: // STOCK_INIT
+					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+						struct.stockInit = iprot.readI32();
+						struct.setStockInitIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 30: // STOCK_OVER
+					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+						struct.stockOver = iprot.readI32();
+						struct.setStockOverIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -2854,10 +3347,10 @@ public class Good
 				oprot.writeFieldEnd();
 			}
 			oprot.writeFieldBegin(WEIGHT_FIELD_DESC);
-			oprot.writeI32(struct.weight);
+			oprot.writeDouble(struct.weight);
 			oprot.writeFieldEnd();
 			oprot.writeFieldBegin(VOLUME_FIELD_DESC);
-			oprot.writeI32(struct.volume);
+			oprot.writeDouble(struct.volume);
 			oprot.writeFieldEnd();
 			oprot.writeFieldBegin(STOCK_FIELD_DESC);
 			oprot.writeI32(struct.stock);
@@ -2922,6 +3415,27 @@ public class Good
 				}
 				oprot.writeFieldEnd();
 			}
+			if (struct.kind != null) {
+				oprot.writeFieldBegin(KIND_FIELD_DESC);
+				oprot.writeString(struct.kind);
+				oprot.writeFieldEnd();
+			}
+			if (struct.applyTime != null) {
+				oprot.writeFieldBegin(APPLY_TIME_FIELD_DESC);
+				oprot.writeString(struct.applyTime);
+				oprot.writeFieldEnd();
+			}
+			if (struct.expireTime != null) {
+				oprot.writeFieldBegin(EXPIRE_TIME_FIELD_DESC);
+				oprot.writeString(struct.expireTime);
+				oprot.writeFieldEnd();
+			}
+			oprot.writeFieldBegin(STOCK_INIT_FIELD_DESC);
+			oprot.writeI32(struct.stockInit);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(STOCK_OVER_FIELD_DESC);
+			oprot.writeI32(struct.stockOver);
+			oprot.writeFieldEnd();
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -2960,64 +3474,79 @@ public class Good
 			if (struct.isSetLabel()) {
 				optionals.set(5);
 			}
-			if (struct.isSetCreateTime()) {
+			if (struct.isSetKind()) {
 				optionals.set(6);
 			}
-			if (struct.isSetUpdateTime()) {
+			if (struct.isSetCreateTime()) {
 				optionals.set(7);
 			}
-			if (struct.isSetIsSample()) {
+			if (struct.isSetUpdateTime()) {
 				optionals.set(8);
 			}
-			if (struct.isSetIsAttach()) {
+			if (struct.isSetApplyTime()) {
 				optionals.set(9);
 			}
-			if (struct.isSetStatus()) {
+			if (struct.isSetExpireTime()) {
 				optionals.set(10);
 			}
-			if (struct.isSetNameSku()) {
+			if (struct.isSetIsSample()) {
 				optionals.set(11);
 			}
-			if (struct.isSetIconSku()) {
+			if (struct.isSetIsAttach()) {
 				optionals.set(12);
 			}
-			if (struct.isSetDescSku()) {
+			if (struct.isSetStatus()) {
 				optionals.set(13);
 			}
-			if (struct.isSetWeight()) {
+			if (struct.isSetNameSku()) {
 				optionals.set(14);
 			}
-			if (struct.isSetVolume()) {
+			if (struct.isSetIconSku()) {
 				optionals.set(15);
 			}
-			if (struct.isSetLabelsTxt()) {
+			if (struct.isSetDescSku()) {
 				optionals.set(16);
 			}
-			if (struct.isSetLabelsTag()) {
+			if (struct.isSetWeight()) {
 				optionals.set(17);
 			}
-			if (struct.isSetStock()) {
+			if (struct.isSetVolume()) {
 				optionals.set(18);
 			}
-			if (struct.isSetPrice()) {
+			if (struct.isSetLabelsTxt()) {
 				optionals.set(19);
 			}
-			if (struct.isSetPriceOld()) {
+			if (struct.isSetLabelsTag()) {
 				optionals.set(20);
 			}
-			if (struct.isSetPriceCost()) {
+			if (struct.isSetStock()) {
 				optionals.set(21);
 			}
-			if (struct.isSetPriceAdviceFrom()) {
+			if (struct.isSetStockInit()) {
 				optionals.set(22);
 			}
-			if (struct.isSetPriceAdviceTo()) {
+			if (struct.isSetStockOver()) {
 				optionals.set(23);
 			}
-			if (struct.isSetPayMethod()) {
+			if (struct.isSetPrice()) {
 				optionals.set(24);
 			}
-			oprot.writeBitSet(optionals, 25);
+			if (struct.isSetPriceOld()) {
+				optionals.set(25);
+			}
+			if (struct.isSetPriceCost()) {
+				optionals.set(26);
+			}
+			if (struct.isSetPriceAdviceFrom()) {
+				optionals.set(27);
+			}
+			if (struct.isSetPriceAdviceTo()) {
+				optionals.set(28);
+			}
+			if (struct.isSetPayMethod()) {
+				optionals.set(29);
+			}
+			oprot.writeBitSet(optionals, 30);
 			if (struct.isSetGid()) {
 				oprot.writeString(struct.gid);
 			}
@@ -3036,11 +3565,20 @@ public class Good
 			if (struct.isSetLabel()) {
 				oprot.writeString(struct.label);
 			}
+			if (struct.isSetKind()) {
+				oprot.writeString(struct.kind);
+			}
 			if (struct.isSetCreateTime()) {
 				oprot.writeString(struct.createTime);
 			}
 			if (struct.isSetUpdateTime()) {
 				oprot.writeString(struct.updateTime);
+			}
+			if (struct.isSetApplyTime()) {
+				oprot.writeString(struct.applyTime);
+			}
+			if (struct.isSetExpireTime()) {
+				oprot.writeString(struct.expireTime);
 			}
 			if (struct.isSetIsSample()) {
 				oprot.writeBool(struct.isSample);
@@ -3061,10 +3599,10 @@ public class Good
 				oprot.writeString(struct.descSku);
 			}
 			if (struct.isSetWeight()) {
-				oprot.writeI32(struct.weight);
+				oprot.writeDouble(struct.weight);
 			}
 			if (struct.isSetVolume()) {
-				oprot.writeI32(struct.volume);
+				oprot.writeDouble(struct.volume);
 			}
 			if (struct.isSetLabelsTxt()) {
 				{
@@ -3084,6 +3622,12 @@ public class Good
 			}
 			if (struct.isSetStock()) {
 				oprot.writeI32(struct.stock);
+			}
+			if (struct.isSetStockInit()) {
+				oprot.writeI32(struct.stockInit);
+			}
+			if (struct.isSetStockOver()) {
+				oprot.writeI32(struct.stockOver);
 			}
 			if (struct.isSetPrice()) {
 				oprot.writeDouble(struct.price);
@@ -3119,7 +3663,7 @@ public class Good
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, Good struct) throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(25);
+			java.util.BitSet incoming = iprot.readBitSet(30);
 			if (incoming.get(0)) {
 				struct.gid = iprot.readString();
 				struct.setGidIsSet(true);
@@ -3145,46 +3689,58 @@ public class Good
 				struct.setLabelIsSet(true);
 			}
 			if (incoming.get(6)) {
+				struct.kind = iprot.readString();
+				struct.setKindIsSet(true);
+			}
+			if (incoming.get(7)) {
 				struct.createTime = iprot.readString();
 				struct.setCreateTimeIsSet(true);
 			}
-			if (incoming.get(7)) {
+			if (incoming.get(8)) {
 				struct.updateTime = iprot.readString();
 				struct.setUpdateTimeIsSet(true);
 			}
-			if (incoming.get(8)) {
+			if (incoming.get(9)) {
+				struct.applyTime = iprot.readString();
+				struct.setApplyTimeIsSet(true);
+			}
+			if (incoming.get(10)) {
+				struct.expireTime = iprot.readString();
+				struct.setExpireTimeIsSet(true);
+			}
+			if (incoming.get(11)) {
 				struct.isSample = iprot.readBool();
 				struct.setIsSampleIsSet(true);
 			}
-			if (incoming.get(9)) {
+			if (incoming.get(12)) {
 				struct.isAttach = iprot.readBool();
 				struct.setIsAttachIsSet(true);
 			}
-			if (incoming.get(10)) {
+			if (incoming.get(13)) {
 				struct.status = iprot.readI32();
 				struct.setStatusIsSet(true);
 			}
-			if (incoming.get(11)) {
+			if (incoming.get(14)) {
 				struct.nameSku = iprot.readString();
 				struct.setNameSkuIsSet(true);
 			}
-			if (incoming.get(12)) {
+			if (incoming.get(15)) {
 				struct.iconSku = iprot.readString();
 				struct.setIconSkuIsSet(true);
 			}
-			if (incoming.get(13)) {
+			if (incoming.get(16)) {
 				struct.descSku = iprot.readString();
 				struct.setDescSkuIsSet(true);
 			}
-			if (incoming.get(14)) {
-				struct.weight = iprot.readI32();
+			if (incoming.get(17)) {
+				struct.weight = iprot.readDouble();
 				struct.setWeightIsSet(true);
 			}
-			if (incoming.get(15)) {
-				struct.volume = iprot.readI32();
+			if (incoming.get(18)) {
+				struct.volume = iprot.readDouble();
 				struct.setVolumeIsSet(true);
 			}
-			if (incoming.get(16)) {
+			if (incoming.get(19)) {
 				{
 					org.apache.thrift.protocol.TList _list29 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
@@ -3198,7 +3754,7 @@ public class Good
 				}
 				struct.setLabelsTxtIsSet(true);
 			}
-			if (incoming.get(17)) {
+			if (incoming.get(20)) {
 				{
 					org.apache.thrift.protocol.TList _list32 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
@@ -3212,31 +3768,39 @@ public class Good
 				}
 				struct.setLabelsTagIsSet(true);
 			}
-			if (incoming.get(18)) {
+			if (incoming.get(21)) {
 				struct.stock = iprot.readI32();
 				struct.setStockIsSet(true);
 			}
-			if (incoming.get(19)) {
+			if (incoming.get(22)) {
+				struct.stockInit = iprot.readI32();
+				struct.setStockInitIsSet(true);
+			}
+			if (incoming.get(23)) {
+				struct.stockOver = iprot.readI32();
+				struct.setStockOverIsSet(true);
+			}
+			if (incoming.get(24)) {
 				struct.price = iprot.readDouble();
 				struct.setPriceIsSet(true);
 			}
-			if (incoming.get(20)) {
+			if (incoming.get(25)) {
 				struct.priceOld = iprot.readDouble();
 				struct.setPriceOldIsSet(true);
 			}
-			if (incoming.get(21)) {
+			if (incoming.get(26)) {
 				struct.priceCost = iprot.readDouble();
 				struct.setPriceCostIsSet(true);
 			}
-			if (incoming.get(22)) {
+			if (incoming.get(27)) {
 				struct.priceAdviceFrom = iprot.readDouble();
 				struct.setPriceAdviceFromIsSet(true);
 			}
-			if (incoming.get(23)) {
+			if (incoming.get(28)) {
 				struct.priceAdviceTo = iprot.readDouble();
 				struct.setPriceAdviceToIsSet(true);
 			}
-			if (incoming.get(24)) {
+			if (incoming.get(29)) {
 				{
 					org.apache.thrift.protocol.TList _list35 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.MAP, iprot.readI32());

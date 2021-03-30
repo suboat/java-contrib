@@ -25,6 +25,8 @@ public class walletConstants {
 
 	public static final java.lang.String WALLETFLOW_ACTION_CONSUMER = "consumer";
 
+	public static final java.lang.String WALLETFLOW_ACTION_EXPIRE = "expire";
+
 	public static final java.lang.String WALLETFLOW_ACTION_TRANSFER = "transfer";
 
 	public static final java.lang.String WALLETFLOW_ACTION_EXCHANGE = "exchange";

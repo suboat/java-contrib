@@ -447,14 +447,14 @@ public class ResultUserStore implements org.apache.thrift.TBase<ResultUserStore,
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list182 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<UserStore>(_list182.size);
+							org.apache.thrift.protocol.TList _list192 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<UserStore>(_list192.size);
 							@org.apache.thrift.annotation.Nullable
-							UserStore _elem183;
-							for (int _i184 = 0; _i184 < _list182.size; ++_i184) {
-								_elem183 = new UserStore();
-								_elem183.read(iprot);
-								struct.data.add(_elem183);
+							UserStore _elem193;
+							for (int _i194 = 0; _i194 < _list192.size; ++_i194) {
+								_elem193 = new UserStore();
+								_elem193.read(iprot);
+								struct.data.add(_elem193);
 							}
 							iprot.readListEnd();
 						}
@@ -496,8 +496,8 @@ public class ResultUserStore implements org.apache.thrift.TBase<ResultUserStore,
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (UserStore _iter185 : struct.data) {
-						_iter185.write(oprot);
+					for (UserStore _iter195 : struct.data) {
+						_iter195.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -539,8 +539,8 @@ public class ResultUserStore implements org.apache.thrift.TBase<ResultUserStore,
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (UserStore _iter186 : struct.data) {
-						_iter186.write(oprot);
+					for (UserStore _iter196 : struct.data) {
+						_iter196.write(oprot);
 					}
 				}
 			}
@@ -556,15 +556,15 @@ public class ResultUserStore implements org.apache.thrift.TBase<ResultUserStore,
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list187 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list197 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<UserStore>(_list187.size);
+					struct.data = new java.util.ArrayList<UserStore>(_list197.size);
 					@org.apache.thrift.annotation.Nullable
-					UserStore _elem188;
-					for (int _i189 = 0; _i189 < _list187.size; ++_i189) {
-						_elem188 = new UserStore();
-						_elem188.read(iprot);
-						struct.data.add(_elem188);
+					UserStore _elem198;
+					for (int _i199 = 0; _i199 < _list197.size; ++_i199) {
+						_elem198 = new UserStore();
+						_elem198.read(iprot);
+						struct.data.add(_elem198);
 					}
 				}
 				struct.setDataIsSet(true);

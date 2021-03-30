@@ -822,16 +822,16 @@ public class ArgUptOrder implements org.apache.thrift.TBase<ArgUptOrder, ArgUptO
 				case 2: // PAY_MAP_THIS
 					if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
 						{
-							org.apache.thrift.protocol.TMap _map310 = iprot.readMapBegin();
+							org.apache.thrift.protocol.TMap _map320 = iprot.readMapBegin();
 							struct.payMapThis = new java.util.HashMap<java.lang.String, java.lang.Double>(
-									2 * _map310.size);
+									2 * _map320.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _key311;
-							double _val312;
-							for (int _i313 = 0; _i313 < _map310.size; ++_i313) {
-								_key311 = iprot.readString();
-								_val312 = iprot.readDouble();
-								struct.payMapThis.put(_key311, _val312);
+							java.lang.String _key321;
+							double _val322;
+							for (int _i323 = 0; _i323 < _map320.size; ++_i323) {
+								_key321 = iprot.readString();
+								_val322 = iprot.readDouble();
+								struct.payMapThis.put(_key321, _val322);
 							}
 							iprot.readMapEnd();
 						}
@@ -844,16 +844,16 @@ public class ArgUptOrder implements org.apache.thrift.TBase<ArgUptOrder, ArgUptO
 				case 3: // PAY_MAP_ALL
 					if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
 						{
-							org.apache.thrift.protocol.TMap _map314 = iprot.readMapBegin();
+							org.apache.thrift.protocol.TMap _map324 = iprot.readMapBegin();
 							struct.payMapAll = new java.util.HashMap<java.lang.String, java.lang.Double>(
-									2 * _map314.size);
+									2 * _map324.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _key315;
-							double _val316;
-							for (int _i317 = 0; _i317 < _map314.size; ++_i317) {
-								_key315 = iprot.readString();
-								_val316 = iprot.readDouble();
-								struct.payMapAll.put(_key315, _val316);
+							java.lang.String _key325;
+							double _val326;
+							for (int _i327 = 0; _i327 < _map324.size; ++_i327) {
+								_key325 = iprot.readString();
+								_val326 = iprot.readDouble();
+								struct.payMapAll.put(_key325, _val326);
 							}
 							iprot.readMapEnd();
 						}
@@ -918,10 +918,10 @@ public class ArgUptOrder implements org.apache.thrift.TBase<ArgUptOrder, ArgUptO
 					{
 						oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
 								org.apache.thrift.protocol.TType.DOUBLE, struct.payMapThis.size()));
-						for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter318 : struct.payMapThis
+						for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter328 : struct.payMapThis
 								.entrySet()) {
-							oprot.writeString(_iter318.getKey());
-							oprot.writeDouble(_iter318.getValue());
+							oprot.writeString(_iter328.getKey());
+							oprot.writeDouble(_iter328.getValue());
 						}
 						oprot.writeMapEnd();
 					}
@@ -934,10 +934,10 @@ public class ArgUptOrder implements org.apache.thrift.TBase<ArgUptOrder, ArgUptO
 					{
 						oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
 								org.apache.thrift.protocol.TType.DOUBLE, struct.payMapAll.size()));
-						for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter319 : struct.payMapAll
+						for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter329 : struct.payMapAll
 								.entrySet()) {
-							oprot.writeString(_iter319.getKey());
-							oprot.writeDouble(_iter319.getValue());
+							oprot.writeString(_iter329.getKey());
+							oprot.writeDouble(_iter329.getValue());
 						}
 						oprot.writeMapEnd();
 					}
@@ -1005,20 +1005,20 @@ public class ArgUptOrder implements org.apache.thrift.TBase<ArgUptOrder, ArgUptO
 			if (struct.isSetPayMapThis()) {
 				{
 					oprot.writeI32(struct.payMapThis.size());
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter320 : struct.payMapThis
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter330 : struct.payMapThis
 							.entrySet()) {
-						oprot.writeString(_iter320.getKey());
-						oprot.writeDouble(_iter320.getValue());
+						oprot.writeString(_iter330.getKey());
+						oprot.writeDouble(_iter330.getValue());
 					}
 				}
 			}
 			if (struct.isSetPayMapAll()) {
 				{
 					oprot.writeI32(struct.payMapAll.size());
-					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter321 : struct.payMapAll
+					for (java.util.Map.Entry<java.lang.String, java.lang.Double> _iter331 : struct.payMapAll
 							.entrySet()) {
-						oprot.writeString(_iter321.getKey());
-						oprot.writeDouble(_iter321.getValue());
+						oprot.writeString(_iter331.getKey());
+						oprot.writeDouble(_iter331.getValue());
 					}
 				}
 			}
@@ -1044,34 +1044,34 @@ public class ArgUptOrder implements org.apache.thrift.TBase<ArgUptOrder, ArgUptO
 			}
 			if (incoming.get(1)) {
 				{
-					org.apache.thrift.protocol.TMap _map322 = new org.apache.thrift.protocol.TMap(
+					org.apache.thrift.protocol.TMap _map332 = new org.apache.thrift.protocol.TMap(
 							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.DOUBLE,
 							iprot.readI32());
-					struct.payMapThis = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map322.size);
+					struct.payMapThis = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map332.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _key323;
-					double _val324;
-					for (int _i325 = 0; _i325 < _map322.size; ++_i325) {
-						_key323 = iprot.readString();
-						_val324 = iprot.readDouble();
-						struct.payMapThis.put(_key323, _val324);
+					java.lang.String _key333;
+					double _val334;
+					for (int _i335 = 0; _i335 < _map332.size; ++_i335) {
+						_key333 = iprot.readString();
+						_val334 = iprot.readDouble();
+						struct.payMapThis.put(_key333, _val334);
 					}
 				}
 				struct.setPayMapThisIsSet(true);
 			}
 			if (incoming.get(2)) {
 				{
-					org.apache.thrift.protocol.TMap _map326 = new org.apache.thrift.protocol.TMap(
+					org.apache.thrift.protocol.TMap _map336 = new org.apache.thrift.protocol.TMap(
 							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.DOUBLE,
 							iprot.readI32());
-					struct.payMapAll = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map326.size);
+					struct.payMapAll = new java.util.HashMap<java.lang.String, java.lang.Double>(2 * _map336.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _key327;
-					double _val328;
-					for (int _i329 = 0; _i329 < _map326.size; ++_i329) {
-						_key327 = iprot.readString();
-						_val328 = iprot.readDouble();
-						struct.payMapAll.put(_key327, _val328);
+					java.lang.String _key337;
+					double _val338;
+					for (int _i339 = 0; _i339 < _map336.size; ++_i339) {
+						_key337 = iprot.readString();
+						_val338 = iprot.readDouble();
+						struct.payMapAll.put(_key337, _val338);
 					}
 				}
 				struct.setPayMapAllIsSet(true);

@@ -28,6 +28,9 @@ public class Goods
 	private static final org.apache.thrift.protocol.TField SPU_FIELD_DESC = new org.apache.thrift.protocol.TField("spu",
 			org.apache.thrift.protocol.TType.STRING, (short) 5);
 
+	private static final org.apache.thrift.protocol.TField KIND_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"kind", org.apache.thrift.protocol.TType.STRING, (short) 28);
+
 	private static final org.apache.thrift.protocol.TField CREATE_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"createTime", org.apache.thrift.protocol.TType.STRING, (short) 6);
 
@@ -40,8 +43,23 @@ public class Goods
 	private static final org.apache.thrift.protocol.TField EXPIRE_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"expireTime", org.apache.thrift.protocol.TType.STRING, (short) 9);
 
+	private static final org.apache.thrift.protocol.TField SHOW_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"showTime", org.apache.thrift.protocol.TType.STRING, (short) 31);
+
+	private static final org.apache.thrift.protocol.TField HIDE_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"hideTime", org.apache.thrift.protocol.TType.STRING, (short) 32);
+
+	private static final org.apache.thrift.protocol.TField IS_AUTO_SHOW_HIDE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"isAutoShowHide", org.apache.thrift.protocol.TType.BOOL, (short) 33);
+
 	private static final org.apache.thrift.protocol.TField STATUS_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"status", org.apache.thrift.protocol.TType.I32, (short) 10);
+
+	private static final org.apache.thrift.protocol.TField STATUS_ORDER_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"statusOrder", org.apache.thrift.protocol.TType.I32, (short) 29);
+
+	private static final org.apache.thrift.protocol.TField STORE_STATUS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"storeStatus", org.apache.thrift.protocol.TType.I32, (short) 30);
 
 	private static final org.apache.thrift.protocol.TField CATEGORY_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"category", org.apache.thrift.protocol.TType.STRING, (short) 11);
@@ -79,11 +97,53 @@ public class Goods
 	private static final org.apache.thrift.protocol.TField IS_SEARCH_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"isSearch", org.apache.thrift.protocol.TType.BOOL, (short) 21);
 
+	private static final org.apache.thrift.protocol.TField COMMENT_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"comment", org.apache.thrift.protocol.TType.STRING, (short) 34);
+
+	private static final org.apache.thrift.protocol.TField LONGITUDE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"longitude", org.apache.thrift.protocol.TType.DOUBLE, (short) 44);
+
+	private static final org.apache.thrift.protocol.TField LATITUDE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"latitude", org.apache.thrift.protocol.TType.DOUBLE, (short) 45);
+
+	private static final org.apache.thrift.protocol.TField LOCATION_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"location", org.apache.thrift.protocol.TType.STRING, (short) 46);
+
+	private static final org.apache.thrift.protocol.TField AREA_KEY_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"areaKey", org.apache.thrift.protocol.TType.STRING, (short) 47);
+
 	private static final org.apache.thrift.protocol.TField MAX_ORDER_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"maxOrder", org.apache.thrift.protocol.TType.I32, (short) 22);
 
 	private static final org.apache.thrift.protocol.TField MAX_USER_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"maxUser", org.apache.thrift.protocol.TType.I32, (short) 23);
+
+	private static final org.apache.thrift.protocol.TField MIN_BUY_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"minBuy", org.apache.thrift.protocol.TType.I32, (short) 35);
+
+	private static final org.apache.thrift.protocol.TField MIN_LEVEL_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"minLevel", org.apache.thrift.protocol.TType.I32, (short) 36);
+
+	private static final org.apache.thrift.protocol.TField IS_MEMBER_DIS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"isMemberDis", org.apache.thrift.protocol.TType.BOOL, (short) 37);
+
+	private static final org.apache.thrift.protocol.TField IS_LIMIT_BUY_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"isLimitBuy", org.apache.thrift.protocol.TType.BOOL, (short) 38);
+
+	private static final org.apache.thrift.protocol.TField NOT_REFUND_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"notRefund", org.apache.thrift.protocol.TType.BOOL, (short) 39);
+
+	private static final org.apache.thrift.protocol.TField WEIGHT_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"weight", org.apache.thrift.protocol.TType.DOUBLE, (short) 40);
+
+	private static final org.apache.thrift.protocol.TField TRANSPORT_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"transport", org.apache.thrift.protocol.TType.I32, (short) 41);
+
+	private static final org.apache.thrift.protocol.TField TRANSPORT_FEE_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"transportFee", org.apache.thrift.protocol.TType.DOUBLE, (short) 42);
+
+	private static final org.apache.thrift.protocol.TField FEE_BELONG_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"feeBelong", org.apache.thrift.protocol.TType.STRING, (short) 43);
 
 	private static final org.apache.thrift.protocol.TField SELL_SPU_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"sellSpu", org.apache.thrift.protocol.TType.I32, (short) 25);
@@ -108,6 +168,8 @@ public class Goods
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String spu; // required
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String kind; // required
+
 	public @org.apache.thrift.annotation.Nullable java.lang.String createTime; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String updateTime; // required
@@ -116,7 +178,17 @@ public class Goods
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String expireTime; // required
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String showTime; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String hideTime; // required
+
+	public boolean isAutoShowHide; // required
+
 	public int status; // required
+
+	public int statusOrder; // required
+
+	public int storeStatus; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String category; // required
 
@@ -142,9 +214,37 @@ public class Goods
 
 	public boolean isSearch; // required
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String comment; // required
+
+	public double longitude; // required
+
+	public double latitude; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String location; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String areaKey; // required
+
 	public int maxOrder; // required
 
 	public int maxUser; // required
+
+	public int minBuy; // required
+
+	public int minLevel; // required
+
+	public boolean isMemberDis; // required
+
+	public boolean isLimitBuy; // required
+
+	public boolean notRefund; // required
+
+	public double weight; // required
+
+	public int transport; // required
+
+	public double transportFee; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String feeBelong; // required
 
 	public int sellSpu; // required
 
@@ -159,26 +259,68 @@ public class Goods
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
 		MID((short) 1, "mid"), SID((short) 2, "sid"), UID((short) 3, "uid"), PID((short) 4, "pid"), SPU((short) 5,
-				"spu"), CREATE_TIME((short) 6, "createTime"), UPDATE_TIME((short) 7, "updateTime"), APPLY_TIME(
-						(short) 8,
-						"applyTime"), EXPIRE_TIME((short) 9, "expireTime"), STATUS((short) 10, "status"), CATEGORY(
-								(short) 11, "category"), IS_VIRTUAL((short) 12, "isVirtual"), IS_CURRENCY((short) 13,
-										"isCurrency"), IS_BUNDLE((short) 14, "isBundle"), IS_MIX((short) 15,
-												"isMix"), NUM_LABEL((short) 16, "numLabel"), LABELS_DESC((short) 24,
-														"labelsDesc"), NAME_SPU((short) 17, "nameSpu"), ICON_SPU(
-																(short) 18,
-																"iconSpu"), DESC_SPU((short) 19, "descSpu"), PRIORITY(
-																		(short) 20, "priority"), IS_SEARCH((short) 21,
-																				"isSearch"), MAX_ORDER((short) 22,
-																						"maxOrder"), MAX_USER(
-																								(short) 23,
-																								"maxUser"), SELL_SPU(
-																										(short) 25,
-																										"sellSpu"), SCORE_NUM(
-																												(short) 26,
-																												"scoreNum"), SCORE_AVG(
-																														(short) 27,
-																														"scoreAvg");
+				"spu"), KIND((short) 28, "kind"), CREATE_TIME((short) 6, "createTime"), UPDATE_TIME((short) 7,
+						"updateTime"), APPLY_TIME((short) 8, "applyTime"), EXPIRE_TIME((short) 9,
+								"expireTime"), SHOW_TIME((short) 31, "showTime"), HIDE_TIME((short) 32,
+										"hideTime"), IS_AUTO_SHOW_HIDE((short) 33, "isAutoShowHide"), STATUS((short) 10,
+												"status"), STATUS_ORDER((short) 29, "statusOrder"), STORE_STATUS(
+														(short) 30,
+														"storeStatus"), CATEGORY((short) 11, "category"), IS_VIRTUAL(
+																(short) 12, "isVirtual"), IS_CURRENCY((short) 13,
+																		"isCurrency"), IS_BUNDLE((short) 14,
+																				"isBundle"), IS_MIX((short) 15,
+																						"isMix"), NUM_LABEL((short) 16,
+																								"numLabel"), LABELS_DESC(
+																										(short) 24,
+																										"labelsDesc"), NAME_SPU(
+																												(short) 17,
+																												"nameSpu"), ICON_SPU(
+																														(short) 18,
+																														"iconSpu"), DESC_SPU(
+																																(short) 19,
+																																"descSpu"), PRIORITY(
+																																		(short) 20,
+																																		"priority"), IS_SEARCH(
+																																				(short) 21,
+																																				"isSearch"), COMMENT(
+																																						(short) 34,
+																																						"comment"), LONGITUDE(
+																																								(short) 44,
+																																								"longitude"), LATITUDE(
+																																										(short) 45,
+																																										"latitude"), LOCATION(
+																																												(short) 46,
+																																												"location"), AREA_KEY(
+																																														(short) 47,
+																																														"areaKey"), MAX_ORDER(
+																																																(short) 22,
+																																																"maxOrder"), MAX_USER(
+																																																		(short) 23,
+																																																		"maxUser"), MIN_BUY(
+																																																				(short) 35,
+																																																				"minBuy"), MIN_LEVEL(
+																																																						(short) 36,
+																																																						"minLevel"), IS_MEMBER_DIS(
+																																																								(short) 37,
+																																																								"isMemberDis"), IS_LIMIT_BUY(
+																																																										(short) 38,
+																																																										"isLimitBuy"), NOT_REFUND(
+																																																												(short) 39,
+																																																												"notRefund"), WEIGHT(
+																																																														(short) 40,
+																																																														"weight"), TRANSPORT(
+																																																																(short) 41,
+																																																																"transport"), TRANSPORT_FEE(
+																																																																		(short) 42,
+																																																																		"transportFee"), FEE_BELONG(
+																																																																				(short) 43,
+																																																																				"feeBelong"), SELL_SPU(
+																																																																						(short) 25,
+																																																																						"sellSpu"), SCORE_NUM(
+																																																																								(short) 26,
+																																																																								"scoreNum"), SCORE_AVG(
+																																																																										(short) 27,
+																																																																										"scoreAvg");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -204,6 +346,8 @@ public class Goods
 				return PID;
 			case 5: // SPU
 				return SPU;
+			case 28: // KIND
+				return KIND;
 			case 6: // CREATE_TIME
 				return CREATE_TIME;
 			case 7: // UPDATE_TIME
@@ -212,8 +356,18 @@ public class Goods
 				return APPLY_TIME;
 			case 9: // EXPIRE_TIME
 				return EXPIRE_TIME;
+			case 31: // SHOW_TIME
+				return SHOW_TIME;
+			case 32: // HIDE_TIME
+				return HIDE_TIME;
+			case 33: // IS_AUTO_SHOW_HIDE
+				return IS_AUTO_SHOW_HIDE;
 			case 10: // STATUS
 				return STATUS;
+			case 29: // STATUS_ORDER
+				return STATUS_ORDER;
+			case 30: // STORE_STATUS
+				return STORE_STATUS;
 			case 11: // CATEGORY
 				return CATEGORY;
 			case 12: // IS_VIRTUAL
@@ -238,10 +392,38 @@ public class Goods
 				return PRIORITY;
 			case 21: // IS_SEARCH
 				return IS_SEARCH;
+			case 34: // COMMENT
+				return COMMENT;
+			case 44: // LONGITUDE
+				return LONGITUDE;
+			case 45: // LATITUDE
+				return LATITUDE;
+			case 46: // LOCATION
+				return LOCATION;
+			case 47: // AREA_KEY
+				return AREA_KEY;
 			case 22: // MAX_ORDER
 				return MAX_ORDER;
 			case 23: // MAX_USER
 				return MAX_USER;
+			case 35: // MIN_BUY
+				return MIN_BUY;
+			case 36: // MIN_LEVEL
+				return MIN_LEVEL;
+			case 37: // IS_MEMBER_DIS
+				return IS_MEMBER_DIS;
+			case 38: // IS_LIMIT_BUY
+				return IS_LIMIT_BUY;
+			case 39: // NOT_REFUND
+				return NOT_REFUND;
+			case 40: // WEIGHT
+				return WEIGHT;
+			case 41: // TRANSPORT
+				return TRANSPORT;
+			case 42: // TRANSPORT_FEE
+				return TRANSPORT_FEE;
+			case 43: // FEE_BELONG
+				return FEE_BELONG;
 			case 25: // SELL_SPU
 				return SELL_SPU;
 			case 26: // SCORE_NUM
@@ -292,33 +474,59 @@ public class Goods
 	}
 
 	// isset id assignments
-	private static final int __STATUS_ISSET_ID = 0;
+	private static final int __ISAUTOSHOWHIDE_ISSET_ID = 0;
 
-	private static final int __ISVIRTUAL_ISSET_ID = 1;
+	private static final int __STATUS_ISSET_ID = 1;
 
-	private static final int __ISCURRENCY_ISSET_ID = 2;
+	private static final int __STATUSORDER_ISSET_ID = 2;
 
-	private static final int __ISBUNDLE_ISSET_ID = 3;
+	private static final int __STORESTATUS_ISSET_ID = 3;
 
-	private static final int __ISMIX_ISSET_ID = 4;
+	private static final int __ISVIRTUAL_ISSET_ID = 4;
 
-	private static final int __NUMLABEL_ISSET_ID = 5;
+	private static final int __ISCURRENCY_ISSET_ID = 5;
 
-	private static final int __PRIORITY_ISSET_ID = 6;
+	private static final int __ISBUNDLE_ISSET_ID = 6;
 
-	private static final int __ISSEARCH_ISSET_ID = 7;
+	private static final int __ISMIX_ISSET_ID = 7;
 
-	private static final int __MAXORDER_ISSET_ID = 8;
+	private static final int __NUMLABEL_ISSET_ID = 8;
 
-	private static final int __MAXUSER_ISSET_ID = 9;
+	private static final int __PRIORITY_ISSET_ID = 9;
 
-	private static final int __SELLSPU_ISSET_ID = 10;
+	private static final int __ISSEARCH_ISSET_ID = 10;
 
-	private static final int __SCORENUM_ISSET_ID = 11;
+	private static final int __LONGITUDE_ISSET_ID = 11;
 
-	private static final int __SCOREAVG_ISSET_ID = 12;
+	private static final int __LATITUDE_ISSET_ID = 12;
 
-	private short __isset_bitfield = 0;
+	private static final int __MAXORDER_ISSET_ID = 13;
+
+	private static final int __MAXUSER_ISSET_ID = 14;
+
+	private static final int __MINBUY_ISSET_ID = 15;
+
+	private static final int __MINLEVEL_ISSET_ID = 16;
+
+	private static final int __ISMEMBERDIS_ISSET_ID = 17;
+
+	private static final int __ISLIMITBUY_ISSET_ID = 18;
+
+	private static final int __NOTREFUND_ISSET_ID = 19;
+
+	private static final int __WEIGHT_ISSET_ID = 20;
+
+	private static final int __TRANSPORT_ISSET_ID = 21;
+
+	private static final int __TRANSPORTFEE_ISSET_ID = 22;
+
+	private static final int __SELLSPU_ISSET_ID = 23;
+
+	private static final int __SCORENUM_ISSET_ID = 24;
+
+	private static final int __SCOREAVG_ISSET_ID = 25;
+
+	private int __isset_bitfield = 0;
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
@@ -339,6 +547,9 @@ public class Goods
 		tmpMap.put(_Fields.SPU,
 				new org.apache.thrift.meta_data.FieldMetaData("spu", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.KIND,
+				new org.apache.thrift.meta_data.FieldMetaData("kind", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.CREATE_TIME, new org.apache.thrift.meta_data.FieldMetaData("createTime",
 				org.apache.thrift.TFieldRequirementType.DEFAULT,
 				new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING, "Time")));
@@ -351,8 +562,26 @@ public class Goods
 		tmpMap.put(_Fields.EXPIRE_TIME, new org.apache.thrift.meta_data.FieldMetaData("expireTime",
 				org.apache.thrift.TFieldRequirementType.DEFAULT,
 				new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING, "Time")));
+		tmpMap.put(_Fields.SHOW_TIME, new org.apache.thrift.meta_data.FieldMetaData("showTime",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING, "Time")));
+		tmpMap.put(_Fields.HIDE_TIME, new org.apache.thrift.meta_data.FieldMetaData("hideTime",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING, "Time")));
+		tmpMap.put(_Fields.IS_AUTO_SHOW_HIDE,
+				new org.apache.thrift.meta_data.FieldMetaData("isAutoShowHide",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
 		tmpMap.put(_Fields.STATUS,
 				new org.apache.thrift.meta_data.FieldMetaData("status", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.STATUS_ORDER,
+				new org.apache.thrift.meta_data.FieldMetaData("statusOrder",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.STORE_STATUS,
+				new org.apache.thrift.meta_data.FieldMetaData("storeStatus",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
 		tmpMap.put(_Fields.CATEGORY,
 				new org.apache.thrift.meta_data.FieldMetaData("category",
@@ -401,6 +630,26 @@ public class Goods
 				new org.apache.thrift.meta_data.FieldMetaData("isSearch",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
+		tmpMap.put(_Fields.COMMENT,
+				new org.apache.thrift.meta_data.FieldMetaData("comment",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.LONGITUDE,
+				new org.apache.thrift.meta_data.FieldMetaData("longitude",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.LATITUDE,
+				new org.apache.thrift.meta_data.FieldMetaData("latitude",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.LOCATION,
+				new org.apache.thrift.meta_data.FieldMetaData("location",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.AREA_KEY,
+				new org.apache.thrift.meta_data.FieldMetaData("areaKey",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.MAX_ORDER,
 				new org.apache.thrift.meta_data.FieldMetaData("maxOrder",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
@@ -409,6 +658,40 @@ public class Goods
 				new org.apache.thrift.meta_data.FieldMetaData("maxUser",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.MIN_BUY,
+				new org.apache.thrift.meta_data.FieldMetaData("minBuy", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.MIN_LEVEL,
+				new org.apache.thrift.meta_data.FieldMetaData("minLevel",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.IS_MEMBER_DIS,
+				new org.apache.thrift.meta_data.FieldMetaData("isMemberDis",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
+		tmpMap.put(_Fields.IS_LIMIT_BUY,
+				new org.apache.thrift.meta_data.FieldMetaData("isLimitBuy",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
+		tmpMap.put(_Fields.NOT_REFUND,
+				new org.apache.thrift.meta_data.FieldMetaData("notRefund",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.BOOL)));
+		tmpMap.put(_Fields.WEIGHT,
+				new org.apache.thrift.meta_data.FieldMetaData("weight", org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.TRANSPORT,
+				new org.apache.thrift.meta_data.FieldMetaData("transport",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+		tmpMap.put(_Fields.TRANSPORT_FEE,
+				new org.apache.thrift.meta_data.FieldMetaData("transportFee",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.DOUBLE)));
+		tmpMap.put(_Fields.FEE_BELONG,
+				new org.apache.thrift.meta_data.FieldMetaData("feeBelong",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.SELL_SPU,
 				new org.apache.thrift.meta_data.FieldMetaData("sellSpu",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
@@ -429,23 +712,37 @@ public class Goods
 	}
 
 	public Goods(java.lang.String mid, java.lang.String sid, java.lang.String uid, java.lang.String pid,
-			java.lang.String spu, java.lang.String createTime, java.lang.String updateTime, java.lang.String applyTime,
-			java.lang.String expireTime, int status, java.lang.String category, boolean isVirtual, boolean isCurrency,
-			boolean isBundle, boolean isMix, int numLabel, java.util.List<java.lang.String> labelsDesc,
-			java.lang.String nameSpu, java.lang.String iconSpu, java.lang.String descSpu, int priority,
-			boolean isSearch, int maxOrder, int maxUser, int sellSpu, int scoreNum, double scoreAvg) {
+			java.lang.String spu, java.lang.String kind, java.lang.String createTime, java.lang.String updateTime,
+			java.lang.String applyTime, java.lang.String expireTime, java.lang.String showTime,
+			java.lang.String hideTime, boolean isAutoShowHide, int status, int statusOrder, int storeStatus,
+			java.lang.String category, boolean isVirtual, boolean isCurrency, boolean isBundle, boolean isMix,
+			int numLabel, java.util.List<java.lang.String> labelsDesc, java.lang.String nameSpu,
+			java.lang.String iconSpu, java.lang.String descSpu, int priority, boolean isSearch,
+			java.lang.String comment, double longitude, double latitude, java.lang.String location,
+			java.lang.String areaKey, int maxOrder, int maxUser, int minBuy, int minLevel, boolean isMemberDis,
+			boolean isLimitBuy, boolean notRefund, double weight, int transport, double transportFee,
+			java.lang.String feeBelong, int sellSpu, int scoreNum, double scoreAvg) {
 		this();
 		this.mid = mid;
 		this.sid = sid;
 		this.uid = uid;
 		this.pid = pid;
 		this.spu = spu;
+		this.kind = kind;
 		this.createTime = createTime;
 		this.updateTime = updateTime;
 		this.applyTime = applyTime;
 		this.expireTime = expireTime;
+		this.showTime = showTime;
+		this.hideTime = hideTime;
+		this.isAutoShowHide = isAutoShowHide;
+		setIsAutoShowHideIsSet(true);
 		this.status = status;
 		setStatusIsSet(true);
+		this.statusOrder = statusOrder;
+		setStatusOrderIsSet(true);
+		this.storeStatus = storeStatus;
+		setStoreStatusIsSet(true);
 		this.category = category;
 		this.isVirtual = isVirtual;
 		setIsVirtualIsSet(true);
@@ -465,10 +762,34 @@ public class Goods
 		setPriorityIsSet(true);
 		this.isSearch = isSearch;
 		setIsSearchIsSet(true);
+		this.comment = comment;
+		this.longitude = longitude;
+		setLongitudeIsSet(true);
+		this.latitude = latitude;
+		setLatitudeIsSet(true);
+		this.location = location;
+		this.areaKey = areaKey;
 		this.maxOrder = maxOrder;
 		setMaxOrderIsSet(true);
 		this.maxUser = maxUser;
 		setMaxUserIsSet(true);
+		this.minBuy = minBuy;
+		setMinBuyIsSet(true);
+		this.minLevel = minLevel;
+		setMinLevelIsSet(true);
+		this.isMemberDis = isMemberDis;
+		setIsMemberDisIsSet(true);
+		this.isLimitBuy = isLimitBuy;
+		setIsLimitBuyIsSet(true);
+		this.notRefund = notRefund;
+		setNotRefundIsSet(true);
+		this.weight = weight;
+		setWeightIsSet(true);
+		this.transport = transport;
+		setTransportIsSet(true);
+		this.transportFee = transportFee;
+		setTransportFeeIsSet(true);
+		this.feeBelong = feeBelong;
 		this.sellSpu = sellSpu;
 		setSellSpuIsSet(true);
 		this.scoreNum = scoreNum;
@@ -497,6 +818,9 @@ public class Goods
 		if (other.isSetSpu()) {
 			this.spu = other.spu;
 		}
+		if (other.isSetKind()) {
+			this.kind = other.kind;
+		}
 		if (other.isSetCreateTime()) {
 			this.createTime = other.createTime;
 		}
@@ -509,7 +833,16 @@ public class Goods
 		if (other.isSetExpireTime()) {
 			this.expireTime = other.expireTime;
 		}
+		if (other.isSetShowTime()) {
+			this.showTime = other.showTime;
+		}
+		if (other.isSetHideTime()) {
+			this.hideTime = other.hideTime;
+		}
+		this.isAutoShowHide = other.isAutoShowHide;
 		this.status = other.status;
+		this.statusOrder = other.statusOrder;
+		this.storeStatus = other.storeStatus;
 		if (other.isSetCategory()) {
 			this.category = other.category;
 		}
@@ -534,8 +867,30 @@ public class Goods
 		}
 		this.priority = other.priority;
 		this.isSearch = other.isSearch;
+		if (other.isSetComment()) {
+			this.comment = other.comment;
+		}
+		this.longitude = other.longitude;
+		this.latitude = other.latitude;
+		if (other.isSetLocation()) {
+			this.location = other.location;
+		}
+		if (other.isSetAreaKey()) {
+			this.areaKey = other.areaKey;
+		}
 		this.maxOrder = other.maxOrder;
 		this.maxUser = other.maxUser;
+		this.minBuy = other.minBuy;
+		this.minLevel = other.minLevel;
+		this.isMemberDis = other.isMemberDis;
+		this.isLimitBuy = other.isLimitBuy;
+		this.notRefund = other.notRefund;
+		this.weight = other.weight;
+		this.transport = other.transport;
+		this.transportFee = other.transportFee;
+		if (other.isSetFeeBelong()) {
+			this.feeBelong = other.feeBelong;
+		}
 		this.sellSpu = other.sellSpu;
 		this.scoreNum = other.scoreNum;
 		this.scoreAvg = other.scoreAvg;
@@ -552,12 +907,21 @@ public class Goods
 		this.uid = null;
 		this.pid = null;
 		this.spu = null;
+		this.kind = null;
 		this.createTime = null;
 		this.updateTime = null;
 		this.applyTime = null;
 		this.expireTime = null;
+		this.showTime = null;
+		this.hideTime = null;
+		setIsAutoShowHideIsSet(false);
+		this.isAutoShowHide = false;
 		setStatusIsSet(false);
 		this.status = 0;
+		setStatusOrderIsSet(false);
+		this.statusOrder = 0;
+		setStoreStatusIsSet(false);
+		this.storeStatus = 0;
 		this.category = null;
 		setIsVirtualIsSet(false);
 		this.isVirtual = false;
@@ -577,10 +941,34 @@ public class Goods
 		this.priority = 0;
 		setIsSearchIsSet(false);
 		this.isSearch = false;
+		this.comment = null;
+		setLongitudeIsSet(false);
+		this.longitude = 0.0;
+		setLatitudeIsSet(false);
+		this.latitude = 0.0;
+		this.location = null;
+		this.areaKey = null;
 		setMaxOrderIsSet(false);
 		this.maxOrder = 0;
 		setMaxUserIsSet(false);
 		this.maxUser = 0;
+		setMinBuyIsSet(false);
+		this.minBuy = 0;
+		setMinLevelIsSet(false);
+		this.minLevel = 0;
+		setIsMemberDisIsSet(false);
+		this.isMemberDis = false;
+		setIsLimitBuyIsSet(false);
+		this.isLimitBuy = false;
+		setNotRefundIsSet(false);
+		this.notRefund = false;
+		setWeightIsSet(false);
+		this.weight = 0.0;
+		setTransportIsSet(false);
+		this.transport = 0;
+		setTransportFeeIsSet(false);
+		this.transportFee = 0.0;
+		this.feeBelong = null;
 		setSellSpuIsSet(false);
 		this.sellSpu = 0;
 		setScoreNumIsSet(false);
@@ -725,6 +1113,33 @@ public class Goods
 	}
 
 	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getKind() {
+		return this.kind;
+	}
+
+	public Goods setKind(@org.apache.thrift.annotation.Nullable java.lang.String kind) {
+		this.kind = kind;
+		return this;
+	}
+
+	public void unsetKind() {
+		this.kind = null;
+	}
+
+	/**
+	 * Returns true if field kind is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetKind() {
+		return this.kind != null;
+	}
+
+	public void setKindIsSet(boolean value) {
+		if (!value) {
+			this.kind = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
 	public java.lang.String getCreateTime() {
 		return this.createTime;
 	}
@@ -836,6 +1251,88 @@ public class Goods
 		}
 	}
 
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getShowTime() {
+		return this.showTime;
+	}
+
+	public Goods setShowTime(@org.apache.thrift.annotation.Nullable java.lang.String showTime) {
+		this.showTime = showTime;
+		return this;
+	}
+
+	public void unsetShowTime() {
+		this.showTime = null;
+	}
+
+	/**
+	 * Returns true if field showTime is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetShowTime() {
+		return this.showTime != null;
+	}
+
+	public void setShowTimeIsSet(boolean value) {
+		if (!value) {
+			this.showTime = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getHideTime() {
+		return this.hideTime;
+	}
+
+	public Goods setHideTime(@org.apache.thrift.annotation.Nullable java.lang.String hideTime) {
+		this.hideTime = hideTime;
+		return this;
+	}
+
+	public void unsetHideTime() {
+		this.hideTime = null;
+	}
+
+	/**
+	 * Returns true if field hideTime is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetHideTime() {
+		return this.hideTime != null;
+	}
+
+	public void setHideTimeIsSet(boolean value) {
+		if (!value) {
+			this.hideTime = null;
+		}
+	}
+
+	public boolean isIsAutoShowHide() {
+		return this.isAutoShowHide;
+	}
+
+	public Goods setIsAutoShowHide(boolean isAutoShowHide) {
+		this.isAutoShowHide = isAutoShowHide;
+		setIsAutoShowHideIsSet(true);
+		return this;
+	}
+
+	public void unsetIsAutoShowHide() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __ISAUTOSHOWHIDE_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field isAutoShowHide is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetIsAutoShowHide() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __ISAUTOSHOWHIDE_ISSET_ID);
+	}
+
+	public void setIsAutoShowHideIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __ISAUTOSHOWHIDE_ISSET_ID, value);
+	}
+
 	public int getStatus() {
 		return this.status;
 	}
@@ -859,6 +1356,58 @@ public class Goods
 
 	public void setStatusIsSet(boolean value) {
 		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __STATUS_ISSET_ID, value);
+	}
+
+	public int getStatusOrder() {
+		return this.statusOrder;
+	}
+
+	public Goods setStatusOrder(int statusOrder) {
+		this.statusOrder = statusOrder;
+		setStatusOrderIsSet(true);
+		return this;
+	}
+
+	public void unsetStatusOrder() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __STATUSORDER_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field statusOrder is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetStatusOrder() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __STATUSORDER_ISSET_ID);
+	}
+
+	public void setStatusOrderIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __STATUSORDER_ISSET_ID, value);
+	}
+
+	public int getStoreStatus() {
+		return this.storeStatus;
+	}
+
+	public Goods setStoreStatus(int storeStatus) {
+		this.storeStatus = storeStatus;
+		setStoreStatusIsSet(true);
+		return this;
+	}
+
+	public void unsetStoreStatus() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __STORESTATUS_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field storeStatus is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetStoreStatus() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __STORESTATUS_ISSET_ID);
+	}
+
+	public void setStoreStatusIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __STORESTATUS_ISSET_ID, value);
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -1198,6 +1747,142 @@ public class Goods
 		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __ISSEARCH_ISSET_ID, value);
 	}
 
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getComment() {
+		return this.comment;
+	}
+
+	public Goods setComment(@org.apache.thrift.annotation.Nullable java.lang.String comment) {
+		this.comment = comment;
+		return this;
+	}
+
+	public void unsetComment() {
+		this.comment = null;
+	}
+
+	/**
+	 * Returns true if field comment is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetComment() {
+		return this.comment != null;
+	}
+
+	public void setCommentIsSet(boolean value) {
+		if (!value) {
+			this.comment = null;
+		}
+	}
+
+	public double getLongitude() {
+		return this.longitude;
+	}
+
+	public Goods setLongitude(double longitude) {
+		this.longitude = longitude;
+		setLongitudeIsSet(true);
+		return this;
+	}
+
+	public void unsetLongitude() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __LONGITUDE_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field longitude is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetLongitude() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __LONGITUDE_ISSET_ID);
+	}
+
+	public void setLongitudeIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __LONGITUDE_ISSET_ID, value);
+	}
+
+	public double getLatitude() {
+		return this.latitude;
+	}
+
+	public Goods setLatitude(double latitude) {
+		this.latitude = latitude;
+		setLatitudeIsSet(true);
+		return this;
+	}
+
+	public void unsetLatitude() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __LATITUDE_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field latitude is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetLatitude() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __LATITUDE_ISSET_ID);
+	}
+
+	public void setLatitudeIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __LATITUDE_ISSET_ID, value);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getLocation() {
+		return this.location;
+	}
+
+	public Goods setLocation(@org.apache.thrift.annotation.Nullable java.lang.String location) {
+		this.location = location;
+		return this;
+	}
+
+	public void unsetLocation() {
+		this.location = null;
+	}
+
+	/**
+	 * Returns true if field location is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetLocation() {
+		return this.location != null;
+	}
+
+	public void setLocationIsSet(boolean value) {
+		if (!value) {
+			this.location = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getAreaKey() {
+		return this.areaKey;
+	}
+
+	public Goods setAreaKey(@org.apache.thrift.annotation.Nullable java.lang.String areaKey) {
+		this.areaKey = areaKey;
+		return this;
+	}
+
+	public void unsetAreaKey() {
+		this.areaKey = null;
+	}
+
+	/**
+	 * Returns true if field areaKey is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetAreaKey() {
+		return this.areaKey != null;
+	}
+
+	public void setAreaKeyIsSet(boolean value) {
+		if (!value) {
+			this.areaKey = null;
+		}
+	}
+
 	public int getMaxOrder() {
 		return this.maxOrder;
 	}
@@ -1248,6 +1933,240 @@ public class Goods
 
 	public void setMaxUserIsSet(boolean value) {
 		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __MAXUSER_ISSET_ID, value);
+	}
+
+	public int getMinBuy() {
+		return this.minBuy;
+	}
+
+	public Goods setMinBuy(int minBuy) {
+		this.minBuy = minBuy;
+		setMinBuyIsSet(true);
+		return this;
+	}
+
+	public void unsetMinBuy() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __MINBUY_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field minBuy is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetMinBuy() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __MINBUY_ISSET_ID);
+	}
+
+	public void setMinBuyIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __MINBUY_ISSET_ID, value);
+	}
+
+	public int getMinLevel() {
+		return this.minLevel;
+	}
+
+	public Goods setMinLevel(int minLevel) {
+		this.minLevel = minLevel;
+		setMinLevelIsSet(true);
+		return this;
+	}
+
+	public void unsetMinLevel() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __MINLEVEL_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field minLevel is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetMinLevel() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __MINLEVEL_ISSET_ID);
+	}
+
+	public void setMinLevelIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __MINLEVEL_ISSET_ID, value);
+	}
+
+	public boolean isIsMemberDis() {
+		return this.isMemberDis;
+	}
+
+	public Goods setIsMemberDis(boolean isMemberDis) {
+		this.isMemberDis = isMemberDis;
+		setIsMemberDisIsSet(true);
+		return this;
+	}
+
+	public void unsetIsMemberDis() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __ISMEMBERDIS_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field isMemberDis is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetIsMemberDis() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __ISMEMBERDIS_ISSET_ID);
+	}
+
+	public void setIsMemberDisIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __ISMEMBERDIS_ISSET_ID, value);
+	}
+
+	public boolean isIsLimitBuy() {
+		return this.isLimitBuy;
+	}
+
+	public Goods setIsLimitBuy(boolean isLimitBuy) {
+		this.isLimitBuy = isLimitBuy;
+		setIsLimitBuyIsSet(true);
+		return this;
+	}
+
+	public void unsetIsLimitBuy() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __ISLIMITBUY_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field isLimitBuy is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetIsLimitBuy() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __ISLIMITBUY_ISSET_ID);
+	}
+
+	public void setIsLimitBuyIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __ISLIMITBUY_ISSET_ID, value);
+	}
+
+	public boolean isNotRefund() {
+		return this.notRefund;
+	}
+
+	public Goods setNotRefund(boolean notRefund) {
+		this.notRefund = notRefund;
+		setNotRefundIsSet(true);
+		return this;
+	}
+
+	public void unsetNotRefund() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __NOTREFUND_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field notRefund is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetNotRefund() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __NOTREFUND_ISSET_ID);
+	}
+
+	public void setNotRefundIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __NOTREFUND_ISSET_ID, value);
+	}
+
+	public double getWeight() {
+		return this.weight;
+	}
+
+	public Goods setWeight(double weight) {
+		this.weight = weight;
+		setWeightIsSet(true);
+		return this;
+	}
+
+	public void unsetWeight() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __WEIGHT_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field weight is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetWeight() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __WEIGHT_ISSET_ID);
+	}
+
+	public void setWeightIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __WEIGHT_ISSET_ID, value);
+	}
+
+	public int getTransport() {
+		return this.transport;
+	}
+
+	public Goods setTransport(int transport) {
+		this.transport = transport;
+		setTransportIsSet(true);
+		return this;
+	}
+
+	public void unsetTransport() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __TRANSPORT_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field transport is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetTransport() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __TRANSPORT_ISSET_ID);
+	}
+
+	public void setTransportIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __TRANSPORT_ISSET_ID, value);
+	}
+
+	public double getTransportFee() {
+		return this.transportFee;
+	}
+
+	public Goods setTransportFee(double transportFee) {
+		this.transportFee = transportFee;
+		setTransportFeeIsSet(true);
+		return this;
+	}
+
+	public void unsetTransportFee() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __TRANSPORTFEE_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field transportFee is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetTransportFee() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __TRANSPORTFEE_ISSET_ID);
+	}
+
+	public void setTransportFeeIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __TRANSPORTFEE_ISSET_ID, value);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getFeeBelong() {
+		return this.feeBelong;
+	}
+
+	public Goods setFeeBelong(@org.apache.thrift.annotation.Nullable java.lang.String feeBelong) {
+		this.feeBelong = feeBelong;
+		return this;
+	}
+
+	public void unsetFeeBelong() {
+		this.feeBelong = null;
+	}
+
+	/**
+	 * Returns true if field feeBelong is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetFeeBelong() {
+		return this.feeBelong != null;
+	}
+
+	public void setFeeBelongIsSet(boolean value) {
+		if (!value) {
+			this.feeBelong = null;
+		}
 	}
 
 	public int getSellSpu() {
@@ -1375,6 +2294,15 @@ public class Goods
 			}
 			break;
 
+		case KIND:
+			if (value == null) {
+				unsetKind();
+			}
+			else {
+				setKind((java.lang.String) value);
+			}
+			break;
+
 		case CREATE_TIME:
 			if (value == null) {
 				unsetCreateTime();
@@ -1411,12 +2339,57 @@ public class Goods
 			}
 			break;
 
+		case SHOW_TIME:
+			if (value == null) {
+				unsetShowTime();
+			}
+			else {
+				setShowTime((java.lang.String) value);
+			}
+			break;
+
+		case HIDE_TIME:
+			if (value == null) {
+				unsetHideTime();
+			}
+			else {
+				setHideTime((java.lang.String) value);
+			}
+			break;
+
+		case IS_AUTO_SHOW_HIDE:
+			if (value == null) {
+				unsetIsAutoShowHide();
+			}
+			else {
+				setIsAutoShowHide((java.lang.Boolean) value);
+			}
+			break;
+
 		case STATUS:
 			if (value == null) {
 				unsetStatus();
 			}
 			else {
 				setStatus((java.lang.Integer) value);
+			}
+			break;
+
+		case STATUS_ORDER:
+			if (value == null) {
+				unsetStatusOrder();
+			}
+			else {
+				setStatusOrder((java.lang.Integer) value);
+			}
+			break;
+
+		case STORE_STATUS:
+			if (value == null) {
+				unsetStoreStatus();
+			}
+			else {
+				setStoreStatus((java.lang.Integer) value);
 			}
 			break;
 
@@ -1528,6 +2501,51 @@ public class Goods
 			}
 			break;
 
+		case COMMENT:
+			if (value == null) {
+				unsetComment();
+			}
+			else {
+				setComment((java.lang.String) value);
+			}
+			break;
+
+		case LONGITUDE:
+			if (value == null) {
+				unsetLongitude();
+			}
+			else {
+				setLongitude((java.lang.Double) value);
+			}
+			break;
+
+		case LATITUDE:
+			if (value == null) {
+				unsetLatitude();
+			}
+			else {
+				setLatitude((java.lang.Double) value);
+			}
+			break;
+
+		case LOCATION:
+			if (value == null) {
+				unsetLocation();
+			}
+			else {
+				setLocation((java.lang.String) value);
+			}
+			break;
+
+		case AREA_KEY:
+			if (value == null) {
+				unsetAreaKey();
+			}
+			else {
+				setAreaKey((java.lang.String) value);
+			}
+			break;
+
 		case MAX_ORDER:
 			if (value == null) {
 				unsetMaxOrder();
@@ -1543,6 +2561,87 @@ public class Goods
 			}
 			else {
 				setMaxUser((java.lang.Integer) value);
+			}
+			break;
+
+		case MIN_BUY:
+			if (value == null) {
+				unsetMinBuy();
+			}
+			else {
+				setMinBuy((java.lang.Integer) value);
+			}
+			break;
+
+		case MIN_LEVEL:
+			if (value == null) {
+				unsetMinLevel();
+			}
+			else {
+				setMinLevel((java.lang.Integer) value);
+			}
+			break;
+
+		case IS_MEMBER_DIS:
+			if (value == null) {
+				unsetIsMemberDis();
+			}
+			else {
+				setIsMemberDis((java.lang.Boolean) value);
+			}
+			break;
+
+		case IS_LIMIT_BUY:
+			if (value == null) {
+				unsetIsLimitBuy();
+			}
+			else {
+				setIsLimitBuy((java.lang.Boolean) value);
+			}
+			break;
+
+		case NOT_REFUND:
+			if (value == null) {
+				unsetNotRefund();
+			}
+			else {
+				setNotRefund((java.lang.Boolean) value);
+			}
+			break;
+
+		case WEIGHT:
+			if (value == null) {
+				unsetWeight();
+			}
+			else {
+				setWeight((java.lang.Double) value);
+			}
+			break;
+
+		case TRANSPORT:
+			if (value == null) {
+				unsetTransport();
+			}
+			else {
+				setTransport((java.lang.Integer) value);
+			}
+			break;
+
+		case TRANSPORT_FEE:
+			if (value == null) {
+				unsetTransportFee();
+			}
+			else {
+				setTransportFee((java.lang.Double) value);
+			}
+			break;
+
+		case FEE_BELONG:
+			if (value == null) {
+				unsetFeeBelong();
+			}
+			else {
+				setFeeBelong((java.lang.String) value);
 			}
 			break;
 
@@ -1594,6 +2693,9 @@ public class Goods
 		case SPU:
 			return getSpu();
 
+		case KIND:
+			return getKind();
+
 		case CREATE_TIME:
 			return getCreateTime();
 
@@ -1606,8 +2708,23 @@ public class Goods
 		case EXPIRE_TIME:
 			return getExpireTime();
 
+		case SHOW_TIME:
+			return getShowTime();
+
+		case HIDE_TIME:
+			return getHideTime();
+
+		case IS_AUTO_SHOW_HIDE:
+			return isIsAutoShowHide();
+
 		case STATUS:
 			return getStatus();
+
+		case STATUS_ORDER:
+			return getStatusOrder();
+
+		case STORE_STATUS:
+			return getStoreStatus();
 
 		case CATEGORY:
 			return getCategory();
@@ -1645,11 +2762,53 @@ public class Goods
 		case IS_SEARCH:
 			return isIsSearch();
 
+		case COMMENT:
+			return getComment();
+
+		case LONGITUDE:
+			return getLongitude();
+
+		case LATITUDE:
+			return getLatitude();
+
+		case LOCATION:
+			return getLocation();
+
+		case AREA_KEY:
+			return getAreaKey();
+
 		case MAX_ORDER:
 			return getMaxOrder();
 
 		case MAX_USER:
 			return getMaxUser();
+
+		case MIN_BUY:
+			return getMinBuy();
+
+		case MIN_LEVEL:
+			return getMinLevel();
+
+		case IS_MEMBER_DIS:
+			return isIsMemberDis();
+
+		case IS_LIMIT_BUY:
+			return isIsLimitBuy();
+
+		case NOT_REFUND:
+			return isNotRefund();
+
+		case WEIGHT:
+			return getWeight();
+
+		case TRANSPORT:
+			return getTransport();
+
+		case TRANSPORT_FEE:
+			return getTransportFee();
+
+		case FEE_BELONG:
+			return getFeeBelong();
 
 		case SELL_SPU:
 			return getSellSpu();
@@ -1684,6 +2843,8 @@ public class Goods
 			return isSetPid();
 		case SPU:
 			return isSetSpu();
+		case KIND:
+			return isSetKind();
 		case CREATE_TIME:
 			return isSetCreateTime();
 		case UPDATE_TIME:
@@ -1692,8 +2853,18 @@ public class Goods
 			return isSetApplyTime();
 		case EXPIRE_TIME:
 			return isSetExpireTime();
+		case SHOW_TIME:
+			return isSetShowTime();
+		case HIDE_TIME:
+			return isSetHideTime();
+		case IS_AUTO_SHOW_HIDE:
+			return isSetIsAutoShowHide();
 		case STATUS:
 			return isSetStatus();
+		case STATUS_ORDER:
+			return isSetStatusOrder();
+		case STORE_STATUS:
+			return isSetStoreStatus();
 		case CATEGORY:
 			return isSetCategory();
 		case IS_VIRTUAL:
@@ -1718,10 +2889,38 @@ public class Goods
 			return isSetPriority();
 		case IS_SEARCH:
 			return isSetIsSearch();
+		case COMMENT:
+			return isSetComment();
+		case LONGITUDE:
+			return isSetLongitude();
+		case LATITUDE:
+			return isSetLatitude();
+		case LOCATION:
+			return isSetLocation();
+		case AREA_KEY:
+			return isSetAreaKey();
 		case MAX_ORDER:
 			return isSetMaxOrder();
 		case MAX_USER:
 			return isSetMaxUser();
+		case MIN_BUY:
+			return isSetMinBuy();
+		case MIN_LEVEL:
+			return isSetMinLevel();
+		case IS_MEMBER_DIS:
+			return isSetIsMemberDis();
+		case IS_LIMIT_BUY:
+			return isSetIsLimitBuy();
+		case NOT_REFUND:
+			return isSetNotRefund();
+		case WEIGHT:
+			return isSetWeight();
+		case TRANSPORT:
+			return isSetTransport();
+		case TRANSPORT_FEE:
+			return isSetTransportFee();
+		case FEE_BELONG:
+			return isSetFeeBelong();
 		case SELL_SPU:
 			return isSetSellSpu();
 		case SCORE_NUM:
@@ -1792,6 +2991,15 @@ public class Goods
 				return false;
 		}
 
+		boolean this_present_kind = true && this.isSetKind();
+		boolean that_present_kind = true && that.isSetKind();
+		if (this_present_kind || that_present_kind) {
+			if (!(this_present_kind && that_present_kind))
+				return false;
+			if (!this.kind.equals(that.kind))
+				return false;
+		}
+
 		boolean this_present_createTime = true && this.isSetCreateTime();
 		boolean that_present_createTime = true && that.isSetCreateTime();
 		if (this_present_createTime || that_present_createTime) {
@@ -1828,12 +3036,57 @@ public class Goods
 				return false;
 		}
 
+		boolean this_present_showTime = true && this.isSetShowTime();
+		boolean that_present_showTime = true && that.isSetShowTime();
+		if (this_present_showTime || that_present_showTime) {
+			if (!(this_present_showTime && that_present_showTime))
+				return false;
+			if (!this.showTime.equals(that.showTime))
+				return false;
+		}
+
+		boolean this_present_hideTime = true && this.isSetHideTime();
+		boolean that_present_hideTime = true && that.isSetHideTime();
+		if (this_present_hideTime || that_present_hideTime) {
+			if (!(this_present_hideTime && that_present_hideTime))
+				return false;
+			if (!this.hideTime.equals(that.hideTime))
+				return false;
+		}
+
+		boolean this_present_isAutoShowHide = true;
+		boolean that_present_isAutoShowHide = true;
+		if (this_present_isAutoShowHide || that_present_isAutoShowHide) {
+			if (!(this_present_isAutoShowHide && that_present_isAutoShowHide))
+				return false;
+			if (this.isAutoShowHide != that.isAutoShowHide)
+				return false;
+		}
+
 		boolean this_present_status = true;
 		boolean that_present_status = true;
 		if (this_present_status || that_present_status) {
 			if (!(this_present_status && that_present_status))
 				return false;
 			if (this.status != that.status)
+				return false;
+		}
+
+		boolean this_present_statusOrder = true;
+		boolean that_present_statusOrder = true;
+		if (this_present_statusOrder || that_present_statusOrder) {
+			if (!(this_present_statusOrder && that_present_statusOrder))
+				return false;
+			if (this.statusOrder != that.statusOrder)
+				return false;
+		}
+
+		boolean this_present_storeStatus = true;
+		boolean that_present_storeStatus = true;
+		if (this_present_storeStatus || that_present_storeStatus) {
+			if (!(this_present_storeStatus && that_present_storeStatus))
+				return false;
+			if (this.storeStatus != that.storeStatus)
 				return false;
 		}
 
@@ -1945,6 +3198,51 @@ public class Goods
 				return false;
 		}
 
+		boolean this_present_comment = true && this.isSetComment();
+		boolean that_present_comment = true && that.isSetComment();
+		if (this_present_comment || that_present_comment) {
+			if (!(this_present_comment && that_present_comment))
+				return false;
+			if (!this.comment.equals(that.comment))
+				return false;
+		}
+
+		boolean this_present_longitude = true;
+		boolean that_present_longitude = true;
+		if (this_present_longitude || that_present_longitude) {
+			if (!(this_present_longitude && that_present_longitude))
+				return false;
+			if (this.longitude != that.longitude)
+				return false;
+		}
+
+		boolean this_present_latitude = true;
+		boolean that_present_latitude = true;
+		if (this_present_latitude || that_present_latitude) {
+			if (!(this_present_latitude && that_present_latitude))
+				return false;
+			if (this.latitude != that.latitude)
+				return false;
+		}
+
+		boolean this_present_location = true && this.isSetLocation();
+		boolean that_present_location = true && that.isSetLocation();
+		if (this_present_location || that_present_location) {
+			if (!(this_present_location && that_present_location))
+				return false;
+			if (!this.location.equals(that.location))
+				return false;
+		}
+
+		boolean this_present_areaKey = true && this.isSetAreaKey();
+		boolean that_present_areaKey = true && that.isSetAreaKey();
+		if (this_present_areaKey || that_present_areaKey) {
+			if (!(this_present_areaKey && that_present_areaKey))
+				return false;
+			if (!this.areaKey.equals(that.areaKey))
+				return false;
+		}
+
 		boolean this_present_maxOrder = true;
 		boolean that_present_maxOrder = true;
 		if (this_present_maxOrder || that_present_maxOrder) {
@@ -1960,6 +3258,87 @@ public class Goods
 			if (!(this_present_maxUser && that_present_maxUser))
 				return false;
 			if (this.maxUser != that.maxUser)
+				return false;
+		}
+
+		boolean this_present_minBuy = true;
+		boolean that_present_minBuy = true;
+		if (this_present_minBuy || that_present_minBuy) {
+			if (!(this_present_minBuy && that_present_minBuy))
+				return false;
+			if (this.minBuy != that.minBuy)
+				return false;
+		}
+
+		boolean this_present_minLevel = true;
+		boolean that_present_minLevel = true;
+		if (this_present_minLevel || that_present_minLevel) {
+			if (!(this_present_minLevel && that_present_minLevel))
+				return false;
+			if (this.minLevel != that.minLevel)
+				return false;
+		}
+
+		boolean this_present_isMemberDis = true;
+		boolean that_present_isMemberDis = true;
+		if (this_present_isMemberDis || that_present_isMemberDis) {
+			if (!(this_present_isMemberDis && that_present_isMemberDis))
+				return false;
+			if (this.isMemberDis != that.isMemberDis)
+				return false;
+		}
+
+		boolean this_present_isLimitBuy = true;
+		boolean that_present_isLimitBuy = true;
+		if (this_present_isLimitBuy || that_present_isLimitBuy) {
+			if (!(this_present_isLimitBuy && that_present_isLimitBuy))
+				return false;
+			if (this.isLimitBuy != that.isLimitBuy)
+				return false;
+		}
+
+		boolean this_present_notRefund = true;
+		boolean that_present_notRefund = true;
+		if (this_present_notRefund || that_present_notRefund) {
+			if (!(this_present_notRefund && that_present_notRefund))
+				return false;
+			if (this.notRefund != that.notRefund)
+				return false;
+		}
+
+		boolean this_present_weight = true;
+		boolean that_present_weight = true;
+		if (this_present_weight || that_present_weight) {
+			if (!(this_present_weight && that_present_weight))
+				return false;
+			if (this.weight != that.weight)
+				return false;
+		}
+
+		boolean this_present_transport = true;
+		boolean that_present_transport = true;
+		if (this_present_transport || that_present_transport) {
+			if (!(this_present_transport && that_present_transport))
+				return false;
+			if (this.transport != that.transport)
+				return false;
+		}
+
+		boolean this_present_transportFee = true;
+		boolean that_present_transportFee = true;
+		if (this_present_transportFee || that_present_transportFee) {
+			if (!(this_present_transportFee && that_present_transportFee))
+				return false;
+			if (this.transportFee != that.transportFee)
+				return false;
+		}
+
+		boolean this_present_feeBelong = true && this.isSetFeeBelong();
+		boolean that_present_feeBelong = true && that.isSetFeeBelong();
+		if (this_present_feeBelong || that_present_feeBelong) {
+			if (!(this_present_feeBelong && that_present_feeBelong))
+				return false;
+			if (!this.feeBelong.equals(that.feeBelong))
 				return false;
 		}
 
@@ -2017,6 +3396,10 @@ public class Goods
 		if (isSetSpu())
 			hashCode = hashCode * 8191 + spu.hashCode();
 
+		hashCode = hashCode * 8191 + ((isSetKind()) ? 131071 : 524287);
+		if (isSetKind())
+			hashCode = hashCode * 8191 + kind.hashCode();
+
 		hashCode = hashCode * 8191 + ((isSetCreateTime()) ? 131071 : 524287);
 		if (isSetCreateTime())
 			hashCode = hashCode * 8191 + createTime.hashCode();
@@ -2033,7 +3416,21 @@ public class Goods
 		if (isSetExpireTime())
 			hashCode = hashCode * 8191 + expireTime.hashCode();
 
+		hashCode = hashCode * 8191 + ((isSetShowTime()) ? 131071 : 524287);
+		if (isSetShowTime())
+			hashCode = hashCode * 8191 + showTime.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetHideTime()) ? 131071 : 524287);
+		if (isSetHideTime())
+			hashCode = hashCode * 8191 + hideTime.hashCode();
+
+		hashCode = hashCode * 8191 + ((isAutoShowHide) ? 131071 : 524287);
+
 		hashCode = hashCode * 8191 + status;
+
+		hashCode = hashCode * 8191 + statusOrder;
+
+		hashCode = hashCode * 8191 + storeStatus;
 
 		hashCode = hashCode * 8191 + ((isSetCategory()) ? 131071 : 524287);
 		if (isSetCategory())
@@ -2069,9 +3466,45 @@ public class Goods
 
 		hashCode = hashCode * 8191 + ((isSearch) ? 131071 : 524287);
 
+		hashCode = hashCode * 8191 + ((isSetComment()) ? 131071 : 524287);
+		if (isSetComment())
+			hashCode = hashCode * 8191 + comment.hashCode();
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(longitude);
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(latitude);
+
+		hashCode = hashCode * 8191 + ((isSetLocation()) ? 131071 : 524287);
+		if (isSetLocation())
+			hashCode = hashCode * 8191 + location.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetAreaKey()) ? 131071 : 524287);
+		if (isSetAreaKey())
+			hashCode = hashCode * 8191 + areaKey.hashCode();
+
 		hashCode = hashCode * 8191 + maxOrder;
 
 		hashCode = hashCode * 8191 + maxUser;
+
+		hashCode = hashCode * 8191 + minBuy;
+
+		hashCode = hashCode * 8191 + minLevel;
+
+		hashCode = hashCode * 8191 + ((isMemberDis) ? 131071 : 524287);
+
+		hashCode = hashCode * 8191 + ((isLimitBuy) ? 131071 : 524287);
+
+		hashCode = hashCode * 8191 + ((notRefund) ? 131071 : 524287);
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(weight);
+
+		hashCode = hashCode * 8191 + transport;
+
+		hashCode = hashCode * 8191 + org.apache.thrift.TBaseHelper.hashCode(transportFee);
+
+		hashCode = hashCode * 8191 + ((isSetFeeBelong()) ? 131071 : 524287);
+		if (isSetFeeBelong())
+			hashCode = hashCode * 8191 + feeBelong.hashCode();
 
 		hashCode = hashCode * 8191 + sellSpu;
 
@@ -2140,6 +3573,16 @@ public class Goods
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetKind()).compareTo(other.isSetKind());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetKind()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.kind, other.kind);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetCreateTime()).compareTo(other.isSetCreateTime());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -2180,12 +3623,62 @@ public class Goods
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetShowTime()).compareTo(other.isSetShowTime());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetShowTime()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.showTime, other.showTime);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetHideTime()).compareTo(other.isSetHideTime());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetHideTime()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.hideTime, other.hideTime);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetIsAutoShowHide()).compareTo(other.isSetIsAutoShowHide());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetIsAutoShowHide()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.isAutoShowHide, other.isAutoShowHide);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetStatus()).compareTo(other.isSetStatus());
 		if (lastComparison != 0) {
 			return lastComparison;
 		}
 		if (isSetStatus()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.status, other.status);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetStatusOrder()).compareTo(other.isSetStatusOrder());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetStatusOrder()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.statusOrder, other.statusOrder);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetStoreStatus()).compareTo(other.isSetStoreStatus());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetStoreStatus()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.storeStatus, other.storeStatus);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -2310,6 +3803,56 @@ public class Goods
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetComment()).compareTo(other.isSetComment());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetComment()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.comment, other.comment);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetLongitude()).compareTo(other.isSetLongitude());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetLongitude()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.longitude, other.longitude);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetLatitude()).compareTo(other.isSetLatitude());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetLatitude()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.latitude, other.latitude);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetLocation()).compareTo(other.isSetLocation());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetLocation()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.location, other.location);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetAreaKey()).compareTo(other.isSetAreaKey());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetAreaKey()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.areaKey, other.areaKey);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetMaxOrder()).compareTo(other.isSetMaxOrder());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -2326,6 +3869,96 @@ public class Goods
 		}
 		if (isSetMaxUser()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.maxUser, other.maxUser);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetMinBuy()).compareTo(other.isSetMinBuy());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetMinBuy()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.minBuy, other.minBuy);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetMinLevel()).compareTo(other.isSetMinLevel());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetMinLevel()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.minLevel, other.minLevel);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetIsMemberDis()).compareTo(other.isSetIsMemberDis());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetIsMemberDis()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.isMemberDis, other.isMemberDis);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetIsLimitBuy()).compareTo(other.isSetIsLimitBuy());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetIsLimitBuy()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.isLimitBuy, other.isLimitBuy);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetNotRefund()).compareTo(other.isSetNotRefund());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetNotRefund()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.notRefund, other.notRefund);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetWeight()).compareTo(other.isSetWeight());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetWeight()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.weight, other.weight);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetTransport()).compareTo(other.isSetTransport());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetTransport()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.transport, other.transport);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetTransportFee()).compareTo(other.isSetTransportFee());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetTransportFee()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.transportFee, other.transportFee);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetFeeBelong()).compareTo(other.isSetFeeBelong());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetFeeBelong()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.feeBelong, other.feeBelong);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -2431,6 +4064,16 @@ public class Goods
 		first = false;
 		if (!first)
 			sb.append(", ");
+		sb.append("kind:");
+		if (this.kind == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.kind);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("createTime:");
 		if (this.createTime == null) {
 			sb.append("null");
@@ -2471,8 +4114,43 @@ public class Goods
 		first = false;
 		if (!first)
 			sb.append(", ");
+		sb.append("showTime:");
+		if (this.showTime == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.showTime);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("hideTime:");
+		if (this.hideTime == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.hideTime);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("isAutoShowHide:");
+		sb.append(this.isAutoShowHide);
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("status:");
 		sb.append(this.status);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("statusOrder:");
+		sb.append(this.statusOrder);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("storeStatus:");
+		sb.append(this.storeStatus);
 		first = false;
 		if (!first)
 			sb.append(", ");
@@ -2561,6 +4239,46 @@ public class Goods
 		first = false;
 		if (!first)
 			sb.append(", ");
+		sb.append("comment:");
+		if (this.comment == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.comment);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("longitude:");
+		sb.append(this.longitude);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("latitude:");
+		sb.append(this.latitude);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("location:");
+		if (this.location == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.location);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("areaKey:");
+		if (this.areaKey == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.areaKey);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("maxOrder:");
 		sb.append(this.maxOrder);
 		first = false;
@@ -2568,6 +4286,56 @@ public class Goods
 			sb.append(", ");
 		sb.append("maxUser:");
 		sb.append(this.maxUser);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("minBuy:");
+		sb.append(this.minBuy);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("minLevel:");
+		sb.append(this.minLevel);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("isMemberDis:");
+		sb.append(this.isMemberDis);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("isLimitBuy:");
+		sb.append(this.isLimitBuy);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("notRefund:");
+		sb.append(this.notRefund);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("weight:");
+		sb.append(this.weight);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("transport:");
+		sb.append(this.transport);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("transportFee:");
+		sb.append(this.transportFee);
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("feeBelong:");
+		if (this.feeBelong == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.feeBelong);
+		}
 		first = false;
 		if (!first)
 			sb.append(", ");
@@ -2680,6 +4448,15 @@ public class Goods
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 28: // KIND
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.kind = iprot.readString();
+						struct.setKindIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 6: // CREATE_TIME
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.createTime = iprot.readString();
@@ -2716,10 +4493,55 @@ public class Goods
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 31: // SHOW_TIME
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.showTime = iprot.readString();
+						struct.setShowTimeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 32: // HIDE_TIME
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.hideTime = iprot.readString();
+						struct.setHideTimeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 33: // IS_AUTO_SHOW_HIDE
+					if (schemeField.type == org.apache.thrift.protocol.TType.BOOL) {
+						struct.isAutoShowHide = iprot.readBool();
+						struct.setIsAutoShowHideIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 10: // STATUS
 					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
 						struct.status = iprot.readI32();
 						struct.setStatusIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 29: // STATUS_ORDER
+					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+						struct.statusOrder = iprot.readI32();
+						struct.setStatusOrderIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 30: // STORE_STATUS
+					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+						struct.storeStatus = iprot.readI32();
+						struct.setStoreStatusIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -2843,6 +4665,51 @@ public class Goods
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 34: // COMMENT
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.comment = iprot.readString();
+						struct.setCommentIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 44: // LONGITUDE
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.longitude = iprot.readDouble();
+						struct.setLongitudeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 45: // LATITUDE
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.latitude = iprot.readDouble();
+						struct.setLatitudeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 46: // LOCATION
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.location = iprot.readString();
+						struct.setLocationIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 47: // AREA_KEY
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.areaKey = iprot.readString();
+						struct.setAreaKeyIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 22: // MAX_ORDER
 					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
 						struct.maxOrder = iprot.readI32();
@@ -2856,6 +4723,87 @@ public class Goods
 					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
 						struct.maxUser = iprot.readI32();
 						struct.setMaxUserIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 35: // MIN_BUY
+					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+						struct.minBuy = iprot.readI32();
+						struct.setMinBuyIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 36: // MIN_LEVEL
+					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+						struct.minLevel = iprot.readI32();
+						struct.setMinLevelIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 37: // IS_MEMBER_DIS
+					if (schemeField.type == org.apache.thrift.protocol.TType.BOOL) {
+						struct.isMemberDis = iprot.readBool();
+						struct.setIsMemberDisIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 38: // IS_LIMIT_BUY
+					if (schemeField.type == org.apache.thrift.protocol.TType.BOOL) {
+						struct.isLimitBuy = iprot.readBool();
+						struct.setIsLimitBuyIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 39: // NOT_REFUND
+					if (schemeField.type == org.apache.thrift.protocol.TType.BOOL) {
+						struct.notRefund = iprot.readBool();
+						struct.setNotRefundIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 40: // WEIGHT
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.weight = iprot.readDouble();
+						struct.setWeightIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 41: // TRANSPORT
+					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+						struct.transport = iprot.readI32();
+						struct.setTransportIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 42: // TRANSPORT_FEE
+					if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
+						struct.transportFee = iprot.readDouble();
+						struct.setTransportFeeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 43: // FEE_BELONG
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.feeBelong = iprot.readString();
+						struct.setFeeBelongIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -3021,6 +4969,80 @@ public class Goods
 			oprot.writeFieldBegin(SCORE_AVG_FIELD_DESC);
 			oprot.writeDouble(struct.scoreAvg);
 			oprot.writeFieldEnd();
+			if (struct.kind != null) {
+				oprot.writeFieldBegin(KIND_FIELD_DESC);
+				oprot.writeString(struct.kind);
+				oprot.writeFieldEnd();
+			}
+			oprot.writeFieldBegin(STATUS_ORDER_FIELD_DESC);
+			oprot.writeI32(struct.statusOrder);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(STORE_STATUS_FIELD_DESC);
+			oprot.writeI32(struct.storeStatus);
+			oprot.writeFieldEnd();
+			if (struct.showTime != null) {
+				oprot.writeFieldBegin(SHOW_TIME_FIELD_DESC);
+				oprot.writeString(struct.showTime);
+				oprot.writeFieldEnd();
+			}
+			if (struct.hideTime != null) {
+				oprot.writeFieldBegin(HIDE_TIME_FIELD_DESC);
+				oprot.writeString(struct.hideTime);
+				oprot.writeFieldEnd();
+			}
+			oprot.writeFieldBegin(IS_AUTO_SHOW_HIDE_FIELD_DESC);
+			oprot.writeBool(struct.isAutoShowHide);
+			oprot.writeFieldEnd();
+			if (struct.comment != null) {
+				oprot.writeFieldBegin(COMMENT_FIELD_DESC);
+				oprot.writeString(struct.comment);
+				oprot.writeFieldEnd();
+			}
+			oprot.writeFieldBegin(MIN_BUY_FIELD_DESC);
+			oprot.writeI32(struct.minBuy);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(MIN_LEVEL_FIELD_DESC);
+			oprot.writeI32(struct.minLevel);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(IS_MEMBER_DIS_FIELD_DESC);
+			oprot.writeBool(struct.isMemberDis);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(IS_LIMIT_BUY_FIELD_DESC);
+			oprot.writeBool(struct.isLimitBuy);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(NOT_REFUND_FIELD_DESC);
+			oprot.writeBool(struct.notRefund);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(WEIGHT_FIELD_DESC);
+			oprot.writeDouble(struct.weight);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(TRANSPORT_FIELD_DESC);
+			oprot.writeI32(struct.transport);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(TRANSPORT_FEE_FIELD_DESC);
+			oprot.writeDouble(struct.transportFee);
+			oprot.writeFieldEnd();
+			if (struct.feeBelong != null) {
+				oprot.writeFieldBegin(FEE_BELONG_FIELD_DESC);
+				oprot.writeString(struct.feeBelong);
+				oprot.writeFieldEnd();
+			}
+			oprot.writeFieldBegin(LONGITUDE_FIELD_DESC);
+			oprot.writeDouble(struct.longitude);
+			oprot.writeFieldEnd();
+			oprot.writeFieldBegin(LATITUDE_FIELD_DESC);
+			oprot.writeDouble(struct.latitude);
+			oprot.writeFieldEnd();
+			if (struct.location != null) {
+				oprot.writeFieldBegin(LOCATION_FIELD_DESC);
+				oprot.writeString(struct.location);
+				oprot.writeFieldEnd();
+			}
+			if (struct.areaKey != null) {
+				oprot.writeFieldBegin(AREA_KEY_FIELD_DESC);
+				oprot.writeString(struct.areaKey);
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -3056,73 +5078,133 @@ public class Goods
 			if (struct.isSetSpu()) {
 				optionals.set(4);
 			}
-			if (struct.isSetCreateTime()) {
+			if (struct.isSetKind()) {
 				optionals.set(5);
 			}
-			if (struct.isSetUpdateTime()) {
+			if (struct.isSetCreateTime()) {
 				optionals.set(6);
 			}
-			if (struct.isSetApplyTime()) {
+			if (struct.isSetUpdateTime()) {
 				optionals.set(7);
 			}
-			if (struct.isSetExpireTime()) {
+			if (struct.isSetApplyTime()) {
 				optionals.set(8);
 			}
-			if (struct.isSetStatus()) {
+			if (struct.isSetExpireTime()) {
 				optionals.set(9);
 			}
-			if (struct.isSetCategory()) {
+			if (struct.isSetShowTime()) {
 				optionals.set(10);
 			}
-			if (struct.isSetIsVirtual()) {
+			if (struct.isSetHideTime()) {
 				optionals.set(11);
 			}
-			if (struct.isSetIsCurrency()) {
+			if (struct.isSetIsAutoShowHide()) {
 				optionals.set(12);
 			}
-			if (struct.isSetIsBundle()) {
+			if (struct.isSetStatus()) {
 				optionals.set(13);
 			}
-			if (struct.isSetIsMix()) {
+			if (struct.isSetStatusOrder()) {
 				optionals.set(14);
 			}
-			if (struct.isSetNumLabel()) {
+			if (struct.isSetStoreStatus()) {
 				optionals.set(15);
 			}
-			if (struct.isSetLabelsDesc()) {
+			if (struct.isSetCategory()) {
 				optionals.set(16);
 			}
-			if (struct.isSetNameSpu()) {
+			if (struct.isSetIsVirtual()) {
 				optionals.set(17);
 			}
-			if (struct.isSetIconSpu()) {
+			if (struct.isSetIsCurrency()) {
 				optionals.set(18);
 			}
-			if (struct.isSetDescSpu()) {
+			if (struct.isSetIsBundle()) {
 				optionals.set(19);
 			}
-			if (struct.isSetPriority()) {
+			if (struct.isSetIsMix()) {
 				optionals.set(20);
 			}
-			if (struct.isSetIsSearch()) {
+			if (struct.isSetNumLabel()) {
 				optionals.set(21);
 			}
-			if (struct.isSetMaxOrder()) {
+			if (struct.isSetLabelsDesc()) {
 				optionals.set(22);
 			}
-			if (struct.isSetMaxUser()) {
+			if (struct.isSetNameSpu()) {
 				optionals.set(23);
 			}
-			if (struct.isSetSellSpu()) {
+			if (struct.isSetIconSpu()) {
 				optionals.set(24);
 			}
-			if (struct.isSetScoreNum()) {
+			if (struct.isSetDescSpu()) {
 				optionals.set(25);
 			}
-			if (struct.isSetScoreAvg()) {
+			if (struct.isSetPriority()) {
 				optionals.set(26);
 			}
-			oprot.writeBitSet(optionals, 27);
+			if (struct.isSetIsSearch()) {
+				optionals.set(27);
+			}
+			if (struct.isSetComment()) {
+				optionals.set(28);
+			}
+			if (struct.isSetLongitude()) {
+				optionals.set(29);
+			}
+			if (struct.isSetLatitude()) {
+				optionals.set(30);
+			}
+			if (struct.isSetLocation()) {
+				optionals.set(31);
+			}
+			if (struct.isSetAreaKey()) {
+				optionals.set(32);
+			}
+			if (struct.isSetMaxOrder()) {
+				optionals.set(33);
+			}
+			if (struct.isSetMaxUser()) {
+				optionals.set(34);
+			}
+			if (struct.isSetMinBuy()) {
+				optionals.set(35);
+			}
+			if (struct.isSetMinLevel()) {
+				optionals.set(36);
+			}
+			if (struct.isSetIsMemberDis()) {
+				optionals.set(37);
+			}
+			if (struct.isSetIsLimitBuy()) {
+				optionals.set(38);
+			}
+			if (struct.isSetNotRefund()) {
+				optionals.set(39);
+			}
+			if (struct.isSetWeight()) {
+				optionals.set(40);
+			}
+			if (struct.isSetTransport()) {
+				optionals.set(41);
+			}
+			if (struct.isSetTransportFee()) {
+				optionals.set(42);
+			}
+			if (struct.isSetFeeBelong()) {
+				optionals.set(43);
+			}
+			if (struct.isSetSellSpu()) {
+				optionals.set(44);
+			}
+			if (struct.isSetScoreNum()) {
+				optionals.set(45);
+			}
+			if (struct.isSetScoreAvg()) {
+				optionals.set(46);
+			}
+			oprot.writeBitSet(optionals, 47);
 			if (struct.isSetMid()) {
 				oprot.writeString(struct.mid);
 			}
@@ -3138,6 +5220,9 @@ public class Goods
 			if (struct.isSetSpu()) {
 				oprot.writeString(struct.spu);
 			}
+			if (struct.isSetKind()) {
+				oprot.writeString(struct.kind);
+			}
 			if (struct.isSetCreateTime()) {
 				oprot.writeString(struct.createTime);
 			}
@@ -3150,8 +5235,23 @@ public class Goods
 			if (struct.isSetExpireTime()) {
 				oprot.writeString(struct.expireTime);
 			}
+			if (struct.isSetShowTime()) {
+				oprot.writeString(struct.showTime);
+			}
+			if (struct.isSetHideTime()) {
+				oprot.writeString(struct.hideTime);
+			}
+			if (struct.isSetIsAutoShowHide()) {
+				oprot.writeBool(struct.isAutoShowHide);
+			}
 			if (struct.isSetStatus()) {
 				oprot.writeI32(struct.status);
+			}
+			if (struct.isSetStatusOrder()) {
+				oprot.writeI32(struct.statusOrder);
+			}
+			if (struct.isSetStoreStatus()) {
+				oprot.writeI32(struct.storeStatus);
 			}
 			if (struct.isSetCategory()) {
 				oprot.writeString(struct.category);
@@ -3194,11 +5294,53 @@ public class Goods
 			if (struct.isSetIsSearch()) {
 				oprot.writeBool(struct.isSearch);
 			}
+			if (struct.isSetComment()) {
+				oprot.writeString(struct.comment);
+			}
+			if (struct.isSetLongitude()) {
+				oprot.writeDouble(struct.longitude);
+			}
+			if (struct.isSetLatitude()) {
+				oprot.writeDouble(struct.latitude);
+			}
+			if (struct.isSetLocation()) {
+				oprot.writeString(struct.location);
+			}
+			if (struct.isSetAreaKey()) {
+				oprot.writeString(struct.areaKey);
+			}
 			if (struct.isSetMaxOrder()) {
 				oprot.writeI32(struct.maxOrder);
 			}
 			if (struct.isSetMaxUser()) {
 				oprot.writeI32(struct.maxUser);
+			}
+			if (struct.isSetMinBuy()) {
+				oprot.writeI32(struct.minBuy);
+			}
+			if (struct.isSetMinLevel()) {
+				oprot.writeI32(struct.minLevel);
+			}
+			if (struct.isSetIsMemberDis()) {
+				oprot.writeBool(struct.isMemberDis);
+			}
+			if (struct.isSetIsLimitBuy()) {
+				oprot.writeBool(struct.isLimitBuy);
+			}
+			if (struct.isSetNotRefund()) {
+				oprot.writeBool(struct.notRefund);
+			}
+			if (struct.isSetWeight()) {
+				oprot.writeDouble(struct.weight);
+			}
+			if (struct.isSetTransport()) {
+				oprot.writeI32(struct.transport);
+			}
+			if (struct.isSetTransportFee()) {
+				oprot.writeDouble(struct.transportFee);
+			}
+			if (struct.isSetFeeBelong()) {
+				oprot.writeString(struct.feeBelong);
 			}
 			if (struct.isSetSellSpu()) {
 				oprot.writeI32(struct.sellSpu);
@@ -3214,7 +5356,7 @@ public class Goods
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, Goods struct) throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(27);
+			java.util.BitSet incoming = iprot.readBitSet(47);
 			if (incoming.get(0)) {
 				struct.mid = iprot.readString();
 				struct.setMidIsSet(true);
@@ -3236,50 +5378,74 @@ public class Goods
 				struct.setSpuIsSet(true);
 			}
 			if (incoming.get(5)) {
+				struct.kind = iprot.readString();
+				struct.setKindIsSet(true);
+			}
+			if (incoming.get(6)) {
 				struct.createTime = iprot.readString();
 				struct.setCreateTimeIsSet(true);
 			}
-			if (incoming.get(6)) {
+			if (incoming.get(7)) {
 				struct.updateTime = iprot.readString();
 				struct.setUpdateTimeIsSet(true);
 			}
-			if (incoming.get(7)) {
+			if (incoming.get(8)) {
 				struct.applyTime = iprot.readString();
 				struct.setApplyTimeIsSet(true);
 			}
-			if (incoming.get(8)) {
+			if (incoming.get(9)) {
 				struct.expireTime = iprot.readString();
 				struct.setExpireTimeIsSet(true);
 			}
-			if (incoming.get(9)) {
+			if (incoming.get(10)) {
+				struct.showTime = iprot.readString();
+				struct.setShowTimeIsSet(true);
+			}
+			if (incoming.get(11)) {
+				struct.hideTime = iprot.readString();
+				struct.setHideTimeIsSet(true);
+			}
+			if (incoming.get(12)) {
+				struct.isAutoShowHide = iprot.readBool();
+				struct.setIsAutoShowHideIsSet(true);
+			}
+			if (incoming.get(13)) {
 				struct.status = iprot.readI32();
 				struct.setStatusIsSet(true);
 			}
-			if (incoming.get(10)) {
+			if (incoming.get(14)) {
+				struct.statusOrder = iprot.readI32();
+				struct.setStatusOrderIsSet(true);
+			}
+			if (incoming.get(15)) {
+				struct.storeStatus = iprot.readI32();
+				struct.setStoreStatusIsSet(true);
+			}
+			if (incoming.get(16)) {
 				struct.category = iprot.readString();
 				struct.setCategoryIsSet(true);
 			}
-			if (incoming.get(11)) {
+			if (incoming.get(17)) {
 				struct.isVirtual = iprot.readBool();
 				struct.setIsVirtualIsSet(true);
 			}
-			if (incoming.get(12)) {
+			if (incoming.get(18)) {
 				struct.isCurrency = iprot.readBool();
 				struct.setIsCurrencyIsSet(true);
 			}
-			if (incoming.get(13)) {
+			if (incoming.get(19)) {
 				struct.isBundle = iprot.readBool();
 				struct.setIsBundleIsSet(true);
 			}
-			if (incoming.get(14)) {
+			if (incoming.get(20)) {
 				struct.isMix = iprot.readBool();
 				struct.setIsMixIsSet(true);
 			}
-			if (incoming.get(15)) {
+			if (incoming.get(21)) {
 				struct.numLabel = iprot.readI32();
 				struct.setNumLabelIsSet(true);
 			}
-			if (incoming.get(16)) {
+			if (incoming.get(22)) {
 				{
 					org.apache.thrift.protocol.TList _list5 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
@@ -3293,43 +5459,99 @@ public class Goods
 				}
 				struct.setLabelsDescIsSet(true);
 			}
-			if (incoming.get(17)) {
+			if (incoming.get(23)) {
 				struct.nameSpu = iprot.readString();
 				struct.setNameSpuIsSet(true);
 			}
-			if (incoming.get(18)) {
+			if (incoming.get(24)) {
 				struct.iconSpu = iprot.readString();
 				struct.setIconSpuIsSet(true);
 			}
-			if (incoming.get(19)) {
+			if (incoming.get(25)) {
 				struct.descSpu = iprot.readString();
 				struct.setDescSpuIsSet(true);
 			}
-			if (incoming.get(20)) {
+			if (incoming.get(26)) {
 				struct.priority = iprot.readI32();
 				struct.setPriorityIsSet(true);
 			}
-			if (incoming.get(21)) {
+			if (incoming.get(27)) {
 				struct.isSearch = iprot.readBool();
 				struct.setIsSearchIsSet(true);
 			}
-			if (incoming.get(22)) {
+			if (incoming.get(28)) {
+				struct.comment = iprot.readString();
+				struct.setCommentIsSet(true);
+			}
+			if (incoming.get(29)) {
+				struct.longitude = iprot.readDouble();
+				struct.setLongitudeIsSet(true);
+			}
+			if (incoming.get(30)) {
+				struct.latitude = iprot.readDouble();
+				struct.setLatitudeIsSet(true);
+			}
+			if (incoming.get(31)) {
+				struct.location = iprot.readString();
+				struct.setLocationIsSet(true);
+			}
+			if (incoming.get(32)) {
+				struct.areaKey = iprot.readString();
+				struct.setAreaKeyIsSet(true);
+			}
+			if (incoming.get(33)) {
 				struct.maxOrder = iprot.readI32();
 				struct.setMaxOrderIsSet(true);
 			}
-			if (incoming.get(23)) {
+			if (incoming.get(34)) {
 				struct.maxUser = iprot.readI32();
 				struct.setMaxUserIsSet(true);
 			}
-			if (incoming.get(24)) {
+			if (incoming.get(35)) {
+				struct.minBuy = iprot.readI32();
+				struct.setMinBuyIsSet(true);
+			}
+			if (incoming.get(36)) {
+				struct.minLevel = iprot.readI32();
+				struct.setMinLevelIsSet(true);
+			}
+			if (incoming.get(37)) {
+				struct.isMemberDis = iprot.readBool();
+				struct.setIsMemberDisIsSet(true);
+			}
+			if (incoming.get(38)) {
+				struct.isLimitBuy = iprot.readBool();
+				struct.setIsLimitBuyIsSet(true);
+			}
+			if (incoming.get(39)) {
+				struct.notRefund = iprot.readBool();
+				struct.setNotRefundIsSet(true);
+			}
+			if (incoming.get(40)) {
+				struct.weight = iprot.readDouble();
+				struct.setWeightIsSet(true);
+			}
+			if (incoming.get(41)) {
+				struct.transport = iprot.readI32();
+				struct.setTransportIsSet(true);
+			}
+			if (incoming.get(42)) {
+				struct.transportFee = iprot.readDouble();
+				struct.setTransportFeeIsSet(true);
+			}
+			if (incoming.get(43)) {
+				struct.feeBelong = iprot.readString();
+				struct.setFeeBelongIsSet(true);
+			}
+			if (incoming.get(44)) {
 				struct.sellSpu = iprot.readI32();
 				struct.setSellSpuIsSet(true);
 			}
-			if (incoming.get(25)) {
+			if (incoming.get(45)) {
 				struct.scoreNum = iprot.readI32();
 				struct.setScoreNumIsSet(true);
 			}
-			if (incoming.get(26)) {
+			if (incoming.get(46)) {
 				struct.scoreAvg = iprot.readDouble();
 				struct.setScoreAvgIsSet(true);
 			}

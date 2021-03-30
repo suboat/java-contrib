@@ -447,14 +447,14 @@ public class ResultCouponUser implements org.apache.thrift.TBase<ResultCouponUse
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list278 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<CouponUser>(_list278.size);
+							org.apache.thrift.protocol.TList _list288 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<CouponUser>(_list288.size);
 							@org.apache.thrift.annotation.Nullable
-							CouponUser _elem279;
-							for (int _i280 = 0; _i280 < _list278.size; ++_i280) {
-								_elem279 = new CouponUser();
-								_elem279.read(iprot);
-								struct.data.add(_elem279);
+							CouponUser _elem289;
+							for (int _i290 = 0; _i290 < _list288.size; ++_i290) {
+								_elem289 = new CouponUser();
+								_elem289.read(iprot);
+								struct.data.add(_elem289);
 							}
 							iprot.readListEnd();
 						}
@@ -496,8 +496,8 @@ public class ResultCouponUser implements org.apache.thrift.TBase<ResultCouponUse
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (CouponUser _iter281 : struct.data) {
-						_iter281.write(oprot);
+					for (CouponUser _iter291 : struct.data) {
+						_iter291.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -539,8 +539,8 @@ public class ResultCouponUser implements org.apache.thrift.TBase<ResultCouponUse
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (CouponUser _iter282 : struct.data) {
-						_iter282.write(oprot);
+					for (CouponUser _iter292 : struct.data) {
+						_iter292.write(oprot);
 					}
 				}
 			}
@@ -556,15 +556,15 @@ public class ResultCouponUser implements org.apache.thrift.TBase<ResultCouponUse
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list283 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list293 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<CouponUser>(_list283.size);
+					struct.data = new java.util.ArrayList<CouponUser>(_list293.size);
 					@org.apache.thrift.annotation.Nullable
-					CouponUser _elem284;
-					for (int _i285 = 0; _i285 < _list283.size; ++_i285) {
-						_elem284 = new CouponUser();
-						_elem284.read(iprot);
-						struct.data.add(_elem284);
+					CouponUser _elem294;
+					for (int _i295 = 0; _i295 < _list293.size; ++_i295) {
+						_elem294 = new CouponUser();
+						_elem294.read(iprot);
+						struct.data.add(_elem294);
 					}
 				}
 				struct.setDataIsSet(true);

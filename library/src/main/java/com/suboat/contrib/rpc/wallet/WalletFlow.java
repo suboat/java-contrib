@@ -28,6 +28,9 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 	private static final org.apache.thrift.protocol.TField UPDATE_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"updateTime", org.apache.thrift.protocol.TType.STRING, (short) 4);
 
+	private static final org.apache.thrift.protocol.TField EXPIRE_TIME_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"expireTime", org.apache.thrift.protocol.TType.STRING, (short) 32);
+
 	private static final org.apache.thrift.protocol.TField IS_FINISH_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"isFinish", org.apache.thrift.protocol.TType.BOOL, (short) 5);
 
@@ -121,6 +124,8 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String updateTime; // required
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String expireTime; // required
+
 	public boolean isFinish; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String project; // required
@@ -182,34 +187,36 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 	public enum _Fields implements org.apache.thrift.TFieldIdEnum {
 
 		ACCESSION((short) 1, "accession"), UID((short) 2, "uid"), CREATE_TIME((short) 3, "createTime"), UPDATE_TIME(
-				(short) 4,
-				"updateTime"), IS_FINISH((short) 5, "isFinish"), PROJECT((short) 6, "project"), CATEGORY((short) 7,
-						"category"), STATUS((short) 8, "status"), ACTION((short) 9, "action"), FLOW((short) 10,
-								"flow"), STAGE((short) 11, "stage"), IS_INCOME((short) 12, "isIncome"), IS_FREEZE(
-										(short) 13, "isFreeze"), SERIAL_ID((short) 14, "serialId"), TRIGGER((short) 15,
-												"trigger"), REL_ACC((short) 16, "relAcc"), REL_UID((short) 17,
-														"relUid"), TASK_ID((short) 18, "taskId"), IS_MAJOR((short) 19,
-																"isMajor"), IS_MAJOR_DONE((short) 20,
-																		"isMajorDone"), TX_CONFIRM((short) 21,
-																				"txConfirm"), TX_ID((short) 22,
-																						"txId"), AMOUNT((short) 23,
-																								"amount"), TX_FEE(
-																										(short) 24,
-																										"txFee"), BALANCE(
-																												(short) 25,
-																												"balance"), FREEZING(
-																														(short) 26,
-																														"freezing"), COMMENT(
-																																(short) 27,
-																																"comment"), COMMENT_JSON(
-																																		(short) 28,
-																																		"commentJson"), TOTAL_INT(
-																																				(short) 29,
-																																				"totalInt"), IS_META(
-																																						(short) 30,
-																																						"isMeta"), IS_FOLD(
-																																								(short) 31,
-																																								"isFold");
+				(short) 4, "updateTime"), EXPIRE_TIME((short) 32, "expireTime"), IS_FINISH((short) 5,
+						"isFinish"), PROJECT((short) 6, "project"), CATEGORY((short) 7, "category"), STATUS((short) 8,
+								"status"), ACTION((short) 9, "action"), FLOW((short) 10, "flow"), STAGE((short) 11,
+										"stage"), IS_INCOME((short) 12, "isIncome"), IS_FREEZE((short) 13,
+												"isFreeze"), SERIAL_ID((short) 14, "serialId"), TRIGGER((short) 15,
+														"trigger"), REL_ACC((short) 16, "relAcc"), REL_UID((short) 17,
+																"relUid"), TASK_ID((short) 18, "taskId"), IS_MAJOR(
+																		(short) 19,
+																		"isMajor"), IS_MAJOR_DONE((short) 20,
+																				"isMajorDone"), TX_CONFIRM((short) 21,
+																						"txConfirm"), TX_ID((short) 22,
+																								"txId"), AMOUNT(
+																										(short) 23,
+																										"amount"), TX_FEE(
+																												(short) 24,
+																												"txFee"), BALANCE(
+																														(short) 25,
+																														"balance"), FREEZING(
+																																(short) 26,
+																																"freezing"), COMMENT(
+																																		(short) 27,
+																																		"comment"), COMMENT_JSON(
+																																				(short) 28,
+																																				"commentJson"), TOTAL_INT(
+																																						(short) 29,
+																																						"totalInt"), IS_META(
+																																								(short) 30,
+																																								"isMeta"), IS_FOLD(
+																																										(short) 31,
+																																										"isFold");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -233,6 +240,8 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 				return CREATE_TIME;
 			case 4: // UPDATE_TIME
 				return UPDATE_TIME;
+			case 32: // EXPIRE_TIME
+				return EXPIRE_TIME;
 			case 5: // IS_FINISH
 				return IS_FINISH;
 			case 6: // PROJECT
@@ -378,6 +387,9 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 		tmpMap.put(_Fields.UPDATE_TIME, new org.apache.thrift.meta_data.FieldMetaData("updateTime",
 				org.apache.thrift.TFieldRequirementType.DEFAULT,
 				new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING, "Time")));
+		tmpMap.put(_Fields.EXPIRE_TIME, new org.apache.thrift.meta_data.FieldMetaData("expireTime",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING, "Time")));
 		tmpMap.put(_Fields.IS_FINISH,
 				new org.apache.thrift.meta_data.FieldMetaData("isFinish",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
@@ -482,17 +494,19 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 	}
 
 	public WalletFlow(java.lang.String accession, java.lang.String uid, java.lang.String createTime,
-			java.lang.String updateTime, boolean isFinish, java.lang.String project, java.lang.String category,
-			int status, java.lang.String action, java.lang.String flow, java.lang.String stage, boolean isIncome,
-			boolean isFreeze, java.lang.String serialId, java.lang.String trigger, java.lang.String relAcc,
-			java.lang.String relUid, java.lang.String taskId, boolean isMajor, boolean isMajorDone, int txConfirm,
-			java.lang.String txId, double amount, double txFee, double balance, double freezing,
-			java.lang.String comment, java.lang.String commentJson, long totalInt, boolean isMeta, boolean isFold) {
+			java.lang.String updateTime, java.lang.String expireTime, boolean isFinish, java.lang.String project,
+			java.lang.String category, int status, java.lang.String action, java.lang.String flow,
+			java.lang.String stage, boolean isIncome, boolean isFreeze, java.lang.String serialId,
+			java.lang.String trigger, java.lang.String relAcc, java.lang.String relUid, java.lang.String taskId,
+			boolean isMajor, boolean isMajorDone, int txConfirm, java.lang.String txId, double amount, double txFee,
+			double balance, double freezing, java.lang.String comment, java.lang.String commentJson, long totalInt,
+			boolean isMeta, boolean isFold) {
 		this();
 		this.accession = accession;
 		this.uid = uid;
 		this.createTime = createTime;
 		this.updateTime = updateTime;
+		this.expireTime = expireTime;
 		this.isFinish = isFinish;
 		setIsFinishIsSet(true);
 		this.project = project;
@@ -552,6 +566,9 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 		}
 		if (other.isSetUpdateTime()) {
 			this.updateTime = other.updateTime;
+		}
+		if (other.isSetExpireTime()) {
+			this.expireTime = other.expireTime;
 		}
 		this.isFinish = other.isFinish;
 		if (other.isSetProject()) {
@@ -618,6 +635,7 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 		this.uid = null;
 		this.createTime = null;
 		this.updateTime = null;
+		this.expireTime = null;
 		setIsFinishIsSet(false);
 		this.isFinish = false;
 		this.project = null;
@@ -769,6 +787,34 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 	public void setUpdateTimeIsSet(boolean value) {
 		if (!value) {
 			this.updateTime = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getExpireTime() {
+		return this.expireTime;
+	}
+
+	public WalletFlow setExpireTime(@org.apache.thrift.annotation.Nullable java.lang.String expireTime) {
+		this.expireTime = expireTime;
+		return this;
+	}
+
+	public void unsetExpireTime() {
+		this.expireTime = null;
+	}
+
+	/**
+	 * Returns true if field expireTime is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetExpireTime() {
+		return this.expireTime != null;
+	}
+
+	public void setExpireTimeIsSet(boolean value) {
+		if (!value) {
+			this.expireTime = null;
 		}
 	}
 
@@ -1526,6 +1572,15 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 			}
 			break;
 
+		case EXPIRE_TIME:
+			if (value == null) {
+				unsetExpireTime();
+			}
+			else {
+				setExpireTime((java.lang.String) value);
+			}
+			break;
+
 		case IS_FINISH:
 			if (value == null) {
 				unsetIsFinish();
@@ -1787,6 +1842,9 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 		case UPDATE_TIME:
 			return getUpdateTime();
 
+		case EXPIRE_TIME:
+			return getExpireTime();
+
 		case IS_FINISH:
 			return isIsFinish();
 
@@ -1890,6 +1948,8 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 			return isSetCreateTime();
 		case UPDATE_TIME:
 			return isSetUpdateTime();
+		case EXPIRE_TIME:
+			return isSetExpireTime();
 		case IS_FINISH:
 			return isSetIsFinish();
 		case PROJECT:
@@ -1996,6 +2056,15 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 			if (!(this_present_updateTime && that_present_updateTime))
 				return false;
 			if (!this.updateTime.equals(that.updateTime))
+				return false;
+		}
+
+		boolean this_present_expireTime = true && this.isSetExpireTime();
+		boolean that_present_expireTime = true && that.isSetExpireTime();
+		if (this_present_expireTime || that_present_expireTime) {
+			if (!(this_present_expireTime && that_present_expireTime))
+				return false;
+			if (!this.expireTime.equals(that.expireTime))
 				return false;
 		}
 
@@ -2265,6 +2334,10 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 		if (isSetUpdateTime())
 			hashCode = hashCode * 8191 + updateTime.hashCode();
 
+		hashCode = hashCode * 8191 + ((isSetExpireTime()) ? 131071 : 524287);
+		if (isSetExpireTime())
+			hashCode = hashCode * 8191 + expireTime.hashCode();
+
 		hashCode = hashCode * 8191 + ((isFinish) ? 131071 : 524287);
 
 		hashCode = hashCode * 8191 + ((isSetProject()) ? 131071 : 524287);
@@ -2392,6 +2465,16 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 		}
 		if (isSetUpdateTime()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.updateTime, other.updateTime);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetExpireTime()).compareTo(other.isSetExpireTime());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetExpireTime()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.expireTime, other.expireTime);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -2727,6 +2810,16 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 		first = false;
 		if (!first)
 			sb.append(", ");
+		sb.append("expireTime:");
+		if (this.expireTime == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.expireTime);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("isFinish:");
 		sb.append(this.isFinish);
 		first = false;
@@ -3008,6 +3101,15 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.updateTime = iprot.readString();
 						struct.setUpdateTimeIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 32: // EXPIRE_TIME
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.expireTime = iprot.readString();
+						struct.setExpireTimeIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -3400,6 +3502,11 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 			oprot.writeFieldBegin(IS_FOLD_FIELD_DESC);
 			oprot.writeBool(struct.isFold);
 			oprot.writeFieldEnd();
+			if (struct.expireTime != null) {
+				oprot.writeFieldBegin(EXPIRE_TIME_FIELD_DESC);
+				oprot.writeString(struct.expireTime);
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -3433,88 +3540,91 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 			if (struct.isSetUpdateTime()) {
 				optionals.set(3);
 			}
-			if (struct.isSetIsFinish()) {
+			if (struct.isSetExpireTime()) {
 				optionals.set(4);
 			}
-			if (struct.isSetProject()) {
+			if (struct.isSetIsFinish()) {
 				optionals.set(5);
 			}
-			if (struct.isSetCategory()) {
+			if (struct.isSetProject()) {
 				optionals.set(6);
 			}
-			if (struct.isSetStatus()) {
+			if (struct.isSetCategory()) {
 				optionals.set(7);
 			}
-			if (struct.isSetAction()) {
+			if (struct.isSetStatus()) {
 				optionals.set(8);
 			}
-			if (struct.isSetFlow()) {
+			if (struct.isSetAction()) {
 				optionals.set(9);
 			}
-			if (struct.isSetStage()) {
+			if (struct.isSetFlow()) {
 				optionals.set(10);
 			}
-			if (struct.isSetIsIncome()) {
+			if (struct.isSetStage()) {
 				optionals.set(11);
 			}
-			if (struct.isSetIsFreeze()) {
+			if (struct.isSetIsIncome()) {
 				optionals.set(12);
 			}
-			if (struct.isSetSerialId()) {
+			if (struct.isSetIsFreeze()) {
 				optionals.set(13);
 			}
-			if (struct.isSetTrigger()) {
+			if (struct.isSetSerialId()) {
 				optionals.set(14);
 			}
-			if (struct.isSetRelAcc()) {
+			if (struct.isSetTrigger()) {
 				optionals.set(15);
 			}
-			if (struct.isSetRelUid()) {
+			if (struct.isSetRelAcc()) {
 				optionals.set(16);
 			}
-			if (struct.isSetTaskId()) {
+			if (struct.isSetRelUid()) {
 				optionals.set(17);
 			}
-			if (struct.isSetIsMajor()) {
+			if (struct.isSetTaskId()) {
 				optionals.set(18);
 			}
-			if (struct.isSetIsMajorDone()) {
+			if (struct.isSetIsMajor()) {
 				optionals.set(19);
 			}
-			if (struct.isSetTxConfirm()) {
+			if (struct.isSetIsMajorDone()) {
 				optionals.set(20);
 			}
-			if (struct.isSetTxId()) {
+			if (struct.isSetTxConfirm()) {
 				optionals.set(21);
 			}
-			if (struct.isSetAmount()) {
+			if (struct.isSetTxId()) {
 				optionals.set(22);
 			}
-			if (struct.isSetTxFee()) {
+			if (struct.isSetAmount()) {
 				optionals.set(23);
 			}
-			if (struct.isSetBalance()) {
+			if (struct.isSetTxFee()) {
 				optionals.set(24);
 			}
-			if (struct.isSetFreezing()) {
+			if (struct.isSetBalance()) {
 				optionals.set(25);
 			}
-			if (struct.isSetComment()) {
+			if (struct.isSetFreezing()) {
 				optionals.set(26);
 			}
-			if (struct.isSetCommentJson()) {
+			if (struct.isSetComment()) {
 				optionals.set(27);
 			}
-			if (struct.isSetTotalInt()) {
+			if (struct.isSetCommentJson()) {
 				optionals.set(28);
 			}
-			if (struct.isSetIsMeta()) {
+			if (struct.isSetTotalInt()) {
 				optionals.set(29);
 			}
-			if (struct.isSetIsFold()) {
+			if (struct.isSetIsMeta()) {
 				optionals.set(30);
 			}
-			oprot.writeBitSet(optionals, 31);
+			if (struct.isSetIsFold()) {
+				optionals.set(31);
+			}
+			oprot.writeBitSet(optionals, 32);
 			if (struct.isSetAccession()) {
 				oprot.writeString(struct.accession);
 			}
@@ -3526,6 +3636,9 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 			}
 			if (struct.isSetUpdateTime()) {
 				oprot.writeString(struct.updateTime);
+			}
+			if (struct.isSetExpireTime()) {
+				oprot.writeString(struct.expireTime);
 			}
 			if (struct.isSetIsFinish()) {
 				oprot.writeBool(struct.isFinish);
@@ -3614,7 +3727,7 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 		public void read(org.apache.thrift.protocol.TProtocol prot, WalletFlow struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(31);
+			java.util.BitSet incoming = iprot.readBitSet(32);
 			if (incoming.get(0)) {
 				struct.accession = iprot.readString();
 				struct.setAccessionIsSet(true);
@@ -3632,110 +3745,114 @@ public class WalletFlow implements org.apache.thrift.TBase<WalletFlow, WalletFlo
 				struct.setUpdateTimeIsSet(true);
 			}
 			if (incoming.get(4)) {
+				struct.expireTime = iprot.readString();
+				struct.setExpireTimeIsSet(true);
+			}
+			if (incoming.get(5)) {
 				struct.isFinish = iprot.readBool();
 				struct.setIsFinishIsSet(true);
 			}
-			if (incoming.get(5)) {
+			if (incoming.get(6)) {
 				struct.project = iprot.readString();
 				struct.setProjectIsSet(true);
 			}
-			if (incoming.get(6)) {
+			if (incoming.get(7)) {
 				struct.category = iprot.readString();
 				struct.setCategoryIsSet(true);
 			}
-			if (incoming.get(7)) {
+			if (incoming.get(8)) {
 				struct.status = iprot.readI32();
 				struct.setStatusIsSet(true);
 			}
-			if (incoming.get(8)) {
+			if (incoming.get(9)) {
 				struct.action = iprot.readString();
 				struct.setActionIsSet(true);
 			}
-			if (incoming.get(9)) {
+			if (incoming.get(10)) {
 				struct.flow = iprot.readString();
 				struct.setFlowIsSet(true);
 			}
-			if (incoming.get(10)) {
+			if (incoming.get(11)) {
 				struct.stage = iprot.readString();
 				struct.setStageIsSet(true);
 			}
-			if (incoming.get(11)) {
+			if (incoming.get(12)) {
 				struct.isIncome = iprot.readBool();
 				struct.setIsIncomeIsSet(true);
 			}
-			if (incoming.get(12)) {
+			if (incoming.get(13)) {
 				struct.isFreeze = iprot.readBool();
 				struct.setIsFreezeIsSet(true);
 			}
-			if (incoming.get(13)) {
+			if (incoming.get(14)) {
 				struct.serialId = iprot.readString();
 				struct.setSerialIdIsSet(true);
 			}
-			if (incoming.get(14)) {
+			if (incoming.get(15)) {
 				struct.trigger = iprot.readString();
 				struct.setTriggerIsSet(true);
 			}
-			if (incoming.get(15)) {
+			if (incoming.get(16)) {
 				struct.relAcc = iprot.readString();
 				struct.setRelAccIsSet(true);
 			}
-			if (incoming.get(16)) {
+			if (incoming.get(17)) {
 				struct.relUid = iprot.readString();
 				struct.setRelUidIsSet(true);
 			}
-			if (incoming.get(17)) {
+			if (incoming.get(18)) {
 				struct.taskId = iprot.readString();
 				struct.setTaskIdIsSet(true);
 			}
-			if (incoming.get(18)) {
+			if (incoming.get(19)) {
 				struct.isMajor = iprot.readBool();
 				struct.setIsMajorIsSet(true);
 			}
-			if (incoming.get(19)) {
+			if (incoming.get(20)) {
 				struct.isMajorDone = iprot.readBool();
 				struct.setIsMajorDoneIsSet(true);
 			}
-			if (incoming.get(20)) {
+			if (incoming.get(21)) {
 				struct.txConfirm = iprot.readI32();
 				struct.setTxConfirmIsSet(true);
 			}
-			if (incoming.get(21)) {
+			if (incoming.get(22)) {
 				struct.txId = iprot.readString();
 				struct.setTxIdIsSet(true);
 			}
-			if (incoming.get(22)) {
+			if (incoming.get(23)) {
 				struct.amount = iprot.readDouble();
 				struct.setAmountIsSet(true);
 			}
-			if (incoming.get(23)) {
+			if (incoming.get(24)) {
 				struct.txFee = iprot.readDouble();
 				struct.setTxFeeIsSet(true);
 			}
-			if (incoming.get(24)) {
+			if (incoming.get(25)) {
 				struct.balance = iprot.readDouble();
 				struct.setBalanceIsSet(true);
 			}
-			if (incoming.get(25)) {
+			if (incoming.get(26)) {
 				struct.freezing = iprot.readDouble();
 				struct.setFreezingIsSet(true);
 			}
-			if (incoming.get(26)) {
+			if (incoming.get(27)) {
 				struct.comment = iprot.readString();
 				struct.setCommentIsSet(true);
 			}
-			if (incoming.get(27)) {
+			if (incoming.get(28)) {
 				struct.commentJson = iprot.readString();
 				struct.setCommentJsonIsSet(true);
 			}
-			if (incoming.get(28)) {
+			if (incoming.get(29)) {
 				struct.totalInt = iprot.readI64();
 				struct.setTotalIntIsSet(true);
 			}
-			if (incoming.get(29)) {
+			if (incoming.get(30)) {
 				struct.isMeta = iprot.readBool();
 				struct.setIsMetaIsSet(true);
 			}
-			if (incoming.get(30)) {
+			if (incoming.get(31)) {
 				struct.isFold = iprot.readBool();
 				struct.setIsFoldIsSet(true);
 			}

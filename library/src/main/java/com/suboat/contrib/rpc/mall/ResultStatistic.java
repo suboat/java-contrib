@@ -447,14 +447,14 @@ public class ResultStatistic implements org.apache.thrift.TBase<ResultStatistic,
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list286 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<Statistic>(_list286.size);
+							org.apache.thrift.protocol.TList _list296 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<Statistic>(_list296.size);
 							@org.apache.thrift.annotation.Nullable
-							Statistic _elem287;
-							for (int _i288 = 0; _i288 < _list286.size; ++_i288) {
-								_elem287 = new Statistic();
-								_elem287.read(iprot);
-								struct.data.add(_elem287);
+							Statistic _elem297;
+							for (int _i298 = 0; _i298 < _list296.size; ++_i298) {
+								_elem297 = new Statistic();
+								_elem297.read(iprot);
+								struct.data.add(_elem297);
 							}
 							iprot.readListEnd();
 						}
@@ -496,8 +496,8 @@ public class ResultStatistic implements org.apache.thrift.TBase<ResultStatistic,
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (Statistic _iter289 : struct.data) {
-						_iter289.write(oprot);
+					for (Statistic _iter299 : struct.data) {
+						_iter299.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -539,8 +539,8 @@ public class ResultStatistic implements org.apache.thrift.TBase<ResultStatistic,
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (Statistic _iter290 : struct.data) {
-						_iter290.write(oprot);
+					for (Statistic _iter300 : struct.data) {
+						_iter300.write(oprot);
 					}
 				}
 			}
@@ -556,15 +556,15 @@ public class ResultStatistic implements org.apache.thrift.TBase<ResultStatistic,
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list291 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list301 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<Statistic>(_list291.size);
+					struct.data = new java.util.ArrayList<Statistic>(_list301.size);
 					@org.apache.thrift.annotation.Nullable
-					Statistic _elem292;
-					for (int _i293 = 0; _i293 < _list291.size; ++_i293) {
-						_elem292 = new Statistic();
-						_elem292.read(iprot);
-						struct.data.add(_elem292);
+					Statistic _elem302;
+					for (int _i303 = 0; _i303 < _list301.size; ++_i303) {
+						_elem302 = new Statistic();
+						_elem302.read(iprot);
+						struct.data.add(_elem302);
 					}
 				}
 				struct.setDataIsSet(true);

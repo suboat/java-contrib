@@ -49,6 +49,9 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 	private static final org.apache.thrift.protocol.TField LOCATION_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"location", org.apache.thrift.protocol.TType.STRING, (short) 12);
 
+	private static final org.apache.thrift.protocol.TField STATUS_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"status", org.apache.thrift.protocol.TType.I32, (short) 13);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new ArgUptStoreStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new ArgUptStoreTupleSchemeFactory();
@@ -77,6 +80,8 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String location; // optional
 
+	public int status; // optional
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
@@ -85,8 +90,8 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 
 		SID((short) 1, "sid"), UID((short) 2, "uid"), NAME((short) 3, "name"), NAME_ALIAS((short) 4, "nameAlias"), KEY(
 				(short) 5, "key"), ICON((short) 6, "icon"), DESCRIPTION((short) 7, "description"), ADDRESS((short) 8,
-						"address"), PHONE((short) 9, "phone"), LONGITUDE((short) 10,
-								"longitude"), LATITUDE((short) 11, "latitude"), LOCATION((short) 12, "location");
+						"address"), PHONE((short) 9, "phone"), LONGITUDE((short) 10, "longitude"), LATITUDE((short) 11,
+								"latitude"), LOCATION((short) 12, "location"), STATUS((short) 13, "status");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -126,6 +131,8 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 				return LATITUDE;
 			case 12: // LOCATION
 				return LOCATION;
+			case 13: // STATUS
+				return STATUS;
 			default:
 				return null;
 			}
@@ -174,11 +181,13 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 
 	private static final int __LATITUDE_ISSET_ID = 1;
 
+	private static final int __STATUS_ISSET_ID = 2;
+
 	private byte __isset_bitfield = 0;
 
 	private static final _Fields optionals[] = { _Fields.UID, _Fields.NAME, _Fields.NAME_ALIAS, _Fields.KEY,
 			_Fields.ICON, _Fields.DESCRIPTION, _Fields.ADDRESS, _Fields.PHONE, _Fields.LONGITUDE, _Fields.LATITUDE,
-			_Fields.LOCATION };
+			_Fields.LOCATION, _Fields.STATUS };
 
 	public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
 	static {
@@ -226,6 +235,10 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 				new org.apache.thrift.meta_data.FieldMetaData("location",
 						org.apache.thrift.TFieldRequirementType.OPTIONAL,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.STATUS,
+				new org.apache.thrift.meta_data.FieldMetaData("status",
+						org.apache.thrift.TFieldRequirementType.OPTIONAL,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(ArgUptStore.class, metaDataMap);
 	}
@@ -275,6 +288,7 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 		if (other.isSetLocation()) {
 			this.location = other.location;
 		}
+		this.status = other.status;
 	}
 
 	public ArgUptStore deepCopy() {
@@ -297,6 +311,8 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 		setLatitudeIsSet(false);
 		this.latitude = 0.0;
 		this.location = null;
+		setStatusIsSet(false);
+		this.status = 0;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -625,6 +641,31 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 		}
 	}
 
+	public int getStatus() {
+		return this.status;
+	}
+
+	public ArgUptStore setStatus(int status) {
+		this.status = status;
+		setStatusIsSet(true);
+		return this;
+	}
+
+	public void unsetStatus() {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __STATUS_ISSET_ID);
+	}
+
+	/**
+	 * Returns true if field status is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetStatus() {
+		return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __STATUS_ISSET_ID);
+	}
+
+	public void setStatusIsSet(boolean value) {
+		__isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __STATUS_ISSET_ID, value);
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case SID:
@@ -735,6 +776,15 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 			}
 			break;
 
+		case STATUS:
+			if (value == null) {
+				unsetStatus();
+			}
+			else {
+				setStatus((java.lang.Integer) value);
+			}
+			break;
+
 		}
 	}
 
@@ -777,6 +827,9 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 		case LOCATION:
 			return getLocation();
 
+		case STATUS:
+			return getStatus();
+
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -815,6 +868,8 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 			return isSetLatitude();
 		case LOCATION:
 			return isSetLocation();
+		case STATUS:
+			return isSetStatus();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -942,6 +997,15 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 				return false;
 		}
 
+		boolean this_present_status = true && this.isSetStatus();
+		boolean that_present_status = true && that.isSetStatus();
+		if (this_present_status || that_present_status) {
+			if (!(this_present_status && that_present_status))
+				return false;
+			if (this.status != that.status)
+				return false;
+		}
+
 		return true;
 	}
 
@@ -996,6 +1060,10 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 		hashCode = hashCode * 8191 + ((isSetLocation()) ? 131071 : 524287);
 		if (isSetLocation())
 			hashCode = hashCode * 8191 + location.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetStatus()) ? 131071 : 524287);
+		if (isSetStatus())
+			hashCode = hashCode * 8191 + status;
 
 		return hashCode;
 	}
@@ -1124,6 +1192,16 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 		}
 		if (isSetLocation()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.location, other.location);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetStatus()).compareTo(other.isSetStatus());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetStatus()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.status, other.status);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -1277,6 +1355,13 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 			else {
 				sb.append(this.location);
 			}
+			first = false;
+		}
+		if (isSetStatus()) {
+			if (!first)
+				sb.append(", ");
+			sb.append("status:");
+			sb.append(this.status);
 			first = false;
 		}
 		sb.append(")");
@@ -1439,6 +1524,15 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 13: // STATUS
+					if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+						struct.status = iprot.readI32();
+						struct.setStatusIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -1534,6 +1628,11 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 					oprot.writeFieldEnd();
 				}
 			}
+			if (struct.isSetStatus()) {
+				oprot.writeFieldBegin(STATUS_FIELD_DESC);
+				oprot.writeI32(struct.status);
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -1591,7 +1690,10 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 			if (struct.isSetLocation()) {
 				optionals.set(11);
 			}
-			oprot.writeBitSet(optionals, 12);
+			if (struct.isSetStatus()) {
+				optionals.set(12);
+			}
+			oprot.writeBitSet(optionals, 13);
 			if (struct.isSetSid()) {
 				oprot.writeString(struct.sid);
 			}
@@ -1628,13 +1730,16 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 			if (struct.isSetLocation()) {
 				oprot.writeString(struct.location);
 			}
+			if (struct.isSetStatus()) {
+				oprot.writeI32(struct.status);
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, ArgUptStore struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(12);
+			java.util.BitSet incoming = iprot.readBitSet(13);
 			if (incoming.get(0)) {
 				struct.sid = iprot.readString();
 				struct.setSidIsSet(true);
@@ -1682,6 +1787,10 @@ public class ArgUptStore implements org.apache.thrift.TBase<ArgUptStore, ArgUptS
 			if (incoming.get(11)) {
 				struct.location = iprot.readString();
 				struct.setLocationIsSet(true);
+			}
+			if (incoming.get(12)) {
+				struct.status = iprot.readI32();
+				struct.setStatusIsSet(true);
 			}
 		}
 

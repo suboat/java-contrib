@@ -20,6 +20,47 @@ public class userConstants {
 
 	public static final java.lang.String UID_STAFF = "33333333-3333-3333-3333-333333333333";
 
+	public static final java.lang.String UID_BOT_USER = "00000000-0000-0000-0000-100000000000";
+
+	public static final java.lang.String UID_BOT_ONLINE = "00000000-0000-0000-0000-200000000000";
+
+	public static final java.lang.String UID_BOT_CMS = "00000000-0000-0000-0000-300000000000";
+
+	public static final java.lang.String UID_BOT_MSG = "00000000-0000-0000-0000-400000000000";
+
+	public static final java.lang.String UID_BOT_WALLET = "00000000-0000-0000-0000-500000000000";
+
+	public static final java.lang.String UID_BOT_MALL = "00000000-0000-0000-0000-600000000000";
+
+	/**
+	 * 预留的uid对应的名称
+	 */
+	public static final java.lang.String NAME_SYSTEM = "#system";
+
+	public static final java.lang.String NAME_GUEST = "#guest";
+
+	public static final java.lang.String NAME_ADMIN = "#admin";
+
+	public static final java.lang.String NAME_STAFF = "#staff";
+
+	public static final java.lang.String NAME_BOT_USER = "#user";
+
+	public static final java.lang.String NAME_BOT_ONLINE = "#online";
+
+	public static final java.lang.String NAME_BOT_CMS = "#cms";
+
+	public static final java.lang.String NAME_BOT_MSG = "#msg";
+
+	public static final java.lang.String NAME_BOT_WALLET = "#wallet";
+
+	public static final java.lang.String NAME_BOT_MALL = "#mall";
+
+	public static final java.lang.String NAME_UNKNOWN = "#unknown";
+
+	public static final java.lang.String NAME_BLOCK = "#block";
+
+	public static final java.lang.String NAME_ERROR = "#error";
+
 	/**
 	 * RBAC数据类型
 	 */
@@ -44,6 +85,8 @@ public class userConstants {
 	public static final java.lang.String USEREXT_WX_UNIONID = "wx_unionid";
 
 	public static final java.lang.String USEREXT_WX_USERID = "wx_userid";
+
+	public static final java.lang.String USEREXT_WX_CARD = "wx_card";
 
 	/**
 	 * 用户公共拓展表的预留字段(key)

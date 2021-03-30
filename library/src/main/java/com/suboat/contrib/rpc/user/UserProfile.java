@@ -109,11 +109,29 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	private static final org.apache.thrift.protocol.TField PARTY_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"party", org.apache.thrift.protocol.TType.STRING, (short) 32);
 
+	private static final org.apache.thrift.protocol.TField COMPANY_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"company", org.apache.thrift.protocol.TType.STRING, (short) 35);
+
+	private static final org.apache.thrift.protocol.TField COMPANY_ADDR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"companyAddr", org.apache.thrift.protocol.TType.STRING, (short) 37);
+
+	private static final org.apache.thrift.protocol.TField COMPANY_ID_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"companyID", org.apache.thrift.protocol.TType.STRING, (short) 38);
+
+	private static final org.apache.thrift.protocol.TField COMPANY_HASH_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"companyHash", org.apache.thrift.protocol.TType.STRING, (short) 39);
+
+	private static final org.apache.thrift.protocol.TField POSITION_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"position", org.apache.thrift.protocol.TType.STRING, (short) 36);
+
 	private static final org.apache.thrift.protocol.TField WX_ICON_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"wxIcon", org.apache.thrift.protocol.TType.STRING, (short) 21);
 
 	private static final org.apache.thrift.protocol.TField WX_NICKNAME_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"wxNickname", org.apache.thrift.protocol.TType.STRING, (short) 22);
+
+	private static final org.apache.thrift.protocol.TField WX_CARD_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"wxCard", org.apache.thrift.protocol.TType.STRING, (short) 34);
 
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new UserProfileStandardSchemeFactory();
 
@@ -181,9 +199,21 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String party; // required
 
+	public @org.apache.thrift.annotation.Nullable java.lang.String company; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String companyAddr; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String companyID; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String companyHash; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String position; // required
+
 	public @org.apache.thrift.annotation.Nullable java.lang.String wxIcon; // required
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String wxNickname; // required
+
+	public @org.apache.thrift.annotation.Nullable java.lang.String wxCard; // required
 
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
@@ -216,11 +246,23 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 																																		(short) 20,
 																																		"religion"), PARTY(
 																																				(short) 32,
-																																				"party"), WX_ICON(
-																																						(short) 21,
-																																						"wxIcon"), WX_NICKNAME(
-																																								(short) 22,
-																																								"wxNickname");
+																																				"party"), COMPANY(
+																																						(short) 35,
+																																						"company"), COMPANY_ADDR(
+																																								(short) 37,
+																																								"companyAddr"), COMPANY_ID(
+																																										(short) 38,
+																																										"companyID"), COMPANY_HASH(
+																																												(short) 39,
+																																												"companyHash"), POSITION(
+																																														(short) 36,
+																																														"position"), WX_ICON(
+																																																(short) 21,
+																																																"wxIcon"), WX_NICKNAME(
+																																																		(short) 22,
+																																																		"wxNickname"), WX_CARD(
+																																																				(short) 34,
+																																																				"wxCard");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -298,10 +340,22 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				return RELIGION;
 			case 32: // PARTY
 				return PARTY;
+			case 35: // COMPANY
+				return COMPANY;
+			case 37: // COMPANY_ADDR
+				return COMPANY_ADDR;
+			case 38: // COMPANY_ID
+				return COMPANY_ID;
+			case 39: // COMPANY_HASH
+				return COMPANY_HASH;
+			case 36: // POSITION
+				return POSITION;
 			case 21: // WX_ICON
 				return WX_ICON;
 			case 22: // WX_NICKNAME
 				return WX_NICKNAME;
+			case 34: // WX_CARD
+				return WX_CARD;
 			default:
 				return null;
 			}
@@ -458,12 +512,35 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		tmpMap.put(_Fields.PARTY,
 				new org.apache.thrift.meta_data.FieldMetaData("party", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.COMPANY,
+				new org.apache.thrift.meta_data.FieldMetaData("company",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.COMPANY_ADDR,
+				new org.apache.thrift.meta_data.FieldMetaData("companyAddr",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.COMPANY_ID,
+				new org.apache.thrift.meta_data.FieldMetaData("companyID",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.COMPANY_HASH,
+				new org.apache.thrift.meta_data.FieldMetaData("companyHash",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.POSITION,
+				new org.apache.thrift.meta_data.FieldMetaData("position",
+						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.WX_ICON,
 				new org.apache.thrift.meta_data.FieldMetaData("wxIcon", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		tmpMap.put(_Fields.WX_NICKNAME,
 				new org.apache.thrift.meta_data.FieldMetaData("wxNickname",
 						org.apache.thrift.TFieldRequirementType.DEFAULT,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.WX_CARD,
+				new org.apache.thrift.meta_data.FieldMetaData("wxCard", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(UserProfile.class, metaDataMap);
@@ -479,8 +556,9 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			java.lang.String vipName, java.lang.String vipPhone, java.lang.String pswHash, java.lang.String realName,
 			java.lang.String realIcon, java.lang.String cardId, java.lang.String passport, java.lang.String driver,
 			java.lang.String bankNumber, java.lang.String education, java.lang.String graduate, java.lang.String major,
-			java.lang.String ethnic, java.lang.String religion, java.lang.String party, java.lang.String wxIcon,
-			java.lang.String wxNickname) {
+			java.lang.String ethnic, java.lang.String religion, java.lang.String party, java.lang.String company,
+			java.lang.String companyAddr, java.lang.String companyID, java.lang.String companyHash,
+			java.lang.String position, java.lang.String wxIcon, java.lang.String wxNickname, java.lang.String wxCard) {
 		this();
 		this.icon = icon;
 		this.name = name;
@@ -513,8 +591,14 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		this.ethnic = ethnic;
 		this.religion = religion;
 		this.party = party;
+		this.company = company;
+		this.companyAddr = companyAddr;
+		this.companyID = companyID;
+		this.companyHash = companyHash;
+		this.position = position;
 		this.wxIcon = wxIcon;
 		this.wxNickname = wxNickname;
+		this.wxCard = wxCard;
 	}
 
 	/**
@@ -614,11 +698,29 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		if (other.isSetParty()) {
 			this.party = other.party;
 		}
+		if (other.isSetCompany()) {
+			this.company = other.company;
+		}
+		if (other.isSetCompanyAddr()) {
+			this.companyAddr = other.companyAddr;
+		}
+		if (other.isSetCompanyID()) {
+			this.companyID = other.companyID;
+		}
+		if (other.isSetCompanyHash()) {
+			this.companyHash = other.companyHash;
+		}
+		if (other.isSetPosition()) {
+			this.position = other.position;
+		}
 		if (other.isSetWxIcon()) {
 			this.wxIcon = other.wxIcon;
 		}
 		if (other.isSetWxNickname()) {
 			this.wxNickname = other.wxNickname;
+		}
+		if (other.isSetWxCard()) {
+			this.wxCard = other.wxCard;
 		}
 	}
 
@@ -659,8 +761,14 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		this.ethnic = null;
 		this.religion = null;
 		this.party = null;
+		this.company = null;
+		this.companyAddr = null;
+		this.companyID = null;
+		this.companyHash = null;
+		this.position = null;
 		this.wxIcon = null;
 		this.wxNickname = null;
+		this.wxCard = null;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -1516,6 +1624,146 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	}
 
 	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getCompany() {
+		return this.company;
+	}
+
+	public UserProfile setCompany(@org.apache.thrift.annotation.Nullable java.lang.String company) {
+		this.company = company;
+		return this;
+	}
+
+	public void unsetCompany() {
+		this.company = null;
+	}
+
+	/**
+	 * Returns true if field company is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetCompany() {
+		return this.company != null;
+	}
+
+	public void setCompanyIsSet(boolean value) {
+		if (!value) {
+			this.company = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getCompanyAddr() {
+		return this.companyAddr;
+	}
+
+	public UserProfile setCompanyAddr(@org.apache.thrift.annotation.Nullable java.lang.String companyAddr) {
+		this.companyAddr = companyAddr;
+		return this;
+	}
+
+	public void unsetCompanyAddr() {
+		this.companyAddr = null;
+	}
+
+	/**
+	 * Returns true if field companyAddr is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetCompanyAddr() {
+		return this.companyAddr != null;
+	}
+
+	public void setCompanyAddrIsSet(boolean value) {
+		if (!value) {
+			this.companyAddr = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getCompanyID() {
+		return this.companyID;
+	}
+
+	public UserProfile setCompanyID(@org.apache.thrift.annotation.Nullable java.lang.String companyID) {
+		this.companyID = companyID;
+		return this;
+	}
+
+	public void unsetCompanyID() {
+		this.companyID = null;
+	}
+
+	/**
+	 * Returns true if field companyID is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetCompanyID() {
+		return this.companyID != null;
+	}
+
+	public void setCompanyIDIsSet(boolean value) {
+		if (!value) {
+			this.companyID = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getCompanyHash() {
+		return this.companyHash;
+	}
+
+	public UserProfile setCompanyHash(@org.apache.thrift.annotation.Nullable java.lang.String companyHash) {
+		this.companyHash = companyHash;
+		return this;
+	}
+
+	public void unsetCompanyHash() {
+		this.companyHash = null;
+	}
+
+	/**
+	 * Returns true if field companyHash is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetCompanyHash() {
+		return this.companyHash != null;
+	}
+
+	public void setCompanyHashIsSet(boolean value) {
+		if (!value) {
+			this.companyHash = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getPosition() {
+		return this.position;
+	}
+
+	public UserProfile setPosition(@org.apache.thrift.annotation.Nullable java.lang.String position) {
+		this.position = position;
+		return this;
+	}
+
+	public void unsetPosition() {
+		this.position = null;
+	}
+
+	/**
+	 * Returns true if field position is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetPosition() {
+		return this.position != null;
+	}
+
+	public void setPositionIsSet(boolean value) {
+		if (!value) {
+			this.position = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
 	public java.lang.String getWxIcon() {
 		return this.wxIcon;
 	}
@@ -1567,6 +1815,33 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	public void setWxNicknameIsSet(boolean value) {
 		if (!value) {
 			this.wxNickname = null;
+		}
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.lang.String getWxCard() {
+		return this.wxCard;
+	}
+
+	public UserProfile setWxCard(@org.apache.thrift.annotation.Nullable java.lang.String wxCard) {
+		this.wxCard = wxCard;
+		return this;
+	}
+
+	public void unsetWxCard() {
+		this.wxCard = null;
+	}
+
+	/**
+	 * Returns true if field wxCard is set (has been assigned a value) and false otherwise
+	 */
+	public boolean isSetWxCard() {
+		return this.wxCard != null;
+	}
+
+	public void setWxCardIsSet(boolean value) {
+		if (!value) {
+			this.wxCard = null;
 		}
 	}
 
@@ -1851,6 +2126,51 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			}
 			break;
 
+		case COMPANY:
+			if (value == null) {
+				unsetCompany();
+			}
+			else {
+				setCompany((java.lang.String) value);
+			}
+			break;
+
+		case COMPANY_ADDR:
+			if (value == null) {
+				unsetCompanyAddr();
+			}
+			else {
+				setCompanyAddr((java.lang.String) value);
+			}
+			break;
+
+		case COMPANY_ID:
+			if (value == null) {
+				unsetCompanyID();
+			}
+			else {
+				setCompanyID((java.lang.String) value);
+			}
+			break;
+
+		case COMPANY_HASH:
+			if (value == null) {
+				unsetCompanyHash();
+			}
+			else {
+				setCompanyHash((java.lang.String) value);
+			}
+			break;
+
+		case POSITION:
+			if (value == null) {
+				unsetPosition();
+			}
+			else {
+				setPosition((java.lang.String) value);
+			}
+			break;
+
 		case WX_ICON:
 			if (value == null) {
 				unsetWxIcon();
@@ -1866,6 +2186,15 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			}
 			else {
 				setWxNickname((java.lang.String) value);
+			}
+			break;
+
+		case WX_CARD:
+			if (value == null) {
+				unsetWxCard();
+			}
+			else {
+				setWxCard((java.lang.String) value);
 			}
 			break;
 
@@ -1968,11 +2297,29 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		case PARTY:
 			return getParty();
 
+		case COMPANY:
+			return getCompany();
+
+		case COMPANY_ADDR:
+			return getCompanyAddr();
+
+		case COMPANY_ID:
+			return getCompanyID();
+
+		case COMPANY_HASH:
+			return getCompanyHash();
+
+		case POSITION:
+			return getPosition();
+
 		case WX_ICON:
 			return getWxIcon();
 
 		case WX_NICKNAME:
 			return getWxNickname();
+
+		case WX_CARD:
+			return getWxCard();
 
 		}
 		throw new java.lang.IllegalStateException();
@@ -2050,10 +2397,22 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			return isSetReligion();
 		case PARTY:
 			return isSetParty();
+		case COMPANY:
+			return isSetCompany();
+		case COMPANY_ADDR:
+			return isSetCompanyAddr();
+		case COMPANY_ID:
+			return isSetCompanyID();
+		case COMPANY_HASH:
+			return isSetCompanyHash();
+		case POSITION:
+			return isSetPosition();
 		case WX_ICON:
 			return isSetWxIcon();
 		case WX_NICKNAME:
 			return isSetWxNickname();
+		case WX_CARD:
+			return isSetWxCard();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -2352,6 +2711,51 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				return false;
 		}
 
+		boolean this_present_company = true && this.isSetCompany();
+		boolean that_present_company = true && that.isSetCompany();
+		if (this_present_company || that_present_company) {
+			if (!(this_present_company && that_present_company))
+				return false;
+			if (!this.company.equals(that.company))
+				return false;
+		}
+
+		boolean this_present_companyAddr = true && this.isSetCompanyAddr();
+		boolean that_present_companyAddr = true && that.isSetCompanyAddr();
+		if (this_present_companyAddr || that_present_companyAddr) {
+			if (!(this_present_companyAddr && that_present_companyAddr))
+				return false;
+			if (!this.companyAddr.equals(that.companyAddr))
+				return false;
+		}
+
+		boolean this_present_companyID = true && this.isSetCompanyID();
+		boolean that_present_companyID = true && that.isSetCompanyID();
+		if (this_present_companyID || that_present_companyID) {
+			if (!(this_present_companyID && that_present_companyID))
+				return false;
+			if (!this.companyID.equals(that.companyID))
+				return false;
+		}
+
+		boolean this_present_companyHash = true && this.isSetCompanyHash();
+		boolean that_present_companyHash = true && that.isSetCompanyHash();
+		if (this_present_companyHash || that_present_companyHash) {
+			if (!(this_present_companyHash && that_present_companyHash))
+				return false;
+			if (!this.companyHash.equals(that.companyHash))
+				return false;
+		}
+
+		boolean this_present_position = true && this.isSetPosition();
+		boolean that_present_position = true && that.isSetPosition();
+		if (this_present_position || that_present_position) {
+			if (!(this_present_position && that_present_position))
+				return false;
+			if (!this.position.equals(that.position))
+				return false;
+		}
+
 		boolean this_present_wxIcon = true && this.isSetWxIcon();
 		boolean that_present_wxIcon = true && that.isSetWxIcon();
 		if (this_present_wxIcon || that_present_wxIcon) {
@@ -2367,6 +2771,15 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			if (!(this_present_wxNickname && that_present_wxNickname))
 				return false;
 			if (!this.wxNickname.equals(that.wxNickname))
+				return false;
+		}
+
+		boolean this_present_wxCard = true && this.isSetWxCard();
+		boolean that_present_wxCard = true && that.isSetWxCard();
+		if (this_present_wxCard || that_present_wxCard) {
+			if (!(this_present_wxCard && that_present_wxCard))
+				return false;
+			if (!this.wxCard.equals(that.wxCard))
 				return false;
 		}
 
@@ -2501,6 +2914,26 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		if (isSetParty())
 			hashCode = hashCode * 8191 + party.hashCode();
 
+		hashCode = hashCode * 8191 + ((isSetCompany()) ? 131071 : 524287);
+		if (isSetCompany())
+			hashCode = hashCode * 8191 + company.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetCompanyAddr()) ? 131071 : 524287);
+		if (isSetCompanyAddr())
+			hashCode = hashCode * 8191 + companyAddr.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetCompanyID()) ? 131071 : 524287);
+		if (isSetCompanyID())
+			hashCode = hashCode * 8191 + companyID.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetCompanyHash()) ? 131071 : 524287);
+		if (isSetCompanyHash())
+			hashCode = hashCode * 8191 + companyHash.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetPosition()) ? 131071 : 524287);
+		if (isSetPosition())
+			hashCode = hashCode * 8191 + position.hashCode();
+
 		hashCode = hashCode * 8191 + ((isSetWxIcon()) ? 131071 : 524287);
 		if (isSetWxIcon())
 			hashCode = hashCode * 8191 + wxIcon.hashCode();
@@ -2508,6 +2941,10 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		hashCode = hashCode * 8191 + ((isSetWxNickname()) ? 131071 : 524287);
 		if (isSetWxNickname())
 			hashCode = hashCode * 8191 + wxNickname.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetWxCard()) ? 131071 : 524287);
+		if (isSetWxCard())
+			hashCode = hashCode * 8191 + wxCard.hashCode();
 
 		return hashCode;
 	}
@@ -2830,6 +3267,56 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				return lastComparison;
 			}
 		}
+		lastComparison = java.lang.Boolean.valueOf(isSetCompany()).compareTo(other.isSetCompany());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetCompany()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.company, other.company);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetCompanyAddr()).compareTo(other.isSetCompanyAddr());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetCompanyAddr()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.companyAddr, other.companyAddr);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetCompanyID()).compareTo(other.isSetCompanyID());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetCompanyID()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.companyID, other.companyID);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetCompanyHash()).compareTo(other.isSetCompanyHash());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetCompanyHash()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.companyHash, other.companyHash);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetPosition()).compareTo(other.isSetPosition());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetPosition()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.position, other.position);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
 		lastComparison = java.lang.Boolean.valueOf(isSetWxIcon()).compareTo(other.isSetWxIcon());
 		if (lastComparison != 0) {
 			return lastComparison;
@@ -2846,6 +3333,16 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		}
 		if (isSetWxNickname()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.wxNickname, other.wxNickname);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetWxCard()).compareTo(other.isSetWxCard());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetWxCard()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.wxCard, other.wxCard);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -3181,6 +3678,56 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		first = false;
 		if (!first)
 			sb.append(", ");
+		sb.append("company:");
+		if (this.company == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.company);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("companyAddr:");
+		if (this.companyAddr == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.companyAddr);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("companyID:");
+		if (this.companyID == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.companyID);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("companyHash:");
+		if (this.companyHash == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.companyHash);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("position:");
+		if (this.position == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.position);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
 		sb.append("wxIcon:");
 		if (this.wxIcon == null) {
 			sb.append("null");
@@ -3197,6 +3744,16 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		}
 		else {
 			sb.append(this.wxNickname);
+		}
+		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("wxCard:");
+		if (this.wxCard == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.wxCard);
 		}
 		first = false;
 		sb.append(")");
@@ -3527,6 +4084,51 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 35: // COMPANY
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.company = iprot.readString();
+						struct.setCompanyIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 37: // COMPANY_ADDR
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.companyAddr = iprot.readString();
+						struct.setCompanyAddrIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 38: // COMPANY_ID
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.companyID = iprot.readString();
+						struct.setCompanyIDIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 39: // COMPANY_HASH
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.companyHash = iprot.readString();
+						struct.setCompanyHashIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 36: // POSITION
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.position = iprot.readString();
+						struct.setPositionIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				case 21: // WX_ICON
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.wxIcon = iprot.readString();
@@ -3540,6 +4142,15 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
 						struct.wxNickname = iprot.readString();
 						struct.setWxNicknameIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
+				case 34: // WX_CARD
+					if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+						struct.wxCard = iprot.readString();
+						struct.setWxCardIsSet(true);
 					}
 					else {
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
@@ -3727,6 +4338,36 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				oprot.writeString(struct.birthPlace);
 				oprot.writeFieldEnd();
 			}
+			if (struct.wxCard != null) {
+				oprot.writeFieldBegin(WX_CARD_FIELD_DESC);
+				oprot.writeString(struct.wxCard);
+				oprot.writeFieldEnd();
+			}
+			if (struct.company != null) {
+				oprot.writeFieldBegin(COMPANY_FIELD_DESC);
+				oprot.writeString(struct.company);
+				oprot.writeFieldEnd();
+			}
+			if (struct.position != null) {
+				oprot.writeFieldBegin(POSITION_FIELD_DESC);
+				oprot.writeString(struct.position);
+				oprot.writeFieldEnd();
+			}
+			if (struct.companyAddr != null) {
+				oprot.writeFieldBegin(COMPANY_ADDR_FIELD_DESC);
+				oprot.writeString(struct.companyAddr);
+				oprot.writeFieldEnd();
+			}
+			if (struct.companyID != null) {
+				oprot.writeFieldBegin(COMPANY_ID_FIELD_DESC);
+				oprot.writeString(struct.companyID);
+				oprot.writeFieldEnd();
+			}
+			if (struct.companyHash != null) {
+				oprot.writeFieldBegin(COMPANY_HASH_FIELD_DESC);
+				oprot.writeString(struct.companyHash);
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -3841,13 +4482,31 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			if (struct.isSetParty()) {
 				optionals.set(30);
 			}
-			if (struct.isSetWxIcon()) {
+			if (struct.isSetCompany()) {
 				optionals.set(31);
 			}
-			if (struct.isSetWxNickname()) {
+			if (struct.isSetCompanyAddr()) {
 				optionals.set(32);
 			}
-			oprot.writeBitSet(optionals, 33);
+			if (struct.isSetCompanyID()) {
+				optionals.set(33);
+			}
+			if (struct.isSetCompanyHash()) {
+				optionals.set(34);
+			}
+			if (struct.isSetPosition()) {
+				optionals.set(35);
+			}
+			if (struct.isSetWxIcon()) {
+				optionals.set(36);
+			}
+			if (struct.isSetWxNickname()) {
+				optionals.set(37);
+			}
+			if (struct.isSetWxCard()) {
+				optionals.set(38);
+			}
+			oprot.writeBitSet(optionals, 39);
 			if (struct.isSetIcon()) {
 				oprot.writeString(struct.icon);
 			}
@@ -3941,11 +4600,29 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			if (struct.isSetParty()) {
 				oprot.writeString(struct.party);
 			}
+			if (struct.isSetCompany()) {
+				oprot.writeString(struct.company);
+			}
+			if (struct.isSetCompanyAddr()) {
+				oprot.writeString(struct.companyAddr);
+			}
+			if (struct.isSetCompanyID()) {
+				oprot.writeString(struct.companyID);
+			}
+			if (struct.isSetCompanyHash()) {
+				oprot.writeString(struct.companyHash);
+			}
+			if (struct.isSetPosition()) {
+				oprot.writeString(struct.position);
+			}
 			if (struct.isSetWxIcon()) {
 				oprot.writeString(struct.wxIcon);
 			}
 			if (struct.isSetWxNickname()) {
 				oprot.writeString(struct.wxNickname);
+			}
+			if (struct.isSetWxCard()) {
+				oprot.writeString(struct.wxCard);
 			}
 		}
 
@@ -3953,7 +4630,7 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		public void read(org.apache.thrift.protocol.TProtocol prot, UserProfile struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(33);
+			java.util.BitSet incoming = iprot.readBitSet(39);
 			if (incoming.get(0)) {
 				struct.icon = iprot.readString();
 				struct.setIconIsSet(true);
@@ -4079,12 +4756,36 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				struct.setPartyIsSet(true);
 			}
 			if (incoming.get(31)) {
+				struct.company = iprot.readString();
+				struct.setCompanyIsSet(true);
+			}
+			if (incoming.get(32)) {
+				struct.companyAddr = iprot.readString();
+				struct.setCompanyAddrIsSet(true);
+			}
+			if (incoming.get(33)) {
+				struct.companyID = iprot.readString();
+				struct.setCompanyIDIsSet(true);
+			}
+			if (incoming.get(34)) {
+				struct.companyHash = iprot.readString();
+				struct.setCompanyHashIsSet(true);
+			}
+			if (incoming.get(35)) {
+				struct.position = iprot.readString();
+				struct.setPositionIsSet(true);
+			}
+			if (incoming.get(36)) {
 				struct.wxIcon = iprot.readString();
 				struct.setWxIconIsSet(true);
 			}
-			if (incoming.get(32)) {
+			if (incoming.get(37)) {
 				struct.wxNickname = iprot.readString();
 				struct.setWxNicknameIsSet(true);
+			}
+			if (incoming.get(38)) {
+				struct.wxCard = iprot.readString();
+				struct.setWxCardIsSet(true);
 			}
 		}
 
