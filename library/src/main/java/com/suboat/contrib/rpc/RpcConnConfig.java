@@ -12,4 +12,10 @@ public class RpcConnConfig {
 
 	public int timeout = 30000;
 
+	public boolean secure = false;
+
+	public boolean buffered = true;
+
+	public boolean framed = false;
+
 }

@@ -5,6 +5,7 @@ import com.suboat.contrib.rpc.user.UserService;
 import lombok.Data;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocol;
+import org.apache.thrift.transport.TFramedTransport;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
 import org.apache.thrift.transport.TTransportException;
@@ -64,7 +65,12 @@ public class UserServe {
 		}
 		try {
 			log.info("rpc-user conn {}:{} open", config.host, config.port);
-			transport = new TSocket(config.host, config.port, config.timeout);
+			if (config.framed) {
+				transport = new TFramedTransport(new TSocket(config.host, config.port, config.timeout));
+			}
+			else {
+				transport = new TSocket(config.host, config.port, config.timeout);
+			}
 			// 协议要和服务端一致
 			TProtocol protocol = new TBinaryProtocol(transport);
 			transport.open();

@@ -23,8 +23,27 @@ public class DemoApplication {
 
 		// 初始化配置
 		UserServe.Config = new RpcConnConfig();
-		UserServe.Config.host = "127.0.0.1";
+		UserServe.Config.host = "192.168.6.213";
+		UserServe.Config.port = 30709;
+		UserServe.Config.framed = true;
 		log.info("初始化配置 {}", UserServe.Config);
+
+		// rpc连接
+		UserServe userServe = null;
+		try {
+			// 用户模块
+			userServe = new UserServe();
+			log.info("rpc-user version get");
+			log.info(String.valueOf(userServe.getClient().version()));
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			if (userServe != null) {
+				userServe.close();
+			}
+		}
 	}
 
 	@GetMapping("/")
