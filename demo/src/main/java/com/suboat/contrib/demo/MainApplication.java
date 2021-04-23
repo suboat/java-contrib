@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication(scanBasePackages = "com.suboat.contrib")
 @RestController
-public class DemoApplication {
+public class MainApplication {
 
 	private final MyService myService;
 
-	private static final Logger log = LoggerFactory.getLogger(DemoApplication.class);
+	private static final Logger log = LoggerFactory.getLogger(MainApplication.class);
 
-	public DemoApplication(MyService myService) {
+	public MainApplication(MyService myService) {
 		this.myService = myService;
 
 		// 初始化配置
@@ -46,11 +46,9 @@ public class DemoApplication {
 			msgServe = new MsgServe();
 			log.info("rpc-msg version get");
 			log.info(String.valueOf(msgServe.getClient().version()));
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			if (userServe != null) {
 				userServe.close();
 			}
@@ -66,7 +64,7 @@ public class DemoApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(MainApplication.class, args);
 	}
 
 }

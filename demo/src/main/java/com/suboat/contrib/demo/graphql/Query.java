@@ -7,8 +7,8 @@ import com.suboat.contrib.ctrl.context.ContextAuth;
 import com.suboat.contrib.ctrl.graphql.UserServe;
 import com.suboat.contrib.demo.graphql.data.GqlUserBase;
 import com.suboat.contrib.demo.graphql.query.Me;
-import com.suboat.contrib.demo.model.UserBase;
-import com.suboat.contrib.demo.model.UserBaseRepository;
+import com.suboat.contrib.demo.model.orm.UserBase;
+import com.suboat.contrib.demo.model.repo.RepositoryUserBase;
 import com.suboat.contrib.rpc.base.Version;
 import com.suboat.contrib.rpc.user.ResultUser;
 import com.suboat.contrib.rpc.utils.BaseUtils;
@@ -26,22 +26,40 @@ public class Query implements GraphQLQueryResolver {
 	private Me me;
 
 	@Autowired
-	private UserBaseRepository userBaseRepository;
+	private RepositoryUserBase userBaseRepository;
 
 	public String version() {
 		return "hello";
 	}
 
-	public Me me(String token, String lang, String passwordPay, DataFetchingEnvironment env) throws Exception  {
+	public Me me(String token, String lang, String passwordPay, DataFetchingEnvironment env) throws Exception {
 		new ContextAuth(env, token, "user"); // 解析用户token
 		return me;
 	}
 
-	public Result<GqlUserBase> userList(FormQuery query) throws Exception {
+	// 用户列表
+	public Result<GqlUserBase> getUserList(FormQuery query) throws Exception {
+		query = FormQuery.filter(query);
+		// 默认限制与排序
+		query.s = new String[]{"-createTime"}; // 默认排序
+		// 转格式
+		Result<UserBase> orgResult = query.query(userBaseRepository);
+		List<UserBase> oldData = orgResult.getData();
+		List<GqlUserBase> nowData = new ArrayList<>();
+		for (UserBase d : oldData) {
+			nowData.add(new GqlUserBase(d));
+		}
+		Result<GqlUserBase> result = new Result<>();
+		result.setMeta(orgResult.getMeta());
+		result.setData(nowData);
+		return result;
+	}
+
+	public Result<GqlUserBase> userListOld(FormQuery query) throws Exception {
 		query = FormQuery.filter(query);
 
 		// 默认限制与排序
-		query.s = new String[] { "-createTime" }; // 默认排序
+		query.s = new String[]{"-createTime"}; // 默认排序
 		// query.m.put("username$like$", "%test%"); // 模糊搜索
 
 		// rpc

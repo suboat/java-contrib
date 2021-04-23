@@ -1,4 +1,4 @@
-package com.suboat.contrib.demo.model;
+package com.suboat.contrib.demo.model.orm;
 
 import com.suboat.contrib.utils.BeanUtils;
 import lombok.Data;
@@ -10,12 +10,14 @@ import java.util.UUID;
 @Entity
 @Data
 @Table(name = "userbase",
-		uniqueConstraints = { @UniqueConstraint(columnNames = { "phone", "locnum" }, name = "phone_locnum") },
-		indexes = { @Index(columnList = "uid", name = "uid", unique = true),
+		uniqueConstraints = {@UniqueConstraint(columnNames = {"phone", "locnum"}, name = "phone_locnum")},
+		indexes = {@Index(columnList = "uid", name = "uid", unique = true),
 				@Index(columnList = "phone", name = "phone", unique = true),
 				@Index(columnList = "email", name = "email", unique = true),
 				@Index(columnList = "username", name = "username", unique = true),
-				@Index(columnList = "locnum", name = "locnum"), })
+				@Index(columnList = "locnum", name = "locnum"),
+				@Index(columnList = "source", name = "source"),
+		})
 public class UserBase {
 
 	// 初始化
@@ -25,8 +27,8 @@ public class UserBase {
 		this.email = this.uid;
 		this.phone = this.uid;
 		this.locNum = "";
-		 this.createTime = new Date();
-		 this.updateTime = this.createTime;
+		this.createTime = new Date();
+		this.updateTime = this.createTime;
 	}
 
 	public UserBase(UserBase userBase) {
@@ -50,10 +52,13 @@ public class UserBase {
 	@Column(unique = true, nullable = false)
 	private String username; // 登录用户名,唯一,默认为uid
 
-	 @Column(name = "createtime")
-	 private Date createTime;
+	@Column(name = "createtime")
+	private Date createTime;
 
-	 @Column(name = "updatetime")
-	 private Date updateTime;
+	@Column(name = "updatetime")
+	private Date updateTime;
 
+
+	@Column(name = "source", length = 8)
+	private String source; //
 }

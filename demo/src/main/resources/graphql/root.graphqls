@@ -33,6 +33,8 @@ type User {
     nickname: String
     # 创建时间
     createTime: Date
+    # 来源
+    source: String
     # 基本用户信息
-    user: UserBase
+    # user: UserBase
 }

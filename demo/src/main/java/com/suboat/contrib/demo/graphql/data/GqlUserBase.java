@@ -1,7 +1,7 @@
 package com.suboat.contrib.demo.graphql.data;
 
 import com.suboat.contrib.ctrl.graphql.data.GqlUser;
-import com.suboat.contrib.demo.model.UserBase;
+import com.suboat.contrib.demo.model.orm.UserBase;
 
 public class GqlUserBase extends UserBase {
 

@@ -3,7 +3,6 @@ package com.suboat.contrib.demo.graphql.mutation.login;
 import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.suboat.contrib.ctrl.FormLogin;
 import com.suboat.contrib.ctrl.FormUserID;
-import com.suboat.contrib.ctrl.JwtTokenProvider;
 import com.suboat.contrib.ctrl.graphql.UserServe;
 import com.suboat.contrib.ctrl.graphql.data.GqlToken;
 import com.suboat.contrib.error.Rest;
@@ -28,7 +27,8 @@ public class Login implements GraphQLResolver<String> {
 			// 验证密码
 			if (!userServe.getClient().checkPassword(user.getUid(), "", value.value)) {
 				throw new Rest.PasswordUndefined("账号名或密码错误");
-			};
+			}
+			;
 			// 登录
 			userToken = userServe.getClient().getUserToken(new ArgLogin(user.getUid()));
 		} finally {
