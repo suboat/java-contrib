@@ -20,5 +20,6 @@ input FormQuery {
     skip: Int
     page: Int
     sort: [String!]
+    group: [String!]
     keyJson: String
 }

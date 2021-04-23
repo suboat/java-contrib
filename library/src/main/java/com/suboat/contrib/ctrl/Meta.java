@@ -15,6 +15,8 @@ public class Meta {
 
 	private String[] sort;
 
+	private String[] group;
+
 	private String keyJson;
 
 	private Long count;

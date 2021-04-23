@@ -14,6 +14,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
+import javax.persistence.criteria.CriteriaQuery;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -45,6 +46,8 @@ public class FormQuery<T> {
 	public Integer skip;
 
 	public String[] sort;
+
+	public String[] group;
 
 	public String keyJson;
 
@@ -154,6 +157,7 @@ public class FormQuery<T> {
 		meta.setPage(this.page);
 		meta.setSkip(this.skip);
 		meta.setSort(this.sort);
+		meta.setGroup(this.group);
 		meta.setCount(null);
 		meta.setNum(null);
 		meta.setNum(page.getNumberOfElements());
@@ -304,6 +308,8 @@ public class FormQuery<T> {
 		else {
 			q = Specifications.<T>and();
 		}
+		// CriteriaQuery a = null;
+		// a.groupBy().groupBy();
 		// 解析keyJson
 		if (keyJson != null && keyJson.length() > 2) {
 			JSONObject js = new JSONObject(keyJson);
