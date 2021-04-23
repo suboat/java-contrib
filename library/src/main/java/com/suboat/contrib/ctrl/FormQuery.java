@@ -14,7 +14,6 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-import javax.persistence.criteria.CriteriaQuery;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -106,14 +105,17 @@ public class FormQuery<T> {
 		Sort sort = null;
 		Page<T> page;
 
-		// keyJson
+		// keyJson && group
 		// if (this.keyJson != null && this.keyJson.length() > 0) {
 		// spec = this.keyJsonToQuery(this.keyJson, null, false).build();
 		// }
 		// else {
 		// spec = Specifications.<T>and().build();
 		// }
-		spec = this.keyJsonToQuery(this.keyJson, null, false).build();
+		JpaQuery<T> _p = this.keyJsonToQuery(this.keyJson, null, false);
+		_p.setGroup(this.group);
+		spec = _p.build();
+		// spec = this.keyJsonToQuery(this.keyJson, null, false).build();
 
 		// sort
 		if ((this.sort != null && this.sort.length > 0) || (this.s != null && this.s.length > 0)) {
@@ -300,13 +302,15 @@ public class FormQuery<T> {
 		}
 	}
 
-	private PredicateBuilder<T> keyJsonToQuery(String keyJson, String col, Boolean isOr) throws Error {
-		PredicateBuilder<T> q;
+	private JpaQuery<T> keyJsonToQuery(String keyJson, String col, Boolean isOr) throws Error {
+		JpaQuery<T> q;
 		if (isOr) {
-			q = Specifications.<T>or();
+			q = new JpaQuery(Specifications.<T>or());
+			// q = Specifications.<T>or();
 		}
 		else {
-			q = Specifications.<T>and();
+			q = new JpaQuery(Specifications.<T>and());
+			// q = Specifications.<T>and();
 		}
 		// CriteriaQuery a = null;
 		// a.groupBy().groupBy();
