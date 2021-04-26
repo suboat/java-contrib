@@ -31,6 +31,27 @@ public class ErrorSerialize implements GraphQLError {
 				ErrorBase errorBase = (ErrorBase) throwable;
 				this.message = errorBase.getMessage();
 			}
+			else if (throwable instanceof NullPointerException) {
+				Exception errNull = (NullPointerException) throwable;
+				if (errNull.getStackTrace().length > 0) {
+					String[] att = errNull.getStackTrace()[0].toString().split("\\.");
+					if (att.length >= 2) {
+						this.message = String.format("空指针|%s.%s", att[att.length - 2], att[att.length - 1]);
+					}
+				}
+			}
+			else if (throwable instanceof Exception) {
+				Exception errExcept = (Exception) throwable;
+				if (errExcept.getStackTrace().length > 0) {
+					String[] att = errExcept.getStackTrace()[0].toString().split("\\.");
+					if (att.length >= 2) {
+						this.message = String.format("程序错误|%s.%s", att[att.length - 2], att[att.length - 1]);
+					}
+				}
+			}
+		}
+		else {
+			this.message = "内部错误";
 		}
 	}
 
