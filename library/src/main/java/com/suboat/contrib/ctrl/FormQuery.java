@@ -214,6 +214,7 @@ public class FormQuery<T> {
 			String _c = _col.toLowerCase();
 			// 可查询的时间白名单
 			switch (_c) {
+			case "expiretime":
 			case "createtime":
 			case "updatetime":
 			case "logintime":
