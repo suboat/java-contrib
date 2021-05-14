@@ -245,14 +245,12 @@ public class FormQuery<T> {
 			// }
 			// 匹配到以yyyy-MM-ddTHH:mm:ss开头的时间格式则进行解析
 			String reg = "([0-9]{4})-(((0[13578]|1[02])-([0][1-9]|[1-2][0-9]|3[0-1]))|((0[469]|1[1])-([0][1-9]|[1-2][0-9]|3[0]))|(02-([0][1-9]|[1-2][0-9])))T([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]).*";
-			if (_c.matches(reg)) {
-				if (!val.toString().startsWith("{")) {
-					try {
-						val = DateUtils.stringToDate(val.toString());
-					}
-					catch (ParseException ignored) {
-						// 无视错误
-					}
+			if (val.toString().matches(reg)) {
+				try {
+					val = DateUtils.stringToDate(val.toString());
+				}
+				catch (ParseException ignored) {
+					// 无视错误
 				}
 			}
 			PredicateBuilder<T> _q;
