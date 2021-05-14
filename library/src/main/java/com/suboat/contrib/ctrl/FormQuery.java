@@ -213,14 +213,26 @@ public class FormQuery<T> {
 			}
 			String _c = _col.toLowerCase();
 			// 可查询的时间白名单
-			switch (_c) {
-			case "expiretime":
-			case "createtime":
-			case "updatetime":
-			case "logintime":
-			case "releasetime":
-			case "begindate":
-			case "enddate":
+			// switch (_c) {
+			// case "expiretime":
+			// case "createtime":
+			// case "updatetime":
+			// case "logintime":
+			// case "releasetime":
+			// case "begindate":
+			// case "enddate":
+			// if (!val.toString().startsWith("{")) {
+			// try {
+			// val = DateUtils.stringToDate(val.toString());
+			// }
+			// catch (ParseException e) {
+			// throw new Rest.ParamInvalid("时间格式错误
+			// 请用yyyy-MM-dd'T'HH:mm:ss.000Z(toISOString)格式");
+			// }
+			// }
+			// break;
+			// }
+			if (_c.length() > 6 && _c.endsWith("time")) {
 				if (!val.toString().startsWith("{")) {
 					try {
 						val = DateUtils.stringToDate(val.toString());
@@ -229,7 +241,6 @@ public class FormQuery<T> {
 						throw new Rest.ParamInvalid("时间格式错误 请用yyyy-MM-dd'T'HH:mm:ss.000Z(toISOString)格式");
 					}
 				}
-				break;
 			}
 			PredicateBuilder<T> _q;
 			// 解析成数据库查询相应的关键字
