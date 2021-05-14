@@ -232,13 +232,26 @@ public class FormQuery<T> {
 			// }
 			// break;
 			// }
-			if (_c.length() > 6 && _c.endsWith("time")) {
+			// if (_c.length() > 6 && _c.endsWith("time")) {
+			// if (!val.toString().startsWith("{")) {
+			// try {
+			// val = DateUtils.stringToDate(val.toString());
+			// }
+			// catch (ParseException e) {
+			// throw new Rest.ParamInvalid("时间格式错误
+			// 请用yyyy-MM-dd'T'HH:mm:ss.000Z(toISOString)格式");
+			// }
+			// }
+			// }
+			// 匹配到以yyyy-MM-ddTHH:mm:ss开头的时间格式则进行解析
+			String reg = "([0-9]{4})-(((0[13578]|1[02])-([0][1-9]|[1-2][0-9]|3[0-1]))|((0[469]|1[1])-([0][1-9]|[1-2][0-9]|3[0]))|(02-([0][1-9]|[1-2][0-9])))T([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]).*";
+			if (_c.matches(reg)) {
 				if (!val.toString().startsWith("{")) {
 					try {
 						val = DateUtils.stringToDate(val.toString());
 					}
-					catch (ParseException e) {
-						throw new Rest.ParamInvalid("时间格式错误 请用yyyy-MM-dd'T'HH:mm:ss.000Z(toISOString)格式");
+					catch (ParseException ignored) {
+						// 无视错误
 					}
 				}
 			}
