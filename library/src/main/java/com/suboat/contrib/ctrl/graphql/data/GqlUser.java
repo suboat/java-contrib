@@ -113,6 +113,7 @@ public class GqlUser {
 			userDetail = userServe.getClient().getUserDetail(new ArgUser(this.uid));
 		}
 		catch (Exception e) {
+			log.error(this.uid);
 			log.error("rpc-user err: {0}", e);
 		}
 		finally {
@@ -251,12 +252,10 @@ public class GqlUser {
 	// 取用户资料
 	public GqlUserProfile getProfile() {
 		syncUser();
-		if (userDetail.profile != null) {
+		if (userDetail != null && userDetail.profile != null) {
 			return new GqlUserProfile(userDetail.profile);
 		}
-		else {
-			return new GqlUserProfile(new UserProfile());
-		}
+		return null;
 	}
 
 }
