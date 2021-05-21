@@ -251,7 +251,12 @@ public class GqlUser {
 	// 取用户资料
 	public GqlUserProfile getProfile() {
 		syncUser();
-		return new GqlUserProfile(userDetail.profile);
+		if (userDetail.profile != null) {
+			return new GqlUserProfile(userDetail.profile);
+		}
+		else {
+			return new GqlUserProfile(new UserProfile());
+		}
 	}
 
 }
