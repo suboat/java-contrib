@@ -133,6 +133,9 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 	private static final org.apache.thrift.protocol.TField WX_CARD_FIELD_DESC = new org.apache.thrift.protocol.TField(
 			"wxCard", org.apache.thrift.protocol.TType.STRING, (short) 34);
 
+	private static final org.apache.thrift.protocol.TField WX_OPEN_ID_ARR_FIELD_DESC = new org.apache.thrift.protocol.TField(
+			"wxOpenIdArr", org.apache.thrift.protocol.TType.LIST, (short) 40);
+
 	private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new UserProfileStandardSchemeFactory();
 
 	private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new UserProfileTupleSchemeFactory();
@@ -215,6 +218,8 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 
 	public @org.apache.thrift.annotation.Nullable java.lang.String wxCard; // required
 
+	public @org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> wxOpenIdArr; // required
+
 	/**
 	 * The set of fields this struct contains, along with convenience methods for finding
 	 * and manipulating them.
@@ -262,7 +267,9 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 																																																		(short) 22,
 																																																		"wxNickname"), WX_CARD(
 																																																				(short) 34,
-																																																				"wxCard");
+																																																				"wxCard"), WX_OPEN_ID_ARR(
+																																																						(short) 40,
+																																																						"wxOpenIdArr");
 
 		private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -356,6 +363,8 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				return WX_NICKNAME;
 			case 34: // WX_CARD
 				return WX_CARD;
+			case 40: // WX_OPEN_ID_ARR
+				return WX_OPEN_ID_ARR;
 			default:
 				return null;
 			}
@@ -542,6 +551,10 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		tmpMap.put(_Fields.WX_CARD,
 				new org.apache.thrift.meta_data.FieldMetaData("wxCard", org.apache.thrift.TFieldRequirementType.DEFAULT,
 						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+		tmpMap.put(_Fields.WX_OPEN_ID_ARR, new org.apache.thrift.meta_data.FieldMetaData("wxOpenIdArr",
+				org.apache.thrift.TFieldRequirementType.DEFAULT,
+				new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST,
+						new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING))));
 		metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
 		org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(UserProfile.class, metaDataMap);
 	}
@@ -558,7 +571,8 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			java.lang.String bankNumber, java.lang.String education, java.lang.String graduate, java.lang.String major,
 			java.lang.String ethnic, java.lang.String religion, java.lang.String party, java.lang.String company,
 			java.lang.String companyAddr, java.lang.String companyID, java.lang.String companyHash,
-			java.lang.String position, java.lang.String wxIcon, java.lang.String wxNickname, java.lang.String wxCard) {
+			java.lang.String position, java.lang.String wxIcon, java.lang.String wxNickname, java.lang.String wxCard,
+			java.util.List<java.lang.String> wxOpenIdArr) {
 		this();
 		this.icon = icon;
 		this.name = name;
@@ -599,6 +613,7 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		this.wxIcon = wxIcon;
 		this.wxNickname = wxNickname;
 		this.wxCard = wxCard;
+		this.wxOpenIdArr = wxOpenIdArr;
 	}
 
 	/**
@@ -722,6 +737,11 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		if (other.isSetWxCard()) {
 			this.wxCard = other.wxCard;
 		}
+		if (other.isSetWxOpenIdArr()) {
+			java.util.List<java.lang.String> __this__wxOpenIdArr = new java.util.ArrayList<java.lang.String>(
+					other.wxOpenIdArr);
+			this.wxOpenIdArr = __this__wxOpenIdArr;
+		}
 	}
 
 	public UserProfile deepCopy() {
@@ -769,6 +789,7 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		this.wxIcon = null;
 		this.wxNickname = null;
 		this.wxCard = null;
+		this.wxOpenIdArr = null;
 	}
 
 	@org.apache.thrift.annotation.Nullable
@@ -1845,6 +1866,51 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		}
 	}
 
+	public int getWxOpenIdArrSize() {
+		return (this.wxOpenIdArr == null) ? 0 : this.wxOpenIdArr.size();
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.Iterator<java.lang.String> getWxOpenIdArrIterator() {
+		return (this.wxOpenIdArr == null) ? null : this.wxOpenIdArr.iterator();
+	}
+
+	public void addToWxOpenIdArr(java.lang.String elem) {
+		if (this.wxOpenIdArr == null) {
+			this.wxOpenIdArr = new java.util.ArrayList<java.lang.String>();
+		}
+		this.wxOpenIdArr.add(elem);
+	}
+
+	@org.apache.thrift.annotation.Nullable
+	public java.util.List<java.lang.String> getWxOpenIdArr() {
+		return this.wxOpenIdArr;
+	}
+
+	public UserProfile setWxOpenIdArr(
+			@org.apache.thrift.annotation.Nullable java.util.List<java.lang.String> wxOpenIdArr) {
+		this.wxOpenIdArr = wxOpenIdArr;
+		return this;
+	}
+
+	public void unsetWxOpenIdArr() {
+		this.wxOpenIdArr = null;
+	}
+
+	/**
+	 * Returns true if field wxOpenIdArr is set (has been assigned a value) and false
+	 * otherwise
+	 */
+	public boolean isSetWxOpenIdArr() {
+		return this.wxOpenIdArr != null;
+	}
+
+	public void setWxOpenIdArrIsSet(boolean value) {
+		if (!value) {
+			this.wxOpenIdArr = null;
+		}
+	}
+
 	public void setFieldValue(_Fields field, @org.apache.thrift.annotation.Nullable java.lang.Object value) {
 		switch (field) {
 		case ICON:
@@ -2198,6 +2264,15 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			}
 			break;
 
+		case WX_OPEN_ID_ARR:
+			if (value == null) {
+				unsetWxOpenIdArr();
+			}
+			else {
+				setWxOpenIdArr((java.util.List<java.lang.String>) value);
+			}
+			break;
+
 		}
 	}
 
@@ -2321,6 +2396,9 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		case WX_CARD:
 			return getWxCard();
 
+		case WX_OPEN_ID_ARR:
+			return getWxOpenIdArr();
+
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -2413,6 +2491,8 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			return isSetWxNickname();
 		case WX_CARD:
 			return isSetWxCard();
+		case WX_OPEN_ID_ARR:
+			return isSetWxOpenIdArr();
 		}
 		throw new java.lang.IllegalStateException();
 	}
@@ -2783,6 +2863,15 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				return false;
 		}
 
+		boolean this_present_wxOpenIdArr = true && this.isSetWxOpenIdArr();
+		boolean that_present_wxOpenIdArr = true && that.isSetWxOpenIdArr();
+		if (this_present_wxOpenIdArr || that_present_wxOpenIdArr) {
+			if (!(this_present_wxOpenIdArr && that_present_wxOpenIdArr))
+				return false;
+			if (!this.wxOpenIdArr.equals(that.wxOpenIdArr))
+				return false;
+		}
+
 		return true;
 	}
 
@@ -2945,6 +3034,10 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		hashCode = hashCode * 8191 + ((isSetWxCard()) ? 131071 : 524287);
 		if (isSetWxCard())
 			hashCode = hashCode * 8191 + wxCard.hashCode();
+
+		hashCode = hashCode * 8191 + ((isSetWxOpenIdArr()) ? 131071 : 524287);
+		if (isSetWxOpenIdArr())
+			hashCode = hashCode * 8191 + wxOpenIdArr.hashCode();
 
 		return hashCode;
 	}
@@ -3343,6 +3436,16 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 		}
 		if (isSetWxCard()) {
 			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.wxCard, other.wxCard);
+			if (lastComparison != 0) {
+				return lastComparison;
+			}
+		}
+		lastComparison = java.lang.Boolean.valueOf(isSetWxOpenIdArr()).compareTo(other.isSetWxOpenIdArr());
+		if (lastComparison != 0) {
+			return lastComparison;
+		}
+		if (isSetWxOpenIdArr()) {
+			lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.wxOpenIdArr, other.wxOpenIdArr);
 			if (lastComparison != 0) {
 				return lastComparison;
 			}
@@ -3756,6 +3859,16 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			sb.append(this.wxCard);
 		}
 		first = false;
+		if (!first)
+			sb.append(", ");
+		sb.append("wxOpenIdArr:");
+		if (this.wxOpenIdArr == null) {
+			sb.append("null");
+		}
+		else {
+			sb.append(this.wxOpenIdArr);
+		}
+		first = false;
 		sb.append(")");
 		return sb.toString();
 	}
@@ -4156,6 +4269,25 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 					}
 					break;
+				case 40: // WX_OPEN_ID_ARR
+					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
+						{
+							org.apache.thrift.protocol.TList _list0 = iprot.readListBegin();
+							struct.wxOpenIdArr = new java.util.ArrayList<java.lang.String>(_list0.size);
+							@org.apache.thrift.annotation.Nullable
+							java.lang.String _elem1;
+							for (int _i2 = 0; _i2 < _list0.size; ++_i2) {
+								_elem1 = iprot.readString();
+								struct.wxOpenIdArr.add(_elem1);
+							}
+							iprot.readListEnd();
+						}
+						struct.setWxOpenIdArrIsSet(true);
+					}
+					else {
+						org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+					}
+					break;
 				default:
 					org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
 				}
@@ -4368,6 +4500,18 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 				oprot.writeString(struct.companyHash);
 				oprot.writeFieldEnd();
 			}
+			if (struct.wxOpenIdArr != null) {
+				oprot.writeFieldBegin(WX_OPEN_ID_ARR_FIELD_DESC);
+				{
+					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING,
+							struct.wxOpenIdArr.size()));
+					for (java.lang.String _iter3 : struct.wxOpenIdArr) {
+						oprot.writeString(_iter3);
+					}
+					oprot.writeListEnd();
+				}
+				oprot.writeFieldEnd();
+			}
 			oprot.writeFieldStop();
 			oprot.writeStructEnd();
 		}
@@ -4506,7 +4650,10 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			if (struct.isSetWxCard()) {
 				optionals.set(38);
 			}
-			oprot.writeBitSet(optionals, 39);
+			if (struct.isSetWxOpenIdArr()) {
+				optionals.set(39);
+			}
+			oprot.writeBitSet(optionals, 40);
 			if (struct.isSetIcon()) {
 				oprot.writeString(struct.icon);
 			}
@@ -4624,13 +4771,21 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			if (struct.isSetWxCard()) {
 				oprot.writeString(struct.wxCard);
 			}
+			if (struct.isSetWxOpenIdArr()) {
+				{
+					oprot.writeI32(struct.wxOpenIdArr.size());
+					for (java.lang.String _iter4 : struct.wxOpenIdArr) {
+						oprot.writeString(_iter4);
+					}
+				}
+			}
 		}
 
 		@Override
 		public void read(org.apache.thrift.protocol.TProtocol prot, UserProfile struct)
 				throws org.apache.thrift.TException {
 			org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-			java.util.BitSet incoming = iprot.readBitSet(39);
+			java.util.BitSet incoming = iprot.readBitSet(40);
 			if (incoming.get(0)) {
 				struct.icon = iprot.readString();
 				struct.setIconIsSet(true);
@@ -4786,6 +4941,20 @@ public class UserProfile implements org.apache.thrift.TBase<UserProfile, UserPro
 			if (incoming.get(38)) {
 				struct.wxCard = iprot.readString();
 				struct.setWxCardIsSet(true);
+			}
+			if (incoming.get(39)) {
+				{
+					org.apache.thrift.protocol.TList _list5 = new org.apache.thrift.protocol.TList(
+							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
+					struct.wxOpenIdArr = new java.util.ArrayList<java.lang.String>(_list5.size);
+					@org.apache.thrift.annotation.Nullable
+					java.lang.String _elem6;
+					for (int _i7 = 0; _i7 < _list5.size; ++_i7) {
+						_elem6 = iprot.readString();
+						struct.wxOpenIdArr.add(_elem6);
+					}
+				}
+				struct.setWxOpenIdArrIsSet(true);
 			}
 		}
 

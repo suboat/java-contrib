@@ -762,13 +762,13 @@ public class ArgAdmin implements org.apache.thrift.TBase<ArgAdmin, ArgAdmin._Fie
 				case 4: // ROLES
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list126 = iprot.readListBegin();
-							struct.roles = new java.util.ArrayList<java.lang.String>(_list126.size);
+							org.apache.thrift.protocol.TList _list134 = iprot.readListBegin();
+							struct.roles = new java.util.ArrayList<java.lang.String>(_list134.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _elem127;
-							for (int _i128 = 0; _i128 < _list126.size; ++_i128) {
-								_elem127 = iprot.readString();
-								struct.roles.add(_elem127);
+							java.lang.String _elem135;
+							for (int _i136 = 0; _i136 < _list134.size; ++_i136) {
+								_elem135 = iprot.readString();
+								struct.roles.add(_elem135);
 							}
 							iprot.readListEnd();
 						}
@@ -781,13 +781,13 @@ public class ArgAdmin implements org.apache.thrift.TBase<ArgAdmin, ArgAdmin._Fie
 				case 5: // AREAS
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list129 = iprot.readListBegin();
-							struct.areas = new java.util.ArrayList<java.lang.String>(_list129.size);
+							org.apache.thrift.protocol.TList _list137 = iprot.readListBegin();
+							struct.areas = new java.util.ArrayList<java.lang.String>(_list137.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _elem130;
-							for (int _i131 = 0; _i131 < _list129.size; ++_i131) {
-								_elem130 = iprot.readString();
-								struct.areas.add(_elem130);
+							java.lang.String _elem138;
+							for (int _i139 = 0; _i139 < _list137.size; ++_i139) {
+								_elem138 = iprot.readString();
+								struct.areas.add(_elem138);
 							}
 							iprot.readListEnd();
 						}
@@ -835,8 +835,8 @@ public class ArgAdmin implements org.apache.thrift.TBase<ArgAdmin, ArgAdmin._Fie
 					{
 						oprot.writeListBegin(new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRING, struct.roles.size()));
-						for (java.lang.String _iter132 : struct.roles) {
-							oprot.writeString(_iter132);
+						for (java.lang.String _iter140 : struct.roles) {
+							oprot.writeString(_iter140);
 						}
 						oprot.writeListEnd();
 					}
@@ -849,8 +849,8 @@ public class ArgAdmin implements org.apache.thrift.TBase<ArgAdmin, ArgAdmin._Fie
 					{
 						oprot.writeListBegin(new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRING, struct.areas.size()));
-						for (java.lang.String _iter133 : struct.areas) {
-							oprot.writeString(_iter133);
+						for (java.lang.String _iter141 : struct.areas) {
+							oprot.writeString(_iter141);
 						}
 						oprot.writeListEnd();
 					}
@@ -906,16 +906,16 @@ public class ArgAdmin implements org.apache.thrift.TBase<ArgAdmin, ArgAdmin._Fie
 			if (struct.isSetRoles()) {
 				{
 					oprot.writeI32(struct.roles.size());
-					for (java.lang.String _iter134 : struct.roles) {
-						oprot.writeString(_iter134);
+					for (java.lang.String _iter142 : struct.roles) {
+						oprot.writeString(_iter142);
 					}
 				}
 			}
 			if (struct.isSetAreas()) {
 				{
 					oprot.writeI32(struct.areas.size());
-					for (java.lang.String _iter135 : struct.areas) {
-						oprot.writeString(_iter135);
+					for (java.lang.String _iter143 : struct.areas) {
+						oprot.writeString(_iter143);
 					}
 				}
 			}
@@ -940,28 +940,28 @@ public class ArgAdmin implements org.apache.thrift.TBase<ArgAdmin, ArgAdmin._Fie
 			}
 			if (incoming.get(3)) {
 				{
-					org.apache.thrift.protocol.TList _list136 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list144 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-					struct.roles = new java.util.ArrayList<java.lang.String>(_list136.size);
+					struct.roles = new java.util.ArrayList<java.lang.String>(_list144.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _elem137;
-					for (int _i138 = 0; _i138 < _list136.size; ++_i138) {
-						_elem137 = iprot.readString();
-						struct.roles.add(_elem137);
+					java.lang.String _elem145;
+					for (int _i146 = 0; _i146 < _list144.size; ++_i146) {
+						_elem145 = iprot.readString();
+						struct.roles.add(_elem145);
 					}
 				}
 				struct.setRolesIsSet(true);
 			}
 			if (incoming.get(4)) {
 				{
-					org.apache.thrift.protocol.TList _list139 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list147 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-					struct.areas = new java.util.ArrayList<java.lang.String>(_list139.size);
+					struct.areas = new java.util.ArrayList<java.lang.String>(_list147.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _elem140;
-					for (int _i141 = 0; _i141 < _list139.size; ++_i141) {
-						_elem140 = iprot.readString();
-						struct.areas.add(_elem140);
+					java.lang.String _elem148;
+					for (int _i149 = 0; _i149 < _list147.size; ++_i149) {
+						_elem148 = iprot.readString();
+						struct.areas.add(_elem148);
 					}
 				}
 				struct.setAreasIsSet(true);

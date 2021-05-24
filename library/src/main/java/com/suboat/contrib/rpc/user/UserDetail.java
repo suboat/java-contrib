@@ -1252,13 +1252,13 @@ public class UserDetail implements org.apache.thrift.TBase<UserDetail, UserDetai
 				case 5: // ROLES
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list0 = iprot.readListBegin();
-							struct.roles = new java.util.ArrayList<java.lang.String>(_list0.size);
+							org.apache.thrift.protocol.TList _list8 = iprot.readListBegin();
+							struct.roles = new java.util.ArrayList<java.lang.String>(_list8.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _elem1;
-							for (int _i2 = 0; _i2 < _list0.size; ++_i2) {
-								_elem1 = iprot.readString();
-								struct.roles.add(_elem1);
+							java.lang.String _elem9;
+							for (int _i10 = 0; _i10 < _list8.size; ++_i10) {
+								_elem9 = iprot.readString();
+								struct.roles.add(_elem9);
 							}
 							iprot.readListEnd();
 						}
@@ -1271,13 +1271,13 @@ public class UserDetail implements org.apache.thrift.TBase<UserDetail, UserDetai
 				case 6: // AREAS
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list3 = iprot.readListBegin();
-							struct.areas = new java.util.ArrayList<java.lang.String>(_list3.size);
+							org.apache.thrift.protocol.TList _list11 = iprot.readListBegin();
+							struct.areas = new java.util.ArrayList<java.lang.String>(_list11.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _elem4;
-							for (int _i5 = 0; _i5 < _list3.size; ++_i5) {
-								_elem4 = iprot.readString();
-								struct.areas.add(_elem4);
+							java.lang.String _elem12;
+							for (int _i13 = 0; _i13 < _list11.size; ++_i13) {
+								_elem12 = iprot.readString();
+								struct.areas.add(_elem12);
 							}
 							iprot.readListEnd();
 						}
@@ -1290,14 +1290,14 @@ public class UserDetail implements org.apache.thrift.TBase<UserDetail, UserDetai
 				case 7: // SESSIONS
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list6 = iprot.readListBegin();
-							struct.sessions = new java.util.ArrayList<UserSession>(_list6.size);
+							org.apache.thrift.protocol.TList _list14 = iprot.readListBegin();
+							struct.sessions = new java.util.ArrayList<UserSession>(_list14.size);
 							@org.apache.thrift.annotation.Nullable
-							UserSession _elem7;
-							for (int _i8 = 0; _i8 < _list6.size; ++_i8) {
-								_elem7 = new UserSession();
-								_elem7.read(iprot);
-								struct.sessions.add(_elem7);
+							UserSession _elem15;
+							for (int _i16 = 0; _i16 < _list14.size; ++_i16) {
+								_elem15 = new UserSession();
+								_elem15.read(iprot);
+								struct.sessions.add(_elem15);
 							}
 							iprot.readListEnd();
 						}
@@ -1379,8 +1379,8 @@ public class UserDetail implements org.apache.thrift.TBase<UserDetail, UserDetai
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING,
 							struct.roles.size()));
-					for (java.lang.String _iter9 : struct.roles) {
-						oprot.writeString(_iter9);
+					for (java.lang.String _iter17 : struct.roles) {
+						oprot.writeString(_iter17);
 					}
 					oprot.writeListEnd();
 				}
@@ -1391,8 +1391,8 @@ public class UserDetail implements org.apache.thrift.TBase<UserDetail, UserDetai
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING,
 							struct.areas.size()));
-					for (java.lang.String _iter10 : struct.areas) {
-						oprot.writeString(_iter10);
+					for (java.lang.String _iter18 : struct.areas) {
+						oprot.writeString(_iter18);
 					}
 					oprot.writeListEnd();
 				}
@@ -1403,8 +1403,8 @@ public class UserDetail implements org.apache.thrift.TBase<UserDetail, UserDetai
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.sessions.size()));
-					for (UserSession _iter11 : struct.sessions) {
-						_iter11.write(oprot);
+					for (UserSession _iter19 : struct.sessions) {
+						_iter19.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -1492,24 +1492,24 @@ public class UserDetail implements org.apache.thrift.TBase<UserDetail, UserDetai
 			if (struct.isSetRoles()) {
 				{
 					oprot.writeI32(struct.roles.size());
-					for (java.lang.String _iter12 : struct.roles) {
-						oprot.writeString(_iter12);
+					for (java.lang.String _iter20 : struct.roles) {
+						oprot.writeString(_iter20);
 					}
 				}
 			}
 			if (struct.isSetAreas()) {
 				{
 					oprot.writeI32(struct.areas.size());
-					for (java.lang.String _iter13 : struct.areas) {
-						oprot.writeString(_iter13);
+					for (java.lang.String _iter21 : struct.areas) {
+						oprot.writeString(_iter21);
 					}
 				}
 			}
 			if (struct.isSetSessions()) {
 				{
 					oprot.writeI32(struct.sessions.size());
-					for (UserSession _iter14 : struct.sessions) {
-						_iter14.write(oprot);
+					for (UserSession _iter22 : struct.sessions) {
+						_iter22.write(oprot);
 					}
 				}
 			}
@@ -1549,43 +1549,43 @@ public class UserDetail implements org.apache.thrift.TBase<UserDetail, UserDetai
 			}
 			if (incoming.get(4)) {
 				{
-					org.apache.thrift.protocol.TList _list15 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list23 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-					struct.roles = new java.util.ArrayList<java.lang.String>(_list15.size);
+					struct.roles = new java.util.ArrayList<java.lang.String>(_list23.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _elem16;
-					for (int _i17 = 0; _i17 < _list15.size; ++_i17) {
-						_elem16 = iprot.readString();
-						struct.roles.add(_elem16);
+					java.lang.String _elem24;
+					for (int _i25 = 0; _i25 < _list23.size; ++_i25) {
+						_elem24 = iprot.readString();
+						struct.roles.add(_elem24);
 					}
 				}
 				struct.setRolesIsSet(true);
 			}
 			if (incoming.get(5)) {
 				{
-					org.apache.thrift.protocol.TList _list18 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list26 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-					struct.areas = new java.util.ArrayList<java.lang.String>(_list18.size);
+					struct.areas = new java.util.ArrayList<java.lang.String>(_list26.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _elem19;
-					for (int _i20 = 0; _i20 < _list18.size; ++_i20) {
-						_elem19 = iprot.readString();
-						struct.areas.add(_elem19);
+					java.lang.String _elem27;
+					for (int _i28 = 0; _i28 < _list26.size; ++_i28) {
+						_elem27 = iprot.readString();
+						struct.areas.add(_elem27);
 					}
 				}
 				struct.setAreasIsSet(true);
 			}
 			if (incoming.get(6)) {
 				{
-					org.apache.thrift.protocol.TList _list21 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list29 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.sessions = new java.util.ArrayList<UserSession>(_list21.size);
+					struct.sessions = new java.util.ArrayList<UserSession>(_list29.size);
 					@org.apache.thrift.annotation.Nullable
-					UserSession _elem22;
-					for (int _i23 = 0; _i23 < _list21.size; ++_i23) {
-						_elem22 = new UserSession();
-						_elem22.read(iprot);
-						struct.sessions.add(_elem22);
+					UserSession _elem30;
+					for (int _i31 = 0; _i31 < _list29.size; ++_i31) {
+						_elem30 = new UserSession();
+						_elem30.read(iprot);
+						struct.sessions.add(_elem30);
 					}
 				}
 				struct.setSessionsIsSet(true);

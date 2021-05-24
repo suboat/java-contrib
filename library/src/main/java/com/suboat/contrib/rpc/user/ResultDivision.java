@@ -449,14 +449,14 @@ public class ResultDivision implements org.apache.thrift.TBase<ResultDivision, R
 				case 1: // DATA
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list166 = iprot.readListBegin();
-							struct.data = new java.util.ArrayList<Division>(_list166.size);
+							org.apache.thrift.protocol.TList _list174 = iprot.readListBegin();
+							struct.data = new java.util.ArrayList<Division>(_list174.size);
 							@org.apache.thrift.annotation.Nullable
-							Division _elem167;
-							for (int _i168 = 0; _i168 < _list166.size; ++_i168) {
-								_elem167 = new Division();
-								_elem167.read(iprot);
-								struct.data.add(_elem167);
+							Division _elem175;
+							for (int _i176 = 0; _i176 < _list174.size; ++_i176) {
+								_elem175 = new Division();
+								_elem175.read(iprot);
+								struct.data.add(_elem175);
 							}
 							iprot.readListEnd();
 						}
@@ -498,8 +498,8 @@ public class ResultDivision implements org.apache.thrift.TBase<ResultDivision, R
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT,
 							struct.data.size()));
-					for (Division _iter169 : struct.data) {
-						_iter169.write(oprot);
+					for (Division _iter177 : struct.data) {
+						_iter177.write(oprot);
 					}
 					oprot.writeListEnd();
 				}
@@ -541,8 +541,8 @@ public class ResultDivision implements org.apache.thrift.TBase<ResultDivision, R
 			if (struct.isSetData()) {
 				{
 					oprot.writeI32(struct.data.size());
-					for (Division _iter170 : struct.data) {
-						_iter170.write(oprot);
+					for (Division _iter178 : struct.data) {
+						_iter178.write(oprot);
 					}
 				}
 			}
@@ -558,15 +558,15 @@ public class ResultDivision implements org.apache.thrift.TBase<ResultDivision, R
 			java.util.BitSet incoming = iprot.readBitSet(2);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list171 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list179 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRUCT, iprot.readI32());
-					struct.data = new java.util.ArrayList<Division>(_list171.size);
+					struct.data = new java.util.ArrayList<Division>(_list179.size);
 					@org.apache.thrift.annotation.Nullable
-					Division _elem172;
-					for (int _i173 = 0; _i173 < _list171.size; ++_i173) {
-						_elem172 = new Division();
-						_elem172.read(iprot);
-						struct.data.add(_elem172);
+					Division _elem180;
+					for (int _i181 = 0; _i181 < _list179.size; ++_i181) {
+						_elem180 = new Division();
+						_elem180.read(iprot);
+						struct.data.add(_elem180);
 					}
 				}
 				struct.setDataIsSet(true);

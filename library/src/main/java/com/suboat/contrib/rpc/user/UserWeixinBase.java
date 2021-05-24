@@ -1345,13 +1345,13 @@ public class UserWeixinBase implements org.apache.thrift.TBase<UserWeixinBase, U
 				case 9: // PRIVILEGE
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list94 = iprot.readListBegin();
-							struct.privilege = new java.util.ArrayList<java.lang.String>(_list94.size);
+							org.apache.thrift.protocol.TList _list102 = iprot.readListBegin();
+							struct.privilege = new java.util.ArrayList<java.lang.String>(_list102.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _elem95;
-							for (int _i96 = 0; _i96 < _list94.size; ++_i96) {
-								_elem95 = iprot.readString();
-								struct.privilege.add(_elem95);
+							java.lang.String _elem103;
+							for (int _i104 = 0; _i104 < _list102.size; ++_i104) {
+								_elem103 = iprot.readString();
+								struct.privilege.add(_elem103);
 							}
 							iprot.readListEnd();
 						}
@@ -1454,8 +1454,8 @@ public class UserWeixinBase implements org.apache.thrift.TBase<UserWeixinBase, U
 					{
 						oprot.writeListBegin(new org.apache.thrift.protocol.TList(
 								org.apache.thrift.protocol.TType.STRING, struct.privilege.size()));
-						for (java.lang.String _iter97 : struct.privilege) {
-							oprot.writeString(_iter97);
+						for (java.lang.String _iter105 : struct.privilege) {
+							oprot.writeString(_iter105);
 						}
 						oprot.writeListEnd();
 					}
@@ -1558,8 +1558,8 @@ public class UserWeixinBase implements org.apache.thrift.TBase<UserWeixinBase, U
 			if (struct.isSetPrivilege()) {
 				{
 					oprot.writeI32(struct.privilege.size());
-					for (java.lang.String _iter98 : struct.privilege) {
-						oprot.writeString(_iter98);
+					for (java.lang.String _iter106 : struct.privilege) {
+						oprot.writeString(_iter106);
 					}
 				}
 			}
@@ -1610,14 +1610,14 @@ public class UserWeixinBase implements org.apache.thrift.TBase<UserWeixinBase, U
 			}
 			if (incoming.get(8)) {
 				{
-					org.apache.thrift.protocol.TList _list99 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list107 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-					struct.privilege = new java.util.ArrayList<java.lang.String>(_list99.size);
+					struct.privilege = new java.util.ArrayList<java.lang.String>(_list107.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _elem100;
-					for (int _i101 = 0; _i101 < _list99.size; ++_i101) {
-						_elem100 = iprot.readString();
-						struct.privilege.add(_elem100);
+					java.lang.String _elem108;
+					for (int _i109 = 0; _i109 < _list107.size; ++_i109) {
+						_elem108 = iprot.readString();
+						struct.privilege.add(_elem108);
 					}
 				}
 				struct.setPrivilegeIsSet(true);

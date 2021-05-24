@@ -532,13 +532,13 @@ public class UserWeixin implements org.apache.thrift.TBase<UserWeixin, UserWeixi
 				case 1: // UIDS
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list86 = iprot.readListBegin();
-							struct.uids = new java.util.ArrayList<java.lang.String>(_list86.size);
+							org.apache.thrift.protocol.TList _list94 = iprot.readListBegin();
+							struct.uids = new java.util.ArrayList<java.lang.String>(_list94.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _elem87;
-							for (int _i88 = 0; _i88 < _list86.size; ++_i88) {
-								_elem87 = iprot.readString();
-								struct.uids.add(_elem87);
+							java.lang.String _elem95;
+							for (int _i96 = 0; _i96 < _list94.size; ++_i96) {
+								_elem95 = iprot.readString();
+								struct.uids.add(_elem95);
 							}
 							iprot.readListEnd();
 						}
@@ -590,8 +590,8 @@ public class UserWeixin implements org.apache.thrift.TBase<UserWeixin, UserWeixi
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING,
 							struct.uids.size()));
-					for (java.lang.String _iter89 : struct.uids) {
-						oprot.writeString(_iter89);
+					for (java.lang.String _iter97 : struct.uids) {
+						oprot.writeString(_iter97);
 					}
 					oprot.writeListEnd();
 				}
@@ -641,8 +641,8 @@ public class UserWeixin implements org.apache.thrift.TBase<UserWeixin, UserWeixi
 			if (struct.isSetUids()) {
 				{
 					oprot.writeI32(struct.uids.size());
-					for (java.lang.String _iter90 : struct.uids) {
-						oprot.writeString(_iter90);
+					for (java.lang.String _iter98 : struct.uids) {
+						oprot.writeString(_iter98);
 					}
 				}
 			}
@@ -661,14 +661,14 @@ public class UserWeixin implements org.apache.thrift.TBase<UserWeixin, UserWeixi
 			java.util.BitSet incoming = iprot.readBitSet(3);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list91 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list99 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-					struct.uids = new java.util.ArrayList<java.lang.String>(_list91.size);
+					struct.uids = new java.util.ArrayList<java.lang.String>(_list99.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _elem92;
-					for (int _i93 = 0; _i93 < _list91.size; ++_i93) {
-						_elem92 = iprot.readString();
-						struct.uids.add(_elem92);
+					java.lang.String _elem100;
+					for (int _i101 = 0; _i101 < _list99.size; ++_i101) {
+						_elem100 = iprot.readString();
+						struct.uids.add(_elem100);
 					}
 				}
 				struct.setUidsIsSet(true);

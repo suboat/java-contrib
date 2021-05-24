@@ -716,13 +716,13 @@ public class UserRBAC implements org.apache.thrift.TBase<UserRBAC, UserRBAC._Fie
 				case 1: // PERMS
 					if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
 						{
-							org.apache.thrift.protocol.TList _list24 = iprot.readListBegin();
-							struct.perms = new java.util.ArrayList<java.lang.String>(_list24.size);
+							org.apache.thrift.protocol.TList _list32 = iprot.readListBegin();
+							struct.perms = new java.util.ArrayList<java.lang.String>(_list32.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _elem25;
-							for (int _i26 = 0; _i26 < _list24.size; ++_i26) {
-								_elem25 = iprot.readString();
-								struct.perms.add(_elem25);
+							java.lang.String _elem33;
+							for (int _i34 = 0; _i34 < _list32.size; ++_i34) {
+								_elem33 = iprot.readString();
+								struct.perms.add(_elem33);
 							}
 							iprot.readListEnd();
 						}
@@ -735,27 +735,27 @@ public class UserRBAC implements org.apache.thrift.TBase<UserRBAC, UserRBAC._Fie
 				case 2: // ROLES
 					if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
 						{
-							org.apache.thrift.protocol.TMap _map27 = iprot.readMapBegin();
+							org.apache.thrift.protocol.TMap _map35 = iprot.readMapBegin();
 							struct.roles = new java.util.HashMap<java.lang.String, java.util.List<java.lang.String>>(
-									2 * _map27.size);
+									2 * _map35.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _key28;
+							java.lang.String _key36;
 							@org.apache.thrift.annotation.Nullable
-							java.util.List<java.lang.String> _val29;
-							for (int _i30 = 0; _i30 < _map27.size; ++_i30) {
-								_key28 = iprot.readString();
+							java.util.List<java.lang.String> _val37;
+							for (int _i38 = 0; _i38 < _map35.size; ++_i38) {
+								_key36 = iprot.readString();
 								{
-									org.apache.thrift.protocol.TList _list31 = iprot.readListBegin();
-									_val29 = new java.util.ArrayList<java.lang.String>(_list31.size);
+									org.apache.thrift.protocol.TList _list39 = iprot.readListBegin();
+									_val37 = new java.util.ArrayList<java.lang.String>(_list39.size);
 									@org.apache.thrift.annotation.Nullable
-									java.lang.String _elem32;
-									for (int _i33 = 0; _i33 < _list31.size; ++_i33) {
-										_elem32 = iprot.readString();
-										_val29.add(_elem32);
+									java.lang.String _elem40;
+									for (int _i41 = 0; _i41 < _list39.size; ++_i41) {
+										_elem40 = iprot.readString();
+										_val37.add(_elem40);
 									}
 									iprot.readListEnd();
 								}
-								struct.roles.put(_key28, _val29);
+								struct.roles.put(_key36, _val37);
 							}
 							iprot.readMapEnd();
 						}
@@ -768,27 +768,27 @@ public class UserRBAC implements org.apache.thrift.TBase<UserRBAC, UserRBAC._Fie
 				case 3: // INHER
 					if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
 						{
-							org.apache.thrift.protocol.TMap _map34 = iprot.readMapBegin();
+							org.apache.thrift.protocol.TMap _map42 = iprot.readMapBegin();
 							struct.inher = new java.util.HashMap<java.lang.String, java.util.List<java.lang.String>>(
-									2 * _map34.size);
+									2 * _map42.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _key35;
+							java.lang.String _key43;
 							@org.apache.thrift.annotation.Nullable
-							java.util.List<java.lang.String> _val36;
-							for (int _i37 = 0; _i37 < _map34.size; ++_i37) {
-								_key35 = iprot.readString();
+							java.util.List<java.lang.String> _val44;
+							for (int _i45 = 0; _i45 < _map42.size; ++_i45) {
+								_key43 = iprot.readString();
 								{
-									org.apache.thrift.protocol.TList _list38 = iprot.readListBegin();
-									_val36 = new java.util.ArrayList<java.lang.String>(_list38.size);
+									org.apache.thrift.protocol.TList _list46 = iprot.readListBegin();
+									_val44 = new java.util.ArrayList<java.lang.String>(_list46.size);
 									@org.apache.thrift.annotation.Nullable
-									java.lang.String _elem39;
-									for (int _i40 = 0; _i40 < _list38.size; ++_i40) {
-										_elem39 = iprot.readString();
-										_val36.add(_elem39);
+									java.lang.String _elem47;
+									for (int _i48 = 0; _i48 < _list46.size; ++_i48) {
+										_elem47 = iprot.readString();
+										_val44.add(_elem47);
 									}
 									iprot.readListEnd();
 								}
-								struct.inher.put(_key35, _val36);
+								struct.inher.put(_key43, _val44);
 							}
 							iprot.readMapEnd();
 						}
@@ -801,17 +801,17 @@ public class UserRBAC implements org.apache.thrift.TBase<UserRBAC, UserRBAC._Fie
 				case 4: // COMMENTS
 					if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
 						{
-							org.apache.thrift.protocol.TMap _map41 = iprot.readMapBegin();
-							struct.comments = new java.util.HashMap<java.lang.String, RbacComment>(2 * _map41.size);
+							org.apache.thrift.protocol.TMap _map49 = iprot.readMapBegin();
+							struct.comments = new java.util.HashMap<java.lang.String, RbacComment>(2 * _map49.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _key42;
+							java.lang.String _key50;
 							@org.apache.thrift.annotation.Nullable
-							RbacComment _val43;
-							for (int _i44 = 0; _i44 < _map41.size; ++_i44) {
-								_key42 = iprot.readString();
-								_val43 = new RbacComment();
-								_val43.read(iprot);
-								struct.comments.put(_key42, _val43);
+							RbacComment _val51;
+							for (int _i52 = 0; _i52 < _map49.size; ++_i52) {
+								_key50 = iprot.readString();
+								_val51 = new RbacComment();
+								_val51.read(iprot);
+								struct.comments.put(_key50, _val51);
 							}
 							iprot.readMapEnd();
 						}
@@ -843,8 +843,8 @@ public class UserRBAC implements org.apache.thrift.TBase<UserRBAC, UserRBAC._Fie
 				{
 					oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING,
 							struct.perms.size()));
-					for (java.lang.String _iter45 : struct.perms) {
-						oprot.writeString(_iter45);
+					for (java.lang.String _iter53 : struct.perms) {
+						oprot.writeString(_iter53);
 					}
 					oprot.writeListEnd();
 				}
@@ -855,14 +855,14 @@ public class UserRBAC implements org.apache.thrift.TBase<UserRBAC, UserRBAC._Fie
 				{
 					oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
 							org.apache.thrift.protocol.TType.LIST, struct.roles.size()));
-					for (java.util.Map.Entry<java.lang.String, java.util.List<java.lang.String>> _iter46 : struct.roles
+					for (java.util.Map.Entry<java.lang.String, java.util.List<java.lang.String>> _iter54 : struct.roles
 							.entrySet()) {
-						oprot.writeString(_iter46.getKey());
+						oprot.writeString(_iter54.getKey());
 						{
 							oprot.writeListBegin(new org.apache.thrift.protocol.TList(
-									org.apache.thrift.protocol.TType.STRING, _iter46.getValue().size()));
-							for (java.lang.String _iter47 : _iter46.getValue()) {
-								oprot.writeString(_iter47);
+									org.apache.thrift.protocol.TType.STRING, _iter54.getValue().size()));
+							for (java.lang.String _iter55 : _iter54.getValue()) {
+								oprot.writeString(_iter55);
 							}
 							oprot.writeListEnd();
 						}
@@ -876,14 +876,14 @@ public class UserRBAC implements org.apache.thrift.TBase<UserRBAC, UserRBAC._Fie
 				{
 					oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
 							org.apache.thrift.protocol.TType.LIST, struct.inher.size()));
-					for (java.util.Map.Entry<java.lang.String, java.util.List<java.lang.String>> _iter48 : struct.inher
+					for (java.util.Map.Entry<java.lang.String, java.util.List<java.lang.String>> _iter56 : struct.inher
 							.entrySet()) {
-						oprot.writeString(_iter48.getKey());
+						oprot.writeString(_iter56.getKey());
 						{
 							oprot.writeListBegin(new org.apache.thrift.protocol.TList(
-									org.apache.thrift.protocol.TType.STRING, _iter48.getValue().size()));
-							for (java.lang.String _iter49 : _iter48.getValue()) {
-								oprot.writeString(_iter49);
+									org.apache.thrift.protocol.TType.STRING, _iter56.getValue().size()));
+							for (java.lang.String _iter57 : _iter56.getValue()) {
+								oprot.writeString(_iter57);
 							}
 							oprot.writeListEnd();
 						}
@@ -898,9 +898,9 @@ public class UserRBAC implements org.apache.thrift.TBase<UserRBAC, UserRBAC._Fie
 					{
 						oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING,
 								org.apache.thrift.protocol.TType.STRUCT, struct.comments.size()));
-						for (java.util.Map.Entry<java.lang.String, RbacComment> _iter50 : struct.comments.entrySet()) {
-							oprot.writeString(_iter50.getKey());
-							_iter50.getValue().write(oprot);
+						for (java.util.Map.Entry<java.lang.String, RbacComment> _iter58 : struct.comments.entrySet()) {
+							oprot.writeString(_iter58.getKey());
+							_iter58.getValue().write(oprot);
 						}
 						oprot.writeMapEnd();
 					}
@@ -944,21 +944,21 @@ public class UserRBAC implements org.apache.thrift.TBase<UserRBAC, UserRBAC._Fie
 			if (struct.isSetPerms()) {
 				{
 					oprot.writeI32(struct.perms.size());
-					for (java.lang.String _iter51 : struct.perms) {
-						oprot.writeString(_iter51);
+					for (java.lang.String _iter59 : struct.perms) {
+						oprot.writeString(_iter59);
 					}
 				}
 			}
 			if (struct.isSetRoles()) {
 				{
 					oprot.writeI32(struct.roles.size());
-					for (java.util.Map.Entry<java.lang.String, java.util.List<java.lang.String>> _iter52 : struct.roles
+					for (java.util.Map.Entry<java.lang.String, java.util.List<java.lang.String>> _iter60 : struct.roles
 							.entrySet()) {
-						oprot.writeString(_iter52.getKey());
+						oprot.writeString(_iter60.getKey());
 						{
-							oprot.writeI32(_iter52.getValue().size());
-							for (java.lang.String _iter53 : _iter52.getValue()) {
-								oprot.writeString(_iter53);
+							oprot.writeI32(_iter60.getValue().size());
+							for (java.lang.String _iter61 : _iter60.getValue()) {
+								oprot.writeString(_iter61);
 							}
 						}
 					}
@@ -967,13 +967,13 @@ public class UserRBAC implements org.apache.thrift.TBase<UserRBAC, UserRBAC._Fie
 			if (struct.isSetInher()) {
 				{
 					oprot.writeI32(struct.inher.size());
-					for (java.util.Map.Entry<java.lang.String, java.util.List<java.lang.String>> _iter54 : struct.inher
+					for (java.util.Map.Entry<java.lang.String, java.util.List<java.lang.String>> _iter62 : struct.inher
 							.entrySet()) {
-						oprot.writeString(_iter54.getKey());
+						oprot.writeString(_iter62.getKey());
 						{
-							oprot.writeI32(_iter54.getValue().size());
-							for (java.lang.String _iter55 : _iter54.getValue()) {
-								oprot.writeString(_iter55);
+							oprot.writeI32(_iter62.getValue().size());
+							for (java.lang.String _iter63 : _iter62.getValue()) {
+								oprot.writeString(_iter63);
 							}
 						}
 					}
@@ -982,9 +982,9 @@ public class UserRBAC implements org.apache.thrift.TBase<UserRBAC, UserRBAC._Fie
 			if (struct.isSetComments()) {
 				{
 					oprot.writeI32(struct.comments.size());
-					for (java.util.Map.Entry<java.lang.String, RbacComment> _iter56 : struct.comments.entrySet()) {
-						oprot.writeString(_iter56.getKey());
-						_iter56.getValue().write(oprot);
+					for (java.util.Map.Entry<java.lang.String, RbacComment> _iter64 : struct.comments.entrySet()) {
+						oprot.writeString(_iter64.getKey());
+						_iter64.getValue().write(oprot);
 					}
 				}
 			}
@@ -997,91 +997,91 @@ public class UserRBAC implements org.apache.thrift.TBase<UserRBAC, UserRBAC._Fie
 			java.util.BitSet incoming = iprot.readBitSet(4);
 			if (incoming.get(0)) {
 				{
-					org.apache.thrift.protocol.TList _list57 = new org.apache.thrift.protocol.TList(
+					org.apache.thrift.protocol.TList _list65 = new org.apache.thrift.protocol.TList(
 							org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-					struct.perms = new java.util.ArrayList<java.lang.String>(_list57.size);
+					struct.perms = new java.util.ArrayList<java.lang.String>(_list65.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _elem58;
-					for (int _i59 = 0; _i59 < _list57.size; ++_i59) {
-						_elem58 = iprot.readString();
-						struct.perms.add(_elem58);
+					java.lang.String _elem66;
+					for (int _i67 = 0; _i67 < _list65.size; ++_i67) {
+						_elem66 = iprot.readString();
+						struct.perms.add(_elem66);
 					}
 				}
 				struct.setPermsIsSet(true);
 			}
 			if (incoming.get(1)) {
 				{
-					org.apache.thrift.protocol.TMap _map60 = new org.apache.thrift.protocol.TMap(
+					org.apache.thrift.protocol.TMap _map68 = new org.apache.thrift.protocol.TMap(
 							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.LIST,
 							iprot.readI32());
 					struct.roles = new java.util.HashMap<java.lang.String, java.util.List<java.lang.String>>(
-							2 * _map60.size);
+							2 * _map68.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _key61;
+					java.lang.String _key69;
 					@org.apache.thrift.annotation.Nullable
-					java.util.List<java.lang.String> _val62;
-					for (int _i63 = 0; _i63 < _map60.size; ++_i63) {
-						_key61 = iprot.readString();
+					java.util.List<java.lang.String> _val70;
+					for (int _i71 = 0; _i71 < _map68.size; ++_i71) {
+						_key69 = iprot.readString();
 						{
-							org.apache.thrift.protocol.TList _list64 = new org.apache.thrift.protocol.TList(
+							org.apache.thrift.protocol.TList _list72 = new org.apache.thrift.protocol.TList(
 									org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-							_val62 = new java.util.ArrayList<java.lang.String>(_list64.size);
+							_val70 = new java.util.ArrayList<java.lang.String>(_list72.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _elem65;
-							for (int _i66 = 0; _i66 < _list64.size; ++_i66) {
-								_elem65 = iprot.readString();
-								_val62.add(_elem65);
+							java.lang.String _elem73;
+							for (int _i74 = 0; _i74 < _list72.size; ++_i74) {
+								_elem73 = iprot.readString();
+								_val70.add(_elem73);
 							}
 						}
-						struct.roles.put(_key61, _val62);
+						struct.roles.put(_key69, _val70);
 					}
 				}
 				struct.setRolesIsSet(true);
 			}
 			if (incoming.get(2)) {
 				{
-					org.apache.thrift.protocol.TMap _map67 = new org.apache.thrift.protocol.TMap(
+					org.apache.thrift.protocol.TMap _map75 = new org.apache.thrift.protocol.TMap(
 							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.LIST,
 							iprot.readI32());
 					struct.inher = new java.util.HashMap<java.lang.String, java.util.List<java.lang.String>>(
-							2 * _map67.size);
+							2 * _map75.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _key68;
+					java.lang.String _key76;
 					@org.apache.thrift.annotation.Nullable
-					java.util.List<java.lang.String> _val69;
-					for (int _i70 = 0; _i70 < _map67.size; ++_i70) {
-						_key68 = iprot.readString();
+					java.util.List<java.lang.String> _val77;
+					for (int _i78 = 0; _i78 < _map75.size; ++_i78) {
+						_key76 = iprot.readString();
 						{
-							org.apache.thrift.protocol.TList _list71 = new org.apache.thrift.protocol.TList(
+							org.apache.thrift.protocol.TList _list79 = new org.apache.thrift.protocol.TList(
 									org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-							_val69 = new java.util.ArrayList<java.lang.String>(_list71.size);
+							_val77 = new java.util.ArrayList<java.lang.String>(_list79.size);
 							@org.apache.thrift.annotation.Nullable
-							java.lang.String _elem72;
-							for (int _i73 = 0; _i73 < _list71.size; ++_i73) {
-								_elem72 = iprot.readString();
-								_val69.add(_elem72);
+							java.lang.String _elem80;
+							for (int _i81 = 0; _i81 < _list79.size; ++_i81) {
+								_elem80 = iprot.readString();
+								_val77.add(_elem80);
 							}
 						}
-						struct.inher.put(_key68, _val69);
+						struct.inher.put(_key76, _val77);
 					}
 				}
 				struct.setInherIsSet(true);
 			}
 			if (incoming.get(3)) {
 				{
-					org.apache.thrift.protocol.TMap _map74 = new org.apache.thrift.protocol.TMap(
+					org.apache.thrift.protocol.TMap _map82 = new org.apache.thrift.protocol.TMap(
 							org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.STRUCT,
 							iprot.readI32());
-					struct.comments = new java.util.HashMap<java.lang.String, RbacComment>(2 * _map74.size);
+					struct.comments = new java.util.HashMap<java.lang.String, RbacComment>(2 * _map82.size);
 					@org.apache.thrift.annotation.Nullable
-					java.lang.String _key75;
+					java.lang.String _key83;
 					@org.apache.thrift.annotation.Nullable
-					RbacComment _val76;
-					for (int _i77 = 0; _i77 < _map74.size; ++_i77) {
-						_key75 = iprot.readString();
-						_val76 = new RbacComment();
-						_val76.read(iprot);
-						struct.comments.put(_key75, _val76);
+					RbacComment _val84;
+					for (int _i85 = 0; _i85 < _map82.size; ++_i85) {
+						_key83 = iprot.readString();
+						_val84 = new RbacComment();
+						_val84.read(iprot);
+						struct.comments.put(_key83, _val84);
 					}
 				}
 				struct.setCommentsIsSet(true);
