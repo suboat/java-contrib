@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table(name = "userbase",
+@Table(name = "demo",
 		uniqueConstraints = {@UniqueConstraint(columnNames = {"phone", "locnum"}, name = "phone_locnum")},
 		indexes = {@Index(columnList = "uid", name = "uid", unique = true),
 				@Index(columnList = "phone", name = "phone", unique = true),

@@ -171,6 +171,11 @@ public class FormQuery<T> {
 		meta.setAsyncCount((String s) -> page.getTotalElements());
 
 		//
+		if (this.group != null && this.group.length > 0) {
+			// count异常 https://github.com/spring-projects/spring-data-jpa/issues/1296
+		}
+
+		//
 		result.setMeta(meta);
 		result.setData(page.getContent());
 		return result;
