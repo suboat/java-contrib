@@ -164,15 +164,19 @@ public class FormQuery<T> {
 		meta.setNum(null);
 		meta.setNum(page.getNumberOfElements());
 
-		// 异步取count
-		// 具体实现请参考
-		// https://stackoverflow.com/questions/26738199/how-to-disable-count-when-specification-and-pageable-are-used-together/26765003
-		// https://stackoverflow.com/questions/37254385/querydsl-springdata-jpa-findall-how-to-avoid-count
-		meta.setAsyncCount((String s) -> page.getTotalElements());
-
-		//
+		// meta
 		if (this.group != null && this.group.length > 0) {
-			// count异常 https://github.com/spring-projects/spring-data-jpa/issues/1296
+			// count 异常 https://github.com/spring-projects/spring-data-jpa/issues/1296
+			// group by 不支持 count:
+			// https://stackoverflow.com/questions/19707529/jpa-select-count-distinct
+			meta.setAsyncCount((String s) -> (long) repo.findAll(spec).size());
+		}
+		else {
+			// 异步取count
+			// 具体实现请参考
+			// https://stackoverflow.com/questions/26738199/how-to-disable-count-when-specification-and-pageable-are-used-together/26765003
+			// https://stackoverflow.com/questions/37254385/querydsl-springdata-jpa-findall-how-to-avoid-count
+			meta.setAsyncCount((String s) -> page.getTotalElements());
 		}
 
 		//
