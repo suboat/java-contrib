@@ -144,7 +144,8 @@ public class GqlUser {
 	// 取用户名
 	public String getUsername() {
 		syncUser();
-		if (userDetail.getBase().username == null || userDetail.getBase().username.equals(uid)) {
+		if (userDetail == null || userDetail.getBase() == null || userDetail.getBase().username == null
+				|| userDetail.getBase().username.equals(uid)) {
 			return null;
 		}
 		return userDetail.getBase().username;
