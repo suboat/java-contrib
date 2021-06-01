@@ -51,7 +51,7 @@
 		<dependency>
 			<groupId>com.github.wenhao</groupId>
 			<artifactId>jpa-spec</artifactId>
-			<version>3.2.3</version>
+			<version>3.2.4</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.hibernate.javax.persistence</groupId>
