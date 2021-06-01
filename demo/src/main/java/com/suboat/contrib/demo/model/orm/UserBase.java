@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table(name = "demo",
+@Table(name = "demo_user",
 		uniqueConstraints = {@UniqueConstraint(columnNames = {"phone", "locnum"}, name = "phone_locnum")},
 		indexes = {@Index(columnList = "uid", name = "uid", unique = true),
 				@Index(columnList = "phone", name = "phone", unique = true),
@@ -57,7 +57,6 @@ public class UserBase {
 
 	@Column(name = "updatetime")
 	private Date updateTime;
-
 
 	@Column(name = "source", length = 8)
 	private String source; //
