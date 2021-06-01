@@ -68,15 +68,17 @@ public class AppPatch implements InitializingBean {
 		}
 
 		// 用户与部门关联:每个用户加入n-1个部门
-		for (int i = 0; i < userBaseList.size(); i++) {
-			UserBase userBase = userBaseList.get(i);
-			for (int j = 0; j < branchList.size(); j++) {
-				Branch branch = branchList.get(j);
-				if (j == i) {
-					continue;
+		if (repositoryBranchUser.count() == 0) {
+			for (int i = 0; i < userBaseList.size(); i++) {
+				UserBase userBase = userBaseList.get(i);
+				for (int j = 0; j < branchList.size(); j++) {
+					Branch branch = branchList.get(j);
+					if (j == i) {
+						continue;
+					}
+					BranchUser branchUser = new BranchUser(branch.getBid(), userBase.getUid());
+					repositoryBranchUser.save(branchUser);
 				}
-				BranchUser branchUser = new BranchUser(branch.getBid(), userBase.getUid());
-				repositoryBranchUser.save(branchUser);
 			}
 		}
 
