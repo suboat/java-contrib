@@ -154,17 +154,14 @@ public class FormQuery<T> {
 			else {
 				sorts = this.s;
 			}
-			for (int i = 0; i < sorts.length; i++) {
-				String str = sorts[i];
+			for (String str : sorts) {
 				if (str.startsWith("-")) {
 					str = str.replace("-", "");
 					sortBuild.desc(str);
-				}
-				else if (str.startsWith("+")) {
+				} else if (str.startsWith("+")) {
 					str = str.replace("+", "");
 					sortBuild.asc(str);
-				}
-				else {
+				} else {
 					sortBuild.asc(str);
 				}
 			}
@@ -172,13 +169,7 @@ public class FormQuery<T> {
 		}
 
 		// query
-		System.out.println("this.page");
-		System.out.println(this.page);
-		System.out.println("this.limit");
-		System.out.println(this.limit);
 		if (sort != null) {
-			System.out.println("sort");
-			System.out.println(sort);
 			page = repo.findAll(spec, PageRequest.of(this.page, this.limit, sort));
 		}
 		else {
