@@ -146,9 +146,19 @@ public class FormQuery<T> {
 
 		// query
 		if (sort != null) {
+			System.out.println("this.page");
+			System.out.println(this.page);
+			System.out.println("this.limit");
+			System.out.println(this.limit);
+			System.out.println("sort");
+			System.out.println(sort);
 			page = repo.findAll(spec, PageRequest.of(this.page, this.limit, sort));
 		}
 		else {
+			System.out.println("this.page");
+			System.out.println(this.page);
+			System.out.println("this.limit");
+			System.out.println(this.limit);
 			page = repo.findAll(spec, PageRequest.of(this.page, this.limit));
 		}
 
