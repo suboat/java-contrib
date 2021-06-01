@@ -1,6 +1,7 @@
 package com.suboat.contrib.ctrl;
 
 import com.github.wenhao.jpa.PredicateBuilder;
+import com.github.wenhao.jpa.Sorts;
 import com.github.wenhao.jpa.Specifications;
 import com.suboat.contrib.error.Rest;
 import com.suboat.contrib.rpc.base.Error;
@@ -118,7 +119,34 @@ public class FormQuery<T> {
 		// spec = this.keyJsonToQuery(this.keyJson, null, false).build();
 
 		// sort
+		// if ((this.sort != null && this.sort.length > 0) || (this.s != null &&
+		// this.s.length > 0)) {
+		// String[] sorts;
+		// if (this.sort != null && this.sort.length > 0) {
+		// sorts = this.sort;
+		// }
+		// else {
+		// sorts = this.s;
+		// }
+		// Sort.Order[] orders = new Sort.Order[sorts.length];
+		// for (int i = 0; i < sorts.length; i++) {
+		// String str = sorts[i];
+		// if (str.startsWith("-")) {
+		// str = str.replace("-", "");
+		// orders[i] = new Sort.Order(Sort.Direction.DESC, str);
+		// }
+		// else if (str.startsWith("+")) {
+		// str = str.replace("+", "");
+		// orders[i] = new Sort.Order(Sort.Direction.ASC, str);
+		// }
+		// else {
+		// orders[i] = new Sort.Order(Sort.Direction.ASC, str);
+		// }
+		// }
+		// sort = Sort.by(orders);
+		// }
 		if ((this.sort != null && this.sort.length > 0) || (this.s != null && this.s.length > 0)) {
+			Sorts.Builder sortBuild = Sorts.builder();
 			String[] sorts;
 			if (this.sort != null && this.sort.length > 0) {
 				sorts = this.sort;
@@ -126,39 +154,34 @@ public class FormQuery<T> {
 			else {
 				sorts = this.s;
 			}
-			Sort.Order[] orders = new Sort.Order[sorts.length];
 			for (int i = 0; i < sorts.length; i++) {
 				String str = sorts[i];
 				if (str.startsWith("-")) {
 					str = str.replace("-", "");
-					orders[i] = new Sort.Order(Sort.Direction.DESC, str);
+					sortBuild.desc(str);
 				}
 				else if (str.startsWith("+")) {
 					str = str.replace("+", "");
-					orders[i] = new Sort.Order(Sort.Direction.ASC, str);
+					sortBuild.asc(str);
 				}
 				else {
-					orders[i] = new Sort.Order(Sort.Direction.ASC, str);
+					sortBuild.asc(str);
 				}
 			}
-			sort = Sort.by(orders);
+			sort = sortBuild.build();
 		}
 
 		// query
+		System.out.println("this.page");
+		System.out.println(this.page);
+		System.out.println("this.limit");
+		System.out.println(this.limit);
 		if (sort != null) {
-			System.out.println("this.page");
-			System.out.println(this.page);
-			System.out.println("this.limit");
-			System.out.println(this.limit);
 			System.out.println("sort");
 			System.out.println(sort);
 			page = repo.findAll(spec, PageRequest.of(this.page, this.limit, sort));
 		}
 		else {
-			System.out.println("this.page");
-			System.out.println(this.page);
-			System.out.println("this.limit");
-			System.out.println(this.limit);
 			page = repo.findAll(spec, PageRequest.of(this.page, this.limit));
 		}
 
