@@ -115,6 +115,8 @@ public class GqlUser {
 		catch (Exception e) {
 			log.error(this.uid);
 			log.error("rpc-user err: {0}", e);
+			log.error(e.getMessage());
+			log.error(e.toString());
 		}
 		finally {
 			userServe.close();
