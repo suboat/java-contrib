@@ -324,9 +324,25 @@ public class FormQuery<T> {
 					}
 				}
 				else {
-					// _q = Specifications.<T>or();
-					_q = keyJsonToQuery(val.toString(), null, false);
-					handle.predicate(_q.build());
+					String _v = val.toString();
+					if (_v.startsWith("[")){
+						_v = _v.substring(1, _v.length() - 1);
+						Object[] _objArr = _v.split(",");
+						Object[] _arr = new Object[_objArr.length];
+						_q = Specifications.<T>or();
+						// 去前后双引号
+						for (int i = 0; i < _objArr.length; i++) {
+							String o = _objArr[i].toString().trim();
+							_arr[i] = o;
+							JpaQuery q = keyJsonToQuery(o, null, false);
+							_q.predicate(q.build());
+						}
+						handle.predicate(_q.build());
+					}else{
+						// _q = Specifications.<T>or();
+						_q = keyJsonToQuery(val.toString(), null, false);
+						handle.predicate(_q.build());
+					}
 				}
 				break;
 			case TagKeyNe:
