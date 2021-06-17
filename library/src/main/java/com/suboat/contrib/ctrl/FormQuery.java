@@ -58,6 +58,8 @@ public class FormQuery<T> {
 	// 覆盖搜索
 	public HashMap<String, Object> m;
 
+	public int numLoop; // m的搜索次数
+
 	// 默认排序
 	public String[] s;
 
@@ -409,12 +411,13 @@ public class FormQuery<T> {
 			}
 		}
 		// 解析默认查询
-		if (this.m != null && this.m.size() > 0) {
+		if (this.m != null && this.m.size() > 0 && this.numLoop == 0) {
 			for (Map.Entry<String, Object> entry : m.entrySet()) {
 				String _key = entry.getKey();
 				Object _val = entry.getValue();
 				parseKeyVal(q, _key, _val, col, isOr);
 			}
+			this.numLoop++;
 		}
 		return q;
 	}
