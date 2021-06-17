@@ -158,10 +158,12 @@ public class FormQuery<T> {
 				if (str.startsWith("-")) {
 					str = str.replace("-", "");
 					sortBuild.desc(str);
-				} else if (str.startsWith("+")) {
+				}
+				else if (str.startsWith("+")) {
 					str = str.replace("+", "");
 					sortBuild.asc(str);
-				} else {
+				}
+				else {
 					sortBuild.asc(str);
 				}
 			}
@@ -325,20 +327,22 @@ public class FormQuery<T> {
 				}
 				else {
 					String _v = val.toString();
-					if (_v.startsWith("[")){
+					if (_v.startsWith("[")) {
 						_v = _v.substring(1, _v.length() - 1);
-						Object[] _objArr = _v.split(",");
-						Object[] _arr = new Object[_objArr.length];
+						String[] _strArr = _v.split(",");
 						_q = Specifications.<T>or();
+						System.out.println("aaaaaaa");
+						System.out.println(_v);
 						// 去前后双引号
-						for (int i = 0; i < _objArr.length; i++) {
-							String o = _objArr[i].toString().trim();
-							_arr[i] = o;
+						for (int i = 0; i < _strArr.length; i++) {
+							String o = _strArr[i].trim();
+							System.out.println(o);
 							JpaQuery q = keyJsonToQuery(o, null, false);
 							_q.predicate(q.build());
 						}
 						handle.predicate(_q.build());
-					}else{
+					}
+					else {
 						// _q = Specifications.<T>or();
 						_q = keyJsonToQuery(val.toString(), null, false);
 						handle.predicate(_q.build());
