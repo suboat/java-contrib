@@ -212,12 +212,8 @@ public class FormQuery<T> {
 	}
 
 	private int countStr(String str, String sToFind) {
-		int num = 0;
-		while (str.contains(sToFind)) {
-			str = str.substring(str.indexOf(sToFind) + sToFind.length());
-			num++;
-		}
-		return num;
+		String[] arr = str.split(sToFind);
+		return arr.length;
 	}
 
 	private String getTag(String str) {
@@ -236,6 +232,11 @@ public class FormQuery<T> {
 	private void parseKeyVal(PredicateBuilder<T> handle, String key, Object val, String col, Boolean isOr)
 			throws Error {
 		int _count = countStr(key, "$");
+		System.out.println("eeeeeeeee");
+		System.out.println(key);
+		System.out.println(val);
+		System.out.println(col);
+		System.out.println(_count);
 		//
 		if (_count == 0) {
 			handle.eq(key, val);
