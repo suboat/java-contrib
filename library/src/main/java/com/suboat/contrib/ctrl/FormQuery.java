@@ -212,8 +212,12 @@ public class FormQuery<T> {
 	}
 
 	private int countStr(String str, String sToFind) {
-		String[] arr = str.split(sToFind);
-		return arr.length;
+		int num = 0;
+		while (str.contains(sToFind)) {
+			str = str.substring(str.indexOf(sToFind) + sToFind.length());
+			num++;
+		}
+		return num;
 	}
 
 	private String getTag(String str) {
