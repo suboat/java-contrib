@@ -7,6 +7,7 @@ import com.suboat.contrib.error.Rest;
 import com.suboat.contrib.rpc.base.Error;
 import com.suboat.contrib.utils.DateUtils;
 import lombok.Data;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -333,14 +334,15 @@ public class FormQuery<T> {
 				else {
 					String _v = val.toString();
 					if (_v.startsWith("[")) {
-						_v = _v.substring(1, _v.length() - 1);
-						String[] _strArr = _v.split(",");
+						JSONArray arr = new JSONArray(_v);
+						// _v = _v.substring(1, _v.length() - 1);
+						// String[] _strArr = _v.split(",");
 						_q = Specifications.<T>or();
 						System.out.println("aaaaaaa");
 						System.out.println(_v);
 						// 去前后双引号
-						for (int i = 0; i < _strArr.length; i++) {
-							String o = _strArr[i].trim();
+						for (int i = 0; i < arr.length(); i++) {
+							String o = arr.get(i).toString().trim();
 							System.out.println(o);
 							JpaQuery q = keyJsonToQuery(o, null, false);
 							_q.predicate(q.build());
