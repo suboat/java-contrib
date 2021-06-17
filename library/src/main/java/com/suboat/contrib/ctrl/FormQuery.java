@@ -239,11 +239,6 @@ public class FormQuery<T> {
 	private void parseKeyVal(PredicateBuilder<T> handle, String key, Object val, String col, Boolean isOr)
 			throws Error {
 		int _count = countStr(key, "$");
-		System.out.println("eeeeeeeee");
-		System.out.println(key);
-		System.out.println(val);
-		System.out.println(col);
-		System.out.println(_count);
 		//
 		if (_count == 0) {
 			handle.eq(key, val);
@@ -337,15 +332,10 @@ public class FormQuery<T> {
 					String _v = val.toString();
 					if (_v.startsWith("[")) {
 						JSONArray arr = new JSONArray(_v);
-						// _v = _v.substring(1, _v.length() - 1);
-						// String[] _strArr = _v.split(",");
 						_q = Specifications.<T>or();
-						System.out.println("aaaaaaa");
-						System.out.println(_v);
 						// 去前后双引号
 						for (int i = 0; i < arr.length(); i++) {
 							String o = arr.get(i).toString().trim();
-							System.out.println(o);
 							JpaQuery q = keyJsonToQuery(o, null, false);
 							_q.predicate(q.build());
 						}
