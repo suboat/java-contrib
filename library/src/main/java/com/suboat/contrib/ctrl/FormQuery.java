@@ -40,6 +40,10 @@ public class FormQuery<T> {
 
 	public static final String TagKeyLike = "$like$";
 
+	public static final String TagKeyIs = "$is$";
+
+	public static final String TagKeyNot = "$not$";
+
 	public Integer limit;
 
 	public Integer page;
@@ -349,7 +353,27 @@ public class FormQuery<T> {
 				}
 				break;
 			case TagKeyNe:
-				handle.ne(_col, val);
+				if (true) {
+					String _v = val.toString();
+					if (_v.startsWith("[")) { // 是个数组
+						// 去括号
+						_v = _v.substring(1, _v.length() - 1);
+						Object[] _objArr = _v.split(",");
+						Object[] _arr = new Object[_objArr.length];
+						// 去前后双引号
+						for (int i = 0; i < _objArr.length; i++) {
+							String o = _objArr[i].toString().trim();
+							if (o.startsWith("\"") && o.endsWith("\"")) {
+								o = o.substring(1, o.length() - 1);
+							}
+							_arr[i] = o;
+						}
+						handle.notIn(_col, _arr);
+					}
+					else {// 是个值
+						handle.ne(_col, val);
+					}
+				}
 				break;
 			case TagKeyGt:
 				handle.gt(_col, (Comparable<?>) val);
